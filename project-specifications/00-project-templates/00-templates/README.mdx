@@ -1,420 +1,817 @@
-# Project Templates Guide
+# AI-Friendly Specification Templates
 
-Welcome to our project templates. This guide will help you create clear, consistent documentation using our AI-enhanced templates system. These templates are designed to streamline documentation while ensuring quality and completeness.
+Welcome! This guide will help you create professional documentation using our AI-powered template system. Whether you're working with **templates** or generating **specifications** from these templates, our smart system will guide you through the process.
 
-## Quick Start Guide
+## Table of Contents
 
-1. **Choose Your Template**
-   - Requirements
-     * User personas (describe target users)
-     * User stories (capture feature requirements)
-     * System requirements (technical specifications)
-   - Design
-     * Architecture diagrams (system structure)
-     * Interface specifications (APIs and UIs)
-     * Data models (database schemas)
-   - Implementation
-     * API documentation (endpoint details)
-     * Test plans (testing strategy)
-     * Deployment guides (setup instructions)
+1. [Introduction](#1-introduction)
+2. [Key Definitions](#2-key-definitions)
+3. [Getting Started](#3-getting-started)
+   - 3.1 [Understand the Basics](#31-understand-the-basics)
+   - 3.2 [Project Organization](#32-project-organization)
+   - 3.3 [Understanding Template Structure](#33-understanding-template-structure)
+   - 3.4 [Template Selection and Usage](#34-template-selection-and-usage)
+   - 3.5 [Working with AI Tools](#35-working-with-ai-tools)
+4. [Roles and Best Practices](#4-roles-and-best-practices)
+   - 4.1 [Roles and Responsibilities](#41-roles-and-responsibilities)
+   - 4.2 [Best Practices](#42-best-practices)
+5. [Template Customization and Maintenance](#5-template-customization-and-maintenance)
+6. [Reference Materials](#6-reference-materials)
+7. [Support Documents](#7-support-documents)
 
-2. **Understanding Template Structure**
-   ```markdown
-   template:
-     id: "document-type"      # Unique identifier
-     version: "1.0"           # Template version
-     category: "requirements" # Document category
-     
-   metadata:
-     author: "Your Name"
-     created: "2024-01-20"
-     status: "Draft"          # Draft, Review, Approved
-     
-   ai:
-     validationRules:         # AI validation settings
-       requiredSections: []
-       relationships: []
-   ```
-   Each template includes:
-   - Metadata section for document tracking
-   - Content sections with smart placeholders
-   - AI processing instructions for assistance
-   - Validation rules for completeness
+---
 
-3. **Using Placeholders**
-   - Basic text: `${TEXT}` - Free form content
-   - Choices: `${SELECT:Option1|Option2}` - Pick from options
-   - Lists: `${LIST:ITEMS}` - Multiple items
-   - Optional: `${OPTIONAL:FIELD}` - Optional content
-   - References: `${REF:DOC_ID}` - Link to other documents
+## 1. Introduction
 
-## Template Types and Usage
+Our **AI-friendly specification templates** are designed to streamline the process of creating clear, consistent, and comprehensive documentation for your projects. By leveraging AI assistance, you can efficiently generate specifications, maintain consistency across documents, and ensure that all necessary information is included. The generated specifications, which are "live" and "iterative," can be used as input for AI assistants or tools to generate code, scripts, and more for your software project. Conversely, if you have developed code without any specification, you can use these templates as a reference to infer the specifications that your code is using and document it.
 
-### Requirements Documentation
+## 2. Key Definitions
 
-1. **User Personas**
-   Purpose: Define target users and their needs
-   Template: `/templates/requirements/user-persona.mdx`
-   Key sections:
-   - Basic Information
-   - Goals and Needs
-   - Pain Points
-   - Technology Profile
+Before we dive in, let's define some key terms that will be used throughout this guide:
 
-2. **User Stories**
-   Purpose: Capture feature requirements
-   Template: `/templates/requirements/user-story.mdx`
-   Format:
-   ```markdown
-   As a ${USER_TYPE}
-   I want to ${ACTION}
-   So that ${BENEFIT}
+- **AI-Friendly Specification Template**: A structured document that includes placeholders and AI instructions to guide the creation of a specification. These templates are designed to be AI-friendly, allowing the AI assistant to understand and process them effectively. They serve as a bridge between human input and AI processing, facilitating the collaborative creation of specifications.
 
-   Acceptance Criteria:
-   ${LIST:CRITERIA}
-   ```
+- **Specification Document**: A detailed document generated from a template that outlines specific aspects of a project, such as requirements, designs, or implementation details. The specification serves as a definitive guide for stakeholders and team members.
 
-3. **System Requirements**
-   Purpose: Technical specifications
-   Template: `/templates/requirements/system-requirements.mdx`
-   Categories:
-   - Functional Requirements
-   - Non-functional Requirements
-   - Technical Constraints
+- **Placeholder**: A marker within a template that indicates where specific information should be inserted. Placeholders often have a specific syntax (e.g., `${PLACEHOLDER_NAME}`) and may include instructions or options for the content to be provided, to be reviewed, make suggestions, or approve them.
 
-### Design Documentation
+---
 
-1. **Architecture**
-   Purpose: System structure and components
-   Template: `/templates/design/architecture.mdx`
-   Includes:
-   - System Overview
-   - Component Diagrams
-   - Integration Points
-   - Security Measures
+## 3. Getting Started
 
-2. **Interfaces**
-   Purpose: API and UI specifications
-   Template: `/templates/design/interface.mdx`
-   Types:
-   - REST API Definitions
-   - UI Component Specs
-   - Data Exchange Formats
+### 3.1 Understand the Basics
 
-### Implementation Documentation
+Before you begin, it's essential to grasp how the AI-friendly specification templates and specification documents work together:
 
-1. **API Documentation**
-   Purpose: Detailed API specifications
-   Template: `/templates/implementation/api-docs.mdx`
-   Contains:
-   - Endpoint Definitions
-   - Request/Response Examples
-   - Authentication Details
-   - Error Handling
+- **Specifications Templates** are the starting point. They contain the structure, placeholders, and AI instructions necessary for generating the project specification documents.
 
-2. **Test Plans**
-   Purpose: Testing strategy and cases
-   Template: `/templates/implementation/test-plan.mdx`
-   Sections:
-   - Test Objectives
-   - Test Scenarios
-   - Test Data
-   - Expected Results
+- **Specifications Documents** are the final documents you produce by filling in the templates, usually with the assistance of an AI assistant or AI-powered IDE or tool.
 
-## Working with Templates
+- **AI Assistance** helps you fill in the templates, ensuring completeness and consistency.
 
-### Example: User Persona Template
+### 3.2 Project Organization
 
-Before (Template):
+Set up your project with a clear folder structure:
+
+```
+your-project/
+├── templates/                  # AI-friendly specification templates
+│   ├── requirements/
+│   ├── design/
+│   └── implementation/
+├── specifications/             # Generated specifications
+│   ├── requirements/
+│   ├── design/
+│   └── implementation/
+├── support/                    # Project-specific support documents
+│   ├── documentation/          # Online docs and guidelines
+│   ├── designs/                # Design files and references
+│   └── assets/                 # Images, logos, and other media
+└── .cursorrules                # AI processing rules
+```
+
+- **templates/**: Contains your AI-friendly specification templates.
+
+- **specifications/**: Contains the generated specification documents.
+
+- **support/**: Holds project-specific resources that aid in generating specifications.
+  - **documentation/**: Online documentation references or guidelines.
+  - **designs/**: Design files (e.g., sketches, wireframes) that the AI can analyze for style inference.
+  - **assets/**: Any additional assets like images, logos, or style guides.
+
+- **.cursorrules**: Contains AI processing rules for tools like Cursor.
+
+### 3.3 Understanding Template Structure
+
+AI-friendly specification templates have a structured format that helps both humans and AI assistants to work collaboratively. Understanding the components of these templates is essential for effectively creating and maintaining them.
+
+**Main Components of a Template:**
+
+1. **Template Metadata**
+
+   - Provides basic information about the template itself.
+   - Typically includes fields like `id`, `version`, `category`, `type`.
+
+2. **Document Metadata**
+
+   - Contains metadata for the document generated from the template.
+   - Includes information such as `author`, `creation date`, `version`, `status`.
+
+3. **AI Instructions**
+
+   - Guidance for AI assistants on how to process the template.
+   - May include `documentType`, `validationRules`, `promptTemplates`, `relationships`.
+
+4. **Content Schema**
+
+   - Defines the structure and required sections of the document.
+   - Specifies which sections are required or optional.
+
+5. **Placeholders**
+
+   - Markers within the template where specific content should be inserted.
+   - Use a specific syntax (e.g., `${PLACEHOLDER_NAME}`) and may include instructions or default values.
+
+6. **Comments and Instructions**
+
+   - Human-readable comments to guide users on how to use the template.
+   - Typically enclosed in comments or special syntax and not intended to be part of the final document.
+
+**Example Structure:**
+
 ```markdown
-# ${PERSONA_NAME}
+---
+# Template Metadata
+template:
+  id: "user-persona"
+  version: "2.0"
+  category: "requirements"
+  type: "user-research"
+
+# Document Metadata
+metadata:
+  author: "${AUTHOR}"
+  version: "${DOCUMENT_VERSION}"
+  created: "${DATE_CREATED}"
+  updated: "${DATE_UPDATED}"
+  status: "${STATUS}"
+
+# AI Instructions
+ai:
+  documentType: "user_persona"
+  # MoSCoW APPROACH
+  validationRules:
+    mustSections: ["basic_information", "goals_and_needs"]
+    shouldSections: [""]
+    couldSections: ["technology_profile", "frustrations"]
+  dataValidation:      
+      goals_and_needs: "minimum 2 primary goalsand 2 primary needs required"      
+  promptTemplates: 
+    creation: |
+      "Create a user persona focusing on {user_type}..."
+    enhancement: |
+      Enhance the user persona {persona_id} with additional details about {aspect}.
+      Consider:
+      - Current details: {current_content}
+      - Missing aspects: {missing_elements}
+      - User research data: {research_data}
+  relationships:
+    userStories: ["US-01", "US-02]     
+    useCases: ["UC-01", "UC-02"]
+    requirements: ["REQ-01", "REQ-02"]  
+    others: [""]
+
+---
+
+<!-- Template Content Starts Here -->
+
+# ${PERSONA_NAME} - User Persona
 
 ## Basic Information
-| Field | Value |
-|-------|-------|
-| Role  | ${ROLE} |
-| Experience | ${YEARS} |
-| Location | ${LOCATION} |
+| Field       | Value           |
+|-------------|-----------------|
+| **Name**    | ${NAME}         |
+| **Age**     | ${AGE_RANGE}    |
+| **Role**    | ${ROLE}         |
+| **Location**| ${LOCATION}     |
 
 ## Goals and Needs
-${LIST:GOALS}
+- ${GOAL_1}
+- ${GOAL_2}
 
-## Pain Points
-${LIST:PAIN_POINTS}
-
-## Technology Profile
-| Aspect | Details |
-|--------|----------|
-| Devices | ${LIST:DEVICES} |
-| Software | ${LIST:SOFTWARE} |
-| Comfort Level | ${SELECT:Beginner|Intermediate|Advanced} |
+<!-- Additional sections... -->
 ```
 
-After (Completed):
+A full example with all the sections, instructions, etc. could be consulte in core / template_example.mdx
+
+**Editing Template Components:**
+
+- **Manual Updates**: You can manually update the template metadata, document metadata, AI instructions, and content schema to reflect changes in your project requirements.
+
+- **Best Practices**:
+  - Ensure consistency in the metadata fields.
+  - Keep version numbers updated when making significant changes.
+  - Review validation rules to ensure they align with your needs.
+
+**Note**: Modifying the AI instructions and validation rules can affect how the AI assistant interacts with the template. It's recommended to make changes carefully and possibly consult with your team or AI specialists.
+
+### 3.4 Template Selection and Usage
+
+Effective template selection and usage are crucial for generating accurate and comprehensive specifications. This section outlines the categories of available templates and the workflow to utilize them efficiently.
+
+#### 3.4.1 Available Template Categories
+
+Choose from our collection of **AI-friendly specification templates** based on what you need to document:
+
+### Available Templates
+
+We offer a range of AI-friendly templates categorized into **Requirements**, **Design**, and **Implementation**:
+
+- **Requirements**: User Persona, User Story, System Requirements
+- **Design**: Architecture Diagram, Interface Specification, Data Model
+- **Implementation**: API Documentation, Test Plan, Deployment Guide
+- **....**
+
+_Refer to the [List of Templates](#62-list-of-templates) in the Reference Materials for a comprehensive list._
+
+#### 3.4.2 Template to Specification Workflow
+
+Follow this streamlined workflow to convert templates into finalized specifications:
+
+1. **Select and Copy the Template**
+   - Choose the appropriate template from the categories above.
+   - Copy the selected template into your `specifications/` directory.
+   - Rename the file appropriately (e.g., `user-story-login.mdx`).
+
+2. **Provide Context and Requirements**
+   - Determine the specific details you want to include in your specification.
+   - Prepare any relevant information or data that the AI assistant will need.
+
+3. **Generate Initial Draft with AI Assistant**
+   - Engage with the AI assistant, providing the template and context.
+   - AI generates the first draft based on the template structure.
+   - Review the AI-generated content for accuracy and completeness.
+
+4. **Refine and Validate**
+   - Fill in any missing information.
+   - Validate the document against template requirements.
+   - Incorporate stakeholder feedback as necessary.
+   - Update the document status to "Approved" once finalized.
+
+### 3.5 Working with AI Tools
+
+Leveraging AI tools effectively can significantly enhance your specification creation process. This section covers collaboration with AI assistants and utilizing AI-powered editors.
+
+#### 3.5.1 Collaborating with AI Assistants
+
+Maximize the benefits of AI assistance by following these guidelines:
+
+- **Provide Clear Context**
+  - Clearly state your requirements and any constraints.
+  - Reference the specific template you are using.
+
+- **Iterative Refinement**
+  - Work with the AI assistant in multiple iterations to enhance content quality.
+  - Ask targeted questions to obtain precise information.
+
+- **Validation and Consistency**
+  - Use AI to check the completeness and consistency of your specifications.
+  - Ensure all placeholders are appropriately filled.
+
+#### 3.5.2 Utilizing AI-Powered Editors (e.g., Cursor)
+
+AI-powered editors like Cursor can streamline your documentation process:
+
+- **Real-Time Assistance**
+  - Receive suggestions and validations as you type.
+  - Utilize editor-specific commands for efficient interactions (e.g., `/generate`, `/validate`).
+
+- **Configuration with `.cursorrules`**
+  - Ensure the `.cursorrules` file is present in your project for optimal AI support.
+  - Customize AI processing rules as needed to align with your project requirements.
+
+---
+
+## 4. Roles and Best Practices
+
+Establishing clear roles and adhering to best practices ensures smooth collaboration and high-quality documentation.
+
+### 4.1 Roles and Responsibilities
+
+Define clear roles to streamline the specification creation process:
+
+- **Template Maintainer**
+  - **Responsibilities:**
+    - Create and maintain templates.
+    - Update templates based on evolving project needs.
+    - Ensure templates adhere to best practices and standards.
+  - **Collaboration:**
+    - Work with the AI assistant to suggest template enhancements.
+    - Validate templates using AI tools.
+
+- **Specification Writer**
+  - **Responsibilities:**
+    - Provide clear context and requirements to the AI assistant.
+    - Review and verify AI-generated content for accuracy.
+    - Coordinate stakeholder reviews and incorporate feedback.
+  - **Collaboration:**
+    - Engage with team members to gather necessary information.
+    - Utilize AI tools to refine and validate specifications.
+
+- **AI Assistant**
+  - **Responsibilities:**
+    - Generate initial drafts based on templates and provided context.
+    - Validate specifications against defined rules.
+    - Suggest improvements and highlight missing information.
+  - **Collaboration:**
+    - Assist in maintaining document status and changelogs.
+    - Support template maintainers in enhancing template structures.
+
+### 4.2 Best Practices
+
+Adhering to best practices ensures the effectiveness and reliability of your specifications:
+
+**DO:**
+
+- **Provide Thorough Context to AI**
+  - Supply comprehensive information to the AI assistant to generate accurate content.
+
+- **Review AI-Generated Content Carefully**
+  - Validate the correctness and relevance of the generated specifications.
+  - Ensure all placeholders are appropriately filled.
+
+- **Use Version Control**
+  - Implement versioning for both templates and specifications to track changes.
+  - Maintain a clear changelog documenting all updates.
+
+- **Keep Templates Simple and Focused**
+  - Avoid unnecessary complexity in templates to facilitate easier usage and maintenance.
+  - Ensure templates are targeted to specific documentation needs.
+
+**DON'T:**
+
+- **Skip Validation Steps**
+  - Always validate specifications to ensure they meet project requirements and standards.
+
+- **Leave Placeholders Unfilled**
+  - Ensure all placeholders in templates are appropriately replaced with relevant information.
+
+- **Rely Solely on AI Without Review**
+  - Combine AI assistance with human oversight to maintain high-quality documentation.
+
+- **Duplicate Information Across Sections**
+  - Avoid repeating the same information in multiple sections to enhance clarity and conciseness.
+
+---
+
+## 5. Template Customization and Maintenance
+
+### 5.1 Editing and Extending Templates
+
+Customizing templates allows you to tailor them to your project's specific needs. You can add new fields, sections, or modify existing ones to better suit your requirements.
+
+#### 5.1.1 Adding New Fields to Templates
+
+To add new fields or sections in an AI-friendly and effective way:
+
+**1. Update the Content Schema**
+
+Define new sections or fields in the `contentSchema` or the main body of the template.
+
+- **Specify Sections**: Indicate whether they are required or optional, and include any validation rules.
+
+**Example:**
+
+```yaml
+contentSchema:
+  sections:
+    - id: "security_requirements"
+      required: true
+      validation: "Must include data encryption and authentication details."
+```
+
+**2. Adjust AI Instructions**
+
+Update the `ai` section to include any new validation rules or prompt templates related to the new fields.
+
+**Example:**
+
+```yaml
+ai:
+  validationRules:
+    requiredSections: ["basic_information", "goals_and_needs", "security_requirements"]
+```
+
+**3. Add Placeholders in the Template Content**
+
+Insert placeholders in the appropriate sections of the template content.
+
+**Example:**
+
 ```markdown
-# Dr. Sarah Chen
+## Security Requirements
 
-## Basic Information
-| Field | Value |
-|-------|-------|
-| Role  | Primary Care Physician |
-| Experience | 10 years |
-| Location | San Francisco |
-
-## Goals and Needs
-- Reduce patient wait times by 25%
-- Implement efficient record-keeping system
-- Improve patient communication channels
-
-## Pain Points
-- Time-consuming manual data entry
-- Difficult to track patient follow-ups
-- Limited integration between systems
-
-## Technology Profile
-| Aspect | Details |
-|--------|----------|
-| Devices | ["Laptop", "Smartphone", "Tablet"] |
-| Software | ["EHR System", "Scheduling App", "Communication Platform"] |
-| Comfort Level | Intermediate |
+- Data Encryption: ${DATA_ENCRYPTION_DETAILS}
+- Authentication Methods: ${AUTHENTICATION_METHODS}
 ```
 
-### Example: Architecture Template
+See a more complete list in the Reference Materials section of this document
+
+
+#### 5.1.2 Best Practices for Adding New Fields
+
+- **Use Descriptive Placeholder Names**: Clearly indicate the content they represent.
+
+- **Maintain Consistency**: Follow existing naming conventions and structure within the template.
+
+- **Update Version and Changelog**:
+
+  - Increment the template version number.
+
+  - Record your changes in the template's changelog.
+
+**Example Changelog Entry:**
 
 ```markdown
-# System Architecture: Healthcare Platform
+### Template Changelog
 
-## System Overview
-Purpose: Electronic Health Records Management
-Scale: Multi-tenant, Regional Deployment
-
-## Components
-1. Frontend Services
-   - Web Interface (React)
-   - Mobile App (React Native)
-   - Admin Dashboard (Next.js)
-
-2. Backend Services
-   - API Gateway (Node.js)
-   - Authentication Service (OAuth 2.0)
-   - Data Processing Engine (Python)
-
-3. Data Storage
-   - Patient Records (PostgreSQL)
-   - Document Storage (S3)
-   - Cache Layer (Redis)
-
-## Integration Points
-1. External Services
-   - Payment Gateway
-   - Laboratory Systems
-   - Pharmacy Network
-
-2. Security Measures
-   - HIPAA Compliance
-   - Data Encryption
-   - Access Control
+- **v2.3.0** - *2024-04-05*
+  - Added "Performance Metrics" section.
+  - Updated AI instructions for new validation rules.
 ```
 
-## AI Assistance Features
+- **Collaborate and Test**:
 
-### How AI Helps
-1. **Content Generation**
-   - Suggests relevant content based on:
-     * Project context
-     * Similar documents
-     * Industry best practices
-   - Maintains consistency by:
-     * Using standard terminology
-     * Following established patterns
-     * Checking against style guides
-   - Validates against requirements:
-     * Completeness checks
-     * Reference verification
-     * Format validation
+  - **Consult with Team Members**: Discuss changes with your team to ensure alignment.
 
-2. **Document Linking**
-   - Connects related requirements through:
-     * Direct references
-     * Implicit relationships
-     * Dependency tracking
-   - Maintains traceability by:
-     * Tracking document relationships
-     * Updating linked references
-     * Flagging broken connections
+  - **Test with AI Assistant**: Use the updated template with the AI assistant to verify correct processing of the new fields.
 
-### AI-Human Collaboration Process
-1. Initial Input
-   - You provide basic context
-   - Select template type
-   - Specify key requirements
+### 5.2 Enhanced Templates with Visuals
 
-2. AI Assistance
-   - Suggests relevant content
-   - Identifies missing information
-   - Proposes improvements
+Incorporating visuals like diagrams and images can enhance the readability and effectiveness of your specifications.
 
-3. Human Review
-   - Review AI suggestions
-   - Modify content as needed
-   - Add specific details
+#### 5.2.1 Mermaid Diagrams
 
-4. Validation
-   - AI checks completeness
-   - Verifies relationships
-   - Ensures consistency
+**In Templates:**
 
-## Best Practices
-
-### Document Structure
-✅ **Recommended Approach**:
 ```markdown
-# Clear, Descriptive Title
+## Architecture Diagram
 
-## Well-Defined Sections
-- Specific, measurable points
-- Clear acceptance criteria
-- Concrete examples
-
-## Related Documents
-- Links to dependencies
-- Reference documents
-- Related requirements
+${MERMAID:TYPE=flowchart}
 ```
 
-❌ **Common Mistakes**:
+**In Specifications:**
+
+Replace the placeholder with actual diagram code:
+
 ```markdown
-# Generic Title
+## Architecture Diagram
 
-- Vague descriptions
-- No measurable criteria
-- Missing references
-- Incomplete sections
+```mermaid
+flowchart LR
+    A[Start] --> B[Process] --> C[End]
+```
 ```
 
-### Writing Guidelines
-1. **Be Specific**
-   - Use concrete examples
-     * Instead of: "fast loading"
-     * Write: "page loads in < 2 seconds"
-   - Include measurable criteria
-     * Instead of: "high availability"
-     * Write: "99.9% uptime"
-   - Reference related documents
-     * Link to requirements: REQ-001
-     * Reference designs: DESIGN-002
+#### 5.2.2 Images
 
-2. **Maintain Consistency**
-   - Use standard terminology
-     * Follow glossary terms
-     * Use approved abbreviations
-   - Follow template structure
-     * Keep section order
-     * Use correct heading levels
-   - Keep formatting consistent
-     * Use standard list formats
-     * Maintain indentation
+**In Templates:**
 
-## Common Issues and Solutions
+```markdown
+## User Interface Mockup
 
-### Template Problems
-1. **Missing Required Fields**
-   Problem: Template validation fails
-   Solution: 
-   - Check template requirements section
-   - Look for ${PLACEHOLDER} markers
-   - Run template validator
-   Example:
-   ```markdown
-   Required: ${PERSONA_NAME}
-   Optional: ${OPTIONAL:BACKGROUND}
-   ```
+![${IMAGE:Description}](${IMAGE:URL})
+```
 
-2. **Formatting Issues**
-   Problem: Document structure breaks
-   Solution:
-   - Follow markdown guidelines
-   - Use correct heading levels
-   - Maintain consistent spacing
-   Example:
-   ```markdown
-   # Main Heading
-   ## Sub-heading
-   - List item
-     * Sub-item
-   ```
+**In Specifications:**
 
-3. **Broken Links**
-   Problem: References don't resolve
-   Solution:
-   - Verify document IDs exist
-   - Check reference format
-   - Update broken links
-   Example:
-   ```markdown
-   Related to: [REQ-001](../requirements/REQ-001.md)
-   Depends on: [ARCH-002](../architecture/ARCH-002.md)
-   ```
+Provide the image and description:
 
-### Validation Issues
-1. **Missing Relationships**
-   Problem: Document dependencies not defined
-   Solution:
-   - Check required relationships
-   - Add missing references
-   - Update relationship metadata
+```markdown
+## User Interface Mockup
 
-2. **Incomplete Sections**
-   Problem: Required content missing
-   Solution:
-   - Review template requirements
-   - Complete all required fields
-   - Add necessary details
+![Main Dashboard Screenshot](images/dashboard.png)
+```
 
-3. **Invalid Content**
-   Problem: Content doesn't match requirements
-   Solution:
-   - Check validation rules
-   - Review content guidelines
-   - Update content format
+### 5.3 Template Evolution and Change Tracking
 
-## Template Customization
+Keeping templates up-to-date is crucial for maintaining their effectiveness and ensuring they meet your project's evolving needs.
 
-### Adding New Templates
-1. Create template file in appropriate directory
-2. Define metadata and structure
-3. Add validation rules
-4. Create example content
+#### 5.3.1 Updating Templates
 
-### Modifying Templates
-1. Update version number
-2. Document changes
-3. Update related templates
-4. Test with existing content
+1. **Version Control**
 
-### Template Versioning
-1. Major changes: increment version number
-2. Minor changes: update revision
-3. Track changes in changelog
-4. Maintain backwards compatibility
+   - Use semantic versioning (e.g., `version: "2.1.0"`).
 
-## Need Help?
+   - Record updates in a changelog within the template.
 
-### Documentation Resources
-- Complete documentation: `/docs/templates`
-- Example library: `/examples`
-- Video tutorials: `/tutorials`
+2. **Enhancing AI Instructions**
 
-### Support Channels
-- Email: template-support@company.com
-- Chat: #template-help
-- Office hours: Tuesdays 2-4pm
+   - Define validation rules to ensure template integrity.
 
-### Useful Tools
-- Template validator
-- Markdown preview
-- Link checker
-- Relationship validator
-- Format checker
+   - Update AI instructions to improve assistance quality.
 
-Remember: These templates are designed to help you create better documentation. While following the structure is important, focus on creating clear, useful content that serves your project's needs.
+3. **Refining Placeholders**
+
+   - Adjust placeholders based on project needs.
+
+   - Introduce advanced placeholders for complex content (e.g., diagrams, tables).
+
+#### 5.3.2 Change Tracking
+
+**Example Changelog:**
+
+```markdown
+### Template Changelog
+
+- **v2.3.0** - *2024-04-05*
+  - Added "Performance Metrics" section.
+  - Updated AI instructions for new validation rules.
+
+- **v2.2.0** - *2024-03-30*
+  - Added "Security Requirements" section.
+  - Updated validation rules to include the new section.
+
+- **v2.1.0** - *2024-03-22*
+  - Added placeholders for Mermaid diagrams.
+  - Improved validation rules for mandatory sections.
+```
+
+---
+
+## 6. Reference Materials
+
+### 6.1 Placeholder Glossary
+
+Refer to the placeholder glossary for detailed explanations of each placeholder type used in the templates. This glossary includes information on basic and advanced placeholders, their syntax, and usage examples.
+
+- **Basic Placeholders**
+
+  - `${TEXT}`: Basic text input.
+
+  - `${SELECT:Option1|Option2}`: Choose from options.
+
+  - `${LIST:Items}`: Provide multiple items.
+
+  - `${OPTIONAL:Field}`: Optional content.
+
+- **Advanced Placeholders**
+
+  - `${MERMAID:Type}`: For diagrams (flowchart, sequence, gantt).
+
+  - `${IMAGE:Description}` and `${IMAGE:URL}`: For adding images.
+
+  - `${TABLE:Headers}`: For creating tables dynamically.
+
+  - `${VALIDATE:Email}`: Input with validation.
+
+  - `${GENERATE:Summary}`: AI-generated content.
+
+_For the complete glossary, please refer to the `placeholder-glossary.mdx` file in the `templates/` directory._
+
+### 6.2 List of AI guidelines to generating specifications (ai instructions, validation, ...)
+
+It includes general metadata guidelines, and specific instructions for different specifications templates needed
+
+---
+# Template Metadata
+template:
+  id: "generic-specification"
+  version: "1.0"
+  category: "documentation"
+  type: "specification"
+
+# Document Metadata
+metadata:
+  must:
+    title: "${TITLE}"
+    version: "${VERSION}"
+    author: "${AUTHOR}"
+  should:
+    description: "${DESCRIPTION}"
+    date_created: "${DATE_CREATED}"
+  could:
+    last_updated: "${LAST_UPDATED}"
+    tags: "${TAGS}"
+  won't:
+    deprecatedField: null
+
+# AI Instructions
+ai:
+  documentType: "specification"
+  validationRules:
+    mustSections: ["introduction", "requirements"]
+    shouldSections: ["design", "testing"]
+    couldSections: ["deployment", "maintenance"]
+    won'tSections: ["deprecated_section"]
+  promptTemplates:
+    creation: |
+      "Generate a comprehensive specification document focusing on {topic}..."
+    enhancement: |
+      "Enhance the specification {spec_id} by adding details about {aspect}..."
+
+---
+
+<!-- 
+TEMPLATE USAGE:
+1. Replace all ${PLACEHOLDER} markers with actual content.
+2. Remove all template comments and instructions.
+3. Validate against the schema defined in metadata.
+4. Update document metadata with actual values.
+
+Pattern to Follow:
+- Maintain clarity and consistency across all sections.
+- Ensure all required sections are thoroughly detailed.
+- Use specific and actionable language for requirements.
+-->
+
+## Introduction
+<!-- AI-VALIDATION: Introduction must provide a clear overview of the document's purpose and scope. -->
+${INTRODUCTION}
+
+**Example:**
+> "This specification outlines the requirements and design for the new user authentication system, aiming to enhance security and user experience."
+
+<!-- 
+AI-CONTEXT: Introduction Section
+Purpose: Provide a clear and concise overview of the document.
+Guidelines:
+- State the purpose and scope.
+- Outline the main objectives.
+- Mention any key stakeholders or audiences.
+-->
+
+## Requirements
+<!-- AI-VALIDATION: Must include both functional and non-functional requirements. -->
+### Functional Requirements
+1. ${FUNCTIONAL_REQUIREMENT_1}
+2. ${FUNCTIONAL_REQUIREMENT_2}
+
+**Example:**
+1. "The system shall allow users to register using an email and password."
+2. "The system shall support OAuth 2.0 for third-party integrations."
+
+### Non-Functional Requirements
+- ${NON_FUNCTIONAL_REQUIREMENT_1}
+- ${NON_FUNCTIONAL_REQUIREMENT_2}
+
+**Example:**
+- "The system shall ensure data encryption in transit and at rest."
+- "The system shall achieve 99.9% uptime."
+
+<!-- 
+AI-CONTEXT: Requirements Section
+Purpose: Detail the necessary functionalities and performance standards.
+Guidelines:
+- Clearly distinguish between functional and non-functional requirements.
+- Ensure each requirement is specific, measurable, achievable, relevant, and time-bound (SMART).
+- Avoid ambiguity and ensure clarity.
+-->
+
+## Design
+<!-- AI-VALIDATION: Design section should include architecture diagrams and component descriptions. -->
+${DESIGN_DETAILS}
+
+**Example:**
+> "The authentication system will follow a microservices architecture, utilizing JWT for token management and integrating with the existing user database."
+
+<!-- 
+AI-CONTEXT: Design Section
+Purpose: Describe the architectural and component-level design.
+Guidelines:
+- Include visual diagrams where applicable.
+- Explain the interaction between different components.
+- Highlight technologies and frameworks to be used.
+-->
+
+## Testing
+<!-- AI-VALIDATION: Testing section must outline the testing strategies and types of tests to be conducted. -->
+${TESTING_STRATEGIES}
+
+**Example:**
+> "Unit tests will cover all critical functions, while integration tests will ensure seamless interaction between services. Performance testing will validate the system under peak loads."
+
+<!-- 
+AI-CONTEXT: Testing Section
+Purpose: Define the approach to verifying that requirements are met.
+Guidelines:
+- Specify types of tests (unit, integration, system, acceptance).
+- Outline the testing tools and environments.
+- Define success criteria for each test type.
+-->
+
+## Deployment
+<!-- AI-VALIDATION: Deployment section should include deployment strategies and rollback plans. -->
+${DEPLOYMENT_PLAN}
+
+**Example:**
+> "Deployment will be automated using CI/CD pipelines with Docker containers. A rollback strategy will involve reverting to the previous stable Docker image in case of failures."
+
+<!-- 
+AI-CONTEXT: Deployment Section
+Purpose: Explain how the system will be deployed to production.
+Guidelines:
+- Detail the deployment workflow and tools.
+- Include rollback and recovery procedures.
+- Address scalability and monitoring considerations.
+-->
+
+## Maintenance
+<!-- AI-VALIDATION: Maintenance section must outline ongoing support and update procedures. -->
+${MAINTENANCE_PROCEDURES}
+
+**Example:**
+> "Regular updates will be scheduled bi-weekly, including security patches and feature enhancements. A dedicated support team will monitor system health and address any issues promptly."
+
+<!-- 
+AI-CONTEXT: Maintenance Section
+Purpose: Describe the plan for ongoing support and updates.
+Guidelines:
+- Define maintenance schedules and responsibilities.
+- Outline procedures for handling incidents and updates.
+- Ensure clarity on support channels and escalation paths.
+-->
+
+---
+
+
+### 6.2 List of Templates
+
+A comprehensive list of all available AI-friendly specification templates, organized by category:
+
+- **Requirements Templates**
+
+  - `user-persona-template.mdx`
+
+  - `user-story-template.mdx`
+
+  - `system-requirements-template.mdx`
+
+- **Design Templates**
+
+  - `architecture-diagram-template.mdx`
+
+  - `interface-specification-template.mdx`
+
+  - `data-model-template.mdx`
+
+- **Implementation Templates**
+
+  - `api-documentation-template.mdx`
+
+  - `test-plan-template.mdx`
+
+  - `deployment-guide-template.mdx`
+
+_For more details on each template, including their specific placeholders and structure, refer to the `templates/` directory._
+
+---
+
+## 7. Support Documents
+
+To enhance the functionality of your AI-friendly templates and ensure they generate accurate, project-specific specifications, it's essential to maintain comprehensive support documents. These resources provide the necessary context and references that templates can utilize during the generation process.
+
+### 7.1 Purpose of Support Documents
+
+Support documents serve as the backbone for generating precise and relevant specifications. They include:
+
+- **Online Documentation:** Links to APIs, frameworks, or libraries relevant to the project.
+- **Design References:** Sample designs, wireframes, or style guides that the AI can analyze to infer design characteristics.
+- **Assets:** Images, logos, or other media that support the project's documentation needs.
+- **Guidelines:** Specific guidelines or standards that the project adheres to, ensuring consistency across specifications.
+
+### 7.2 Structure and Location
+
+Organize support documents within a dedicated `support/` folder to maintain separation from generic templates and generated specifications.
+
+### 7.3 Naming Conventions
+
+Maintain clear and consistent naming conventions to ensure ease of access and reference:
+
+- **Documentation Files:** Use descriptive names that reflect their content.  
+  Example: `api-overview.md`, `coding-standards.pdf`
+  
+- **Design Files:** Include context in the file name for easy identification.  
+  Example: `login-page-wireframe.png`, `dashboard-style-guide.pdf`
+  
+- **Asset Files:** Use standardized prefixes or categorizations.  
+  Example: `logo-main.svg`, `icon-search.png`
+
+### 7.4 Integration with Templates
+
+Ensure that your templates can access these support documents efficiently:
+
+- **Relative Paths:** Use relative paths in your templates to reference support documents.  
+  Example:
+  ```markdown
+  For more details, refer to the [API Documentation](../../support/documentation/api-overview.md).
+  ```
+  
+- **Dynamic Inference (If Supported):** If the AI model has vision capabilities, design files in the `support/designs/` folder can be analyzed to extract style guidelines or design patterns automatically.
+
+### 7.5 Updating Support Documents
+
+Maintain the support documents to reflect the latest project information:
+
+- **Version Control:** Track changes using version control systems to manage updates effectively.
+- **Consistency Checks:** Regularly verify that support documents align with the current templates and specifications.
+- **Feedback Loop:** Incorporate feedback from team members to improve the quality and relevance of support documents.
+
+### 7.6 Benefits of Organized Support Documents
+
+- **Enhanced Accuracy:** Provides the AI with accurate references, leading to more precise specifications.
+- **Consistency:** Ensures that all specifications adhere to the same standards and guidelines.
+- **Efficiency:** Streamlines the specification generation process by providing readily accessible resources.
+- **Scalability:** Facilitates easy updates and additions as the project evolves.
+
+---
+
+# Additional Recommendations
+
+1. **Documentation Standards:** Consider establishing a set of standards for your support documents to maintain uniformity across different projects.
+2. **Access Control:** If certain support documents contain sensitive information, implement appropriate access controls to secure them.
+3. **AI Configuration:** Ensure that your AI tools are configured to access the `support/` folder efficiently, possibly by setting environment variables or configuration files that point to this directory.
+
+By implementing a well-structured `support/` folder and adhering to clear naming conventions, you create a robust foundation that enhances the functionality and reliability of your AI-friendly templates. This organization not only streamlines the specification generation process but also ensures that all project-specific nuances are accurately captured and documented.
+
+---
