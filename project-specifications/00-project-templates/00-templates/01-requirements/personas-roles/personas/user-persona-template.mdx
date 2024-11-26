@@ -1,0 +1,202 @@
+{/* 
+Template: User Persona
+Version: 1.0
+Purpose: Capture detailed user persona information for project requirements
+*/}
+
+---
+template:
+  id: "user-persona"
+  version: "1.0"
+  category: "requirements"
+  type: "user-research"
+  parent: "base_template"
+
+metadata:
+  author: "[AUTHOR]"
+  version: "[DOCUMENT_VERSION]"
+  created: "[DATE_CREATED]"
+  updated: "[DATE_UPDATED]"
+  status: "[Draft|In Review|Approved]"
+  reviewers: 
+    - "[REVIEWER_1]"
+    - "[OPTIONAL_REVIEWER_2]"
+
+document:
+  key: "[DOCUMENT_KEY]"
+  naming:
+    pattern: "PER-[SEQUENCE]-[descriptor]"
+    prefix: "PER"
+    sequence:
+      format: "000"
+      current: "[AUTO_INCREMENT]"
+    descriptor:
+      format: "lowercase_with_underscores"
+      max_length: 50
+
+ai:
+  documentType: "user_persona"
+  validationRules:
+    mustSections:
+      - "basic_information"
+      - "goals_and_needs"
+      - "technical_profile"
+      - "pain_points"
+    shouldSections:
+      - "daily_routine"
+      - "preferences"
+      - "user_stories"
+    dataValidation:
+      name: "must be realistic and culturally appropriate"
+      age: "must be a range or specific number"
+      goals: "minimum 2 primary goals required"
+      pain_points: "minimum 2 pain points required"
+  
+  promptTemplates:
+    creation: >
+      Create a user persona focusing on [USER_TYPE].
+      Consider:
+      - Demographics: [DEMOGRAPHICS]
+      - Technical proficiency: [TECH_LEVEL]
+      - Key challenges: [CHALLENGES]
+      - Main goals: [GOALS]
+
+    enhancement: >
+      Enhance the persona [PERSONA_ID] with details about [ASPECT].
+      Consider:
+      - Current details: [CURRENT_CONTENT]
+      - Missing aspects: [MISSING_ELEMENTS]
+      - User research data: [RESEARCH_DATA]
+
+  relationships:
+    userStories:
+      - "[USER_STORY_1]"
+      - "[OPTIONAL_USER_STORY_2]"
+    useCases:
+      - "[USE_CASE_1]"
+      - "[OPTIONAL_USE_CASE_2]"
+    requirements:
+      - "[REQUIREMENT_1]"
+      - "[OPTIONAL_REQUIREMENT_2]"
+
+contentSchema:
+  sections:
+    - id: "basic_information"
+      required: true
+      validation: "Must include name, age, occupation, location"
+    - id: "goals_and_needs"
+      required: true
+      validation: "Must include at least 2 primary goals"
+    - id: "technical_profile"
+      required: true
+      validation: "Must specify device usage and tech comfort level"
+    - id: "pain_points"
+      required: true
+      validation: "Must include at least 2 pain points"
+---
+
+# User Persona: [PERSONA_NAME]
+
+## Basic Information
+{/* AI-VALIDATION: All fields in this section are required */}
+| Field | Details |
+|-------|---------|
+| **Name** | [NAME] |
+| **Age** | [AGE_RANGE] |
+| **Occupation** | [OCCUPATION] |
+| **Location** | [LOCATION] |
+| **Education** | [EDUCATION] |
+| **Income Level** | [INCOME_RANGE] |
+| **Family Status** | [FAMILY_STATUS] |
+
+## Profile Summary
+{/* AI-VALIDATION: Must provide a concise overview of the persona */}
+[PROFILE_SUMMARY]
+
+## Technical Profile
+{/* AI-VALIDATION: Must specify technology comfort and usage patterns */}
+| Aspect | Details |
+|--------|---------|
+| **Device Usage** | [Low/Medium/High] |
+| **Tech Comfort** | [Beginner/Intermediate/Advanced] |
+| **Primary Devices** | [DEVICES] |
+| **Frequently Used Apps** | [APPS] |
+| **Digital Services** | [SERVICES] |
+
+## Goals and Needs
+
+### Primary Goals
+{/* AI-VALIDATION: Minimum 2 primary goals required */}
+1. [PRIMARY_GOAL_1]
+2. [PRIMARY_GOAL_2]
+3. [OPTIONAL_PRIMARY_GOAL_3]
+
+### Secondary Goals
+1. [SECONDARY_GOAL_1]
+2. [SECONDARY_GOAL_2]
+
+## Pain Points and Frustrations
+{/* AI-VALIDATION: Must include specific challenges and frustrations */}
+
+### Current Challenges
+1. [CHALLENGE_1]
+2. [CHALLENGE_2]
+3. [OPTIONAL_CHALLENGE_3]
+
+### Frustrations
+1. [FRUSTRATION_1]
+2. [FRUSTRATION_2]
+
+## Preferences and Behaviors
+
+### Communication Preferences
+{/* AI-VALIDATION: Must specify preferred communication methods */}
+- Primary: [PRIMARY_COMMUNICATION]
+- Secondary: [SECONDARY_COMMUNICATION]
+- Avoided: [AVOIDED_COMMUNICATION]
+
+### Decision-Making Factors
+{/* AI-VALIDATION: List key factors influencing decisions */}
+1. [DECISION_FACTOR_1]
+2. [DECISION_FACTOR_2]
+3. [OPTIONAL_DECISION_FACTOR_3]
+
+## Daily Routine
+{/* AI-VALIDATION: Must show typical daily activities and pain points */}
+
+### Morning
+- [MORNING_TIME_1]: [MORNING_ACTIVITY_1]
+- [MORNING_TIME_2]: [MORNING_ACTIVITY_2]
+
+### Afternoon
+- [AFTERNOON_TIME_1]: [AFTERNOON_ACTIVITY_1]
+- [AFTERNOON_TIME_2]: [AFTERNOON_ACTIVITY_2]
+
+### Evening
+- [EVENING_TIME_1]: [EVENING_ACTIVITY_1]
+- [EVENING_TIME_2]: [EVENING_ACTIVITY_2]
+
+## User Stories
+{/* AI-VALIDATION: Link to related user stories */}
+1. As [NAME], I want [WANT_1] so that [BENEFIT_1]
+2. As [NAME], I want [WANT_2] so that [BENEFIT_2]
+
+## Related Documentation
+{/* AI-VALIDATION: Show connections to other documentation */}
+- User Stories: [USER_STORY_REFS]
+- Use Cases: [USE_CASE_REFS]
+- Requirements: [REQUIREMENT_REFS]
+
+## Validation and Review
+{/* AI-VALIDATION: Track document status and reviews */}
+| Aspect | Status | Notes |
+|--------|--------|-------|
+| Technical Review | [Pending/Completed/N/A] | [NOTES] |
+| Peer Review | [Pending/Completed/N/A] | [NOTES] |
+| Validation | [Pending/Completed/N/A] | [NOTES] |
+
+## Change History
+{/* AI-VALIDATION: Track document versions and changes */}
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| [VERSION] | [DATE] | [AUTHOR] | [CHANGES] |

@@ -54,10 +54,7 @@ ai:
   documentType: "${DOCUMENT_TYPE}"
   # MoSCoW prioritization for sections and validations
   validationRules:
-    mustSections: 
-        - id: "${MUST_SECTION_1}"
-          errorMessage: "Section ${MUST_SECTION_1} is required"
-          validationCriteria: "${VALIDATION_CRITERIA}"
+    mustSections: ["${MUST_SECTION_1}", "${MUST_SECTION_2}"]
     shouldSections: ["${SHOULD_SECTION_1}"]
     couldSections: ["${COULD_SECTION_1}"]
     wontSections: ["${WONT_SECTION_1}"]
@@ -65,23 +62,13 @@ ai:
       ${VALIDATION_FIELD_1}: "${VALIDATION_RULE_1}"
       ${VALIDATION_FIELD_2}: "${VALIDATION_RULE_2}"
   
-
-  promptEngineering:
-    chainOfThought: true
-    fewShotExamples: true
-    contextWindow: "${CONTEXT_SIZE}"
-  
   promptTemplates:
-    creation: |  
-      context: "${CONTEXT}"
-      instruction: "Create a ${DOCUMENT_TYPE} for ${SYSTEM_TYPE}"
-      focus: "${FOCUS_AREA}"
-      constraints: 
-        - "${CONSTRAINT_1}"
-        - "${CONSTRAINT_2}"
-      examples:
-        - "${EXAMPLE_1}"
-        - "${EXAMPLE_2}"
+    creation: |
+      Create a ${DOCUMENT_TYPE} for ${SYSTEM_TYPE} focusing on ${FOCUS_AREA}.
+      Key aspects to consider:
+      - Context: ${CONTEXT}
+      - Constraints: ${CONSTRAINTS}
+      - Requirements: ${REQUIREMENTS}
 
     enhancement: |
       Enhance the ${DOCUMENT_TYPE} ${DOCUMENT_ID} with additional details about ${ASPECT}.
@@ -94,33 +81,6 @@ ai:
     dependencies: ["${DEPENDENCY_1}", "${OPTIONAL:DEPENDENCY_2}"]
     references: ["${REFERENCE_1}", "${OPTIONAL:REFERENCE_2}"]
     impacts: ["${IMPACT_1}", "${OPTIONAL:IMPACT_2}"]
-   
-  inheritance:
-    extends: "${PARENT_TEMPLATE}"
-    override:
-      - section: "${SECTION_NAME}"
-        behavior: "replace|merge|append"
-
-   errorHandling:
-      validation:
-      onFailure: "${FAILURE_ACTION}"
-      retryStrategy: "${RETRY_STRATEGY}"
-      generation:
-      fallbackOptions: ["${FALLBACK_1}", "${FALLBACK_2}"]
-
-   output:
-      format:
-         structure: "${OUTPUT_STRUCTURE}"
-         validation: "${VALIDATION_RULES}"
-      versioning:
-         strategy: "${VERSION_STRATEGY}"
-         changelog: "${CHANGELOG_FORMAT}"
-
-   composition:
-    components:
-      - id: "${COMPONENT_ID}"
-        source: "${COMPONENT_TEMPLATE}"
-        placement: "${PLACEMENT_LOCATION}"
 
 # Content Schema
 contentSchema:
@@ -129,8 +89,6 @@ contentSchema:
       required: ${BOOLEAN}
       validation: "${VALIDATION_RULE}"
       subsections: ["${SUBSECTION_1}", "${SUBSECTION_2}"]
-
-
 ---
 
 <!-- 
