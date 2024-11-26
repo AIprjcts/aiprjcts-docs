@@ -1,0 +1,69 @@
+---
+# Template Metadata
+template:
+  id: "hardware"
+  version: "1.0"
+  category: "documentation"
+  type: "hardware"
+  
+# Document Metadata
+metadata:
+  must:
+    title: "${TITLE}"
+    version: "${VERSION}"
+    author: "${AUTHOR}"
+  should:
+    description: "${DESCRIPTION}"
+    date_created: "${DATE_CREATED}"
+  could:
+    last_updated: "${LAST_UPDATED}"
+    tags: "${TAGS}"
+  won't:
+    deprecatedField: null
+
+# AI Instructions
+ai:
+  documentType: "hardware"
+  validationRules:
+    mustSections: ["introduction", "requirements"]
+    shouldSections: ["design", "testing"]
+    couldSections: ["deployment", "maintenance"]
+    won'tSections: ["deprecated_section"]
+  promptTemplates:
+    creation: |
+      "Generate a comprehensive hardware document focusing on {topic}..."
+    enhancement: |
+      "Enhance the hardware {template_id} by adding details about {aspect}..."
+---
+
+<!-- 
+TEMPLATE USAGE:
+1. Replace all ${PLACEHOLDER} markers with actual content.
+2. Remove all template comments and instructions.
+3. Validate against the schema defined in metadata.
+4. Update document metadata with actual values.
+
+Pattern to Follow:
+- Maintain clarity and consistency across all sections.
+- Ensure all required sections are thoroughly detailed.
+- Use specific and actionable language for requirements.
+-->
+
+## Introduction
+<!-- AI-VALIDATION: Introduction must provide a clear overview of the document's purpose and scope. -->
+${INTRODUCTION}
+
+**Example:**
+> "This document outlines the requirements and objectives for the [hardware] project, ensuring all stakeholders are aligned."
+
+<!-- 
+AI-CONTEXT: Introduction Section
+Purpose: Provide a clear and concise overview of the document.
+Guidelines:
+- State the purpose and scope.
+- Outline the main objectives.
+- Mention any key stakeholders or audiences.
+ -->
+
+
+---

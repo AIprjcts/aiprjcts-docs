@@ -54,20 +54,66 @@ Before you begin, it's essential to grasp how the AI-friendly specification temp
 Set up your project with a clear folder structure:
 
 ```
+# AI-Friendly Specification Templates
+
+...
+
+## Project Organization
+
+Set up your project with a clear folder structure:
+
+```project-specifications/00-project-templates/00-templates/README.mdx
 your-project/
 ├── templates/                  # AI-friendly specification templates
-│   ├── requirements/
-│   ├── design/
-│   └── implementation/
+│   ├── requirements/           # Requirements templates
+│   │   ├── core/
+│   │   ├── personas-roles/
+│   │   ├── glossary/
+│   │   ├── user-stories/
+│   │   ├── use-cases/
+│   │   ├── functional/
+│   │   ├── non-functional/
+│   │   └── technical/
+│   ├── design/                 # Design templates
+│   │   ├── architecture/
+│   │   ├── database/
+│   │   ├── integrations/
+│   │   ├── ui-ux/
+│   │   └── security/
+│   ├── implementation/         # Implementation templates
+│   │   ├── development/        # Development templates
+│   │   ├── deployment/         # Deployment templates
+│   │   └── testing/            # Testing templates
 ├── specifications/             # Generated specifications
-│   ├── requirements/
-│   ├── design/
-│   └── implementation/
+│   ├── requirements/           # Generated requirements specifications
+│   │   ├── core/
+│   │   ├── personas-roles/
+│   │   ├── glossary/
+│   │   ├── user-stories/
+│   │   ├── use-cases/
+│   │   ├── functional/
+│   │   ├── non-functional/
+│   │   └── technical/
+│   ├── design/                 # Generated design specifications
+│   │   ├── architecture/
+│   │   ├── database/
+│   │   ├── integrations/
+│   │   ├── ui-ux/
+│   │   └── security/
+│   ├── implementation/         # Generated implementation specifications
+│   │   ├── development/        # Generated development specifications
+│   │   ├── deployment/         # Generated deployment specifications
+│   │   └── testing/            # Generated testing specifications
 ├── support/                    # Project-specific support documents
 │   ├── documentation/          # Online docs and guidelines
 │   ├── designs/                # Design files and references
 │   └── assets/                 # Images, logos, and other media
 └── .cursorrules                # AI processing rules
+```
+
+...
+
+
 ```
 
 - **templates/**: Contains your AI-friendly specification templates.
@@ -815,3 +861,5 @@ Maintain the support documents to reflect the latest project information:
 By implementing a well-structured `support/` folder and adhering to clear naming conventions, you create a robust foundation that enhances the functionality and reliability of your AI-friendly templates. This organization not only streamlines the specification generation process but also ensures that all project-specific nuances are accurately captured and documented.
 
 ---
+
+
