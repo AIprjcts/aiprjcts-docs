@@ -1,0 +1,107 @@
+---
+Author: AIPrjcts
+Version: 1.0
+Date Created: [YYYY-MM-DD]
+Last Updated: [YYYY-MM-DD]
+Status: [Draft/In Review/Approved]
+Tags: [non-functional requirements, performance, security, usability]
+---
+
+<!--
+Definition of this template:
+
+- Non-Functional Requirements specify HOW the system should perform its functions.
+- They define quality attributes, technical constraints, and performance characteristics.
+- Each requirement should be specific, measurable, and verifiable.
+
+Instructions for this template:
+
+- Copy and rename this file when creating new non-functional requirements.
+- Replace all placeholders within square brackets [] with specific content.
+- Examples are provided within the placeholders for guidance.
+- Remove any instructional comments from the final document.
+- Fields marked with **(Required)** are mandatory.
+
+Metadata Tags (for AI tools and searchability):
+
+- DocumentType: NonFunctionalRequirement
+-->
+
+# Non-Functional Requirements
+
+## Table of Contents
+
+<!--
+Example:
+- [NFR-01: System Performance Requirements](#nfr-01)
+- [NFR-02: Application Security Standards](#nfr-02)
+-->
+
+---
+
+### NFR-[number] **(Required)**
+
+#### Metadata
+
+- **Title (Required)**: [Requirement Category, e.g., "System Response Time"]
+- **Type**: [Performance/Security/Usability/etc., e.g., "Performance"]
+- **Priority (Required)**: [High/Medium/Low]
+- **Status**: [Proposed/Approved/Implemented]
+
+#### Requirement Description
+
+> [Detailed description of the quality attribute or constraint, e.g., "The system must respond to user interactions within specified time limits to ensure a smooth user experience."]
+
+#### Metrics and Measurements
+
+1. **Quantitative Metrics**
+   - [Specific measurable criterion, e.g., "Page load time must be under 3 seconds for 95% of requests"]
+   - [Second criterion, e.g., "API response time must be under 500ms for 99% of requests"]
+   - [...]
+
+2. **Qualitative Criteria**
+   - [Quality attribute, e.g., "User interface must feel responsive and smooth"]
+   - [Second attribute, e.g., "System must maintain performance under peak load"]
+   - [...]
+
+#### Validation Methods
+
+- **Testing Approaches**:
+  - [Testing methodology, e.g., "Load testing with 1000 concurrent users"]
+  - [Second approach, e.g., "Performance monitoring in production environment"]
+
+- **Monitoring**:
+  - [Monitoring requirement, e.g., "Real-time performance metrics dashboard"]
+  - [Second requirement, e.g., "Automated alerts for performance degradation"]
+
+#### Implementation Considerations
+
+- **Technical Constraints**:
+  - [Technical limitation, e.g., "Must work with existing CDN infrastructure"]
+  - [Second constraint, e.g., "Limited to current server resources"]
+  
+- **Dependencies**:
+  - [Related requirement, e.g., "NFR-01-000: System Architecture"]
+  - [Second dependency, e.g., "Current network infrastructure capabilities"]
+
+#### Compliance Requirements
+
+- [Standard/regulation, e.g., "Must comply with WCAG 2.1 Level AA"]
+- [Second requirement, e.g., "Must meet HIPAA performance security standards"]
+
+---
+
+**Final Reminders:**
+
+- Ensure metrics are measurable and verifiable
+- Include specific validation methods
+- Define clear success criteria
+- Remove template instructions before finalizing
+
+---
+
+export const metadata = {
+  title: 'Non-Functional Requirements Template',
+  description: 'Template for documenting non-functional requirements',
+  lastUpdated: new Date().toISOString()
+};

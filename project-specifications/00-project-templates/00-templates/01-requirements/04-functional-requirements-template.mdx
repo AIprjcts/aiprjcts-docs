@@ -1,0 +1,106 @@
+---
+Author: AIPrjcts
+Version: 1.0
+Date Created: [YYYY-MM-DD]
+Last Updated: [YYYY-MM-DD]
+Status: [Draft/In Review/Approved]
+Tags: [functional requirements, system behavior, features]
+---
+
+<!--
+Definition of this template:
+
+- Functional Requirements specify what the system MUST do - the actual behaviors and functions the software needs to perform.
+- They define specific capabilities, behaviors, and system features in concrete, measurable terms.
+- Each requirement should be specific, measurable, achievable, relevant, and time-bound (SMART).
+
+Instructions for this template:
+
+- Copy and rename this file when creating new functional requirements.
+- Replace all placeholders within square brackets [] with specific content.
+- Examples are provided within the placeholders for guidance.
+- Remove any instructional comments from the final document.
+- Fields marked with **(Required)** are mandatory.
+
+Metadata Tags (for AI tools and searchability):
+
+- DocumentType: FunctionalRequirement
+-->
+
+# Functional Requirements
+
+## Table of Contents
+
+<!--
+Example:
+- [FR-01: User Authentication](#fr-01)
+- [FR-02: Data Storage](#fr-02)
+-->
+
+---
+
+### FR-[number] **(Required)**
+
+#### Metadata
+
+- **Title (Required)**: [Descriptive Title, e.g., "User Authentication System"]
+- **Category**: [Feature Category, e.g., "Security"]
+- **Priority (Required)**: [High/Medium/Low]
+- **Status**: [Proposed/Approved/Implemented]
+
+#### Requirement Description
+
+> [Detailed description of what the system must do, e.g., "The system must provide secure user authentication using email and password credentials."]
+
+#### Acceptance Criteria
+
+1. **Functional Criteria**
+   - [Specific testable requirement, e.g., "Users must be able to log in using their email and password"]
+   - [Second requirement, e.g., "System must validate email format"]
+   - [...]
+
+2. **Technical Criteria**
+   - [Technical specification, e.g., "Passwords must be hashed using bcrypt"]
+   - [Second specification, e.g., "JWT tokens must expire after 24 hours"]
+   - [...]
+
+#### Dependencies
+
+- [List related requirements or systems, e.g., "FR-01-000: User Database Schema"]
+
+#### Implementation Notes
+
+- **Technical Constraints**:
+  - [Technical limitation, e.g., "Must use OAuth 2.0 protocol"]
+  - [Second constraint, e.g., "Must support multiple authentication providers"]
+  
+- **Integration Points**:
+  - [Integration requirement, e.g., "Must integrate with existing user database"]
+  - [Second integration, e.g., "Must support SSO with Google workspace"]
+
+#### Validation Method
+
+- [Testing approach, e.g., "Automated integration tests for all authentication flows"]
+- [Second method, e.g., "Security penetration testing of authentication endpoints"]
+
+#### Security Considerations
+
+- [Security requirement, e.g., "Must implement rate limiting for failed login attempts"]
+- [Second consideration, e.g., "Must log all authentication attempts"]
+
+---
+
+**Final Reminders:**
+
+- Ensure all required fields are completed
+- Verify that acceptance criteria are measurable
+- Include all relevant technical details
+- Remove template instructions before finalizing
+
+---
+
+export const metadata = {
+  title: 'Functional Requirements Template',
+  description: 'Template for documenting functional requirements',
+  lastUpdated: new Date().toISOString()
+};

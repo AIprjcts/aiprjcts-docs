@@ -1,0 +1,127 @@
+---
+Author: AIPrjcts
+Version: 1.0
+Date Created: [YYYY-MM-DD]
+Last Updated: [YYYY-MM-DD]
+Status: [Draft/In Review/Approved]
+Tags: [use case, workflow, system interaction]
+---
+
+<!--
+Definition of this template:
+
+- Use Cases are formal documents describing how users interact with a system to achieve specific goals.
+- They detail complete flows of actions, including main paths, alternative scenarios, and failure cases.
+- Use Cases are more comprehensive than user stories and focus on step-by-step interactions.
+
+Instructions for this template:
+
+- Copy and rename this file when creating new use cases.
+- Replace all placeholders within square brackets [] with specific content.
+- Examples are provided within the placeholders for guidance.
+- Remove any instructional comments from the final document.
+- Fields marked with **(Required)** are mandatory.
+
+Metadata Tags (for AI tools and searchability):
+
+- DocumentType: UseCase
+-->
+
+# Use Case Specification
+
+## Table of Contents
+
+<!--
+Example:
+- [UC-01: Patient Login Process](#uc-01)
+- [UC-02: Health Record Access](#uc-02)
+-->
+
+---
+
+### UC-[number] **(Required)**
+
+#### Metadata
+
+- **Title (Required)**: [Descriptive Title, e.g., "User Authentication Process"]
+- **Actor (Required)**: [Primary User, e.g., "Registered Patient"]
+- **Scope**: [System/Subsystem, e.g., "Authentication Module"]
+- **Level**: [User-Goal/Sub-function, e.g., "User-Goal"]
+
+#### Preconditions **(Required)**
+
+1. [First precondition, e.g., "User has a registered account"]
+2. [Second precondition, e.g., "User is not currently logged in"]
+3. [...]
+
+#### Basic Flow **(Required)**
+
+1. [First step, e.g., "User navigates to login page"]
+2. [Second step, e.g., "User enters email and password"]
+3. [Third step, e.g., "System validates credentials"]
+4. [...]
+
+#### Alternative Flows
+
+1. **Alternative Path A**:
+   - Trigger: [What causes this alternative, e.g., "User forgets password"]
+   - Steps:
+     1. [Alternative step, e.g., "User clicks 'Forgot Password' link"]
+     2. [Next step, e.g., "System sends reset email"]
+
+2. **Alternative Path B**:
+   - [Similar structure...]
+
+#### Exception Flows
+
+1. **Exception A**:
+   - Trigger: [What causes this exception, e.g., "Invalid credentials"]
+   - Handling:
+     1. [Exception step, e.g., "System displays error message"]
+     2. [Next step, e.g., "User can retry or reset password"]
+
+#### Postconditions **(Required)**
+
+1. [First postcondition, e.g., "User is successfully logged in"]
+2. [Second postcondition, e.g., "Session token is generated"]
+3. [...]
+
+#### Business Rules
+
+- [Business rule, e.g., "Account locks after 3 failed attempts"]
+- [Second rule, e.g., "Passwords must meet security requirements"]
+
+#### Special Requirements
+
+- **Performance**:
+  - [Requirement, e.g., "Login process completes within 2 seconds"]
+  
+- **Security**:
+  - [Requirement, e.g., "All communication must be encrypted"]
+
+#### Assumptions
+
+- [Assumption, e.g., "User has stable internet connection"]
+- [Second assumption, e.g., "Browser supports required features"]
+
+#### Notes and Issues
+
+- [Additional note, e.g., "Consider implementing SSO in future"]
+- [Known issue, e.g., "Mobile verification pending"]
+
+---
+
+**Final Reminders:**
+
+- Verify all flows are complete and logical
+- Ensure preconditions and postconditions are clear
+- Include all relevant exception cases
+- Remove template instructions before finalizing
+
+---
+
+export const metadata = {
+  title: 'Use Case Template',
+  description: 'Template for documenting system use cases',
+  lastUpdated: new Date().toISOString()
+};

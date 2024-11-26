@@ -1,0 +1,131 @@
+---
+# Template Metadata (Replace with actual values when using)
+template:
+  id: "non-functional-requirements"
+  version: "2.0"
+  
+# Document Metadata
+metadata:
+  author: "${AUTHOR}"
+  version: "${DOCUMENT_VERSION}"
+  created: "${DATE_CREATED}"
+  updated: "${DATE_UPDATED}"
+  status: "${STATUS}"
+  
+# AI Processing Configuration
+ai:
+  documentType: "non-functional-requirement"
+  validationRules:
+    requiredSections: [
+      "description",
+      "metrics",
+      "validation"
+    ]
+    allowedValues:
+      priority: ["High", "Medium", "Low"]
+      type: [
+        "Performance",
+        "Security",
+        "Usability",
+        "Reliability",
+        "Maintainability",
+        "Scalability",
+        "Portability",
+        "Compliance"
+      ]
+      status: ["Proposed", "Approved", "Implemented"]
+  
+  relationships:
+    dependencies: []
+    references: []
+    
+# Content Schema
+contentSchema:
+  sections:
+    - id: "description"
+      required: true
+      validation: "Must be specific and measurable"
+    - id: "metrics"
+      required: true
+      validation: "Must include at least one quantitative metric"
+    - id: "validation"
+      required: true
+      validation: "Must specify how to verify the requirement"
+---
+
+<!-- 
+TEMPLATE USAGE:
+1. Replace all ${PLACEHOLDER} markers with actual content
+2. Remove all template comments and instructions
+3. Validate against the schema defined in metadata
+4. Update document metadata with actual values
+-->
+
+# ${REQUIREMENT_TITLE}
+
+## Requirement Information
+- **ID**: NFR-${NUMBER}
+- **Type**: ${SELECT:Performance|Security|Usability|Reliability|Maintainability|Scalability|Portability|Compliance}
+- **Priority**: ${SELECT:High|Medium|Low}
+- **Status**: ${SELECT:Proposed|Approved|Implemented}
+
+## Description
+${DESCRIPTION}
+<!-- AI-VALIDATION: Description must be specific and measurable -->
+
+## Metrics and Measurements
+
+### Quantitative Metrics
+<!-- AI-VALIDATION: At least one quantitative metric required -->
+1. ${METRIC_1}
+   - Target Value: ${TARGET_VALUE}
+   - Measurement Method: ${MEASUREMENT_METHOD}
+2. ${METRIC_2}
+   - Target Value: ${TARGET_VALUE}
+   - Measurement Method: ${MEASUREMENT_METHOD}
+
+### Qualitative Criteria
+1. ${QUALITATIVE_CRITERION_1}
+   - Assessment Method: ${ASSESSMENT_METHOD}
+2. ${QUALITATIVE_CRITERION_2}
+   - Assessment Method: ${ASSESSMENT_METHOD}
+
+## Validation Methods
+<!-- AI-VALIDATION: Must specify concrete validation approach -->
+
+### Testing Approaches
+- ${TEST_APPROACH_1}
+- ${TEST_APPROACH_2}
+
+### Monitoring Requirements
+- ${MONITORING_REQUIREMENT_1}
+- ${MONITORING_REQUIREMENT_2}
+
+## Implementation Considerations
+
+### Technical Constraints
+- ${TECHNICAL_CONSTRAINT_1}
+- ${TECHNICAL_CONSTRAINT_2}
+
+### Dependencies
+- Related Requirements: ${LIST:RELATED_REQUIREMENTS}
+- External Dependencies: ${LIST:EXTERNAL_DEPENDENCIES}
+
+## Compliance and Standards
+<!-- List any relevant compliance requirements or industry standards -->
+- ${COMPLIANCE_REQUIREMENT_1}
+- ${COMPLIANCE_REQUIREMENT_2}
+
+---
+
+## Notes and Additional Information
+${ADDITIONAL_NOTES}
+
+<!-- AI-VALIDATION
+Final Checklist:
+- All required sections are filled
+- At least one quantitative metric is specified
+- Validation methods are concrete and measurable
+- All placeholders have been replaced
+- Template instructions have been removed
+-->

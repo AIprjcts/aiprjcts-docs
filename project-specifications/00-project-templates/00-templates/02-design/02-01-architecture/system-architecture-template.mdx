@@ -1,0 +1,167 @@
+---
+Author: [Your Name]
+Version: 1.0
+Date Created: [YYYY-MM-DD]
+Last Updated: [YYYY-MM-DD]
+Status: [Draft/In Review/Approved]
+Tags: [system architecture, design, overview]
+---
+
+<!--
+Definition of this template:
+
+- The System Architecture document provides a high-level overview of the system's structure and components.
+- It outlines how different parts of the system interact and integrate.
+- This document serves as a guide for developers, stakeholders, and AI tools to understand the system's design.
+
+Instructions for this template:
+
+- Copy and rename this file when creating a new System Architecture document.
+- Replace all placeholders within square brackets [] with specific content.
+- Remove any instructional comments from the final document.
+- Fields marked with **(Required)** are mandatory.
+
+Metadata Tags (for AI tools and searchability):
+
+- DocumentType: SystemArchitecture
+-->
+
+# System Architecture
+
+## Table of Contents
+
+<!--
+Example:
+
+- [1. Introduction](#1-introduction)
+- [2. Architectural Goals and Constraints](#2-architectural-goals-and-constraints)
+- [3. System Overview](#3-system-overview)
+- [4. Component Descriptions](#4-component-descriptions)
+- [5. Interaction Diagrams](#5-interaction-diagrams)
+- [6. Technology Stack](#6-technology-stack)
+- [7. Security Considerations](#7-security-considerations)
+- [8. Scalability and Performance](#8-scalability-and-performance)
+-->
+
+---
+
+## 1. Introduction
+
+- **Purpose (Required)**: [State the purpose of this document and its intended audience]
+- **Scope**: [Define what the document covers and what it doesn't]
+- **References**: [List any related documents or resources]
+
+## 2. Architectural Goals and Constraints
+
+- **Goals (Required)**:
+  - [e.g., Scalability to handle up to 1 million users]
+  - [High availability with 99.9% uptime]
+- **Constraints**:
+  - [e.g., Must use specific technologies or comply with regulations]
+  - [Budget limitations]
+
+## 3. System Overview
+
+- **High-Level Description (Required)**: [Provide a summary of the system architecture]
+- **Diagram**: [Include or link to a high-level system diagram]
+
+## 4. Component Descriptions
+
+- **Component 1 (Required)**:
+  - **Name**: [Component Name, e.g., "User Authentication Service"]
+  - **Description**: [Brief description of the component's purpose]
+  - **Responsibilities**: [List of responsibilities]
+  - **Interfaces**: [APIs or interfaces it exposes]
+- **Component 2**:
+  - [Repeat the structure for each component]
+
+## 5. Interaction Diagrams
+
+- **Sequence Diagrams**: [Include or link to sequence diagrams showing interactions]
+- **Data Flow Diagrams**: [Include or link to data flow diagrams]
+
+## 6. Technology Stack
+
+- **Frontend**:
+  - [Technologies, e.g., React, Redux]
+- **Backend**:
+  - [Technologies, e.g., Node.js, Express]
+- **Database**:
+  - [Technologies, e.g., PostgreSQL, MongoDB]
+- **Infrastructure**:
+  - [Hosting platforms, e.g., AWS, Azure]
+- **Tools and Frameworks**:
+  - [e.g., Docker, Kubernetes]
+
+## 7. Security Considerations
+
+- **Authentication and Authorization**: [Methods used, e.g., OAuth 2.0, JWT]
+- **Data Protection**: [Encryption methods, data storage policies]
+- **Compliance Requirements**: [e.g., GDPR, HIPAA]
+
+## 8. Scalability and Performance
+
+- **Scalability Strategies**: [Vertical and horizontal scaling approaches]
+- **Performance Metrics**: [Expected response times, throughput]
+- **Caching Mechanisms**: [Use of caching layers, CDNs]
+
+## 9. Future Enhancements
+
+- [List potential future improvements or considerations]
+
+---
+
+**Final Reminders:**
+
+- Ensure diagrams are up-to-date and accurately reflect the system.
+- Review for clarity and completeness.
+- Remove any instructional text before finalizing.
+
+---
+
+### **Architecture_Diagrams/**
+
+- Include all architecture-related diagrams in this folder.
+- Use clear and consistent naming conventions, e.g., `System_Overview_Diagram.png`, `Component_Interaction_Diagram.svg`.
+
+---
+
+### **1.2 01_Database_Design**
+
+#### **ER_Diagrams/**
+
+- Store Entity-Relationship diagrams here.
+- Name files descriptively, e.g., `ER_Diagram_v1.png`.
+
+#### **Database_Schema.sql**
+
+```sql
+-- Database Schema for [Project Name]
+-- Author: [Your Name]
+-- Date Created: [YYYY-MM-DD]
+-- Last Updated: [YYYY-MM-DD]
+-- Version: 1.0
+
+/*
+Instructions:
+
+- This SQL file defines the database schema.
+- Include CREATE TABLE statements for all tables.
+- Define relationships, indexes, and constraints.
+- Use consistent naming conventions.
+
+Metadata Tags:
+
+- DocumentType: DatabaseSchema
+*/
+
+-- Example Table
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Additional tables and relationships...
