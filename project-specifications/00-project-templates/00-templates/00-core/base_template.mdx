@@ -1,0 +1,343 @@
+---
+# Template Metadata
+template:
+  id: "${TEMPLATE_ID}"               # Example: "user-persona", "api-spec", "test-plan"
+  version: "${TEMPLATE_VERSION}"     # Example: "2.0"
+  category: "${CATEGORY}"           # Example: "requirements", "design", "implementation"
+  type: "${TYPE}"                   # Example: "user-research", "architecture", "deployment"
+  parent: "${OPTIONAL:PARENT_ID}"   # For templates that extend others
+
+
+# Document Metadata
+metadata:
+  author: "${AUTHOR}"
+  version: "${DOCUMENT_VERSION}"
+  created: "${DATE_CREATED}"
+  updated: "${DATE_UPDATED}"
+  status: "${SELECT:Draft|In Review|Approved}"
+  reviewers: ["${REVIEWER_1}", "${OPTIONAL:REVIEWER_2}"]
+
+
+# Document Identification to be used for generated templates from the base one or for specifications documents generated from the specific templates
+document:
+  key: "${DOCUMENT_KEY}"            # Example: "US-001", "REQ-101", "ARCH-201"
+  naming:
+    pattern: "${KEY}-${descriptor}"  # Example: "US-001-login_user_story"
+    prefix:                         # Standard prefixes by category
+      requirements:
+        user_story: "US"
+        persona: "PER"
+        use_case: "UC"
+        functional: "FR"
+        non_functional: "NFR"
+        technical: "TR"
+      design:
+        architecture: "ARCH"
+        database: "DB"
+        api: "API"
+        ui: "UI"
+        security: "SEC"
+      implementation:
+        development: "DEV"
+        deployment: "DEPL"
+        testing: "TEST"
+    sequence:
+      format: "000"                 # Defines number format (e.g., 001, 002)
+      current: "${AUTO_INCREMENT}"   # Automatically managed by AI/tool
+    descriptor:                     # Kebab-case description
+      format: "lowercase_with_underscores"
+      max_length: 50
+      
+
+# AI Processing Configuration
+ai:
+  documentType: "${DOCUMENT_TYPE}"
+  # MoSCoW prioritization for sections and validations
+  validationRules:
+    mustSections: 
+        - id: "${MUST_SECTION_1}"
+          errorMessage: "Section ${MUST_SECTION_1} is required"
+          validationCriteria: "${VALIDATION_CRITERIA}"
+    shouldSections: ["${SHOULD_SECTION_1}"]
+    couldSections: ["${COULD_SECTION_1}"]
+    wontSections: ["${WONT_SECTION_1}"]
+    dataValidation:
+      ${VALIDATION_FIELD_1}: "${VALIDATION_RULE_1}"
+      ${VALIDATION_FIELD_2}: "${VALIDATION_RULE_2}"
+  
+
+  promptEngineering:
+    chainOfThought: true
+    fewShotExamples: true
+    contextWindow: "${CONTEXT_SIZE}"
+  
+  promptTemplates:
+    creation: |  
+      context: "${CONTEXT}"
+      instruction: "Create a ${DOCUMENT_TYPE} for ${SYSTEM_TYPE}"
+      focus: "${FOCUS_AREA}"
+      constraints: 
+        - "${CONSTRAINT_1}"
+        - "${CONSTRAINT_2}"
+      examples:
+        - "${EXAMPLE_1}"
+        - "${EXAMPLE_2}"
+
+    enhancement: |
+      Enhance the ${DOCUMENT_TYPE} ${DOCUMENT_ID} with additional details about ${ASPECT}.
+      Consider:
+      - Current content: ${CURRENT_CONTENT}
+      - Missing elements: ${MISSING_ELEMENTS}
+      - Related data: ${RELATED_DATA}
+
+  relationships:
+    dependencies: ["${DEPENDENCY_1}", "${OPTIONAL:DEPENDENCY_2}"]
+    references: ["${REFERENCE_1}", "${OPTIONAL:REFERENCE_2}"]
+    impacts: ["${IMPACT_1}", "${OPTIONAL:IMPACT_2}"]
+   
+  inheritance:
+    extends: "${PARENT_TEMPLATE}"
+    override:
+      - section: "${SECTION_NAME}"
+        behavior: "replace|merge|append"
+
+   errorHandling:
+      validation:
+      onFailure: "${FAILURE_ACTION}"
+      retryStrategy: "${RETRY_STRATEGY}"
+      generation:
+      fallbackOptions: ["${FALLBACK_1}", "${FALLBACK_2}"]
+
+   output:
+      format:
+         structure: "${OUTPUT_STRUCTURE}"
+         validation: "${VALIDATION_RULES}"
+      versioning:
+         strategy: "${VERSION_STRATEGY}"
+         changelog: "${CHANGELOG_FORMAT}"
+
+   composition:
+    components:
+      - id: "${COMPONENT_ID}"
+        source: "${COMPONENT_TEMPLATE}"
+        placement: "${PLACEMENT_LOCATION}"
+
+# Content Schema
+contentSchema:
+  sections:
+    - id: "${SECTION_ID}"
+      required: ${BOOLEAN}
+      validation: "${VALIDATION_RULE}"
+      subsections: ["${SUBSECTION_1}", "${SUBSECTION_2}"]
+
+
+---
+
+<!-- 
+TEMPLATE USAGE INSTRUCTIONS:
+1. Replace all ${PLACEHOLDER} markers with actual content
+2. Remove all template comments and instructions
+3. Validate against the schema defined in metadata
+4. Update relationships as needed
+-->
+
+<!-- AI-CONTEXT: Document Purpose
+This template serves as a base for generating specific documentation templates.
+Key points:
+1. Maintain consistency across sections
+2. Ensure traceability through relationships
+3. Follow validation rules for completeness
+-->
+
+<!-- 
+SPECIFICATION DOCUMENT NAMING INSTRUCTIONS:
+1. Each specification document resulting from applying a template gets a unique key following the pattern: ${PREFIX}-${SEQUENCE}-${DESCRIPTOR}
+   Examples:
+   - US-001-user_login_story
+   - PER-001-admin_user_persona
+   - ARCH-001-system_overview
+   - API-001-authentication_endpoints
+   - TEST-001-login_integration
+
+2. Key Usage in References:
+   - Short reference: Use just the key (US-001)
+   - Full reference: Use complete filename (US-001-user_login_story)
+   - URL reference: Use path with filename
+   
+3. Relationship Examples:
+   dependencies: ["US-001", "FR-002"]
+   references: ["ARCH-001", "API-002"]
+   impacts: ["TEST-001", "DOC-002"]
+
+4. Naming Best Practices:
+   - Keep descriptors clear and concise
+   - Use lowercase with underscores
+   - Include purpose in descriptor
+   - Maintain consistent naming patterns
+   - Avoid special characters
+
+5. Auto-incrementing Rules:
+   - Sequence numbers are unique within each prefix
+   - Gaps in sequence are allowed
+   - Deleted documents' numbers are not reused
+   - New documents get next available number
+-->
+
+# ${DOCUMENT_TITLE}
+
+## Overview
+<!-- AI-VALIDATION: Must provide clear context and purpose -->
+${OVERVIEW_CONTENT}
+
+## Scope
+<!-- AI-VALIDATION: Define boundaries and limitations -->
+${SCOPE_CONTENT}
+
+## Main Content
+<!-- AI-VALIDATION: Content structure varies by document type -->
+### ${SECTION_TITLE_1}
+${SECTION_CONTENT_1}
+
+### ${SECTION_TITLE_2}
+${SECTION_CONTENT_2}
+
+## Relationships and Dependencies
+<!-- AI-VALIDATION: Must link to related documents -->
+```mermaid
+graph LR
+    ${CURRENT_DOC}[${DOCUMENT_TITLE}] --> ${DEPENDENCY_1}[${DEP_1_NAME}]
+    ${CURRENT_DOC} --> ${DEPENDENCY_2}[${DEP_2_NAME}]
+```
+
+## Validation and Review
+<!-- AI-VALIDATION: Track document status and reviews -->
+| Aspect | Status | Notes |
+|--------|--------|-------|
+| Technical Review | ${SELECT:Pending|Completed|N/A} | ${NOTES} |
+| Peer Review | ${SELECT:Pending|Completed|N/A} | ${NOTES} |
+| Validation | ${SELECT:Pending|Completed|N/A} | ${NOTES} |
+
+## Change History
+<!-- AI-VALIDATION: Track document versions and changes -->
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| ${VERSION} | ${DATE} | ${AUTHOR} | ${CHANGES} |
+
+<!-- 
+FINAL DOCUMENT INSTRUCTIONS:
+1. Remove all ${PLACEHOLDER} markers and replace with actual content
+2. Remove all AI-CONTEXT comments
+3. Remove all template comments and instructions
+4. Remove all example sections
+5. Remove this instruction block
+6. Update all diagrams with actual content
+7. Ensure all sections follow template's validation rules
+8. Verify all relationships are properly linked
+9. Complete the Change History with initial version
+10. Update document metadata with final values
+-->
+
+<!-- 
+EXAMPLE VALUES AND PATTERNS:
+Note: These examples should be removed in final document
+
+1. Template Metadata Examples:
+   - id: "arch-design", "test-plan", "user-story"
+   - category: "requirements", "design", "implementation"
+   - type: "technical", "process", "specification"
+
+2. Document Types by Category:
+   Requirements:
+   - User Stories: "As a [user type], I want [goal] so that [benefit]"
+   - Use Cases: "UC-01: User Authentication Process"
+   - Functional Requirements: "FR-01: Data Encryption Standard"
+
+   Design:
+   - Architecture: "System Component Diagram"
+   - Database: "Data Model Specification"
+   - API: "REST API Endpoint Documentation"
+
+   Implementation:
+   - Development: "Coding Standards Guide"
+   - Testing: "Integration Test Plan"
+   - Deployment: "Cloud Infrastructure Setup"
+
+3. Relationship Examples:
+   dependencies: ["REQ-01", "ARCH-02", "TEST-03"]
+   references: ["STD-01", "POLICY-02"]
+   impacts: ["COMP-01", "API-02"]
+
+4. Validation Rules Examples:
+   - "Must contain at least one diagram"
+   - "All API endpoints must have response codes"
+   - "Each requirement must have acceptance criteria"
+   - "Test cases must link to requirements"
+
+5. Section Content Examples:
+   Overview:
+   > "This [document_type] defines the [aspect] for [system_name], 
+   > focusing on [specific_area] and addressing [key_concerns]."
+
+   Scope:
+   > "Includes: [in_scope_items]
+   > Excludes: [out_of_scope_items]
+   > Assumptions: [key_assumptions]"
+
+6. Mermaid Diagram Patterns:
+   ```mermaid
+   graph LR
+      A[Component A] --> B[Component B]
+      B --> C[Component C]
+      style A fill:#f9f,stroke:#333
+      style B fill:#bbf,stroke:#333
+      style C fill:#bfb,stroke:#333
+   ```
+
+7. Review Status Patterns:
+   Technical Review: "Completed - Approved with minor comments"
+   Peer Review: "Pending - Scheduled for 2024-04-10"
+   Validation: "Completed - All requirements met"
+
+8. Change History Pattern:
+   | Version | Date | Author | Changes |
+   |---------|------|--------|----------|
+   | 1.0 | 2024-04-01 | J. Smith | Initial version |
+   | 1.1 | 2024-04-05 | A. Johnson | Updated based on review feedback |
+
+9. Common Validation Checks:
+   - All must-have sections are completed
+   - All diagrams are properly rendered
+   - All links are valid and accessible
+   - All relationships are bi-directional
+   - All referenced documents exist
+   - All acceptance criteria are testable
+   - All requirements are traceable
+   - All technical terms are in glossary
+-->
+
+<!-- 
+AI PROCESSING HINTS:
+1. Content Generation:
+   - Use project context to generate relevant content
+   - Maintain consistency with existing documents
+   - Follow industry standards for the document type
+   - Ensure generated content is specific and actionable
+
+2. Validation Processing:
+   - Check for completeness of required sections
+   - Verify relationship consistency
+   - Validate against schema rules
+   - Ensure proper formatting and structure
+
+3. Enhancement Processing:
+   - Identify gaps in current content
+   - Suggest improvements based on best practices
+   - Maintain document history
+   - Update related documents as needed
+
+4. Relationship Processing:
+   - Verify bi-directional links
+   - Update impact analysis
+   - Maintain traceability matrix
+   - Check for circular dependencies
+-->
