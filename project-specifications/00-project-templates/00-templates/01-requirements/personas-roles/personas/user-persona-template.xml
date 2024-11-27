@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<userPersona>
+    <templateMetadata>
+        <id>user-persona</id>
+        <version>1.0</version>
+        <category>requirements</category>
+        <type>user-research</type>
+        <parent>base_template</parent>
+    </templateMetadata>
+    
+    <metadata>
+        <author>${AUTHOR}</author>
+        <version>${VERSION}</version>
+        <created>${CREATED_DATE}</created>
+        <updated>${UPDATED_DATE}</updated>
+        <status>${STATUS}</status>
+        <reviewers>
+            <reviewer required="true">${REVIEWER_1}</reviewer>
+            <reviewer required="false">${REVIEWER_2}</reviewer>
+        </reviewers>
+    </metadata>
+    
+    <document>
+        <key>${DOCUMENT_KEY}</key>
+        <naming>
+            <pattern>PER-${SEQUENCE}-${DESCRIPTOR}</pattern>
+            <prefix>PER</prefix>
+            <sequence format="000">${AUTO_INCREMENT}</sequence>
+            <descriptor maxLength="50">lowercase_with_underscores</descriptor>
+        </naming>
+    </document>
+    
+    <content>
+        <basicInformation required="true">
+            <fullName>${NAME}</fullName>
+            <age>${AGE}</age>
+            <occupation>${OCCUPATION}</occupation>
+            <location>${LOCATION}</location>
+            <education>${EDUCATION}</education>
+            <incomeLevel>${INCOME_LEVEL}</incomeLevel>
+            <familyStatus>${FAMILY_STATUS}</familyStatus>
+        </basicInformation>
+        
+        <technicalProfile required="true">
+            <deviceUsage options="Low|Medium|High">${DEVICE_USAGE}</deviceUsage>
+            <techComfort options="Beginner|Intermediate|Advanced">${TECH_COMFORT}</techComfort>
+            <primaryDevices>
+                <device>${DEVICE_1}</device>
+                <device>${DEVICE_2}</device>
+            </primaryDevices>
+            <frequentlyUsedApps>
+                <app>${APP_1}</app>
+                <app>${APP_2}</app>
+            </frequentlyUsedApps>
+            <digitalServices>
+                <service>${SERVICE_1}</service>
+                <service>${SERVICE_2}</service>
+            </digitalServices>
+        </technicalProfile>
+        
+        <goalsAndNeeds required="true">
+            <primaryGoals minItems="2">
+                <goal>${PRIMARY_GOAL_1}</goal>
+                <goal>${PRIMARY_GOAL_2}</goal>
+            </primaryGoals>
+            <secondaryGoals minItems="1">
+                <goal>${SECONDARY_GOAL_1}</goal>
+            </secondaryGoals>
+        </goalsAndNeeds>
+        
+        <painPoints required="true">
+            <challenges minItems="2">
+                <challenge>${CHALLENGE_1}</challenge>
+                <challenge>${CHALLENGE_2}</challenge>
+            </challenges>
+            <frustrations minItems="2">
+                <frustration>${FRUSTRATION_1}</frustration>
+                <frustration>${FRUSTRATION_2}</frustration>
+            </frustrations>
+        </painPoints>
+        
+        <dailyRoutine required="false">
+            <morning>
+                <activity>
+                    <time format="HH:mm">${MORNING_TIME_1}</time>
+                    <description>${MORNING_ACTIVITY_1}</description>
+                </activity>
+            </morning>
+            <afternoon>
+                <activity>
+                    <time format="HH:mm">${AFTERNOON_TIME_1}</time>
+                    <description>${AFTERNOON_ACTIVITY_1}</description>
+                </activity>
+            </afternoon>
+            <evening>
+                <activity>
+                    <time format="HH:mm">${EVENING_TIME_1}</time>
+                    <description>${EVENING_ACTIVITY_1}</description>
+                </activity>
+            </evening>
+        </dailyRoutine>
+    </content>
+    
+    <relationships>
+        <dependencies>
+            <dependency>${DEPENDENCY_1}</dependency>
+            <dependency>${DEPENDENCY_2}</dependency>
+        </dependencies>
+        <references>
+            <reference>${REFERENCE_1}</reference>
+            <reference>${REFERENCE_2}</reference>
+        </references>
+        <impacts>
+            <impact>${IMPACT_1}</impact>
+            <impact>${IMPACT_2}</impact>
+        </impacts>
+    </relationships>
+</userPersona>
