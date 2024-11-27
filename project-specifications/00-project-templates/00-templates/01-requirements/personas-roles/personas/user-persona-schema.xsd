@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <!-- Root element -->
+    <xs:element name="userPersona">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Document metadata -->
+                <xs:element name="document">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="metadata">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="version" type="xs:string"/>
+                                        <xs:element name="status" type="xs:string"/>
+                                        <xs:element name="author" type="xs:string"/>
+                                        <xs:element name="lastModified" type="xs:date"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="naming">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="prefix" type="xs:string"/>
+                                        <xs:element name="identifier" type="xs:string"/>
+                                        <xs:element name="suffix" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Content section -->
+                <xs:element name="content">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- Basic Information -->
+                            <xs:element name="basicInformation">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="fullName" type="xs:string"/>
+                                        <xs:element name="age" type="xs:integer"/>
+                                        <xs:element name="occupation" type="xs:string"/>
+                                        <xs:element name="location" type="xs:string"/>
+                                        <xs:element name="education" type="xs:string"/>
+                                        <xs:element name="incomeLevel" type="xs:string"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="required" type="xs:boolean" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Technical Profile -->
+                            <xs:element name="technicalProfile">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="skillLevel" type="xs:string"/>
+                                        <xs:element name="technicalSkills">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="skill" type="xs:string" maxOccurs="unbounded"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="toolsUsed">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="tool" type="xs:string" maxOccurs="unbounded"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Goals and Needs -->
+                            <xs:element name="goalsAndNeeds">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="primaryGoals">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="goal" type="xs:string" maxOccurs="unbounded"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="painPoints">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="painPoint" type="xs:string" maxOccurs="unbounded"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="motivations">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="motivation" type="xs:string" maxOccurs="unbounded"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Behavior Patterns -->
+                            <xs:element name="behaviorPatterns">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="workStyle" type="xs:string"/>
+                                        <xs:element name="communicationPreferences" type="xs:string"/>
+                                        <xs:element name="decisionMakingProcess" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Environment -->
+                            <xs:element name="environment">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="workEnvironment" type="xs:string"/>
+                                        <xs:element name="teamDynamics" type="xs:string"/>
+                                        <xs:element name="organizationalContext" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Scenarios -->
+                            <xs:element name="scenarios">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="scenario" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="title" type="xs:string"/>
+                                                    <xs:element name="description" type="xs:string"/>
+                                                    <xs:element name="goals" type="xs:string"/>
+                                                    <xs:element name="challenges" type="xs:string"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
