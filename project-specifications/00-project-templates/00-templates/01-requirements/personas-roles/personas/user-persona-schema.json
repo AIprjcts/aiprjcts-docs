@@ -1,0 +1,448 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "User Persona Template Schema",
+  "description": "Comprehensive schema for generating user persona specifications with instructions and output formats",
+  "type": "object",
+  "required": ["template_metadata", "usage_instructions", "ai_context", "schema_definition", "output_formats"],
+  "properties": {
+    "template_metadata": {
+      "type": "object",
+      "description": "Core template identification and versioning information",
+      "required": ["id", "version", "category", "type", "parent"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "const": "user-persona"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+$"
+        },
+        "category": {
+          "type": "string",
+          "const": "requirements"
+        },
+        "type": {
+          "type": "string",
+          "const": "user-research"
+        },
+        "parent": {
+          "type": "string",
+          "const": "base_template"
+        }
+      }
+    },
+    "usage_instructions": {
+      "type": "object",
+      "description": "Instructions for using this template",
+      "required": ["template_usage", "naming_conventions", "final_document"],
+      "properties": {
+        "template_usage": {
+          "type": "array",
+          "description": "Step-by-step instructions for using the template",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "Replace all placeholder markers with actual content",
+            "Remove all template comments and instructions",
+            "Validate against the schema defined in metadata",
+            "Update relationships as needed",
+            "Ensure all required sections are completed",
+            "Verify all validation rules are satisfied"
+          ]
+        },
+        "naming_conventions": {
+          "type": "object",
+          "description": "Rules for naming and identifying documents",
+          "properties": {
+            "pattern": {
+              "type": "string",
+              "const": "PER-${SEQUENCE}-${descriptor}"
+            },
+            "examples": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": [
+                "PER-001-senior_developer_persona",
+                "PER-002-customer_service_persona"
+              ]
+            },
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": [
+                "Use lowercase with underscores for descriptor",
+                "Keep descriptors clear and concise",
+                "Maximum length of 50 characters for descriptor",
+                "Sequence numbers are unique and auto-incrementing"
+              ]
+            }
+          }
+        },
+        "final_document": {
+          "type": "array",
+          "description": "Steps to finalize the document",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "Remove all placeholder markers and replace with actual content",
+            "Remove all template comments and instructions",
+            "Validate against schema requirements",
+            "Update all diagrams with actual content",
+            "Complete the Change History with initial version",
+            "Update document metadata with final values"
+          ]
+        }
+      }
+    },
+    "ai_context": {
+      "type": "object",
+      "description": "Context and instructions for AI processing",
+      "required": ["purpose", "validation_rules", "generation_instructions"],
+      "properties": {
+        "purpose": {
+          "type": "string",
+          "description": "The main purpose of this template",
+          "default": "This template serves as a base for creating detailed user personas that capture the characteristics, needs, and behaviors of target users."
+        },
+        "key_points": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "Maintain consistency across sections",
+            "Ensure traceability through relationships",
+            "Follow validation rules for completeness",
+            "Keep content realistic and evidence-based"
+          ]
+        },
+        "validation_rules": {
+          "type": "object",
+          "properties": {
+            "mustSections": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": [
+                "basic_information",
+                "goals_and_needs",
+                "technical_profile",
+                "pain_points"
+              ]
+            },
+            "shouldSections": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": [
+                "daily_routine",
+                "preferences",
+                "user_stories"
+              ]
+            },
+            "sectionValidations": {
+              "type": "object",
+              "properties": {
+                "basic_information": {
+                  "type": "string",
+                  "default": "Must include all required demographic information"
+                },
+                "technical_profile": {
+                  "type": "string",
+                  "default": "Must specify technology comfort and usage patterns"
+                },
+                "goals_and_needs": {
+                  "type": "string",
+                  "default": "Must include at least 2 primary goals"
+                },
+                "pain_points": {
+                  "type": "string",
+                  "default": "Must include specific challenges and frustrations"
+                }
+              }
+            }
+          }
+        },
+        "generation_instructions": {
+          "type": "object",
+          "properties": {
+            "prompt_template": {
+              "type": "string",
+              "default": "Generate a user persona for ${system_type} focusing on ${user_type} with the following characteristics: ${characteristics}"
+            },
+            "required_aspects": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": [
+                "Demographics",
+                "Technical proficiency",
+                "Goals and motivations",
+                "Pain points and frustrations",
+                "Daily routines and behaviors"
+              ]
+            },
+            "section_prompts": {
+              "type": "object",
+              "properties": {
+                "basic_information": {
+                  "type": "string",
+                  "default": "Create realistic demographic information for ${user_type} including name, age, occupation, location, education, income level, and family status"
+                },
+                "technical_profile": {
+                  "type": "string",
+                  "default": "Describe the technical capabilities and preferences of ${user_type} including device usage, comfort level with technology, and commonly used applications"
+                },
+                "goals_and_needs": {
+                  "type": "string",
+                  "default": "List the primary and secondary goals that motivate ${user_type} in relation to ${system_type}"
+                },
+                "pain_points": {
+                  "type": "string",
+                  "default": "Identify key challenges and frustrations that ${user_type} experiences with current solutions"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "schema_definition": {
+      "type": "object",
+      "description": "The core schema definition for the user persona content",
+      "required": ["basic_information", "technical_profile", "goals_and_needs", "pain_points"],
+      "properties": {
+        "basic_information": {
+          "type": "object",
+          "required": ["name", "age", "occupation", "location", "education", "income_level", "family_status"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Must be realistic and culturally appropriate"
+            },
+            "age": {
+              "type": "string",
+              "pattern": "^(\\d+|\\d+-\\d+)$",
+              "description": "Single number or range (e.g., '25' or '25-30')"
+            },
+            "occupation": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "education": {
+              "type": "string"
+            },
+            "income_level": {
+              "type": "string",
+              "pattern": "^\\$?\\d+k?-\\$?\\d+k?$"
+            },
+            "family_status": {
+              "type": "string"
+            }
+          }
+        },
+        "technical_profile": {
+          "type": "object",
+          "required": ["device_usage", "tech_comfort", "primary_devices", "frequently_used_apps", "digital_services"],
+          "properties": {
+            "device_usage": {
+              "type": "string",
+              "enum": ["Low", "Medium", "High"]
+            },
+            "tech_comfort": {
+              "type": "string",
+              "enum": ["Beginner", "Intermediate", "Advanced"]
+            },
+            "primary_devices": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "frequently_used_apps": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "digital_services": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "goals_and_needs": {
+          "type": "object",
+          "required": ["primary_goals", "secondary_goals"],
+          "properties": {
+            "primary_goals": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            "secondary_goals": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "pain_points": {
+          "type": "object",
+          "required": ["challenges", "frustrations"],
+          "properties": {
+            "challenges": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            "frustrations": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "daily_routine": {
+          "type": "object",
+          "properties": {
+            "morning": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["time", "activity"],
+                "properties": {
+                  "time": {
+                    "type": "string",
+                    "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                  },
+                  "activity": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "afternoon": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["time", "activity"],
+                "properties": {
+                  "time": {
+                    "type": "string",
+                    "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                  },
+                  "activity": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "evening": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["time", "activity"],
+                "properties": {
+                  "time": {
+                    "type": "string",
+                    "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$"
+                  },
+                  "activity": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "output_formats": {
+      "type": "object",
+      "description": "Specifications for the required output formats",
+      "required": ["json", "mdx"],
+      "properties": {
+        "json": {
+          "type": "object",
+          "properties": {
+            "filename_pattern": {
+              "type": "string",
+              "default": "${document_key}.json"
+            },
+            "structure": {
+              "type": "string",
+              "description": "Reference to the schema structure to use",
+              "default": "#/definitions/user_persona_content"
+            }
+          }
+        },
+        "mdx": {
+          "type": "object",
+          "properties": {
+            "filename_pattern": {
+              "type": "string",
+              "default": "${document_key}.mdx"
+            },
+            "sections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "content_type": {
+                    "type": "string",
+                    "enum": ["text", "table", "list", "code", "mermaid"]
+                  },
+                  "validation": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "styling": {
+              "type": "object",
+              "properties": {
+                "comments": {
+                  "type": "string",
+                  "default": "{/* Comment */}"
+                },
+                "headings": {
+                  "type": "string",
+                  "default": "# for main heading, ## for sections"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

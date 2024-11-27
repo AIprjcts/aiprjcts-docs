@@ -52,6 +52,7 @@ document:
 # AI Processing Configuration
 ai:
   documentType: "${DOCUMENT_TYPE}"
+  parentTemplate: "${PARENT_TEMPLATE_ID}"
   # MoSCoW prioritization for sections and validations
   validationRules:
     mustSections: ["${MUST_SECTION_1}", "${MUST_SECTION_2}"]
@@ -93,6 +94,7 @@ contentSchema:
 
 <!-- 
 TEMPLATE USAGE INSTRUCTIONS:
+If the final use of this template is to generate a specification document, and not a derivated template, follow these steps:
 1. Replace all ${PLACEHOLDER} markers with actual content
 2. Remove all template comments and instructions
 3. Validate against the schema defined in metadata
@@ -183,6 +185,7 @@ graph LR
 
 <!-- 
 FINAL DOCUMENT INSTRUCTIONS:
+If the final use of this template is to generate a specification document, and not a derived template, follow these steps:
 1. Remove all ${PLACEHOLDER} markers and replace with actual content
 2. Remove all AI-CONTEXT comments
 3. Remove all template comments and instructions
