@@ -7,12 +7,20 @@
 | Epic Name | Health Visualization and Mapping |
 | Created By | Zebra Team |
 | Created Date | 2023-12-14 |
-| Last Updated | 2023-12-14 |
+| Last Updated | 2024-12-01 |
 | Status | Draft |
+| Version | 0.3 |
 
 ## Epic Overview
 ### Business Context
-Healthcare stakeholders require intuitive and comprehensive visualization tools to effectively understand and manage health data. Current systems often present data in complex, text-heavy formats that are difficult to interpret, leading to reduced efficiency in healthcare delivery and patient engagement.
+Patients and caregivers often struggle to understand and engage with their health information due to complex, text-heavy medical records and data presentations. This challenge leads to reduced health literacy, difficulty in tracking health progress, and limited engagement in their healthcare journey. Current health applications lack intuitive visualization tools that could help patients and their caregivers better understand their health status, track changes over time, and make informed decisions about their care.
+
+A user-friendly visualization system is essential to:
+- Help patients better understand their health conditions and treatment progress
+- Enable caregivers to effectively monitor and support their loved ones' health
+- Improve health literacy through intuitive visual representations
+- Facilitate better communication about health status between patients and their support network
+- Empower users to take a more active role in their health management
 
 ### Description
 A comprehensive health visualization system that enables users to view and interact with health data through multiple visualization levels, from basic tables to advanced 3D models. The system supports various visualization needs:
@@ -38,85 +46,88 @@ A comprehensive health visualization system that enables users to view and inter
 ### Strategic Alignment
 | Business Goal | Contribution |
 |--------------|--------------|
-| Enhanced Patient Care | Improves understanding and decision-making through visual health data representation |
-| Healthcare Innovation | Positions the platform as a leader in modern healthcare visualization technology |
-| User Empowerment | Enables users to better understand and manage their health through intuitive visualizations |
-| Clinical Efficiency | Streamlines healthcare delivery through improved data visualization and analysis tools |
-| Data-Driven Decisions | Facilitates evidence-based decision making through clear data visualization |
+| Patient Empowerment | Enables patients to understand and actively manage their health through intuitive visualizations |
+| Caregiver Support | Provides tools for caregivers to effectively monitor and support their loved ones |
+| Health Literacy | Improves understanding of health conditions through visual representations |
+| User Experience | Delivers an intuitive and accessible health management platform |
+| Information Sharing | Facilitates easy sharing of health information with healthcare providers when needed |
 
 ### Success Metrics
 1. User Adoption
-   - Target: 80% of users actively using basic visualization features
-   - Timeline: Q1 2024
+   - Target: 80% of patients and caregivers actively using basic visualization features
+   - Timeline: Q2 2025
    - Measurement: Usage analytics and user surveys
    - Baseline: Current system usage metrics
 
-2. Clinical Impact
-   - Target: 70% of healthcare providers reporting improved decision-making
-   - Timeline: Q2 2024
-   - Measurement: Clinical feedback surveys and decision time tracking
-   - Baseline: Current decision-making efficiency metrics
+2. Health Management Effectiveness
+   - Target: 70% of patients and caregivers reporting improved ability to track and understand health changes
+   - Timeline: Q3 2025
+   - Measurement: User feedback surveys, app usage patterns, and health tracking engagement
+   - Baseline: Current health management effectiveness metrics
 
 3. Patient Engagement
    - Target: 85% patient satisfaction with visualization tools
-   - Timeline: Q3 2024
+   - Timeline: Q4 2025
    - Measurement: Patient satisfaction surveys and tool usage statistics
    - Baseline: Current patient engagement metrics
 
 4. Performance Metrics
    - Target: 95% visualization load time under 2 seconds
-   - Timeline: Q4 2024
+   - Timeline: Q2 2025
    - Measurement: System performance monitoring
    - Baseline: Current system response times
 
 ## Value Streams
 ### User Journeys
-1. Basic Health Data Visualization
-   - Current State: Users struggle with complex, text-based health records
-   - Future State: Intuitive visual representation of health data
-   - Value Added: Improved comprehension and engagement with health information
+1. Personal Health Data Visualization
+   - Current State: Patients struggle with understanding complex health records
+   - Future State: Intuitive visual representation of personal health data
+   - Value Added: Improved health literacy and self-management
    - Key Metrics: 50% reduction in time spent interpreting health data
 
-2. Clinical Decision Support
-   - Current State: Limited visual tools for clinical analysis
-   - Future State: Rich visualization suite supporting clinical decisions
-   - Value Added: Enhanced clinical decision-making and patient communication
-   - Key Metrics: 30% improvement in decision-making speed
+2. Caregiver Monitoring
+   - Current State: Difficulty tracking and managing loved ones' health information
+   - Future State: Easy-to-use dashboard for health monitoring
+   - Value Added: Enhanced ability to support and care for loved ones
+   - Key Metrics: 40% improvement in care coordination efficiency
 
-3. Patient Education
-   - Current State: Difficulty explaining health conditions to patients
-   - Future State: Interactive 3D models and visual aids for patient education
-   - Value Added: Better patient understanding and treatment compliance
-   - Key Metrics: 40% improvement in patient comprehension
+3. Health Information Sharing
+   - Current State: Challenges in communicating health status with providers
+   - Future State: Clear visual summaries for healthcare appointments
+   - Value Added: More effective communication with healthcare team
+   - Key Metrics: 45% improvement in information sharing effectiveness
 
 ## Story Mapping
 ### User Activities
 1. Basic Data Visualization
-   - Description: View and interact with basic health data formats
-   - Related Personas: PER-001 (Patient), PER-002 (Healthcare Provider), PER-003 (Specialist)
+   - Description: View and interact with personal health data
+   - Related Personas: PER-001 (Patient), PER-002 (Caregiver)
    - Priority: High
    - Acceptance Criteria: 
      * Data accuracy verification
      * Response time < 2 seconds
      * Mobile responsiveness
+     * Accessibility features
 
 2. Dashboard Management
-   - Description: Create and customize health data dashboards
-   - Related Personas: PER-002 (Healthcare Provider), PER-005 (Administrator)
+   - Description: Create and customize personal health dashboards
+   - Related Personas: PER-001 (Patient), PER-002 (Caregiver)
    - Priority: Medium
    - Acceptance Criteria:
-     * Widget customization
-     * Data refresh rates
-     * Export capabilities
+     * Intuitive widget customization
+     * Easy data refresh
+     * Simple export options
+     * Sharing capabilities
 
 3. Advanced Visualization
-   - Description: Interact with 3D models and advanced visualizations
-   - Related Personas: PER-003 (Specialist), PER-004 (Researcher)
+   - Description: Access 3D models and advanced visualizations for better understanding
+   - Related Personas: PER-001 (Patient), PER-002 (Caregiver)
    - Priority: Low
    - Acceptance Criteria:
-     * 3D model accuracy
+     * Simple interaction model
+     * Educational content integration
      * Performance optimization
-     * Interactive features
+     * Offline access capability
 
 ### Story Breakdown
 #### Activity 1: Basic Data Visualization
@@ -143,10 +154,10 @@ A comprehensive health visualization system that enables users to view and inter
 ### Release Strategy
 | Release | Features | Target Date | Dependencies |
 |---------|----------|-------------|--------------|
-| MVP | Basic visualization, Essential dashboards | Q1 2024 | Data management system |
-| R2 | Custom dashboards, Timeline views | Q2 2024 | MVP completion |
-| R3 | 3D visualization, Advanced features | Q3 2024 | 3D rendering engine |
-| R4 | AI-enhanced visualizations | Q4 2024 | AI/ML pipeline |
+| MVP | Basic visualization, Essential dashboards | Q4 2024 | Data management system |
+| R2 | Custom dashboards, Timeline views | Q2 2025 | MVP completion |
+| R3 | 3D visualization, Advanced features | Q3 2025 | 3D rendering engine |
+| R4 | AI-enhanced visualizations | Q4 2025 | AI/ML pipeline |
 
 ## Implementation Considerations
 ### Technical Dependencies
@@ -186,9 +197,9 @@ A comprehensive health visualization system that enables users to view and inter
 - Integration with existing health data systems is required
 - User training will be needed for advanced features
 
-# Version History
-| Version | Date | Author | Changes |
-|---------|------|--------|----------|
-| 0.1 | 2023-12-01 | Zebra Team | Initial draft |
-| 0.2 | 2023-12-07 | Zebra Team | Added technical dependencies |
-| 1.0 | 2023-12-14 | Zebra Team | Updated release strategy and success metrics |
+## Version History
+| Version | Date | Changes | Author |
+|---------|------|---------|---------|
+| 0.1 | 2023-12-14 | Initial draft created | Zebra Team |
+| 0.2 | 2024-01-09 | Updated focus to patients/caregivers, revised metrics and user journeys | Zebra Team |
+| 0.3 | 2024-12-01 | Updated release dates based on current date | Zebra Team |

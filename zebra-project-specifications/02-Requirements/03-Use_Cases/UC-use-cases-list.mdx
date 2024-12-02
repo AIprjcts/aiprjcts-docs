@@ -1,0 +1,378 @@
+# Use Cases List
+
+metadata:
+  id: "UC-LIST"
+  title: "Use Cases List"
+  type: "use-cases-list"
+  author: "Zebra Team"
+  creation_date: "2024-03-20"
+  last_updated: "2024-03-20"
+  status: "Draft"
+  version: "0.3"
+
+## Health Data Management Use Cases
+
+### Health Record Processing Group
+1. UC-001: Manage Health Records (Parent)
+   - Primary Actor: Patient
+   - Description: Parent use case for health record management
+   - Related Stories: US-001, US-002
+   - Personas: All Patient Personas
+   
+   1.1. UC-001.1: Process Clinical Documents
+       - Primary Actor: Patient
+       - Description: Process various types of clinical documents
+       - Variations:
+         * Discharge Summaries
+         * Progress Notes
+         * Consultation Reports
+         * Operative Reports
+         * Emergency Records
+       - Related Stories: US-001
+       - Personas: All Patient Personas
+
+   1.2. UC-001.2: Process Lab Results
+       - Primary Actor: Patient
+       - Description: Process laboratory test results
+       - Variations:
+         * Blood Tests
+         * Urine Analysis
+         * Pathology Reports
+         * Genetic Tests
+         * Microbiology Results
+       - Related Stories: US-001
+       - Personas: All Patient Personas
+
+   1.3. UC-001.3: Process Medical Images
+       - Primary Actor: Patient
+       - Description: Process various types of medical imaging
+       - Variations:
+         * X-Rays
+         * MRI Scans
+         * CT Scans
+         * Ultrasounds
+         * PET Scans
+       - Related Stories: US-001
+       - Personas: All Patient Personas
+
+   1.4. UC-001.4: Process Medications
+       - Primary Actor: Patient
+       - Description: Process medication-related records
+       - Variations:
+         * Prescriptions
+         * Medication Lists
+         * Pharmacy Records
+         * Immunization Records
+         * Medication Instructions
+       - Related Stories: US-001
+       - Personas: All Patient Personas
+
+   1.5. UC-001.5: Process Vital Signs
+       - Primary Actor: Patient
+       - Description: Process vital signs and measurements
+       - Variations:
+         * Blood Pressure
+         * Heart Rate
+         * Temperature
+         * Respiratory Rate
+         * Oxygen Levels
+       - Related Stories: US-001
+       - Personas: All Patient Personas
+
+2. UC-002: Organize Health Records
+   - Primary Actor: Patient
+   - Description: System intelligently organizes and categorizes health records
+   - Related Stories: US-002
+   - Personas: All Patient Personas
+
+3. UC-003: Validate Health Data
+   - Primary Actor: System
+   - Description: System validates and ensures data quality of health records
+   - Related Stories: US-003, US-051
+   - Personas: All Patient Personas
+
+4. UC-004: Import External Health Data
+   - Primary Actor: Patient
+   - Description: Patient imports health data from external sources
+   - Related Stories: US-004, US-052
+   - Personas: All Patient Personas
+
+5. UC-005: Export Health Records
+   - Primary Actor: Patient
+   - Description: Patient exports health records in various formats
+   - Related Stories: US-005, US-051
+   - Personas: All Patient Personas
+
+6. UC-006: Set and Track Health Goals
+   - Primary Actor: Patient
+   - Description: Patient creates and monitors personal health goals
+   - Related Stories: US-054
+   - Personas: All Patient Personas
+
+## Health Information Processing Use Cases
+7. UC-007: Generate Health Summary
+   - Primary Actor: System
+   - Description: System generates comprehensive health summaries
+   - Related Stories: US-003
+   - Personas: All Patient and Provider Personas
+
+8. UC-008: Parse Unstructured Medical Data
+   - Primary Actor: System
+   - Description: System processes and structures unstructured medical information
+   - Related Stories: US-054
+   - Personas: All Personas
+
+9. UC-009: Prepare for Medical Appointments
+   - Primary Actor: Patient
+   - Description: System helps prepare relevant information for appointments
+   - Related Stories: US-055
+   - Personas: All Patient Personas
+
+## Health Visualization Use Cases
+10. UC-010: View 3D Body Visualization
+    - Primary Actor: Patient
+    - Description: Patient interacts with 3D body visualization of health data
+    - Related Stories: US-005
+    - Personas: All Patient and Provider Personas
+
+11. UC-011: Navigate Health Timeline
+    - Primary Actor: Patient
+    - Description: Patient views and navigates temporal health information
+    - Related Stories: US-006
+    - Personas: All Patient and Provider Personas
+
+12. UC-012: Map Body Systems
+    - Primary Actor: System
+    - Description: System maps health data to body systems
+    - Related Stories: US-007
+    - Personas: All Patient and Provider Personas
+
+13. UC-013: Manage Custom Views
+    - Primary Actor: Patient
+    - Description: Patient creates and manages custom health data views
+    - Related Stories: US-008
+    - Personas: All Patient and Provider Personas
+
+## Data Sharing and Collaboration Use Cases
+14. UC-014: Filter Health Data
+    - Primary Actor: Patient
+    - Description: Patient filters and searches through health data
+    - Related Stories: US-009
+    - Personas: All Personas
+
+15. UC-015: Share with Healthcare Providers
+    - Primary Actor: Patient
+    - Description: Patient shares health data with healthcare providers
+    - Related Stories: US-010
+    - Personas: All Patient and Provider Personas
+
+16. UC-016: Manage Emergency Access
+    - Primary Actor: Patient
+    - Description: Patient sets up and manages emergency access protocols
+    - Related Stories: US-011, US-021
+    - Personas: All Patient Personas
+
+17. UC-017: Manage Access Permissions
+    - Primary Actor: Patient
+    - Description: Patient manages access rights to health data
+    - Related Stories: US-012
+    - Personas: All Patient Personas
+
+18. UC-018: Enable Family Access
+    - Primary Actor: Patient
+    - Description: Patient grants and manages family member access
+    - Related Stories: US-016
+    - Personas: PER-001, PER-002, PER-003, PER-004, PER-005
+
+## AI Health Insights Use Cases
+19. UC-019: Analyze Health Patterns
+    - Primary Actor: System
+    - Description: System identifies and analyzes patterns in health data
+    - Related Stories: US-013, US-020
+    - Personas: All Patient Personas
+
+20. UC-020: Generate Health Predictions
+    - Primary Actor: System
+    - Description: System provides AI-powered health predictions and risk assessments
+    - Related Stories: US-014, US-020
+    - Personas: All Patient Personas
+
+21. UC-021: Recommend Treatments
+    - Primary Actor: System
+    - Description: System suggests personalized treatment options
+    - Related Stories: US-015
+    - Personas: All Patient and Provider Personas
+
+22. UC-022: Provide Health Insights
+    - Primary Actor: System
+    - Description: System generates comprehensive health insights and recommendations
+    - Related Stories: US-020
+    - Personas: All Patient Personas
+
+23. UC-023: Interact with AI Assistant
+    - Primary Actor: Patient
+    - Description: Patient interacts with AI health assistant for guidance
+    - Related Stories: US-056
+    - Personas: All Patient Personas
+
+## Knowledge Base Use Cases
+24. UC-024: Manage Medical Knowledge Base
+    - Primary Actor: Administrator
+    - Description: Administrators manage and update medical knowledge base
+    - Related Stories: US-026
+    - Personas: PER-009, PER-010
+
+25. UC-025: Access Educational Resources
+    - Primary Actor: Patient
+    - Description: Patient accesses personalized educational materials
+    - Related Stories: US-057
+    - Personas: All Patient Personas
+
+26. UC-026: Search Medical Knowledge
+    - Primary Actor: Patient
+    - Description: Patient searches and navigates medical knowledge base
+    - Related Stories: US-004
+    - Personas: All Personas
+
+## Internationalization Use Cases
+27. UC-027: Configure Language Settings
+    - Primary Actor: Patient
+    - Description: Patient configures preferred language and translation settings
+    - Related Stories: US-019
+    - Personas: All Personas
+
+28. UC-028: Manage Regional Preferences
+    - Primary Actor: Patient
+    - Description: Patient customizes regional and cultural preferences
+    - Related Stories: US-053
+    - Personas: All Personas
+
+29. UC-029: Process Medical Translations
+    - Primary Actor: System
+    - Description: System translates medical content while maintaining accuracy
+    - Related Stories: US-004
+    - Personas: All Personas
+
+## Security and Compliance Use Cases
+30. UC-030: Monitor System Activity
+    - Primary Actor: Administrator
+    - Description: System tracks and audits all system activities
+    - Related Stories: US-017
+    - Personas: PER-009, PER-010
+
+31. UC-031: Configure Emergency Protocols
+    - Primary Actor: Administrator
+    - Description: Administrators configure emergency access protocols
+    - Related Stories: US-021
+    - Personas: PER-009, PER-010
+
+32. UC-032: Manage Data Backup
+    - Primary Actor: Patient
+    - Description: Patient manages data backup and restoration
+    - Related Stories: US-022
+    - Personas: All Patient Personas
+
+33. UC-033: Manage Authentication
+    - Primary Actor: Patient
+    - Description: Patient manages authentication and security settings
+    - Related Stories: US-058
+    - Personas: All Personas
+
+## User Onboarding Use Cases
+34. UC-034: Complete User Setup
+    - Primary Actor: Patient
+    - Description: New patient completes initial system setup
+    - Related Stories: US-029
+    - Personas: All Patient Personas
+
+35. UC-035: Configure Accessibility
+    - Primary Actor: Patient
+    - Description: Patient configures accessibility preferences
+    - Related Stories: US-041
+    - Personas: All Personas
+
+36. UC-036: Access Support Resources
+    - Primary Actor: Patient
+    - Description: Patient accesses help and support materials
+    - Related Stories: US-043
+    - Personas: All Personas
+
+37. UC-037: Engage with Community
+    - Primary Actor: Patient
+    - Description: Patient participates in support community
+    - Related Stories: US-050
+    - Personas: All Patient Personas
+
+## Platform Infrastructure Use Cases
+38. UC-038: Manage Device Integration
+    - Primary Actor: Patient
+    - Description: Patient connects and manages medical devices
+    - Related Stories: US-018
+    - Personas: All Patient Personas
+
+39. UC-039: Track Life Quality
+    - Primary Actor: Patient
+    - Description: Patient tracks and monitors quality of life metrics
+    - Related Stories: US-047
+    - Personas: All Patient Personas
+
+40. UC-040: Match Clinical Trials
+    - Primary Actor: System
+    - Description: System matches patients with relevant clinical trials
+    - Related Stories: US-048
+    - Personas: PER-001, PER-003, PER-008
+
+41. UC-041: Manage Data Synchronization
+    - Primary Actor: System
+    - Description: System manages real-time data synchronization
+    - Related Stories: US-049
+    - Personas: All Personas
+
+42. UC-042: Use System Offline
+    - Primary Actor: Patient
+    - Description: Patient accesses essential features without internet
+    - Related Stories: US-050
+    - Personas: All Patient Personas
+
+43. UC-043: Track Medications
+    - Primary Actor: Patient
+    - Description: Patient manages medication tracking and reminders
+    - Related Stories: US-055
+    - Personas: All Patient Personas
+
+44. UC-044: Integrate Healthcare Systems
+    - Primary Actor: System
+    - Description: System integrates with external healthcare platforms
+    - Related Stories: US-052
+    - Personas: All Personas
+
+## Additional Use Cases
+45. UC-045: Manage Privacy Settings
+    - Primary Actor: Patient
+    - Description: Patient configures detailed privacy preferences
+    - Related Stories: US-012, US-017, US-058
+    - Personas: All Personas
+
+46. UC-046: Manage System Administration
+    - Primary Actor: Administrator
+    - Description: Administrators manage system configuration and maintenance
+    - Related Stories: Multiple
+    - Personas: PER-009, PER-010
+
+47. UC-047: Handle Provider-Specific Tasks
+    - Primary Actor: Healthcare Provider
+    - Description: Providers perform role-specific system interactions
+    - Related Stories: Multiple
+    - Personas: PER-006, PER-007, PER-008
+
+## Notes
+- Parent use cases provide overall context and common elements
+- Sub-use cases detail specific variations and requirements
+- Variations list common scenarios within each sub-use case
+- Related stories and personas help maintain traceability
+- Some use cases may have deeper nesting based on complexity
+- Cross-references between use cases should be maintained
+- Each sub-use case inherits parent's basic flow
+- Variations may have specific alternate flows
+- Complex features should be broken down into manageable pieces
+- Consider user interaction patterns when splitting use cases
