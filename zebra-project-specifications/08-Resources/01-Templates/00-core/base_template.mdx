@@ -1,0 +1,466 @@
+---
+# Template Metadata
+template:
+  id: "${TEMPLATE_ID}"               # Example: "user-persona", "api-spec", "test-plan"
+  version: "${TEMPLATE_VERSION}"     # Example: "2.0"
+  category: "${CATEGORY}"           # Example: "requirements", "design", "implementation"
+  type: "${TYPE}"                   # Example: "user-research", "architecture", "deployment"
+  parent: "${OPTIONAL:PARENT_ID}"   # For templates that extend others
+
+
+# Document Metadata
+metadata:
+  author: "${AUTHOR}"
+  version: "${DOCUMENT_VERSION}"
+  created: "${DATE_CREATED}"
+  updated: "${DATE_UPDATED}"
+  status: "${SELECT:Draft|In Review|Approved}"
+  reviewers: ["${REVIEWER_1}", "${OPTIONAL:REVIEWER_2}"]
+
+
+# Document Identification to be used for generated templates from the base one or for specifications documents generated from the specific templates
+document:
+  key: "${DOCUMENT_KEY}"            # Example: "US-001", "REQ-101", "ARCH-201"
+  naming:
+    pattern: "${KEY}-${descriptor}"  # Example: "US-001-login_user_story"
+    prefix:                         # Standard prefixes by category
+      requirements:
+        user_story: "US"
+        persona: "PER"
+        use_case: "UC"
+        functional: "FR"
+        non_functional: "NFR"
+        technical: "TR"
+      design:
+        architecture: "ARCH"
+        database: "DB"
+        api: "API"
+        ui: "UI"
+        security: "SEC"
+      implementation:
+        development: "DEV"
+        deployment: "DEPL"
+        testing: "TEST"
+    sequence:
+      format: "000"                 # Defines number format (e.g., 001, 002)
+      current: "${AUTO_INCREMENT}"   # Automatically managed by AI/tool
+    descriptor:                     # Kebab-case description
+      format: "lowercase_with_underscores"
+      max_length: 50
+      
+
+# AI Processing Configuration
+ai:
+  documentType: "${DOCUMENT_TYPE}"
+  parentTemplate: "${PARENT_TEMPLATE_ID}"
+  # MoSCoW prioritization for sections and validations
+  validationRules:
+    mustSections: ["${MUST_SECTION_1}", "${MUST_SECTION_2}"]
+    shouldSections: ["${SHOULD_SECTION_1}"]
+    couldSections: ["${COULD_SECTION_1}"]
+    wontSections: ["${WONT_SECTION_1}"]
+    dataValidation:
+      ${VALIDATION_FIELD_1}: "${VALIDATION_RULE_1}"
+      ${VALIDATION_FIELD_2}: "${VALIDATION_RULE_2}"
+  
+  promptTemplates:
+    creation: |
+      Create a ${DOCUMENT_TYPE} for ${SYSTEM_TYPE} focusing on ${FOCUS_AREA}.
+      Key aspects to consider:
+      - Context: ${CONTEXT}
+      - Constraints: ${CONSTRAINTS}
+      - Requirements: ${REQUIREMENTS}
+
+    enhancement: |
+      Enhance the ${DOCUMENT_TYPE} ${DOCUMENT_ID} with additional details about ${ASPECT}.
+      Consider:
+      - Current content: ${CURRENT_CONTENT}
+      - Missing elements: ${MISSING_ELEMENTS}
+      - Related data: ${RELATED_DATA}
+
+  relationships:
+    dependencies: ["${DEPENDENCY_1}", "${OPTIONAL:DEPENDENCY_2}"]
+    references: ["${REFERENCE_1}", "${OPTIONAL:REFERENCE_2}"]
+    impacts: ["${IMPACT_1}", "${OPTIONAL:IMPACT_2}"]
+
+## Template Type Definitions
+template_types:
+  discovery_planning:
+    - vision_statement:
+        prefix: "VIS"
+        sections: ["Executive Summary", "Vision", "Goals", "Success Metrics"]
+    - product_goals:
+        prefix: "PG"
+        sections: ["Objectives", "Target Outcomes", "KPIs"]
+    - market_research:
+        prefix: "MR"
+        sections: ["Market Analysis", "Competitor Analysis", "Opportunities"]
+    - product_strategy:
+        prefix: "PS"
+        sections: ["Strategic Goals", "Roadmap", "Success Criteria"]
+  
+  requirements:
+    - personas:
+        prefix: "PER"
+        sections: ["Background", "Goals", "Pain Points", "Behaviors"]
+        ai_processing:
+          data_sources: ["user_interviews", "market_research", "analytics"]
+          validation_rules: ["demographic_completeness", "goal_clarity"]
+    
+    - use_cases:
+        prefix: "UC"
+        sections: ["Overview", "Actors", "Flow", "Conditions"]
+        ai_processing:
+          data_sources: ["requirements", "user_stories", "stakeholder_input"]
+          validation_rules: ["flow_completeness", "actor_definition"]
+    
+    - user_stories:
+        prefix: "US"
+        sections: ["Story", "Acceptance Criteria", "Dependencies"]
+        ai_processing:
+          data_sources: ["personas", "use_cases", "requirements"]
+          validation_rules: ["story_format", "criteria_clarity"]
+    
+    - functional_requirements:
+        prefix: "FR"
+        sections: ["Description", "Constraints", "Dependencies"]
+        ai_processing:
+          data_sources: ["use_cases", "technical_specs", "stakeholder_input"]
+          validation_rules: ["requirement_clarity", "testability"]
+    
+    - non_functional_requirements:
+        prefix: "NFR"
+        sections: ["Category", "Description", "Metrics"]
+        ai_processing:
+          data_sources: ["technical_specs", "performance_requirements"]
+          validation_rules: ["measurability", "feasibility"]
+
+  design:
+    - system_architecture:
+        prefix: "ARCH"
+        sections: ["Overview", "Components", "Interfaces"]
+    - technical_design:
+        prefix: "TD"
+        sections: ["Design", "Implementation", "Constraints"]
+    - ui_design:
+        prefix: "UI"
+        sections: ["Layouts", "Components", "Interactions"]
+    - wireframes:
+        prefix: "WIRE"
+        sections: ["Screens", "Navigation", "Elements"]
+    - prototypes:
+        prefix: "PROTO"
+        sections: ["Features", "Interactions", "Testing"]
+
+  development:
+    - sprint_planning:
+        prefix: "SP"
+        sections: ["Goals", "Stories", "Capacity"]
+    - api_design:
+        prefix: "API"
+        sections: ["Endpoints", "Methods", "Schema"]
+    - database_schema:
+        prefix: "DB"
+        sections: ["Tables", "Relations", "Indexes"]
+
+  testing:
+    - test_strategy:
+        prefix: "TS"
+        sections: ["Approach", "Coverage", "Tools"]
+    - test_cases:
+        prefix: "TC"
+        sections: ["Setup", "Steps", "Expected"]
+    - test_results:
+        prefix: "TR"
+        sections: ["Summary", "Details", "Issues"]
+
+  deployment:
+    - deployment_checklist:
+        prefix: "DEPL"
+        sections: ["Prerequisites", "Steps", "Verification"]
+    - environment_configs:
+        prefix: "ENV"
+        sections: ["Settings", "Variables", "Dependencies"]
+
+  maintenance:
+    - support_plan:
+        prefix: "SUP"
+        sections: ["Procedures", "Contacts", "SLAs"]
+    - retrospectives:
+        prefix: "RETRO"
+        sections: ["Summary", "Actions", "Follow-up"]
+
+## AI Processing Instructions
+ai_processing:
+  document_generation:
+    steps:
+      - identify_template_type
+      - gather_required_data
+      - apply_template_rules
+      - validate_content
+      - generate_metadata
+    
+  validation_rules:
+    common:
+      - required_sections_present
+      - consistent_formatting
+      - valid_relationships
+      - complete_metadata
+    
+    type_specific:
+      personas:
+        - demographic_data_complete
+        - goals_defined
+        - pain_points_identified
+      
+      use_cases:
+        - actors_identified
+        - flows_complete
+        - conditions_specified
+        - relationships_defined
+      
+      requirements:
+        - clear_description
+        - testable_criteria
+        - valid_dependencies
+      
+      architecture:
+        - components_defined
+        - interfaces_specified
+        - constraints_documented
+
+  content_generation:
+    prompting:
+      base_structure: |
+        Generate a ${TEMPLATE_TYPE} document for ${PROJECT_NAME}
+        Focus: ${DOCUMENT_FOCUS}
+        Key Elements:
+        - Context: ${CONTEXT}
+        - Requirements: ${REQUIREMENTS}
+        - Constraints: ${CONSTRAINTS}
+      
+      refinement_rules:
+        - verify_completeness
+        - check_consistency
+        - ensure_clarity
+        - validate_relationships
+
+# Content Schema
+contentSchema:
+  sections:
+    - id: "${SECTION_ID}"
+      required: ${BOOLEAN}
+      validation: "${VALIDATION_RULE}"
+      subsections: ["${SUBSECTION_1}", "${SUBSECTION_2}"]
+---
+
+<!-- 
+TEMPLATE USAGE INSTRUCTIONS:
+If the final use of this template is to generate a specification document, and not a derivated template, follow these steps:
+1. Replace all ${PLACEHOLDER} markers with actual content
+2. Remove all template comments and instructions
+3. Validate against the schema defined in metadata
+4. Update relationships as needed
+-->
+
+<!-- AI-CONTEXT: Document Purpose
+This template serves as a base for generating specific documentation templates.
+Key points:
+1. Maintain consistency across sections
+2. Ensure traceability through relationships
+3. Follow validation rules for completeness
+-->
+
+<!-- 
+SPECIFICATION DOCUMENT NAMING INSTRUCTIONS:
+1. Each specification document resulting from applying a template gets a unique key following the pattern: ${PREFIX}-${SEQUENCE}-${DESCRIPTOR}
+   Examples:
+   - US-001-user_login_story
+   - PER-001-admin_user_persona
+   - ARCH-001-system_overview
+   - API-001-authentication_endpoints
+   - TEST-001-login_integration
+
+2. Key Usage in References:
+   - Short reference: Use just the key (US-001)
+   - Full reference: Use complete filename (US-001-user_login_story)
+   - URL reference: Use path with filename
+   
+3. Relationship Examples:
+   dependencies: ["US-001", "FR-002"]
+   references: ["ARCH-001", "API-002"]
+   impacts: ["TEST-001", "DOC-002"]
+
+4. Naming Best Practices:
+   - Keep descriptors clear and concise
+   - Use lowercase with underscores
+   - Include purpose in descriptor
+   - Maintain consistent naming patterns
+   - Avoid special characters
+
+5. Auto-incrementing Rules:
+   - Sequence numbers are unique within each prefix
+   - Gaps in sequence are allowed
+   - Deleted documents' numbers are not reused
+   - New documents get next available number
+-->
+
+# ${DOCUMENT_TITLE}
+
+## Overview
+<!-- AI-VALIDATION: Must provide clear context and purpose -->
+${OVERVIEW_CONTENT}
+
+## Scope
+<!-- AI-VALIDATION: Define boundaries and limitations -->
+${SCOPE_CONTENT}
+
+## Main Content
+<!-- AI-VALIDATION: Content structure varies by document type -->
+### ${SECTION_TITLE_1}
+${SECTION_CONTENT_1}
+
+### ${SECTION_TITLE_2}
+${SECTION_CONTENT_2}
+
+## Relationships and Dependencies
+<!-- AI-VALIDATION: Must link to related documents -->
+```mermaid
+graph LR
+    ${CURRENT_DOC}[${DOCUMENT_TITLE}] --> ${DEPENDENCY_1}[${DEP_1_NAME}]
+    ${CURRENT_DOC} --> ${DEPENDENCY_2}[${DEP_2_NAME}]
+```
+
+## Validation and Review
+<!-- AI-VALIDATION: Track document status and reviews -->
+| Aspect | Status | Notes |
+|--------|--------|-------|
+| Technical Review | ${SELECT:Pending|Completed|N/A} | ${NOTES} |
+| Peer Review | ${SELECT:Pending|Completed|N/A} | ${NOTES} |
+| Validation | ${SELECT:Pending|Completed|N/A} | ${NOTES} |
+
+## Change History
+<!-- AI-VALIDATION: Track document versions and changes -->
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| ${VERSION} | ${DATE} | ${AUTHOR} | ${CHANGES} |
+
+<!-- 
+FINAL DOCUMENT INSTRUCTIONS:
+If the final use of this template is to generate a specification document, and not a derived template, follow these steps:
+1. Remove all ${PLACEHOLDER} markers and replace with actual content
+2. Remove all AI-CONTEXT comments
+3. Remove all template comments and instructions
+4. Remove all example sections
+5. Remove this instruction block
+6. Update all diagrams with actual content
+7. Ensure all sections follow template's validation rules
+8. Verify all relationships are properly linked
+9. Complete the Change History with initial version
+10. Update document metadata with final values
+-->
+
+<!-- 
+EXAMPLE VALUES AND PATTERNS:
+Note: These examples should be removed in final document
+
+1. Template Metadata Examples:
+   - id: "arch-design", "test-plan", "user-story"
+   - category: "requirements", "design", "implementation"
+   - type: "technical", "process", "specification"
+
+2. Document Types by Category:
+   Requirements:
+   - User Stories: "As a [user type], I want [goal] so that [benefit]"
+   - Use Cases: "UC-01: User Authentication Process"
+   - Functional Requirements: "FR-01: Data Encryption Standard"
+
+   Design:
+   - Architecture: "System Component Diagram"
+   - Database: "Data Model Specification"
+   - API: "REST API Endpoint Documentation"
+
+   Implementation:
+   - Development: "Coding Standards Guide"
+   - Testing: "Integration Test Plan"
+   - Deployment: "Cloud Infrastructure Setup"
+
+3. Relationship Examples:
+   dependencies: ["REQ-01", "ARCH-02", "TEST-03"]
+   references: ["STD-01", "POLICY-02"]
+   impacts: ["COMP-01", "API-02"]
+
+4. Validation Rules Examples:
+   - "Must contain at least one diagram"
+   - "All API endpoints must have response codes"
+   - "Each requirement must have acceptance criteria"
+   - "Test cases must link to requirements"
+
+5. Section Content Examples:
+   Overview:
+   > "This [document_type] defines the [aspect] for [system_name], 
+   > focusing on [specific_area] and addressing [key_concerns]."
+
+   Scope:
+   > "Includes: [in_scope_items]
+   > Excludes: [out_of_scope_items]
+   > Assumptions: [key_assumptions]"
+
+6. Mermaid Diagram Patterns:
+   ```mermaid
+   graph LR
+      A[Component A] --> B[Component B]
+      B --> C[Component C]
+      style A fill:#f9f,stroke:#333
+      style B fill:#bbf,stroke:#333
+      style C fill:#bfb,stroke:#333
+   ```
+
+7. Review Status Patterns:
+   Technical Review: "Completed - Approved with minor comments"
+   Peer Review: "Pending - Scheduled for 2024-04-10"
+   Validation: "Completed - All requirements met"
+
+8. Change History Pattern:
+   | Version | Date | Author | Changes |
+   |---------|------|--------|----------|
+   | 1.0 | 2024-04-01 | J. Smith | Initial version |
+   | 1.1 | 2024-04-05 | A. Johnson | Updated based on review feedback |
+
+9. Common Validation Checks:
+   - All must-have sections are completed
+   - All diagrams are properly rendered
+   - All links are valid and accessible
+   - All relationships are bi-directional
+   - All referenced documents exist
+   - All acceptance criteria are testable
+   - All requirements are traceable
+   - All technical terms are in glossary
+-->
+
+<!-- 
+AI PROCESSING HINTS:
+1. Content Generation:
+   - Use project context to generate relevant content
+   - Maintain consistency with existing documents
+   - Follow industry standards for the document type
+   - Ensure generated content is specific and actionable
+
+2. Validation Processing:
+   - Check for completeness of required sections
+   - Verify relationship consistency
+   - Validate against schema rules
+   - Ensure proper formatting and structure
+
+3. Enhancement Processing:
+   - Identify gaps in current content
+   - Suggest improvements based on best practices
+   - Maintain document history
+   - Update related documents as needed
+
+4. Relationship Processing:
+   - Verify bi-directional links
+   - Update impact analysis
+   - Maintain traceability matrix
+   - Check for circular dependencies
+-->

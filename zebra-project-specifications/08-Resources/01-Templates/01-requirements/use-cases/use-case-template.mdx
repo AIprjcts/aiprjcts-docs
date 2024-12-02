@@ -1,0 +1,182 @@
+---
+# Template Metadata
+template:
+  id: "use-case"
+  version: "1.0"
+  category: "requirements"
+  type: "workflow"
+  parent: "base_template"
+
+# Document Metadata
+metadata:
+  author: "${AUTHOR}"
+  version: "${DOCUMENT_VERSION}"
+  created: "${DATE_CREATED}"
+  updated: "${DATE_UPDATED}"
+  status: "${SELECT:Draft|In Review|Approved}"
+  reviewers: ["${REVIEWER_1}", "${OPTIONAL:REVIEWER_2}"]
+
+# Document Identification
+document:
+  key: "${DOCUMENT_KEY}"
+  naming:
+    pattern: "UC-${SEQUENCE}-${descriptor}"
+    prefix: "UC"
+    sequence:
+      format: "000"
+      current: "${AUTO_INCREMENT}"
+    descriptor:
+      format: "lowercase_with_underscores"
+      max_length: 50
+
+# AI Processing Configuration
+ai:
+  documentType: "use_case"
+  validationRules:
+    mustSections: 
+      - "metadata"
+      - "preconditions"
+      - "basic_flow"
+      - "postconditions"
+    shouldSections:
+      - "alternative_flows"
+      - "exception_flows"
+      - "business_rules"
+    couldSections:
+      - "special_requirements"
+      - "assumptions"
+    wontSections:
+      - "implementation_details"
+    dataValidation:
+      actor: "must be a defined system role or external entity"
+      basic_flow: "must have numbered steps"
+      preconditions: "must be verifiable conditions"
+  
+  promptTemplates:
+    creation: |
+      Create a use case for ${SYSTEM_NAME} focusing on ${WORKFLOW}.
+      Key aspects to consider:
+      - Actor: ${ACTOR}
+      - Goal: ${GOAL}
+      - Scope: ${SCOPE}
+      - Main Flow: ${MAIN_FLOW}
+
+    enhancement: |
+      Enhance the use case ${USE_CASE_ID} with details about ${ASPECT}.
+      Consider:
+      - Current flow: ${CURRENT_FLOW}
+      - Missing scenarios: ${MISSING_SCENARIOS}
+      - Related cases: ${RELATED_CASES}
+
+  relationships:
+    dependencies: ["${DEPENDENCY_1}", "${OPTIONAL:DEPENDENCY_2}"]
+    references: ["${REFERENCE_1}", "${OPTIONAL:REFERENCE_2}"]
+    impacts: ["${IMPACT_1}", "${OPTIONAL:IMPACT_2}"]
+
+contentSchema:
+  sections:
+    - id: "metadata"
+      required: true
+      validation: "Must include title, actor, scope, and level"
+    - id: "basic_flow"
+      required: true
+      validation: "Must include numbered steps in sequential order"
+---
+
+# Use Case: ${USE_CASE_TITLE}
+
+## Metadata
+| Field | Value |
+|-------|-------|
+| **Use Case ID** | ${USE_CASE_ID} |
+| **Title** | ${TITLE} |
+| **Actor** | ${ACTOR} |
+| **Scope** | ${SCOPE} |
+| **Level** | ${SELECT:User-Goal|Sub-function|Summary} |
+| **Priority** | ${SELECT:High|Medium|Low} |
+| **Complexity** | ${SELECT:High|Medium|Low} |
+
+## Overview
+${OVERVIEW_TEXT}
+
+## Preconditions
+1. ${PRECONDITION_1}
+2. ${PRECONDITION_2}
+3. ${OPTIONAL:PRECONDITION_3}
+
+## Basic Flow
+1. ${STEP_1}
+2. ${STEP_2}
+3. ${STEP_3}
+...
+
+## Alternative Flows
+
+### Alternative Flow 1: ${ALT_FLOW_1_NAME}
+**Trigger:** ${TRIGGER_CONDITION}
+1. ${ALT_STEP_1}
+2. ${ALT_STEP_2}
+3. Returns to main flow at step ${RETURN_STEP}
+
+### Alternative Flow 2: ${ALT_FLOW_2_NAME}
+**Trigger:** ${TRIGGER_CONDITION}
+1. ${ALT_STEP_1}
+2. ${ALT_STEP_2}
+3. Returns to main flow at step ${RETURN_STEP}
+
+## Exception Flows
+
+### Exception 1: ${EXCEPTION_1_NAME}
+**Trigger:** ${EXCEPTION_TRIGGER}
+**Handling:**
+1. ${HANDLING_STEP_1}
+2. ${HANDLING_STEP_2}
+
+## Postconditions
+1. ${POSTCONDITION_1}
+2. ${POSTCONDITION_2}
+3. ${OPTIONAL:POSTCONDITION_3}
+
+## Business Rules
+- ${BUSINESS_RULE_1}
+- ${BUSINESS_RULE_2}
+- ${OPTIONAL:BUSINESS_RULE_3}
+
+## Special Requirements
+
+### Performance Requirements
+- ${PERFORMANCE_REQ_1}
+- ${PERFORMANCE_REQ_2}
+
+### Security Requirements
+- ${SECURITY_REQ_1}
+- ${SECURITY_REQ_2}
+
+## Related Use Cases
+```mermaid
+graph LR
+    ${CURRENT_UC}[${USE_CASE_TITLE}] --> ${RELATED_UC_1}[${UC_1_NAME}]
+    ${CURRENT_UC} --> ${RELATED_UC_2}[${UC_2_NAME}]
+```
+
+## Validation and Review
+| Aspect | Status | Notes |
+|--------|--------|-------|
+| Technical Review | ${SELECT:Pending|Completed|N/A} | ${TECH_REVIEW_NOTES} |
+| Business Review | ${SELECT:Pending|Completed|N/A} | ${BUSINESS_REVIEW_NOTES} |
+| Validation | ${SELECT:Pending|Completed|N/A} | ${VALIDATION_NOTES} |
+
+## Change History
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| ${VERSION} | ${DATE} | ${AUTHOR} | ${CHANGES} |
+
+<!-- 
+FINAL DOCUMENT INSTRUCTIONS:
+1. Remove all ${PLACEHOLDER} markers and replace with actual content
+2. Remove all template comments and instructions
+3. Ensure all required sections are completed
+4. Verify all relationships are properly linked
+5. Complete the Change History with initial version
+6. Update document metadata with final values
+--> 

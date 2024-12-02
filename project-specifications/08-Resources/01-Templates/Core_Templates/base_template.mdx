@@ -1,0 +1,890 @@
+<!--
+#####################################################################################################################################################################
+# BASE TEMPLATE
+# This is the core template that all other templates inherit from.
+#####################################################################################################################################################################
+-->
+
+<!--
+##################################################################################################
+# 1. BASE TEMPLATE METADATA AND CONFIGURATION
+##################################################################################################
+-->
+
+# Base Template Metadata
+template:
+  id: "base-template"
+  category: "core-templates"
+  type: "base"
+  version: "1.0"
+
+metadata:
+  author: "Codeium"
+  status: "Active"
+  last_updated: "${ISO_TIMESTAMP}"
+
+<!--
+##################################################################################################
+# 2. BASE TEMPLATE AI PROCESSING CONFIGURATION
+##################################################################################################
+-->
+
+# AI Processing Configuration
+
+## Base Template AI Configuration
+base_template_ai:
+  purpose: |
+    This base template is used to generate other specific templates (e.g., personas, user stories).
+    It provides the core structure and processing instructions that all templates should follow.
+
+  usage_instructions: |
+    1. Use this template as the foundation for creating new specific templates
+    2. Follow the structure and naming conventions
+    3. Customize sections based on specific template needs
+    4. Maintain consistency in AI processing instructions
+
+  template_creation_process:
+    steps:
+      - Identify template type and requirements
+      - Research best practices for this type of specification
+      - Copy base structure
+      - Customize AI processing sections
+      - Add template-specific content
+      - Validate template structure
+
+
+
+<!--
+##################################################################################################
+# 4. SPECIFIC TEMPLATE TYPE DEFINITIONS
+##################################################################################################
+-->
+
+# Template Type Definitions
+specific_template_types:
+  # 01. Discovery and Planning Templates
+  vision_statement:
+    prefix: "VSN"
+    output_file: "TEMPLATE-vision-statement.mdx"
+    required_research:
+      - market_analysis
+      - stakeholder_needs
+      - business_objectives
+    specific_sections:
+      - executive_summary
+      - problem_statement
+      - solution_overview
+    placeholder_patterns:
+      - VSN_EXEC_{field}
+      - VSN_PROB_{field}
+      - VSN_SOL_{field}
+
+  product_goals:
+    prefix: "GOAL"
+    output_file: "TEMPLATE-product-goals.mdx"
+    required_research:
+      - stakeholder_objectives
+      - market_needs
+      - success_criteria
+    specific_sections:
+      - strategic_goals
+      - tactical_objectives
+      - success_indicators
+      - timeline_milestones
+    placeholder_patterns:
+      - GOAL_STRAT_{field}
+      - GOAL_TAC_{field}
+      - GOAL_SUCCESS_{field}
+      - GOAL_TIME_{field}
+
+  market_research:
+    prefix: "MKT"
+    output_files: 
+      - "TEMPLATE-market-trends.mdx"
+      - "TEMPLATE-competitor-analysis.mdx"
+    required_research:
+      - market_trends
+      - competitor_landscape
+      - user_needs
+      - industry_analysis
+    specific_sections:
+      - market_overview
+      - trend_analysis
+      - competitor_profiles
+      - opportunity_assessment
+    placeholder_patterns:
+      - MKT_TREND_{field}
+      - MKT_COMP_{field}
+      - MKT_OPP_{field}
+
+  product_strategy:
+    prefix: "STRAT"
+    output_files: 
+      - "TEMPLATE-product-roadmap.mdx"
+      - "TEMPLATE-release-planning.mdx"
+    required_research:
+      - market_position
+      - feature_priorities
+      - release_strategy
+      - resource_planning
+    specific_sections:
+      - strategic_overview
+      - roadmap_timeline
+      - feature_milestones
+      - resource_allocation
+    placeholder_patterns:
+      - STRAT_ROAD_{field}
+      - STRAT_FEAT_{field}
+      - STRAT_RES_{field}
+
+  # 02. Requirements Templates
+  persona:
+    prefix: "PER"
+    output_file: "TEMPLATE-personas.mdx"
+    required_research:
+      - user_demographics
+      - behavioral_patterns
+      - health_journey
+      - technology_usage
+    specific_sections:
+      - demographic_profile
+      - health_journey
+      - technology_interaction
+      - goals_and_challenges
+      - daily_routines
+      - pain_points
+      - success_scenarios
+    placeholder_patterns:
+      - PER_DEMO_{field}
+      - PER_HEALTH_{field}
+      - PER_TECH_{field}
+      - PER_GOAL_{field}
+      - PER_ROUTINE_{field}
+      - PER_PAIN_{field}
+      - PER_SUCCESS_{field}
+
+  user_story:
+    prefix: "US"
+    output_files: 
+      - "TEMPLATE-story-mapping.mdx"
+      - "TEMPLATE-epic-backlog.mdx"
+    required_research:
+      - user_needs
+      - acceptance_criteria
+      - effort_estimation
+      - value_proposition
+    specific_sections:
+      - epic_overview
+      - user_stories
+      - acceptance_criteria
+      - effort_estimates
+      - priority_level
+      - dependencies
+    placeholder_patterns:
+      - US_EPIC_{field}
+      - US_STORY_{field}
+      - US_ACC_{field}
+      - US_EFFORT_{field}
+      - US_PRIO_{field}
+      - US_DEP_{field}
+
+  use_case:
+    prefix: "UC"
+    output_file: "TEMPLATE-use-case-index.mdx"
+    required_research:
+      - actor_interactions
+      - system_flows
+      - business_rules
+      - validation_criteria
+    specific_sections:
+      - overview
+      - actors
+      - preconditions
+      - main_flow
+      - alternative_flows
+      - postconditions
+      - business_rules
+      - validation_criteria
+    placeholder_patterns:
+      - UC_ACTOR_{field}
+      - UC_FLOW_{field}
+      - UC_COND_{field}
+      - UC_RULE_{field}
+      - UC_VAL_{field}
+
+  functional_requirements:
+    prefix: "FR"
+    output_file: "TEMPLATE-functional-requirements.mdx"
+    required_research:
+      - system_capabilities
+      - user_interactions
+      - data_requirements
+      - business_rules
+    specific_sections:
+      - requirement_overview
+      - functional_description
+      - user_interactions
+      - data_requirements
+      - business_rules
+      - validation_criteria
+    placeholder_patterns:
+      - FR_DESC_{field}
+      - FR_USER_{field}
+      - FR_DATA_{field}
+      - FR_RULE_{field}
+      - FR_VAL_{field}
+
+  non_functional_requirements:
+    prefix: "NFR"
+    output_file: "TEMPLATE-quality-attributes.mdx"
+    required_research:
+      - performance_metrics
+      - security_requirements
+      - scalability_needs
+      - reliability_standards
+    specific_sections:
+      - performance_requirements
+      - security_requirements
+      - scalability_requirements
+      - reliability_requirements
+      - maintainability_requirements
+      - usability_requirements
+    placeholder_patterns:
+      - NFR_PERF_{field}
+      - NFR_SEC_{field}
+      - NFR_SCALE_{field}
+      - NFR_REL_{field}
+      - NFR_MAINT_{field}
+      - NFR_USE_{field}
+
+  # 03. Design Templates
+  system_architecture:
+    prefix: "ARCH"
+    output_file: "TEMPLATE-system-architecture.mdx"
+    required_research:
+      - architectural_patterns
+      - system_components
+      - integration_points
+      - technical_constraints
+    specific_sections:
+      - architecture_overview
+      - system_components
+      - component_interactions
+      - data_architecture
+      - security_architecture
+      - deployment_architecture
+    placeholder_patterns:
+      - ARCH_COMP_{field}
+      - ARCH_INT_{field}
+      - ARCH_DATA_{field}
+      - ARCH_SEC_{field}
+      - ARCH_DEP_{field}
+
+  technical_design:
+    prefix: "TECH"
+    output_file: "TEMPLATE-technical-design.mdx"
+    required_research:
+      - technical_requirements
+      - design_patterns
+      - implementation_constraints
+    specific_sections:
+      - design_overview
+      - component_design
+      - interface_specifications
+      - data_models
+      - algorithms
+      - error_handling
+    placeholder_patterns:
+      - TECH_COMP_{field}
+      - TECH_INT_{field}
+      - TECH_DATA_{field}
+      - TECH_ALG_{field}
+      - TECH_ERR_{field}
+
+  ui_design:
+    prefix: "UI"
+    output_files:
+      - "TEMPLATE-design-principles.mdx"
+      - "TEMPLATE-interaction-design.mdx"
+    required_research:
+      - user_experience_principles
+      - accessibility_standards
+      - design_patterns
+      - brand_guidelines
+    specific_sections:
+      - design_principles
+      - visual_elements
+      - interaction_patterns
+      - accessibility_guidelines
+      - responsive_design
+      - component_library
+    placeholder_patterns:
+      - UI_PRIN_{field}
+      - UI_VIS_{field}
+      - UI_INT_{field}
+      - UI_ACC_{field}
+      - UI_RESP_{field}
+      - UI_COMP_{field}
+
+  wireframes:
+    prefix: "WF"
+    output_file: "TEMPLATE-wireframe-index.mdx"
+    required_research:
+      - user_flows
+      - content_structure
+      - interaction_patterns
+    specific_sections:
+      - page_layouts
+      - navigation_flows
+      - content_hierarchy
+      - interaction_points
+      - responsive_breakpoints
+    placeholder_patterns:
+      - WF_PAGE_{field}
+      - WF_NAV_{field}
+      - WF_CONT_{field}
+      - WF_INT_{field}
+      - WF_RESP_{field}
+
+  prototype:
+    prefix: "PROTO"
+    output_file: "TEMPLATE-prototype-versions.mdx"
+    required_research:
+      - user_feedback
+      - usability_testing
+      - iteration_history
+    specific_sections:
+      - prototype_overview
+      - feature_implementation
+      - interaction_flows
+      - feedback_incorporation
+      - iteration_changes
+    placeholder_patterns:
+      - PROTO_FEAT_{field}
+      - PROTO_INT_{field}
+      - PROTO_FEED_{field}
+      - PROTO_ITER_{field}
+
+  # 04. Development Templates
+  sprint_planning:
+    prefix: "SP"
+    output_file: "TEMPLATE-sprint-planning.mdx"
+    required_research:
+      - team_capacity
+      - story_points
+      - velocity_metrics
+    specific_sections:
+      - sprint_goals
+      - selected_stories
+      - effort_estimates
+      - team_assignments
+      - dependencies
+      - risks
+    placeholder_patterns:
+      - SP_GOAL_{field}
+      - SP_STORY_{field}
+      - SP_EFFORT_{field}
+      - SP_TEAM_{field}
+      - SP_DEP_{field}
+      - SP_RISK_{field}
+
+  api_design:
+    prefix: "API"
+    output_file: "TEMPLATE-api-design.mdx"
+    required_research:
+      - api_standards
+      - security_requirements
+      - integration_patterns
+    specific_sections:
+      - api_overview
+      - endpoints
+      - request_response_formats
+      - authentication
+      - error_handling
+      - rate_limiting
+    placeholder_patterns:
+      - API_END_{field}
+      - API_REQ_{field}
+      - API_AUTH_{field}
+      - API_ERR_{field}
+      - API_RATE_{field}
+
+  database_schema:
+    prefix: "DB"
+    output_file: "TEMPLATE-database-schema.mdx"
+    required_research:
+      - data_models
+      - relationships
+      - performance_requirements
+    specific_sections:
+      - schema_overview
+      - tables_definition
+      - relationships
+      - indexes
+      - constraints
+      - migration_strategy
+    placeholder_patterns:
+      - DB_TABLE_{field}
+      - DB_REL_{field}
+      - DB_IDX_{field}
+      - DB_CONST_{field}
+      - DB_MIG_{field}
+
+  # 05. Testing Templates
+  test_strategy:
+    prefix: "TEST"
+    output_file: "TEMPLATE-testing-approach.mdx"
+    required_research:
+      - testing_methodologies
+      - coverage_requirements
+      - quality_metrics
+    specific_sections:
+      - testing_objectives
+      - test_levels
+      - test_types
+      - test_environment
+      - test_data
+      - test_schedule
+    placeholder_patterns:
+      - TEST_OBJ_{field}
+      - TEST_LVL_{field}
+      - TEST_TYPE_{field}
+      - TEST_ENV_{field}
+      - TEST_DATA_{field}
+      - TEST_SCHED_{field}
+
+  test_cases:
+    prefix: "TC"
+    output_files:
+      - "TEMPLATE-unit-tests.mdx"
+      - "TEMPLATE-integration-tests.mdx"
+      - "TEMPLATE-acceptance-tests.mdx"
+    required_research:
+      - test_scenarios
+      - test_data
+      - expected_results
+    specific_sections:
+      - test_overview
+      - preconditions
+      - test_steps
+      - expected_results
+      - validation_criteria
+      - test_data
+    placeholder_patterns:
+      - TC_PRE_{field}
+      - TC_STEP_{field}
+      - TC_EXP_{field}
+      - TC_VAL_{field}
+      - TC_DATA_{field}
+
+  test_results:
+    prefix: "TR"
+    output_file: "TEMPLATE-test-reports.mdx"
+    required_research:
+      - test_execution
+      - defect_tracking
+      - coverage_metrics
+    specific_sections:
+      - test_summary
+      - test_results
+      - defects_found
+      - coverage_analysis
+      - recommendations
+    placeholder_patterns:
+      - TR_SUM_{field}
+      - TR_RES_{field}
+      - TR_DEF_{field}
+      - TR_COV_{field}
+      - TR_REC_{field}
+
+  # 06. Deployment Templates
+  deployment_checklist:
+    prefix: "DEPL"
+    output_file: "TEMPLATE-deployment-checklist.mdx"
+    required_research:
+      - deployment_process
+      - environment_requirements
+      - rollback_procedures
+    specific_sections:
+      - pre_deployment_tasks
+      - deployment_steps
+      - verification_checks
+      - rollback_procedures
+      - post_deployment_tasks
+    placeholder_patterns:
+      - DEPL_PRE_{field}
+      - DEPL_STEP_{field}
+      - DEPL_VER_{field}
+      - DEPL_ROLL_{field}
+      - DEPL_POST_{field}
+
+  environment_config:
+    prefix: "ENV"
+    output_file: "TEMPLATE-environment-configs.mdx"
+    required_research:
+      - infrastructure_requirements
+      - configuration_management
+      - security_standards
+    specific_sections:
+      - environment_overview
+      - infrastructure_setup
+      - configuration_parameters
+      - security_settings
+      - monitoring_setup
+    placeholder_patterns:
+      - ENV_INF_{field}
+      - ENV_CONF_{field}
+      - ENV_SEC_{field}
+      - ENV_MON_{field}
+
+  # 07. Maintenance Templates
+  support_plan:
+    prefix: "SUP"
+    output_file: "TEMPLATE-customer-support.mdx"
+    required_research:
+      - support_levels
+      - response_times
+      - escalation_procedures
+    specific_sections:
+      - support_overview
+      - support_levels
+      - response_times
+      - escalation_procedures
+      - contact_information
+    placeholder_patterns:
+      - SUP_LVL_{field}
+      - SUP_RESP_{field}
+      - SUP_ESC_{field}
+      - SUP_CONT_{field}
+
+  retrospective:
+    prefix: "RETRO"
+    output_file: "TEMPLATE-sprint-retrospectives.mdx"
+    required_research:
+      - sprint_metrics
+      - team_feedback
+      - improvement_areas
+    specific_sections:
+      - sprint_summary
+      - achievements
+      - challenges
+      - action_items
+      - metrics_analysis
+    placeholder_patterns:
+      - RETRO_SUM_{field}
+      - RETRO_ACH_{field}
+      - RETRO_CHAL_{field}
+      - RETRO_ACT_{field}
+      - RETRO_MET_{field}
+
+
+
+
+
+<!--
+##################################################################################################
+# 5. SPECIFIC TEMPLATE CONTENT OUTPUT
+##################################################################################################
+-->
+
+
+
+
+<!--
+##################################################################################################
+# SPECIFIC TEMPLATE AI CONFIGURATION, PROCESSING AND DEVELOPMENT GUIDE
+# This section defines the prompts and processing instructions that MUST be included
+# in all specific templates (personas, use cases, etc.). 
+##################################################################################################
+-->
+
+<!-- AI INSTRUCTIONS FOR INCLUDE "AS IS" IN THE SPECIFIC TEMPLATE OUTPUT. AI INSTRUCTIONS : TO BE CUSTOMIZED FOR EACH SPECIFIC TEMPLATE BUT TO BE INCLUDED AS IS, WIHTOUT REPLACING THE PLACEHOLDERS, ETC. IN THE SPECIFIC TEMPLATE OUTPUT -->
+
+## AI-Assisted Template Development
+ai_assistance:
+  document_type: "${SPECIFICATION_TYPE}"
+  parent_template: "${PARENT_TEMPLATE_ID}"
+
+ai_prompting_instructions:  
+  prompt_refinement_checklist:
+    - verify_data_sources
+    - check_domain_specific_requirements
+    - ensure_completeness
+    - validate_against_best_practices
+
+  base_prompt_structure: |
+    Create or enhance a detailed ${SPECIFICATION_TYPE} for ${PROJECT_NAME}.
+    
+    Provide comprehensive details addressing:
+    1. Core Information and Context
+    2. Domain-Specific Requirements
+    3. Validation Requirements
+    4. Technical Details
+    5. Business Impact
+    
+    Ensure the document:
+    - Follows domain best practices
+    - Maintains traceability
+    - Provides actionable content
+
+  prompt_templates:
+    creation: |
+      Generate a comprehensive ${SPECIFICATION_TYPE} for ${PROJECT_NAME}
+      Focus Area: ${DOCUMENT_FOCUS}
+      Key Considerations:
+      - Domain Context: ${DOMAIN_CONTEXT}
+      - Primary Goals: ${PRIMARY_GOALS}
+      - Critical Requirements: ${KEY_REQUIREMENTS}
+      - Success Criteria: ${SUCCESS_CRITERIA}
+
+    interactive_creation: |
+      You will act as an expert assistant to create a detailed ${SPECIFICATION_TYPE}.
+      Begin by asking questions to gather necessary information:
+      - Ask one question at a time
+      - Focus on domain-specific requirements
+      - Validate assumptions
+      - Ensure completeness
+      Present the final document using the template structure
+
+    enhancement: |
+      Act as an expert assistant to enhance the existing ${SPECIFICATION_TYPE} ${DOCUMENT_KEY}.
+
+      **Specific Instructions**:
+      - **Do not modify** sections without explicit user agreement
+      - **Maintain** existing validated content
+      - **Identify** improvement opportunities
+      - **Incorporate** new requirements
+      - **Ensure** consistency
+      - **Validate** against standards
+      - **Document** all changes
+
+### Research Methodology
+research_approach:
+  primary_methods:
+    - domain_analysis
+    - stakeholder_interviews
+    - requirements_gathering
+    - best_practices_review
+  
+  data_collection_templates:
+    analysis_guide:
+      - context_exploration
+      - requirements_elicitation
+      - constraints_identification
+      - success_criteria_definition
+
+### Validation Framework
+validation_criteria:
+  must_have_sections:
+    - unique_identifier
+    - core_requirements
+    - success_criteria
+    - validation_rules
+
+  should_have_sections:
+    - detailed_specifications
+    - implementation_guidelines
+    - related_documents
+
+  optional_sections:
+    - additional_context
+    - future_considerations
+
+### Continuous Improvement Process
+continuous_improvement:
+  triggers:
+    - new_requirements
+    - stakeholder_feedback
+    - technical_changes
+    - business_changes
+  
+  update_workflow:
+    - review_current_state
+    - gather_new_requirements
+    - validate_changes
+    - update_documentation
+    - version_control
+
+### Document Metadata Configuration
+document:
+  key_generation:
+    pattern: "${PREFIX}-${SEQUENCE}-${DESCRIPTOR}"
+    components:
+      prefix: 
+        value: "${DOCUMENT_TYPE_PREFIX}"
+      sequence:
+        format: "000"
+        current: "${AUTO_INCREMENT}"
+      descriptor:
+        format: "lowercase_with_underscores"
+        max_length: 50
+
+## Template Generation Instructions
+specific_template_generation:
+  instructions: |
+    When creating a specific template from this base template:
+    1. Copy the entire AI PROCESSING AND DEVELOPMENT GUIDE section
+    2. Customize all placeholders and sections for your specific template type
+    3. Add domain-specific validation rules and research methods
+    4. Ensure all required sections are present and properly configured
+
+  required_sections_checklist:
+    - AI Processing Configuration
+    - Prompt Templates (creation, interactive, enhancement)
+    - Research Methodology
+    - Validation Framework
+    - Continuous Improvement Process
+    - Document Metadata Configuration
+
+  customization_rules: |
+    For each specific template type:
+    1. Replace ${SPECIFICATION_TYPE} with actual type (e.g., "user_persona", "use_case")
+    2. Customize prompt templates for the specific domain
+    3. Add domain-specific research methods and validation criteria
+    4. Configure appropriate document key generation pattern
+
+## Document Creation Process
+document_creation:
+  input_sources:
+    - project_requirements
+    - stakeholder_input
+    - technical_specifications
+    - business_rules
+
+  validation_rules:
+    - completeness_check
+    - consistency_validation
+    - relationship_verification
+    - compliance_assessment
+
+## Relationship Mapping
+relationships:
+  dependencies:
+    - type: "${DEPENDENCY_TYPE}"
+      identifier: "${RELATED_DOCUMENT}"
+  
+  impact_mapping:
+    - target: "${IMPACT_TARGET}"
+      confidence_level: "${CONFIDENCE_PERCENTAGE}"
+  
+  traceability:
+    - source_documents: ["${SOURCE_DOCUMENT}"]
+    - related_artifacts: ["${RELATED_ARTIFACT}"]
+
+## Agile Configuration
+agile_metrics:
+  story_points:
+    scale: "fibonacci"
+    values: [1, 2, 3, 5, 8, 13, 21]
+    
+  priority_levels:
+    - name: "Must Have"
+      code: "MH"
+      description: "Critical for MVP/Release"
+    - name: "Should Have"
+      code: "SH"
+      description: "Important but not critical"
+    - name: "Could Have"
+      code: "CH"
+      description: "Desired but not necessary"
+
+  definition_of_done:
+    required_criteria:
+      - "Code review completed"
+      - "Tests passing"
+      - "Documentation updated"
+      - "Acceptance criteria met"
+      - "Stakeholder approval obtained"
+
+  acceptance_criteria:
+    template:
+      - given: "CONTEXT/PRECONDITION"
+        when: "ACTION"
+        then: "EXPECTED_RESULT"
+    
+    quality_attributes:
+      - testable
+      - clear
+      - feasible
+
+  mvp_framework:
+    categories:
+      - name: "Must-Have Features"
+        description: "Core functionality required for launch"
+      - name: "Growth Features"
+        description: "Features for scaling and expansion"
+
+## Template Content
+
+## Basic Information
+- **Identifier**: ${DOCUMENT_KEY}
+- **Title**: ${DOCUMENT_TITLE}
+- **Version**: ${VERSION}
+- **Status**: ${STATUS}
+- **Author**: ${AUTHOR}
+- **Last Updated**: ${LAST_UPDATED}
+
+## 1. Document Identification
+| Attribute | Details | Status |
+|-----------|---------|--------|
+| **Document ID** | ${DOCUMENT_KEY} | ${STATUS} |
+| **Type** | ${DOCUMENT_TYPE} | ${TYPE_STATUS} |
+| **Category** | ${CATEGORY} | ${CATEGORY_STATUS} |
+
+## 2. Purpose and Scope
+**Purpose**: ${DOCUMENT_PURPOSE}
+
+**Scope**: ${DOCUMENT_SCOPE}
+
+## 3. Context
+${DOCUMENT_CONTEXT}
+
+## 4. Core Content
+*Replace this section with document-type specific content*
+
+## 5. Relationships and Dependencies
+### Dependencies
+- Upstream: ${UPSTREAM_DEPENDENCIES}
+- Downstream: ${DOWNSTREAM_DEPENDENCIES}
+
+### Impact Analysis
+| Area | Impact | Confidence |
+|------|--------|------------|
+| ${IMPACT_AREA_1} | ${IMPACT_LEVEL} | ${CONFIDENCE} |
+| ${IMPACT_AREA_2} | ${IMPACT_LEVEL} | ${CONFIDENCE} |
+
+## 6. Success Metrics
+- ${SUCCESS_METRIC_1}
+- ${SUCCESS_METRIC_2}
+
+## 7. Validation Criteria
+- [ ] ${VALIDATION_CRITERION_1}
+- [ ] ${VALIDATION_CRITERION_2}
+
+## 8. Additional Information
+### Notes
+${ADDITIONAL_NOTES}
+
+### References
+- ${REFERENCE_1}
+- ${REFERENCE_2}
+
+## Change History
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| ${VERSION} | ${DATE} | ${AUTHOR} | ${CHANGES} |
+
+<!--
+##################################################################################################
+# 6. VERSION HISTORY
+##################################################################################################
+-->
+
+# Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| ${VERSION} | ${DATE} | ${AUTHOR} | ${CHANGES} |
+
+<!-- MAIN SPECIFIC TEMPLATE CONTENT: END -
+##################################################################################################
+-->

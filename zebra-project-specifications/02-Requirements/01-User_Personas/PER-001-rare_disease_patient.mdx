@@ -1,0 +1,283 @@
+---
+template:
+  id: "user-persona"
+  version: "1.0"
+  category: "requirements"
+  type: "user-research"
+  parent: "base_template"
+
+metadata:
+  author: "Zebra MHH Team"
+  version: "1.0"
+  created: "2024-01-17"
+  updated: "2024-01-17"
+  status: "Draft"
+  reviewers: 
+    - "Technical Lead"
+    - "UX Lead"
+    - "Clinical Advisor"
+    - "Patient Advocate"
+
+document:
+  key: "PER-002-rare-disease-patient"
+  naming:
+    pattern: "PER-002-rare_disease_patient"
+    prefix: "PER"
+    sequence:
+      format: "002"
+    descriptor: "rare_disease_patient"
+
+ai:
+  documentType: "user_persona"
+
+# Maria Rodriguez - Rare Disease Patient Persona
+
+## Executive Summary
+Maria represents patients managing complex rare diseases who need comprehensive digital health solutions. Her experience with Ehlers-Danlos Syndrome (EDS) highlights the challenges of coordinating care across multiple specialists while managing a bilingual household and work responsibilities.
+
+## Basic Demographics
+| Field | Details | Confidence Level |
+|-------|---------|------------------|
+| Name | Maria Rodriguez | High |
+| Age | 45 | High |
+| Occupation | Part-time Administrative Assistant | High |
+| Location | Chicago, IL | High |
+| Education | Associate's Degree in Business Administration | High |
+| Income Level | Medium-low | Medium |
+| Family Status | Married, two children (ages 12 and 15) | High |
+| Health Insurance | Employer-provided with high deductible | High |
+| Primary Language | English (not native), Spanish (native) | High |
+
+## Health Context
+### Condition Overview
+- Primary Diagnosis: Ehlers-Danlos Syndrome (EDS)
+- Time Since Diagnosis: 5 years
+- Severity: Moderate to severe
+- Impact: Multiple body systems affected
+
+### Medical Interaction Patterns
+- Primary Care Provider: Monthly visits
+- Specialists Team:
+  - Geneticist: Quarterly
+  - Rheumatologist: Bi-monthly
+  - Cardiologist: Quarterly
+  - Physical Therapist: Weekly
+- Emergency Care: 2-3 times annually
+
+## Professional and Personal Context
+### Work Life
+- Remote/hybrid work arrangement
+- Flexible schedule to accommodate medical appointments
+- Uses basic office software and communication tools
+- Manages work-related stress impact on health
+
+### Family Dynamics
+- Primary health advocate for self and family
+- Concerns about genetic implications for children
+- Spouse provides support with medical coordination
+- Balances family care with health management
+
+## Technology Profile
+### Digital Literacy
+- Comfort Level: Intermediate
+- Daily Usage: 6-8 hours
+- Primary Devices:
+  - Windows laptop (work and home)
+  - Android smartphone (Samsung)
+  - Tablet for reading and health tracking
+
+### Digital Tools Usage
+| Category | Tools | Usage Frequency |
+|----------|-------|-----------------|
+| Healthcare | MyChart, Hospital Portals | Daily |
+| Communication | WhatsApp, Email | Daily |
+| Organization | Google Calendar, Notes | Daily |
+| Work | MS Office, Zoom | Weekdays |
+
+## Goals and Motivations
+### Health Management Objectives
+1. Consolidate medical records across providers
+2. Track symptoms and treatment effectiveness
+3. Improve communication with healthcare team
+4. Access reliable bilingual health information
+
+### Technology Interaction Goals
+1. Simplify health data management
+2. Reduce time spent on administrative tasks
+3. Better coordinate care between providers
+4. Access educational resources in preferred language
+
+## Challenges and Pain Points
+### Current Obstacles
+1. Managing multiple healthcare portals
+2. Coordinating between specialists
+3. Language barriers in medical documentation
+4. Time management for appointments
+
+### Unmet Needs
+1. Centralized health record system
+2. Bilingual health information resources
+3. Simplified provider communication
+4. Automated health summary generation
+
+## Decision-Making Characteristics
+### Information Processing
+- Prefers visual information
+- Needs time to process complex medical information
+- Values bilingual resources
+- Relies on both digital and written notes
+
+### Key Influencers
+1. Healthcare providers' recommendations
+2. Family impact considerations
+3. Online patient communities
+4. Work schedule constraints
+
+## Emotional and Psychological Landscape
+### Primary Concerns
+- Disease progression
+- Children's genetic risk
+- Financial impact
+- Work-life balance
+
+### Support Systems
+- Spouse and family
+- Online EDS community
+- Local patient support group
+- Healthcare team
+
+## Technology and Health Data Interaction
+### Current Tools
+- Multiple patient portals
+- Health tracking apps
+- Calendar management
+- Communication platforms
+
+### Desired Features
+1. Single sign-on for all health platforms
+2. Automated translation capabilities
+3. Symptom tracking with pattern recognition
+4. Secure provider messaging system
+
+### Privacy and Control Preferences
+- High concern for data security
+- Selective sharing with providers
+- Family access management
+- Granular control over health data
+
+## User Journey Scenarios
+### Scenario 1: New Specialist Visit
+1. Prepares health history
+   - **Context**: Preparing for first rheumatologist visit
+   - **Actions**: 
+     - Compiles medical history from multiple portals
+     - Translates key documents to English
+     - Prepares symptom diary
+   - **Pain Points**: 
+     - Time-consuming manual compilation
+     - Inconsistent formatting across sources
+   - **Desired Outcome**: Comprehensive, bilingual health summary
+
+2. Generates condition summary
+   - **Context**: Sharing EDS history efficiently
+   - **Actions**:
+     - Highlights key symptoms and progression
+     - Includes family history
+     - Lists current medications and treatments
+   - **Success Metrics**:
+     - Reduced preparation time
+     - Better specialist understanding
+
+### Scenario 2: Emergency Situation
+1. Accesses critical health data
+   - **Context**: Unexpected joint dislocation
+   - **Actions**:
+     - Quick access to EDS protocol
+     - Emergency contact activation
+     - Medical history sharing
+   - **Requirements**:
+     - Offline access capability
+     - Clear emergency instructions
+   - **Success Indicators**:
+     - Speed of information access
+     - Completeness of shared data
+
+## Success Metrics
+### Personal Health Management
+- **Treatment Coordination**:
+  - Reduced appointment scheduling time by 50%
+  - Decreased medication conflicts
+  - Improved symptom tracking accuracy
+
+### Healthcare Team Interaction
+- **Communication Efficiency**:
+  - Faster response times from providers
+  - Reduced miscommunication incidents
+  - Better cross-provider coordination
+
+### Quality of Life Indicators
+- **Daily Management**:
+  - Improved work-life balance
+  - Better medication adherence
+  - Enhanced family involvement in care
+
+## Requirements Traceability
+### Related Documents
+| Document Type | Reference ID | Description |
+|--------------|--------------|-------------|
+| User Story | US-045-rare-disease-coordination | Coordinating care across multiple specialists |
+| Use Case | UC-023-emergency-access | Emergency information access protocol |
+
+### Impact Analysis
+| Target Area | Confidence Level | Notes |
+|------------|------------------|-------|
+| Product Strategy | 85% | Critical for rare disease management features |
+| Design Decisions | 90% | Influences multilingual support and data sharing |
+
+### Supporting Documentation
+- **Research Documents**: RES-2024-001-EDS-Patient-Needs
+- **Interview Transcripts**: INT-2024-003-Maria-Rodriguez
+- **Additional References**: EDS-Society-Guidelines-2024
+
+## Research Methodology
+### Data Sources
+- Patient interviews
+- Healthcare provider input
+- EDS support group feedback
+- Digital health usage patterns
+
+### Validation Approach
+- Clinical review by EDS specialists
+- Technical validation by IT team
+- UX testing with patient group
+- Bilingual content verification
+
+## Product Development Recommendations
+1. Prioritize bilingual interface and content
+2. Implement simplified data sharing
+3. Create automated summary generation
+4. Develop cross-platform integration
+5. Include family access management
+
+## Related Documentation
+### EPICs:
+- [Health Data Management Epic](../02-User_Stories/EPIC-001-health-data-management.mdx)
+- [AI-Powered Health Insights Epic](../02-User_Stories/EPIC-005-ai-health-insights.mdx)
+- [User Onboarding Epic](../02-User_Stories/EPIC-009-user-onboarding.mdx)
+
+### User Stories:
+- [Health Record Consolidation](../02-User_Stories/US-001-health-record-consolidation.mdx)
+- [Health Summary Generation](../02-User_Stories/US-002-health-summary-generation.mdx)
+
+## Validation Status
+| Aspect | Status | Last Review |
+|--------|--------|-------------|
+| Technical | Pending | - |
+| Clinical | Pending | - |
+| UX | Pending | - |
+| Patient Advocacy | Pending | - |
+
+## Change History
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| 1.0 | 2024-01-17 | Zebra MHH Team | Initial enhanced persona creation |

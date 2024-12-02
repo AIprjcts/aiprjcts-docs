@@ -1,0 +1,381 @@
+# User Persona Template
+
+<!--
+##################################################################################################
+# AI PROCESSING AND DEVELOPMENT GUIDE
+# This section contains information for AI assistance and development guidance.
+# It is not part of the output template but provides context and rules for processing.
+##################################################################################################
+-->
+
+## AI Processing Configuration
+
+## AI-Assisted Persona Development
+ai_assistance:
+  document_type: "user_persona"
+  parent_template: "adaptive_persona_framework"
+
+ai_prompting_instructions:  
+
+  prompt_refinement_checklist:
+    - verify_data_sources
+    - check_bias_potential
+    - ensure_privacy_protection
+    - validate_representativeness
+
+
+  base_prompt_structure: |
+    Create  a detailed user persona for a [USER_TYPE] in the healthcare context, or enhance an existing persona if identified with a [DOCUMENT_KEY].
+    
+    Provide comprehensive details addressing:
+    1. Demographic Background
+    2. Health Journey and Challenges
+    3. Technology Interaction Preferences
+    4. Information Seeking Behaviors
+    5. Emotional and Psychological Landscape
+    
+    Ensure the persona:
+    - Is based on empirical research
+    - Represents a distinct user archetype
+    - Provides actionable insights for product development
+
+  prompt_templates:
+    creation: |
+      Generate a comprehensive user persona for ${PROJECT_NAME}
+      Focus Area: ${USER_SEGMENT}
+      Key Considerations:
+      - Contextual Background: ${USER_CONTEXT}
+      - Primary Objectives: ${USER_PRIMARY_GOALS}
+      - Critical Challenges: ${USER_KEY_CHALLENGES}
+
+
+    interactive_creation: |
+      You will act as an assistant to help create a detailed user persona. User can provide context about the whore project or the persona being created.
+      Begin by asking me questions to gather necessary information.
+      Use the following guidelines:
+      - Ask one question at a time.
+      - Use previous answers to inform subsequent questions.
+      - Continue until you have enough information to create the persona.
+      - At the end, present the complete user persona using the template structure. 
+
+    enhancement: |
+      Act as an expert user research assistant. Your task is to **enhance** the existing persona identified as ${DOCUMENT_KEY}.
+
+      **Specific Instructions**:
+      
+      - **Do not modify** any section without asking to the user and this agree with the modifications
+      - **Maintain** all existing details in all the sections if the user does not provide any new information or does not agree to modify the existing details.
+      - **Identify** gaps or areas that can be enriched in the allowed sections.
+      - **Incorporate** new insights or provided data, **without altering** the sections that must remain the same.
+      - **Ensure** consistency and accuracy throughout the persona.
+      - **Justify** any additions or changes based on context or new data provided.
+      - **Validate** against latest research
+           
+
+      **Process**:
+      1. Review the existing persona.
+      2. **Skip** any modifications in the specified sections that must remain the same.
+      3. Identify areas for improvement in other sections and gather new insights and confirm with the user.
+      4. Add additional details where necessary, **without changing** existing details in protected sections.
+      5. Present the updated persona following the template structure.
+
+      **Note**: The goal is to **enrich** the persona by improving the allowed sections, **without recreating** it or modifying details in sections that must remain the same.
+
+### Relationship Mapping
+relationships:
+  dependencies:
+    - type: "user_story"
+      identifier: "${RELATED_USER_STORY}"
+    - type: "use_case"
+      identifier: "${RELATED_USE_CASE}"
+  
+  impact_mapping:
+    - target: "product_strategy"
+      confidence_level: "${CONFIDENCE_PERCENTAGE}"
+    - target: "design_persona"
+      confidence_level: "${CONFIDENCE_PERCENTAGE}"
+  
+  traceability:
+    - research_documents: ["${RESEARCH_DOCUMENT}"]
+    - interview_transcripts: ["${INTERVIEW_TRANSCRIPT}"]
+
+### Research Methodology
+research_approach:
+  primary_methods:
+    - interviews
+    - surveys
+    - observational_studies
+    - literature_review
+  
+  data_collection_templates:
+    interview_guide:
+      - background_questions
+      - core_experience_exploration
+      - pain_points_identification
+      - goals_and_motivations
+      - technology_interaction_patterns
+
+### Persona Creation Workflow
+persona_creation_process:
+  input_sources:
+    - direct_user_interviews
+    - healthcare_professional_insights
+    - patient_support_group_data
+    - medical_literature
+    - existing_research_databases
+
+  required_information_sections:
+    - demographic_profile
+    - health_context
+    - technological_literacy
+    - communication_preferences
+    - decision_making_characteristics
+
+### Manual Entry Guidelines
+manual_entry_recommendations:
+  data_verification_steps:
+    - cross_reference_multiple_sources
+    - validate_with_domain_experts
+    - anonymize_personal_identifiers
+    - document_data_sources
+
+  minimum_evidence_requirements:
+    - at_least_3_independent_sources
+    - mix_of_qualitative_and_quantitative_data
+    - recent_data_preferably_within_2_years
+
+### Persona Validation Criteria
+validation_criteria:
+  must_have_sections:
+    - unique_identifier
+    - core_demographic_details
+    - primary_health_challenges
+    - technology_interaction_profile
+
+  should_have_sections:
+    - emotional_journey_map
+    - decision_making_process
+    - communication_preferences
+
+  optional_enrichment_sections:
+    - psychological_profile
+    - future_health_aspirations
+    - support_network_description
+
+### Continuous Improvement Process
+continuous_improvement:
+  triggers:
+    - significant_market_change
+    - product_strategy_pivot
+    - new_user_segment_discovery
+  
+  update_workflow:
+    - validate_existing_assumptions
+    - collect_new_evidence
+    - update_persona_sections
+    - version_control_logging
+
+<!--
+##################################################################################################
+# TEMPLATE CONFIGURATION
+# This section contains template metadata and configuration
+# that will be processed but not directly shown in the output
+##################################################################################################
+-->
+
+## Document Metadata
+template:
+  id: "user-persona"
+  category: "user-research"
+  type: "strategic-requirements"
+
+metadata:
+  author: "${PRIMARY_AUTHOR}"
+  status: "${SELECT:Draft|In Review|Approved}"
+  last_updated: "${ISO_TIMESTAMP}"
+
+## Document Identification Schema
+document:
+  key_generation:
+    pattern: "PER-${SEQUENCE}-${DESCRIPTOR}"
+    components:
+      prefix: 
+        value: "PER"
+      sequence:
+        format: "000"
+        current: "${AUTO_INCREMENT}"
+      descriptor:
+        format: "lowercase_with_underscores"
+        max_length: 50
+
+<!--
+##################################################################################################
+# TEMPLATE OUTPUT CONTENT STARTS HERE
+# Everything below this point will be included in the final MDX output
+###################################################################################################
+-->
+
+# ${PERSONA_NAME} - User Persona
+Version: ${VERSION_NUMBER}
+
+## 1. Persona Identification
+| Attribute         | Details                | Validation Status |
+|-------------------|------------------------|-------------------|
+| **Persona ID**    | `PER-${SEQUENCE}`      | Validated         |
+| **Name**          | ${REPRESENTATIVE_NAME} | Representative    |
+| **Archetype**     | ${USER_ARCHETYPE}      | Defined           |
+
+## 2. Contextual Demographics
+Empirically Derived Insights
+
+| Attribute               | Value                       | Research Source       | Confidence Level                     |
+|-------------------------|-----------------------------|-----------------------|--------------------------------------|
+| **Age**                 | ${AGE_RANGE}                | ${RESEARCH_METHOD}    | ${CONFIDENCE_LEVEL:Low|Medium|High}  |
+| **Occupation**          | ${OCCUPATION}               | ${RESEARCH_METHOD}    | ${CONFIDENCE_LEVEL}                  |
+| **Location**            | ${GEOGRAPHIC_CONTEXT}       | ${RESEARCH_METHOD}    | ${CONFIDENCE_LEVEL}                  |
+| **Education Level**     | ${HIGHEST_DEGREE}           | ${RESEARCH_METHOD}    | ${CONFIDENCE_LEVEL}                  |
+| **Primary Language**    | ${LANGUAGE}                 | ${RESEARCH_METHOD}    | ${CONFIDENCE_LEVEL}                  |
+| **Technology Proficiency** | ${TECH_LEVEL:Beginner|Intermediate|Advanced} | ${RESEARCH_METHOD} | ${CONFIDENCE_LEVEL} |
+
+## 3. Health Context
+- **Health Interaction Patterns**: 
+  - ${INTERACTION_PATTERN_1}:{INTERACTION_PATTERN_DESCRIPTION_1}
+  - ${INTERACTION_PATTERN_2}:{INTERACTION_PATTERN_DESCRIPTION_2}
+  - ${INTERACTION_PATTERN_3}:{INTERACTION_PATTERN_DESCRIPTION_3}
+
+## 4. User Journey Scenarios
+- **User Journey Scenarios**: 
+  - ${SCENARIO_1}:{SCENARIO_DESCRIPTION_1}
+  - ${SCENARIO_2}:{SCENARIO_DESCRIPTION_2}
+  - ${SCENARIO_3}:{SCENARIO_DESCRIPTION_3}
+
+## 5. User Goals and Motivations
+Actionable and Measurable
+
+#### Primary Goals
+1. ${PRIMARY_GOAL_1}
+   - **Measurable Outcome**: ${SPECIFIC_OUTCOME_1}
+   - **Priority**: ${PRIORITY_LEVEL:High|Medium|Low}
+   - **Frequency**: ${OCCURRENCE_FREQUENCY:Rarely|Sometimes|Often|Always}
+
+2. ${PRIMARY_GOAL_2}
+   - **Measurable Outcome**: ${SPECIFIC_OUTCOME_2}
+   - **Priority**: ${PRIORITY_LEVEL}
+   - **Frequency**: ${OCCURRENCE_FREQUENCY}
+
+#### Success Metrics
+Defining Persona Achievement
+- ${METRIC_1}
+- ${METRIC_2}
+
+## 6. Challenges and Pain Points
+Specific Obstacles Identified
+
+#### Current Challenges
+1. ${CHALLENGE_1}
+   - **Impact Level**: ${IMPACT_LEVEL:Low|Medium|High}
+   - **Frequency**: ${CHALLENGE_FREQUENCY}
+   - **Potential Mitigation**: ${MITIGATION_STRATEGY}
+
+2. ${CHALLENGE_2}
+   - **Impact Level**: ${IMPACT_LEVEL}
+   - **Frequency**: ${CHALLENGE_FREQUENCY}
+   - **Potential Mitigation**: ${MITIGATION_STRATEGY}
+
+#### Emotional Context
+Underlying Feelings and Frustrations
+- ${EMOTIONAL_INSIGHT_1}
+- ${EMOTIONAL_INSIGHT_2}
+
+## 7. Technology and Interaction Preferences
+
+| Preference Category       | Details                      | Notes                               |
+|---------------------------|------------------------------|-------------------------------------|
+| **Digital Literacy**      | ${DIGITAL_LITERACY}          | Proficiency (L/M/H)in digital tools |
+| **Preferred Devices**     | ${DEVICES}                   | Platforms and form factors          |
+| **Desired App Features**  | ${DESIRED_FEATURES}          | Desired Application Features        |
+| **Communication**         | ${COMMUNICATION_PREFERENCES} | Preferred interaction channels      |
+| **Accessibility Needs**   | ${ACCESSIBILITY_REQUIREMENTS}| Special interaction considerations  |
+| **Privacy and Control**   | ${PRIVACY_CONTROL_PREFS}     | Privacy and Control Preferences     |
+
+## 8. Decision-Making Characteristics
+
+#### Information and Influence
+- **Primary Sources**: 
+  - ${SOURCE_1}:{SOURCE_DESCRIPTION_1}
+  - ${SOURCE_2}:{SOURCE_DESCRIPTION_2}
+
+- **Key Decision Factors**:
+  1. ${DECISION_FACTOR_1}:{DECISION_FACTOR_DESCRIPTION_1}
+  2. ${DECISION_FACTOR_2}:{DECISION_FACTOR_DESCRIPTION_2}
+
+- **Decision Complexity**: ${DECISION_COMPLEXITY:Simple|Moderate|Complex}
+
+## 9. Success Metrics
+Defining Persona Achievement
+- ${METRIC_1}
+- ${METRIC_2}
+
+## 10. Research Evidence
+
+#### Data Sources
+- ${SOURCE_1}: ${RESEARCH_TYPE}
+- ${SOURCE_2}: ${RESEARCH_TYPE}
+
+#### Key Insights
+- ${INSIGHT_1}
+- ${INSIGHT_2}
+
+#### Research Limitations
+- ${LIMITATION_1}
+- ${LIMITATION_2}
+
+## 11. Recommendations for Product Development
+- **Product Recommendations**: 
+  - ${RECOMMENDATION_1}:{RECOMMENDATION_DESCRIPTION_1}
+  - ${RECOMMENDATION_2}:{RECOMMENDATION_DESCRIPTION_2}
+  - ${RECOMMENDATION_3}:{RECOMMENDATION_DESCRIPTION_3}
+
+## 12. Requirements Traceability
+### Related Documents
+| Document Type | Reference ID | Description |
+|--------------|--------------|-------------|
+| User Story | ${RELATED_USER_STORY} | ${USER_STORY_DESCRIPTION} |
+| Use Case | ${RELATED_USE_CASE} | ${USE_CASE_DESCRIPTION} |
+
+### Impact Analysis
+| Target Area | Confidence Level | Notes |
+|------------|------------------|-------|
+| Product Strategy | ${CONFIDENCE_PERCENTAGE}% | ${STRATEGY_IMPACT_NOTES} |
+| Design Decisions | ${CONFIDENCE_PERCENTAGE}% | ${DESIGN_IMPACT_NOTES} |
+
+### Supporting Documentation
+- **Research Documents**: ${RESEARCH_DOCUMENT}
+- **Interview Transcripts**: ${INTERVIEW_TRANSCRIPT}
+- **Additional References**: ${OPTIONAL:ADDITIONAL_REFS}
+
+## Change Log
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| 3.0 | ${CURRENT_DATE} | ${AUTHOR} | Comprehensive reorganization and enhancement of the user persona template |
+
+## Information Sources and Methodology
+**Source Type**: ${SELECT:Primary|Partial|Synthetic}
+
+**Methodology**:
+- Information Sources: 
+  - ${SOURCE_1}
+  - ${SOURCE_2}
+  - ${OPTIONAL:SOURCE_3}
+
+- Computational Methods: 
+  - ${METHOD_1}
+  - ${METHOD_2}
+  - ${OPTIONAL:METHOD_3}
+
+- Verification Status: ${SELECT:Ongoing|Partial|Complete}
+
+**Limitations and Disclaimers**:
+- This persona is ${SELECT:a direct account|partially synthesized|a synthetic representation}
+- Requires continuous verification
+- Not a definitive representation of any specific individual

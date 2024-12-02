@@ -1,0 +1,268 @@
+---
+id: TEMPLATE-use-case
+title: Use Case Template
+sidebar_label: Use Case Template
+description: Template for creating use cases
+keywords: [use case, template]
+---
+
+<!--
+##################################################################################################
+# AI CONFIGURATION AND PROCESSING GUIDE
+# This section defines the prompts and processing instructions for use case development
+##################################################################################################
+-->
+
+## AI-Assisted Template Development
+ai_assistance:
+  document_type: "use_case"
+  parent_template: "base_template"
+
+ai_prompting_instructions:  
+  prompt_refinement_checklist:
+    - verify_actors_and_stakeholders
+    - check_preconditions_and_triggers
+    - ensure_flow_completeness
+    - validate_against_business_rules
+    - verify_exception_handling
+
+  base_prompt_structure: |
+    Create or enhance a detailed use case for ${PROJECT_NAME}.
+    
+    Provide comprehensive details addressing:
+    1. Use Case Overview and Context
+    2. Actor and Stakeholder Details
+    3. Preconditions and Triggers
+    4. Main Success Scenario
+    5. Alternative Flows
+    6. Exception Flows
+    7. Post-conditions
+    8. Business Rules and Constraints
+    
+    Ensure the use case:
+    - Is actor-focused
+    - Has clear success criteria
+    - Includes all necessary flows
+    - Maintains traceability
+    - Is implementation-agnostic
+    - Provides actionable steps
+
+  prompt_templates:
+    creation: |
+      Generate a comprehensive use case specification:
+      Use Case Name: ${USE_CASE_NAME}
+      Primary Actor: ${PRIMARY_ACTOR}
+      Key Considerations:
+      - Business Context: ${BUSINESS_CONTEXT}
+      - Primary Goals: ${PRIMARY_GOALS}
+      - Critical Requirements: ${KEY_REQUIREMENTS}
+      - Success Criteria: ${SUCCESS_CRITERIA}
+      - Related Use Cases: ${RELATED_USE_CASES}
+
+    interactive_creation: |
+      You will act as an expert use case analyst.
+      Begin by asking questions to gather necessary information:
+      - Focus on actor goals and interactions
+      - Validate preconditions and triggers
+      - Ensure all flows are covered
+      - Verify business rules compliance
+      Present the final use case using the template structure
+
+    enhancement: |
+      Act as an expert use case analyst to enhance the existing use case ${DOCUMENT_KEY}.
+
+      **Specific Instructions**:
+      - **Review** existing flows for completeness
+      - **Identify** missing scenarios or exceptions
+      - **Validate** actor interactions
+      - **Ensure** business rules compliance
+      - **Verify** preconditions and postconditions
+      - **Document** all changes
+
+### Research Methodology
+research_approach:
+  primary_methods:
+    - stakeholder_interviews
+    - process_analysis
+    - scenario_mapping
+    - workflow_observation
+  
+  data_collection_templates:
+    analysis_guide:
+      - actor_goal_analysis
+      - process_flow_mapping
+      - exception_identification
+      - business_rule_validation
+
+### Validation Framework
+validation_criteria:
+  must_have_sections:
+    - unique_identifier
+    - primary_actor
+    - preconditions
+    - main_success_scenario
+    - postconditions
+
+  should_have_sections:
+    - alternative_flows
+    - exception_flows
+    - business_rules
+    - related_use_cases
+
+  optional_sections:
+    - performance_requirements
+    - special_requirements
+
+### Document Metadata Configuration
+document:
+  key_generation:
+    pattern: "UC-${SEQUENCE}-${DESCRIPTOR}"
+    components:
+      prefix: "UC"
+      sequence:
+        format: "000"
+        current: "${AUTO_INCREMENT}"
+      descriptor:
+        format: "lowercase_with_underscores"
+        max_length: 50
+
+<!--
+##################################################################################################
+# USE CASE CONTENT
+##################################################################################################
+-->
+
+# Use Case Specification
+
+## Basic Information
+| Field | Value |
+|-------|-------|
+| Use Case ID | ${USE_CASE_ID} |
+| Use Case Name | ${USE_CASE_NAME} |
+| Created By | ${AUTHOR} |
+| Created Date | ${DATE} |
+| Last Updated | ${LAST_UPDATED} |
+| Status | ${STATUS} |
+
+## Agile Context
+### User Story Reference
+As a ${PRIMARY_ACTOR},
+I want to ${GOAL},
+So that ${BUSINESS_VALUE}
+
+### Agile Metrics
+| Metric | Value |
+|--------|-------|
+| Story Points | ${STORY_POINTS} |
+| Sprint/Iteration | ${SPRINT} |
+| Priority Level | ${PRIORITY_LEVEL} |
+| Feature Flag | ${FEATURE_FLAG} |
+
+### MVP Considerations
+- Minimum Requirements: ${MVP_REQUIREMENTS}
+- Incremental Delivery Plan: ${INCREMENTAL_PLAN}
+- Feature Toggle Strategy: ${FEATURE_TOGGLE_STRATEGY}
+
+### Definition of Done
+1. ${DOD_CRITERIA_1}
+2. ${DOD_CRITERIA_2}
+3. ${DOD_CRITERIA_3}
+
+### Acceptance Criteria
+1. ${AC_CRITERIA_1}
+2. ${AC_CRITERIA_2}
+3. ${AC_CRITERIA_3}
+
+## Overview
+### Description
+${USE_CASE_DESCRIPTION}
+
+### Business Value
+${BUSINESS_VALUE}
+
+### Priority
+${PRIORITY}
+
+## Actors and Stakeholders
+### Primary Actor
+${PRIMARY_ACTOR}
+
+### Secondary Actors
+${SECONDARY_ACTORS}
+
+### Stakeholders
+${STAKEHOLDERS}
+
+## Preconditions
+1. ${PRECONDITION_1}
+2. ${PRECONDITION_2}
+
+## Triggers
+${TRIGGERS}
+
+## Main Success Scenario
+1. ${STEP_1}
+2. ${STEP_2}
+3. ${STEP_3}
+
+## Alternative Flows
+### Alternative Flow 1: ${ALT_FLOW_1_NAME}
+1. ${ALT_1_STEP_1}
+2. ${ALT_1_STEP_2}
+
+### Alternative Flow 2: ${ALT_FLOW_2_NAME}
+1. ${ALT_2_STEP_1}
+2. ${ALT_2_STEP_2}
+
+## Exception Flows
+### Exception Flow 1: ${EXC_FLOW_1_NAME}
+1. ${EXC_1_STEP_1}
+2. ${EXC_1_STEP_2}
+
+## Post-conditions
+### Success End Condition
+${SUCCESS_END_CONDITION}
+
+### Failure End Condition
+${FAILURE_END_CONDITION}
+
+## Special Requirements
+### Business Rules
+1. ${BUSINESS_RULE_1}
+2. ${BUSINESS_RULE_2}
+
+### Performance Requirements
+${PERFORMANCE_REQUIREMENTS}
+
+### Security Requirements
+${SECURITY_REQUIREMENTS}
+
+## Related Information
+### Related Use Cases
+- ${RELATED_USE_CASE_1}
+- ${RELATED_USE_CASE_2}
+
+### Related User Stories
+- ${RELATED_USER_STORY_1}
+- ${RELATED_USER_STORY_2}
+
+### Related Business Rules
+- ${RELATED_BUSINESS_RULE_1}
+- ${RELATED_BUSINESS_RULE_2}
+
+## Notes and Issues
+### Open Issues
+1. ${OPEN_ISSUE_1}
+2. ${OPEN_ISSUE_2}
+
+### Assumptions
+1. ${ASSUMPTION_1}
+2. ${ASSUMPTION_2}
+
+### Notes
+${NOTES}
+
+# Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| ${VERSION} | ${DATE} | ${AUTHOR} | ${CHANGES} |

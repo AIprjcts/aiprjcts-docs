@@ -1,0 +1,382 @@
+<!--
+#####################################################################################################################################################################
+# EPIC TEMPLATE
+# Template for creating epics that group related user stories and provide high-level business objectives
+#####################################################################################################################################################################
+-->
+
+# Template Metadata
+template:
+  id: "epic-template"
+  category: "requirements"
+  type: "epic"
+  version: "1.0"
+
+metadata:
+  author: "Zebra Team"
+  status: "Active"
+  last_updated: "${ISO_TIMESTAMP}"
+
+<!--
+##################################################################################################
+# DATE AND VERSION HANDLING INSTRUCTIONS
+# Follow these guidelines when filling in dates and versions:
+# 1. Creation Date: Use the actual date when the epic is created (format: YYYY-MM-DD)
+# 2. Last Updated: Use the current date when making changes (format: YYYY-MM-DD)
+# 3. Version History: Start with 0.1 for initial draft, 1.0 for first approved version
+# 4. Release Dates: Use realistic dates based on current project timeline
+##################################################################################################
+-->
+
+<!--
+##################################################################################################
+# AI PROCESSING AND DEVELOPMENT GUIDE
+# This section contains information for AI assistance and development guidance.
+# It is not part of the output template but provides context and rules for processing.
+##################################################################################################
+-->
+
+# AI Processing Configuration
+
+## AI-Assisted Epic Development
+ai_assistance:
+  document_type: "epic"
+  parent_template: "base_template"
+
+ai_prompting_instructions:  
+  prompt_refinement_checklist:
+    - verify_business_alignment
+    - check_scope_boundaries
+    - ensure_measurable_outcomes
+    - validate_value_streams
+    - check_user_journey_alignment
+    - verify_mvp_requirements
+    - validate_release_planning
+
+  base_prompt_structure: |
+    Create or enhance an epic for ${PROJECT_NAME}.
+    
+    Provide comprehensive details addressing:
+    1. Business Context and Objectives
+    2. User Value Streams
+    3. Story Mapping Structure
+    4. MVP Requirements
+    5. Release Strategy
+    6. Success Metrics
+    
+    Ensure the epic:
+    - Aligns with business strategy
+    - Has clear boundaries
+    - Is properly sized for delivery
+    - Supports incremental value
+    - Maps to user journeys
+
+  prompt_templates:
+    creation: |
+      Generate a comprehensive epic specification (add below each section a brief description of the intention of the section and a list of key points to bre include in  the section):
+      Business Context: ${BUSINESS_CONTEXT}
+      Key Considerations:
+      - Strategic Goals: ${STRATEGIC_GOALS}
+      - User Journeys: ${USER_JOURNEYS}
+      - Value Streams: ${VALUE_STREAMS}
+      - Key Metrics: ${SUCCESS_METRICS}
+      - Release Timeline: ${RELEASE_TIMELINE}
+
+     - You should include all the information  
+
+    interactive_creation: |
+      You will act as an expert epic writer.
+      Begin by asking questions to gather necessary information:
+      - Focus on business value
+      - Map user journeys
+      - Define value streams
+      - Plan releases
+      - Set success metrics
+      Present the final epic using the template structure
+
+
+    enhancement: |
+      Act as an expert epic analyst. Your task is to **enhance** the existing epic identified as ${DOCUMENT_KEY}.
+
+      **Specific Instructions**:
+      
+      - **Do not modify** any section without asking to the user and this agree with the modifications
+      - **Maintain** all existing details in all the sections if the user does not provide any new information or does not agree to modify the existing details.
+      - **Identify** gaps or areas that can be enriched in the allowed sections.
+      - **Incorporate** new insights or provided data, **without altering** the sections that must remain the same.
+      - **Ensure** consistency and accuracy throughout the epic.
+      - **Justify** any additions or changes based on context or new data provided.
+      - **Validate** against latest research
+           
+
+      **Process**:
+      1. Review the existing epic.
+      2. **Skip** any modifications in the specified sections that must remain the same.
+      3. Identify areas for improvement in other sections and gather new insights and confirm with the user.
+      4. Add additional details where necessary, **without changing** existing details in protected sections.
+      5. Present the updated epic following the template structure.
+
+      **Note**: The goal is to **enrich** the epicby improving the allowed sections, **without recreating** it or modifying details in sections that must remain the same.
+
+      **Specific Instructions**:
+      - **Review** business alignment
+      - **Validate** scope boundaries
+      - **Check** value streams
+      - **Verify** release strategy
+      - **Update** success metrics
+      - **Document** all changes
+
+## Epic Creation Process
+epic_creation:
+  input_sources:
+    - business_strategy
+    - user_personas
+    - market_research
+    - technical_feasibility
+    - stakeholder_input
+
+  validation_rules:
+    - business_alignment_check
+    - scope_validation
+    - value_stream_verification
+    - release_feasibility
+    - metrics_validation
+
+### Epic Creation Workflow
+epic_creation_process:
+  input_sources:
+    - business_requirements_analysis
+    - stakeholder_interviews
+    - technical_feasibility_studies
+    - market_research_data
+    - regulatory_compliance_requirements
+    - system_architecture_reviews
+    - user_experience_research
+    - performance_metrics_analysis
+
+  required_documentation:
+    - business_case_validation
+    - scope_definition_document
+    - technical_architecture_overview
+    - risk_assessment_report
+    - resource_allocation_plan
+    - implementation_timeline
+    - success_criteria_definition
+    - compliance_verification_checklist
+
+### Manual Entry Guidelines
+manual_entry_recommendations:
+  data_verification_steps:
+    - cross_reference_multiple_sources
+    - validate_with_domain_experts
+    - anonymize_personal_identifiers
+    - document_data_sources
+
+  minimum_evidence_requirements:
+    - at_least_3_independent_sources
+    - mix_of_qualitative_and_quantitative_data
+    - recent_data_preferably_within_2_years
+
+### Persona Validation Criteria
+validation_criteria:
+  must_have_sections:
+    - business_value:
+        - clear_problem_statement
+        - strategic_alignment
+        - expected_benefits
+        - stakeholder_impact
+    
+    - scope_definition:
+        - boundaries_and_constraints
+        - included_capabilities
+        - excluded_items
+        - dependencies
+    
+    - success_criteria:
+        - quantitative_metrics
+        - qualitative_outcomes
+        - measurement_methods
+        - baseline_metrics
+    
+    - user_requirements:
+        - user_journeys
+        - pain_points
+        - solution_benefits
+        - acceptance_criteria
+
+    - mvp_definition:
+        - core_features
+        - minimal_requirements
+        - release_criteria
+        - deployment_needs
+
+  should_have_sections:
+    - technical_assessment:
+        - system_dependencies
+        - integration_requirements
+        - performance_needs
+        - security_requirements
+    
+    - risk_management:
+        - identified_risks
+        - impact_assessment
+        - mitigation_strategies
+        - contingency_plans
+    
+    - implementation_strategy:
+        - phased_approach
+        - resource_requirements
+        - timeline_estimates
+        - key_milestones
+    
+    - quality_assurance:
+        - testing_requirements
+        - validation_approach
+        - compliance_needs
+        - acceptance_tests
+
+  optional_enrichment_sections:
+    - future_considerations:
+        - scalability_plans
+        - enhancement_opportunities
+        - technology_evolution
+        - market_trends
+    
+    - advanced_capabilities:
+        - ai_integration
+        - automation_possibilities
+        - optimization_areas
+        - innovation_opportunities
+    
+    - stakeholder_engagement:
+        - communication_plan
+        - training_needs
+        - change_management
+        - feedback_mechanisms
+
+### Continuous Improvement Process
+continuous_improvement:
+  triggers:
+    - significant_market_change
+    - product_strategy_pivot
+    - new_user_segment_discovery
+  
+  update_workflow:
+    - validate_existing_assumptions
+    - collect_new_evidence
+    - update_persona_sections
+    - version_control_logging
+
+
+<!--
+##################################################################################################
+# TEMPLATE OUTPUT CONTENT STARTS HERE
+# Everything below this point will be included in the final MDX output
+###################################################################################################
+-->
+
+# Epic Content
+
+## Basic Information
+| Field | Value |
+|-------|-------|
+| Epic ID | EP-${SEQUENCE}-${DESCRIPTOR} |
+| Epic Name | ${EPIC_NAME} |
+| Created By | Zebra Team |
+| Created Date | ${CREATION_DATE} |
+| Last Updated | ${LAST_UPDATED} |
+| Status | ${STATUS} |
+
+## Epic Overview
+### Business Context
+${BUSINESS_CONTEXT}
+
+### Description
+${EPIC_DESCRIPTION}
+
+### Strategic Alignment
+| Business Goal | Contribution |
+|--------------|--------------|
+| ${GOAL_1} | ${CONTRIBUTION_1} |
+| ${GOAL_2} | ${CONTRIBUTION_2} |
+
+### Success Metrics
+1. ${METRIC_1}
+   - Target: ${TARGET_1}
+   - Timeline: ${TIMELINE_1}
+2. ${METRIC_2}
+   - Target: ${TARGET_2}
+   - Timeline: ${TIMELINE_2}
+
+## Value Streams
+### User Journeys
+1. ${JOURNEY_1}
+   - Current State: ${CURRENT_STATE_1}
+   - Future State: ${FUTURE_STATE_1}
+   - Value Added: ${VALUE_1}
+
+2. ${JOURNEY_2}
+   - Current State: ${CURRENT_STATE_2}
+   - Future State: ${FUTURE_STATE_2}
+   - Value Added: ${VALUE_2}
+
+## Story Mapping
+### User Activities
+1. ${ACTIVITY_1}
+   - Description: ${ACTIVITY_1_DESC}
+   - Related Personas: ${ACTIVITY_1_PERSONAS}
+   - Priority: ${ACTIVITY_1_PRIORITY}
+
+2. ${ACTIVITY_2}
+   - Description: ${ACTIVITY_2_DESC}
+   - Related Personas: ${ACTIVITY_2_PERSONAS}
+   - Priority: ${ACTIVITY_2_PRIORITY}
+
+### Story Breakdown
+#### Activity 1: ${ACTIVITY_1}
+| Story ID | Description | Priority | Story Points | Release |
+|----------|-------------|-----------|--------------|----------|
+| US-XXX | ${STORY_DESC} | ${PRIORITY} | ${POINTS} | ${RELEASE} |
+
+## Release Planning
+### MVP Requirements
+| Requirement | Rationale | Priority |
+|------------|-----------|-----------|
+| ${REQ_1} | ${RATIONALE_1} | ${PRIORITY_1} |
+| ${REQ_2} | ${RATIONALE_2} | ${PRIORITY_2} |
+
+### Release Strategy
+| Release | Features | Target Date | Dependencies |
+|---------|----------|-------------|--------------|
+| MVP | ${MVP_FEATURES} | ${MVP_DATE} | ${MVP_DEPS} |
+| R2 | ${R2_FEATURES} | ${R2_DATE} | ${R2_DEPS} |
+
+## Implementation Considerations
+### Technical Dependencies
+- ${TECH_DEP_1}
+- ${TECH_DEP_2}
+
+### Risks and Mitigations
+| Risk | Impact | Mitigation |
+|------|---------|------------|
+| ${RISK_1} | ${IMPACT_1} | ${MITIGATION_1} |
+| ${RISK_2} | ${IMPACT_2} | ${MITIGATION_2} |
+
+## Related Information
+### Related Epics
+- ${RELATED_EPIC_1}
+- ${RELATED_EPIC_2}
+
+### Stakeholders
+| Role | Name | Responsibility |
+|------|------|----------------|
+| ${ROLE_1} | ${NAME_1} | ${RESP_1} |
+| ${ROLE_2} | ${NAME_2} | ${RESP_2} |
+
+### Notes and Assumptions
+${NOTES}
+
+# Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| ${VERSION} | ${DATE} | Zebra Team | ${CHANGES} |

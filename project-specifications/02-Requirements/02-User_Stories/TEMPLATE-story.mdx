@@ -1,0 +1,219 @@
+<!--
+#####################################################################################################################################################################
+# USER STORY TEMPLATE
+# Template for creating user stories following Agile methodology
+#####################################################################################################################################################################
+-->
+
+<!--
+##################################################################################################
+# 1. TEMPLATE METADATA AND CONFIGURATION
+##################################################################################################
+-->
+
+# Template Metadata
+template:
+  id: "user-story-template"
+  category: "requirements"
+  type: "user-story"
+  version: "1.0"
+
+metadata:
+  author: "Codeium"
+  status: "Active"
+  last_updated: "${ISO_TIMESTAMP}"
+
+
+<!--
+##################################################################################################
+# DATE AND VERSION HANDLING INSTRUCTIONS
+# Follow these guidelines when filling in dates and versions:
+# 1. Creation Date: Use the actual date when the epic is created (format: YYYY-MM-DD)
+# 2. Last Updated: Use the current date when making changes (format: YYYY-MM-DD)
+# 3. Version History: Start with 0.1 for initial draft, 1.0 for first approved version
+# 4. Release Dates: Use realistic dates based on current project timeline
+##################################################################################################
+-->
+
+##################################################################################################
+# 2. AI PROCESSING AND DEVELOPMENT GUIDE
+# This section contains information for AI assistance and development guidance.
+# It is not part of the output template but provides context and rules for processing.
+##################################################################################################
+-->
+
+
+
+
+# AI Processing Configuration
+
+## AI-Assisted Story Development
+ai_assistance:
+  document_type: "user_story"
+  parent_template: "base_template"
+
+ai_prompting_instructions:  
+  prompt_refinement_checklist:
+    - verify_user_value
+    - check_acceptance_criteria
+    - ensure_testability
+    - validate_dependencies
+    - check_persona_alignment
+    - verify_epic_alignment
+    - validate_story_mapping
+
+  base_prompt_structure: |
+    Create or enhance a user story for ${PROJECT_NAME}.
+    
+    Provide comprehensive details addressing:
+    1. User Story and Value Proposition
+    2. Story Mapping Context
+    3. Acceptance Criteria
+    4. Technical Considerations
+    5. Dependencies and Relationships
+    
+    Ensure the story:
+    - Delivers clear user value
+    - Is properly sized
+    - Is testable
+    - Aligns with epic goals
+    - Maps to user activities
+
+  prompt_templates:
+    creation: |
+      Generate a comprehensive user story
+      Epic Context: ${EPIC_REFERENCE}
+      Key Considerations:
+      - User Activity: ${ACTIVITY_CONTEXT}
+      - Primary Goals: ${USER_GOALS}
+      - Critical Requirements: ${KEY_REQUIREMENTS}
+      - Success Criteria: ${SUCCESS_CRITERIA}
+
+    interactive_creation: |
+      You will act as an expert story writer.
+      Begin by asking questions to gather necessary information:
+      - Focus on user value
+      - Validate acceptance criteria
+      - Ensure proper sizing
+      - Verify epic alignment
+      Present the final story using the template structure
+
+    enhancement: |
+      Act as an expert story analyst to enhance the existing story ${DOCUMENT_KEY}.
+
+      **Specific Instructions**:
+      - **Review** value proposition
+      - **Validate** acceptance criteria
+      - **Check** story size
+      - **Verify** epic alignment
+      - **Document** all changes
+
+## Story Creation Process
+story_creation:
+  input_sources:
+    - epic_backlog
+    - user_personas
+    - stakeholder_input
+    - technical_constraints
+
+  validation_rules:
+    - completeness_check
+    - size_validation
+    - dependency_verification
+    - epic_alignment
+
+<!--
+##################################################################################################
+# TEMPLATE OUTPUT CONTENT STARTS HERE
+# Everything below this point will be included in the final MDX output
+###################################################################################################
+-->
+
+# User Story Content
+
+## Basic Information
+| Field | Value |
+|-------|-------|
+| Story ID | US-${SEQUENCE}-${DESCRIPTOR} |
+| Epic Reference | EP-${EPIC_ID} |
+| Created By | ${AUTHOR} |
+| Created Date | ${DATE} |
+| Last Updated | ${LAST_UPDATED} |
+| Status | ${STATUS} |
+
+## Story Details
+### User Story
+As a ${PERSONA_REFERENCE},
+I want to ${ACTION},
+So that ${BENEFIT}
+
+### Story Mapping
+- Epic: ${EPIC_REFERENCE}
+- Activity: ${ACTIVITY_REFERENCE}
+- Task: ${TASK_REFERENCE}
+- Sequence: ${SEQUENCE_NUMBER}
+
+### Agile Metrics
+| Metric | Value |
+|--------|-------|
+| Story Points | ${STORY_POINTS} [1,2,3,5,8,13,21] |
+| Priority Level | ${PRIORITY_LEVEL} [MH/SH/CH] |
+| Sprint | ${SPRINT} |
+
+## Acceptance Criteria
+### Scenario 1: ${SCENARIO_1_NAME}
+**Given** ${PRECONDITION}
+**When** ${ACTION}
+**Then** ${RESULT}
+
+### Scenario 2: ${SCENARIO_2_NAME}
+**Given** ${PRECONDITION}
+**When** ${ACTION}
+**Then** ${RESULT}
+
+### Quality Attributes
+- [ ] Testable
+- [ ] Clear
+- [ ] Feasible
+
+## Implementation Details
+### Technical Notes
+- ${TECH_NOTE_1}
+- ${TECH_NOTE_2}
+
+### Dependencies
+#### Technical Dependencies
+- ${TECH_DEPENDENCY_1}
+- ${TECH_DEPENDENCY_2}
+
+#### Business Dependencies
+- ${BUS_DEPENDENCY_1}
+- ${BUS_DEPENDENCY_2}
+
+### Test Scenarios
+1. ${TEST_SCENARIO_1}
+2. ${TEST_SCENARIO_2}
+
+## Definition of Done
+- [ ] Code review completed
+- [ ] Tests passing
+- [ ] Documentation updated
+- [ ] Acceptance criteria met
+- [ ] Stakeholder approval obtained
+
+## Related Information
+### Related Stories
+- ${RELATED_STORY_1}
+- ${RELATED_STORY_2}
+
+### Related Use Cases
+- ${RELATED_UC_1}
+- ${RELATED_UC_2}
+
+### Notes and Assumptions
+${NOTES}
+
+# Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| ${VERSION} | ${DATE} | ${AUTHOR} | ${CHANGES} |

@@ -1,0 +1,319 @@
+{/* 
+Template: User Persona
+Version: 1.0
+Purpose: Capture detailed user persona information for project requirements
+*/}
+
+{/* 
+TEMPLATE USAGE INSTRUCTIONS:
+1. Replace all ${PLACEHOLDER} markers with actual content
+2. Remove all template comments and instructions
+3. Validate against the schema defined in metadata
+4. Update relationships as needed
+*/}
+
+{/* AI-CONTEXT: Document Purpose
+This template serves as a base for creating user personas.
+Key points:
+1. Maintain consistency across sections
+2. Ensure traceability through relationships
+3. Follow validation rules for completeness
+*/}
+
+{/* 
+SPECIFICATION DOCUMENT NAMING INSTRUCTIONS:
+1. Each specification document resulting from applying a template gets a unique key following the pattern: ${PREFIX}-${SEQUENCE}-${DESCRIPTOR}
+   Examples:
+   - PER-001-admin_user_persona
+   - PER-002-customer_service_persona
+   - PER-003-end_user_persona
+
+2. Key Usage in References:
+   - Short reference: Use just the key (PER-001)
+   - Full reference: Use complete filename (PER-001-admin_user_persona)
+   - URL reference: Use path with filename
+   
+3. Relationship Examples:
+   dependencies: ["US-001", "FR-002"]
+   references: ["ARCH-001", "API-002"]
+   impacts: ["TEST-001", "DOC-002"]
+
+4. Naming Best Practices:
+   - Keep descriptors clear and concise
+   - Use lowercase with underscores
+   - Include purpose in descriptor
+   - Maintain consistent naming patterns
+   - Avoid special characters
+
+5. Auto-incrementing Rules:
+   - Sequence numbers are unique within each prefix
+   - Gaps in sequence are allowed
+   - Deleted documents' numbers are not reused
+   - New documents get next available number
+*/}
+
+---
+template:
+  id: "user-persona"
+  version: "1.0"
+  category: "requirements"
+  type: "user-research"
+  parent: "base_template"
+
+metadata:
+  author: "${AUTHOR}"
+  version: "${DOCUMENT_VERSION}"
+  created: "${DATE_CREATED}"
+  updated: "${DATE_UPDATED}"
+  status: "${STATUS:Draft|In Review|Approved}"
+  reviewers: 
+    - "${REVIEWER_1}"
+    - "${OPTIONAL:REVIEWER_2}"
+
+document:
+  key: "${DOCUMENT_KEY}"
+  naming:
+    pattern: "PER-${SEQUENCE}-${descriptor}"
+    prefix: "PER"
+    sequence:
+      format: "000"
+      current: "${AUTO_INCREMENT}"
+    descriptor:
+      format: "lowercase_with_underscores"
+      max_length: 50
+
+ai:
+  documentType: "user_persona"
+  validationRules:
+    mustSections:
+      - "basic_information"
+      - "goals_and_needs"
+      - "technical_profile"
+      - "pain_points"
+    shouldSections:
+      - "daily_routine"
+      - "preferences"
+      - "user_stories"
+    couldSections:
+      - "additional_demographics"
+      - "market_segment"
+    wontSections:
+      - "financial_details"
+      - "personal_history"
+    dataValidation:
+      name: "must be realistic and culturally appropriate"
+      age: "must be a range or specific number"
+      goals: "minimum 2 primary goals required"
+      pain_points: "minimum 2 pain points required"
+  
+  promptTemplates:
+    creation: |
+      Create a user persona for ${SYSTEM_TYPE} focusing on ${USER_TYPE}.
+      Key aspects to consider:
+      - Demographics: ${DEMOGRAPHICS}
+      - Technical proficiency: ${TECH_LEVEL}
+      - Key challenges: ${CHALLENGES}
+      - Main goals: ${GOALS}
+
+    enhancement: |
+      Enhance the persona ${PERSONA_ID} with details about ${ASPECT}.
+      Consider:
+      - Current details: ${CURRENT_CONTENT}
+      - Missing elements: ${MISSING_ELEMENTS}
+      - User research data: ${RESEARCH_DATA}
+
+  relationships:
+    dependencies: ["${DEPENDENCY_1}", "${OPTIONAL:DEPENDENCY_2}"]
+    references: ["${REFERENCE_1}", "${OPTIONAL:REFERENCE_2}"]
+    impacts: ["${IMPACT_1}", "${OPTIONAL:IMPACT_2}"]
+
+contentSchema:
+  sections:
+    - id: "basic_information"
+      required: true
+      validation: "Must include name, age, occupation, location"
+    - id: "goals_and_needs"
+      required: true
+      validation: "Must include at least 2 primary goals"
+    - id: "technical_profile"
+      required: true
+      validation: "Must specify device usage and tech comfort level"
+    - id: "pain_points"
+      required: true
+      validation: "Must include at least 2 pain points"
+---
+
+# User Persona: ${PERSONA_NAME}
+
+## Basic Information
+{/* All fields in this section are required */}
+
+| Field | Details |
+|-------|---------|
+| **Name** | ${NAME} |
+| **Age** | ${AGE_RANGE} |
+| **Occupation** | ${OCCUPATION} |
+| **Location** | ${LOCATION} |
+| **Education** | ${EDUCATION} |
+| **Income Level** | ${INCOME_LEVEL:LOW|MEDIUM-LOW|MEDIUM-HIGH|HIGH } |
+| **Family Status** | ${FAMILY_STATUS} |
+
+## Profile Summary
+{/* Must provide a concise overview of the persona */}
+
+${PROFILE_SUMMARY}
+
+## Technical Profile
+{/* Must specify technology comfort and usage patterns */}
+
+| Aspect | Details |
+|--------|---------|
+| **Device Usage** | ${DEVICE_USAGE:Low|Medium|High} |
+| **Tech Comfort** | ${TECH_COMFORT:Beginner|Intermediate|Advanced} |
+| **Primary Devices** | ${DEVICES} |
+| **Frequently Used Apps** | ${APPS} |
+| **Digital Services** | ${SERVICES} |
+
+## Goals and Needs
+
+### Primary Goals
+{/* Minimum 2 primary goals required */}
+
+1. ${PRIMARY_GOAL_1}
+2. ${PRIMARY_GOAL_2}
+3. ${OPTIONAL:PRIMARY_GOAL_3}
+
+### Secondary Goals
+
+1. ${SECONDARY_GOAL_1}
+2. ${SECONDARY_GOAL_2}
+3. ${OPTIONAL:SECONDARY_GOAL_3}
+
+
+## Pain Points and Frustrations
+{/* Must include specific challenges and frustrations */}
+
+### Current Challenges
+
+1. ${CHALLENGE_1}
+2. ${CHALLENGE_2}
+3. ${OPTIONAL:CHALLENGE_3}
+
+
+### Frustrations
+
+1. ${FRUSTRATION_1}
+2. ${FRUSTRATION_2} 
+3. ${OPTIONAL:FRUSTRATION_3}
+
+
+## Preferences and Behaviors
+
+### Communication Preferences
+{/* Must specify preferred communication methods */}
+
+- Primary: ${PRIMARY_COMMUNICATION}
+- Secondary: ${SECONDARY_COMMUNICATION}
+- Avoided: ${AVOIDED_COMMUNICATION}
+
+### Decision-Making Factors
+{/* List key factors influencing decisions */}
+
+1. ${DECISION_FACTOR_1}
+2. ${DECISION_FACTOR_2}
+3. ${OPTIONAL:DECISION_FACTOR_3}
+
+## Daily Routine
+{/* OPTIONAL: Must show typical daily activities and pain points */}
+{/*
+### Morning
+- ${MORNING_TIME_1}: ${MORNING_ACTIVITY_1}
+- ${MORNING_TIME_2}: ${MORNING_ACTIVITY_2}
+
+### Afternoon
+- ${AFTERNOON_TIME_1}: ${AFTERNOON_ACTIVITY_1}
+- ${AFTERNOON_TIME_2}: ${AFTERNOON_ACTIVITY_2}
+
+### Evening
+- ${EVENING_TIME_1}: ${EVENING_ACTIVITY_1}
+- ${EVENING_TIME_2}: ${EVENING_ACTIVITY_2}
+ */}
+
+## User Stories
+{/* Link to related user stories */}
+
+1. As ${NAME}, I want ${WANT_1} so that ${BENEFIT_1}
+2. As ${NAME}, I want ${WANT_2} so that ${BENEFIT_2}
+3. As ${NAME}, I want ${WANT_2} so that ${BENEFIT_3}
+
+## Relationships and Dependencies
+{/* AI-VALIDATION: Must link to related documents */}
+
+```mermaid
+graph LR
+    ${CURRENT_DOC}[${PERSONA_NAME}] --> ${USER_STORY_1}[User Story: ${USER_STORY_1_NAME}]
+    ${CURRENT_DOC} --> ${REQUIREMENT_1}[Requirement: ${REQUIREMENT_1_NAME}]
+```
+
+## Related Documentation
+{/* Show connections to other documentation */}
+
+- User Stories: ${USER_STORY_REFS}
+- Use Cases: ${USE_CASE_REFS}
+- Requirements: ${REQUIREMENT_REFS}
+
+## Validation and Review
+{/* Track document status and reviews */}
+
+| Aspect | Status | Notes |
+|--------|--------|-------|
+| Technical Review | ${TECH_REVIEW_STATUS:Pending|Completed|N/A} | ${TECH_REVIEW_NOTES} |
+| Peer Review | ${PEER_REVIEW_STATUS:Pending|Completed|N/A} | ${PEER_REVIEW_NOTES} |
+| Validation | ${VALIDATION_STATUS:Pending|Completed|N/A} | ${VALIDATION_NOTES} |
+
+## Change History
+{/* Track document versions and changes */}
+
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| ${VERSION} | ${DATE} | ${AUTHOR} | ${CHANGES} |
+
+{/* 
+FINAL DOCUMENT INSTRUCTIONS:
+1. Remove all ${PLACEHOLDER} markers and replace with actual content
+2. Remove all AI-CONTEXT comments
+3. Remove all template comments and instructions
+4. Remove all example sections
+5. Remove this instruction block
+6. Update all diagrams with actual content
+7. Ensure all sections follow template's validation rules
+8. Verify all relationships are properly linked
+9. Complete the Change History with initial version
+10. Update document metadata with final values
+*/}
+
+{/* 
+EXAMPLE VALUES AND PATTERNS:
+Note: These examples should be removed in final document
+
+1. Document Key Examples:
+   - PER-001-senior_developer_persona
+   - PER-002-novice_user_persona
+   - PER-003-admin_manager_persona
+
+2. Relationship Examples:
+   - dependencies: ["US-001-login_story", "FR-002-security_req"]
+   - references: ["ARCH-001-system_overview", "API-002-auth_endpoints"]
+   - impacts: ["TEST-001-user_testing", "DOC-002-user_guide"]
+
+3. Status Values:
+   - Draft: Initial creation
+   - In Review: Under stakeholder review
+   - Approved: Final version
+
+4. Validation Rules:
+   - Name format: "John Smith" or "Maria García"
+   - Age format: "25-30" or "35"
+   - Goals format: Clear, actionable statements
+   - Pain points format: Specific, measurable issues
+*/}
