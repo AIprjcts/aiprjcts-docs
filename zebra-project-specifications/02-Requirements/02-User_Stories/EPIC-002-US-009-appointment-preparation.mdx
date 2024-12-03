@@ -1,177 +1,155 @@
 # User Story: Appointment Preparation and Support
 
-metadata:
-  id: "US-055"
-  title: "Appointment Preparation"
-  type: "user-story"
-  epic: "EPIC-002"
-  feature: "Clinical Support"
-  author: "Zebra Team"
-  creation_date: "2024-03-20"
-  last_updated: "2024-03-20"
-  status: "Draft"
-  priority: "High"
-  version: "0.3"
+## Basic Information
+| Field | Value |
+|-------|-------|
+| Story ID | US-055 |
+| Epic Reference | EPIC-002 |
+| Created By | Zebra Team |
+| Created Date | 2024-03-20 |
+| Last Updated | 2024-03-20 |
+| Status | Draft |
 
-## Story Definition
+## Story Details
+### Business Value
+This story enables patients to better prepare for medical appointments by organizing relevant health information, preparing questions, and gathering necessary documents. This leads to more productive healthcare visits, better informed discussions, and improved health outcomes through structured preparation.
+
 ### User Story
 As a patient preparing for a medical appointment,
 I want the system to help me prepare relevant health information and questions,
 So that I can have more productive and informed discussions with my healthcare providers.
 
-### Acceptance Criteria
-1. Preparation Features:
-   - Record summary
-   - Recent changes
-   - Key symptoms
-   - Question suggestions
-   - Document gathering
-   - Timeline view
-   - Provider context
-   - Visit goals
+### Story Mapping
+- Epic: EPIC-002: Clinical Support
+- Activity: Appointment Management
+- Task: Visit Preparation
+- Sequence: 055
 
-2. Information Support:
-   - Health history
-   - Current medications
-   - Recent tests
-   - Vital trends
-   - Symptom logs
-   - Treatment plans
-   - Provider notes
-   - Care goals
+### Agile Metrics
+| Metric | Value |
+|--------|-------|
+| Story Points | 13 |
+| Priority Level | High |
+| Sprint | Sprint 4 |
 
-3. Interactive Features:
-   - Question builder
-   - Note taking
-   - Document upload
-   - Checklist creation
-   - Priority setting
-   - Time management
-   - Follow-up tracking
-   - Sharing options
+## Acceptance Criteria
+### Scenario 1: Preparation Setup
+**Given** I have an upcoming medical appointment
+**When** I start preparation
+**Then** the system should:
+- Generate a preparation checklist
+- Present relevant health history
+- Show recent health changes
+- List current medications
+- Display recent test results
+- Suggest relevant questions
+- Enable document uploads
+- Create a visit timeline
 
-4. User Controls:
-   - Template selection
-   - Custom questions
-   - Information filters
-   - Privacy settings
-   - Export options
-   - Reminder setup
-   - Share controls
-   - Format choices
+### Scenario 2: Information Organization
+**Given** I am gathering health information
+**When** I review my health data
+**Then** the system should:
+- Show organized health history
+- Display vital trends
+- Present symptom logs
+- List treatment plans
+- Show provider notes
+- Display care goals
+- Enable information filtering
+- Support custom organization
 
-### Definition of Done
-- Preparation tools working
-- Information organized
-- Features complete
-- User controls active
-- Performance optimized
-- Documentation updated
-- Testing completed
-- Security verified
+### Scenario 3: Visit Planning
+**Given** I am finalizing appointment preparation
+**When** I create my visit plan
+**Then** the system should:
+- Enable question customization
+- Support note-taking
+- Allow priority setting
+- Provide time management tools
+- Enable sharing options
+- Support export functions
+- Set up reminders
+- Track follow-up items
+
+### Quality Attributes
+- [ ] Intuitive preparation workflow
+- [ ] Complete information coverage
+- [ ] Efficient organization
+- [ ] Secure sharing
+- [ ] HIPAA compliance
 
 ## Implementation Details
-### Technical Requirements
-- Template engine
-- Data aggregator
-- Question generator
-- Timeline builder
-- Storage solution
-- API gateway
-- Security controls
-- Integration services
+### Technical Notes
+1. Preparation System:
+   - Template engine
+   - Data aggregator
+   - Question generator
+   - Timeline builder
+   - Storage solution
 
-### User Interface
-- Preparation wizard
-- Information viewer
-- Question builder
-- Timeline view
-- Export tools
-- Settings panel
-- Help system
-- Share interface
+2. User Interface:
+   - Preparation wizard
+   - Information viewer
+   - Question builder
+   - Timeline view
+   - Settings panel
 
-### Data Requirements
-- Health records
-- Visit history
-- Question banks
-- Templates
-- User preferences
-- Provider data
-- System configs
-- Share settings
-
-## Testing Requirements
-### Functional Testing
-- Template usage
-- Data gathering
-- Question generation
-- Timeline creation
-- UI components
-- Settings management
-- Help system
-- Share features
-
-### Performance Testing
-- Load times
-- Data retrieval
-- Generation speed
-- Export performance
-- UI responsiveness
-- Resource usage
-- Memory efficiency
-- Scalability tests
-
-### Security Testing
-- Data protection
-- Access controls
-- Share security
-- Audit logging
-- Error handling
-- Authentication
-- Authorization
-- Encryption
-
-## Related Information
 ### Dependencies
+#### Technical Dependencies
 - Template system
 - Data platform
 - Question engine
 - Timeline service
 - Storage system
-- API services
-- Security framework
-- Integration tools
 
+#### Business Dependencies
+- Clinical knowledge base
+- Provider directory
+- Question templates
+- Privacy requirements
+- User training
+
+### Test Scenarios
+1. Preparation workflow
+2. Information gathering
+3. Question generation
+4. Timeline creation
+5. Sharing functions
+6. Export capabilities
+7. Security validation
+
+## Definition of Done
+- [ ] Preparation tools implemented
+- [ ] Information organization complete
+- [ ] Features tested
+- [ ] Security verified
+- [ ] Performance optimized
+- [ ] Documentation updated
+- [ ] User acceptance confirmed
+
+## Related Information
 ### Related Stories
 - US-003: Health Summary Generation
 - US-004: Medical Knowledge Search
 - US-006: Health Timeline
 - US-056: AI Assistant
 
-### Stakeholders
-- Patients
-- Healthcare Providers
-- Care Coordinators
-- Family Members
-- Support Teams
-- Product Managers
-- UX Designers
-- Development Team
+### Related Use Cases
+- UC-001: Visit Planning
+- UC-002: Information Sharing
+- UC-003: Provider Communication
 
-### Notes
-- Support preparation
-- Enable sharing
-- Protect privacy
-- Track changes
-- Guide users
-- Document usage
-- Monitor feedback
-- Update content
+### Notes and Assumptions
+- Internet connectivity required
+- Provider data integration needed
+- Regular content updates required
+- User training essential
+- Privacy requirements critical
 
 ### Version History
 | Version | Date | Author | Changes |
-|---------|------|--------|----------|
+|---------|------|---------|----------|
 | 0.1 | 2024-03-20 | Zebra Team | Initial draft |
 | 0.2 | 2024-03-20 | Zebra Team | Updated EPIC references |
-| 0.3 | 2024-03-20 | Zebra Team | Reorganized story structure and references | 
+| 0.3 | 2024-03-20 | Zebra Team | Reorganized story structure | 
