@@ -14,24 +14,44 @@
 
 ## Epic Overview
 ### Business Context
-Patients and caregivers face significant challenges managing health records scattered across multiple healthcare providers and systems. This fragmentation makes it difficult to maintain a complete health history, track changes over time, and share information effectively with healthcare teams. A unified Clinical Data Store (CDS) is essential to:
-- Consolidate health records from various sources and digital and physical formats
-- Standardize data formats using healthcare standards (FHIR, DICOM, LOINC)
-- Enable secure data sharing with healthcare providers
-- Support informed healthcare decisions
-- Ensure data privacy and security compliance
+Patients and caregivers face significant challenges managing health records scattered across multiple healthcare providers and systems. This fragmentation makes it difficult to maintain a complete health history, track changes over time, and share information effectively with healthcare teams. A unified Clinical Data Store (CDS) is essential for comprehensive health data management.
+
+#### Data Management Capabilities
+1. Data Import and Storage
+   - Consolidate health records from various sources and digital formats
+   - Support structured data (e.g., FHIR) and unstructured data (e.g., PDF, OCR documents, images)
+   - Enable multiple data entry methods (manual and automated)
+
+2. Data Standardization
+   - Implement healthcare standards (FHIR, DICOM, LOINC, SNOMED-CT, ICD-10)
+   - Transform various import formats (JSON, CSV, PDF) to standard FHIR R4 JSON
+   - Ensure consistent conversion to standards data structures and terminology
+
+3. Data Processing
+   - Perform Named Entity Recognition (NER) for medical terms in unstructured data
+   - Enrich data using medical terminologies and dictionaries in unstructured data or non FHIR data
+   - Process and integrate unstructured data
+
+4. Security and Sharing
+   - Enable FHIR-based data exchange with healthcare providers
+   - Ensure data privacy and security compliance
+   - Implement secure access controls
 
 ### Features
-- Health data import from multiple sources including physical and digital formats
-- Standardized data storage and organization
-- Data quality validation and enhancement
-- Secure data sharing capabilities
-- Automated data classification
-- Version history and change tracking
-- Real-time data synchronization
-- Interoperability with healthcare systems
-- Unstructured data parsing and integration
-- Natural language processing for medical documents
+1. Data Management
+   - Multi-source and multi-formathealth data import
+   - Standardized data storage and organization
+   - Real-time data synchronization
+   
+2. Data Quality
+   - Automated data classification
+   - Data quality validation and enhancement
+   - Version history and change tracking
+
+3. Integration
+   - Interoperability with healthcare systems
+   - Unstructured data parsing and integration
+   - Natural language processing for medical documents
 
 ### Strategic Alignment
 | Business Goal | Contribution |
@@ -53,73 +73,116 @@ Patients and caregivers face significant challenges managing health records scat
 ## Value Streams
 ### User Journeys
 1. Data Import and Integration
-   - Current State: Manual digitalization, conversion, andimport of scattered records
-   - Future State: Automated import from multiple sources and tools for conversion
-   - Value Added: Time savings and completeness
-   - Key Metrics: 90% reduction in import time
+   - Current State: Manual digitalization, upload, conversion, and import of scattered records across multiple providers and formats (PDFs, images, paper records)
+   - Future State: 
+     * Automated import from multiple sources with smart format detection
+     * OCR and NLP processing for paper/PDF documents
+     * Direct EHR integration via FHIR APIs
+   - Value Added: Time savings, completeness, and reduced manual entry errors
+   - Key Metrics: 
+     * 90% reduction in import time
+     * 98% accuracy in automated data extraction
 
 2. Data Organization
-   - Current State: Unstructured health records
-   - Future State: Automated classification and organization
-   - Value Added: Easy access and management
-   - Key Metrics: 85% organization accuracy
+   - Current State: Unstructured health records with inconsistent formatting and terminology
+   - Future State: 
+     * Automated classification using FHIR R4 JSON, and system codes as SNOMED-CT, LOINC and ICD-10 codes
+     * Smart categorization by encounter type, specialty, and chronology
+     * Standardized FHIR resource mapping
+   - Value Added: Easy access, consistent organization, and improved searchability
+   - Key Metrics: 
+     * 85% organization accuracy
+     * 95% terminology standardization rate
 
 3. Quality Management
-   - Current State: Inconsistent data quality
-   - Future State: Automated validation and enhancement
-   - Value Added: Reliable health information
-   - Key Metrics: 95% data quality score
+   - Current State: Inconsistent data quality with missing fields and non-standard terminology
+   - Future State: 
+     * Real-time data validation against FHIR profiles
+     * Automated terminology mapping to standard codes
+     * Duplicate detection and merging
+   - Value Added: Reliable health information and reduced clinical errors
+   - Key Metrics: 
+     * 95% data quality score
+     * < 0.1% duplicate records
 
 4. Data Sharing
-   - Current State: Manual sharing processes
-   - Future State: Secure, controlled sharing
-   - Value Added: Efficient collaboration
-   - Key Metrics: 80% reduction in sharing time
+   - Current State: Manual sharing processes requiring downloads and uploads
+   - Future State: 
+     * SMART on FHIR-based secure sharing
+     * Granular access controls and audit logging
+     * Direct provider-to-provider exchange
+   - Value Added: Efficient collaboration and improved care coordination
+   - Key Metrics: 
+     * 80% reduction in sharing time
+     * 100% HIPAA compliance
 
 ## Story Mapping
 ### User Activities
 | Activity | Description | Related Personas | Priority |
 |----------|-------------|------------------|----------|
-| Health Record Import | Import from various sources | PER-001, PER-002, PER-003, PER-004 | High |
-| Record Organization | Organize by type, date, provider | All patient/caregiver personas | High |
-| Data Validation | Verify imported health data | PER-001, PER-002, PER-006 | Medium |
-| External Integration | FHIR-based data exchange | All provider personas | High |
-| Data Synchronization | Real-time sync across systems | PER-001, PER-002, PER-003 | High |
-| Standards Compliance | FHIR, HL7, DICOM compliance | PER-006, PER-007 | Medium |
-| Data Retrieval | Optimized access to datasets | All personas | Medium |
-| Security Management | Data protection measures | PER-001, PER-009 | High |
-| Unstructured Data Processing | Parse and integrate unstructured medical data | PER-001, PER-002, PER-003 | High |
+| Health Record Import | Import and OCR processing from various sources (EHR, PDF, images) | PER-001, PER-002, PER-003, PER-004 | High |
+| Record Organization | FHIR-based organization with standard medical codes | All patient/caregiver personas | High |
+| Data Validation | Real-time FHIR profile validation and terminology mapping | PER-001, PER-002, PER-006 | High |
+| External Integration | SMART on FHIR integration and secure data exchange | All provider personas | High |
+| Data Synchronization | Real-time sync with version control and conflict resolution | PER-001, PER-002, PER-003 | High |
+| Standards Compliance | FHIR R4, SNOMED-CT, LOINC, ICD-10 implementation | PER-006, PER-007 | High |
+| Data Retrieval | Indexed search with filtering and sorting capabilities | All personas | Medium |
+| Security Management | HIPAA-compliant encryption and access controls | PER-001, PER-009 | Critical |
+| Unstructured Data Processing | NLP-based medical entity extraction and classification | PER-001, PER-002, PER-003 | High |
 
 ### Release Strategy
 | Release | Features | Target Date | Dependencies |
 |---------|----------|-------------|--------------|
-| MVP | Basic import, organization | Q1 2025 | Storage infrastructure |
-| R2 | Enhanced validation, sharing | Q2 2025 | MVP completion |
-| R3 | Advanced integration | Q3 2025 | Healthcare systems |
-| R4 | AI-powered features | Q4 2025 | AI/ML pipeline |
+| MVP | Basic FHIR import, OCR processing, data organization | Q1 2025 | FHIR server, Storage infrastructure |
+| R2 | SMART on FHIR integration, advanced validation | Q2 2025 | MVP completion, Healthcare API integrations |
+| R3 | NLP processing, terminology mapping | Q3 2025 | ML infrastructure, Terminology servers |
+| R4 | Advanced analytics, predictive features | Q4 2025 | AI/ML pipeline, Data warehouse |
 
 ## Implementation Considerations
 ### Technical Dependencies
-- Secure storage infrastructure
-- Document processing pipeline
-- Search and indexing system
-- Data validation framework
-- Healthcare standards implementation
-- Security and encryption tools
+- HIPAA-compliant cloud infrastructure
+- FHIR R4 server implementation
+- OCR and document processing pipeline
+- Elasticsearch-based search system
+- FHIR validation framework
+- Terminology servers (SNOMED-CT, LOINC, ICD-10)
+- Security and encryption infrastructure
+- ML/NLP processing pipeline
 
 ### Risks and Mitigations
 | Risk | Impact | Mitigation |
 |------|---------|------------|
-| Data privacy | Critical | Implement encryption, access controls |
-| Data accuracy | High | Automated validation checks |
-| System scalability | Medium | Horizontal scaling design |
-| Integration complexity | High | Standards-based interfaces |
+| Data privacy breaches | Critical | End-to-end encryption, access logging, regular security audits |
+| Data accuracy and quality | High | Automated FHIR validation, terminology mapping verification |
+| System scalability | High | Cloud-native architecture, horizontal scaling |
+| Integration complexity | High | SMART on FHIR standard interfaces, comprehensive API documentation |
+| Data migration challenges | Medium | Phased migration approach, robust error handling |
+| Regulatory compliance | Critical | Regular compliance audits, built-in HIPAA controls |
 
 ## Related Information
 ### Related Epics
 - EPIC-002: Health Information Processing and Analysis
-- EPIC-003: Health Data Visualization and Mapping
+  * Advanced NLP for medical document processing
+  * Clinical decision support integration
+  * Healthcare analytics and trend analysis
+
+- EPIC-003: Health Data Visualization and Reporting
+  * Interactive health timeline views
+  * Clinical data dashboards
+  * Custom report generation
+  * FHIR-based data visualization
+
 - EPIC-004: Data Sharing and Collaboration
+  * Provider-to-provider secure messaging
+  * Patient portal integration
+  * Consent management
+  * SMART on FHIR app ecosystem
+
+- EPIC-005: Security and Compliance Management
+  * HIPAA compliance monitoring
+  * Access control and audit trails
+  * Data encryption and protection
+  * Privacy-preserving data sharing
 
 ### Stakeholders
 | Role | Name | Responsibility |
