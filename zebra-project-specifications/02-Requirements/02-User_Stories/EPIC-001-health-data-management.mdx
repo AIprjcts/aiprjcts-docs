@@ -18,20 +18,23 @@ Patients and caregivers face significant challenges managing health records scat
 
 #### Data Management Capabilities
 1. Data Import and Storage
-   - Consolidate health records from various sources and digital formats
+   - Consolidate health records from various sources and formats
    - Support structured data (e.g., FHIR) and unstructured data (e.g., PDF, OCR documents, images)
    - Enable multiple data entry methods (manual and automated)
 
 2. Data Standardization
    - Implement healthcare standards (FHIR, DICOM, LOINC, SNOMED-CT, ICD-10)
-   - Transform various import formats (JSON, CSV, PDF) to standard FHIR R4 JSON
-   - Ensure consistent conversion to standards data structures and terminology
+   - Transform different import formats (JSON, CSV, PDF) to standard structured FHIR R4 JSON format using diffrent technologies and tools
+   - Ensure consistent conversion from different data structures to standards data structures and schemas (FHIR R4 JSON) and terminology (SNOMED-CT, LOINC, ICD-10, RxNorm,..)
 
 3. Data Processing
-   - Perform Named Entity Recognition (NER) for medical terms in unstructured data
-   - Enrich data using medical terminologies and dictionaries in unstructured data or non FHIR data
-   - Process and integrate unstructured data
-
+   - Execute workflows for data processing using NLP and AI/ML technologies: data validation, data transformation, data enrichment, data normalization
+   - Perform Named Entity Recognition (NER), concept recognition and concept normalization for medical terms in unstructured data, non FHIR R4 JSON data or free text data inside FHIR R4 JSON data
+   - Enrich data: 
+         - Perform concept normalization to medical terminologies and map entities in text to standard medical codes (SNOMED-CT, LOINC, ICD-10, RxNorm,..) in unstructured data,  non FHIR R4 JSON data or free text data inside FHIR R4 JSON data
+         - Perform assertion status (present, absent, conditional) for concepts 
+         - Perform data enrichment
+      
 4. Security and Sharing
    - Enable FHIR-based data exchange with healthcare providers
    - Ensure data privacy and security compliance
@@ -39,18 +42,18 @@ Patients and caregivers face significant challenges managing health records scat
 
 ### Features
 1. Data Management
-   - Multi-source and multi-formathealth data import
+   - Multi-source and multi-format and multi-structuredhealth data import
    - Standardized data storage and organization
    - Real-time data synchronization
    
 2. Data Quality
-   - Automated data classification
+   - Automated or semi-automated data classification when data is structured and in standarized format
    - Data quality validation and enhancement
    - Version history and change tracking
 
 3. Integration
-   - Interoperability with healthcare systems
-   - Unstructured data parsing and integration
+   - Interoperability with healthcare systems using FHIR-based data exchange
+   - Unstructured, semi-structured and structured data parsing and integration
    - Natural language processing for medical documents
 
 ### Strategic Alignment
@@ -64,8 +67,8 @@ Patients and caregivers face significant challenges managing health records scat
 
 ### Success Metrics
 | Metric | Target | Timeline | Measurement | Baseline |
-|--------|---------|----------|-------------|----------|
-| Data Integration | Support for 90% of common formats | Q2 2025 | Format compatibility testing | Current formats |
+|--------|---------|----------|-------------|----------| 
+| Data Integration | Support for 90% of common health data formats | Q2 2025 | Format compatibility testing | Current formats |
 | User Adoption | 75% regular data import usage | Q3 2025 | Usage analytics | Current usage |
 | Data Quality | 95% validation success rate | Q2 2025 | Quality assessments | Current rates |
 | User Satisfaction | 85% satisfaction with features | Q4 2025 | User surveys | Current satisfaction |
@@ -73,11 +76,20 @@ Patients and caregivers face significant challenges managing health records scat
 ## Value Streams
 ### User Journeys
 1. Data Import and Integration
-   - Current State: Manual digitalization, upload, conversion, and import of scattered records across multiple providers and formats (PDFs, images, paper records)
+   - Current State: 
+     * Manual digitalization of health data on paper and/or manual download of unstructured PDFs, clinical images; or not standard structured data from Patient Portals or other sources
+     * Manual or semi-manual conversion of data to standard structured format 
+     * Custom data transformation scripts for non standard structured data and free text data, and semi-automated entities recognition and mapping to standard terminology and concepts 
+     * Upload and import of scattered records across multiple providers and formats manually
+     * Manual data entry for structured data
    - Future State: 
-     * Automated import from multiple sources with smart format detection
-     * OCR and NLP processing for paper/PDF documents
-     * Direct EHR integration via FHIR APIs
+     * Automated import from multiple sources for structured data in standard formats (FHIR R4 JSON) through integration with FHIR-based APIs
+     * Batch processing for data import
+     * OCR text recognition and NLP processing for paper/PDF documents
+     * Workflows and pipelines powered with AI/ML technologies, templates and rules for data processing, transformation, enrichment and integration for most complex formats and data
+     * Assisted manual data entry for structured data or enrichment if needed
+     * AI assistants for data input and enrichment based on text or voice entry   
+
    - Value Added: Time savings, completeness, and reduced manual entry errors
    - Key Metrics: 
      * 90% reduction in import time
@@ -86,9 +98,8 @@ Patients and caregivers face significant challenges managing health records scat
 2. Data Organization
    - Current State: Unstructured health records with inconsistent formatting and terminology
    - Future State: 
-     * Automated classification using FHIR R4 JSON, and system codes as SNOMED-CT, LOINC and ICD-10 codes
-     * Smart categorization by encounter type, specialty, and chronology
-     * Standardized FHIR resource mapping
+     * Automated and smart classification of data using FHIR R4 JSON schema characteristics, and using system codes as SNOMED-CT, LOINC and ICD-10 codes for concepts, entities and attributes 
+     * Standardized FHIR resource mapping for any attribute of any resource including body systems, body regions, specialities, procedures, medications, etc.
    - Value Added: Easy access, consistent organization, and improved searchability
    - Key Metrics: 
      * 85% organization accuracy
@@ -106,11 +117,11 @@ Patients and caregivers face significant challenges managing health records scat
      * < 0.1% duplicate records
 
 4. Data Sharing
-   - Current State: Manual sharing processes requiring downloads and uploads
+   - Current State: Manual sharing processes requiring downloads and uploads and different channels and formats
    - Future State: 
      * SMART on FHIR-based secure sharing
      * Granular access controls and audit logging
-     * Direct provider-to-provider exchange
+     * Direct patient-to-provider exchange
    - Value Added: Efficient collaboration and improved care coordination
    - Key Metrics: 
      * 80% reduction in sharing time
@@ -120,34 +131,34 @@ Patients and caregivers face significant challenges managing health records scat
 ### User Activities
 | Activity | Description | Related Personas | Priority |
 |----------|-------------|------------------|----------|
-| Health Record Import | Import and OCR processing from various sources (EHR, PDF, images) | PER-001, PER-002, PER-003, PER-004 | High |
-| Record Organization | FHIR-based organization with standard medical codes | All patient/caregiver personas | High |
-| Data Validation | Real-time FHIR profile validation and terminology mapping | PER-001, PER-002, PER-006 | High |
-| External Integration | SMART on FHIR integration and secure data exchange | All provider personas | High |
-| Data Synchronization | Real-time sync with version control and conflict resolution | PER-001, PER-002, PER-003 | High |
-| Standards Compliance | FHIR R4, SNOMED-CT, LOINC, ICD-10 implementation | PER-006, PER-007 | High |
-| Data Retrieval | Indexed search with filtering and sorting capabilities | All personas | Medium |
-| Security Management | HIPAA-compliant encryption and access controls | PER-001, PER-009 | Critical |
-| Unstructured Data Processing | NLP-based medical entity extraction and classification | PER-001, PER-002, PER-003 | High |
+| Health Record Import | Import and OCR processing from various sources (EHR, PDF, images) with batch processing capabilities | PER-001, PER-002, PER-003, PER-004 | Critical |
+| Record Organization | FHIR-based organization with standard medical codes and automated classification | All patient/caregiver personas | High |
+| Data Validation | Real-time FHIR profile validation, terminology mapping, and error correction | PER-001, PER-002, PER-006 | High |
+| External Integration | SMART on FHIR integration with bi-directional data exchange and audit logging | All provider personas | High |
+| Data Synchronization | Real-time sync with distributed version control and automated conflict resolution | PER-001, PER-002, PER-003 | High |
+| Standards Compliance | FHIR R4/R5, SNOMED-CT, LOINC, ICD-10/11 implementation with automated mappings | PER-006, PER-007 | High |
+| Data Retrieval | Advanced indexed search with semantic filtering and ML-powered sorting | All personas | High |
+| Security Management | Zero-trust HIPAA-compliant encryption with granular access controls and audit trails | PER-001, PER-009 | Critical |
+| Unstructured Data Processing | Advanced NLP-based medical entity extraction with contextual understanding | PER-001, PER-002, PER-003 | High |
 
 ### Release Strategy
 | Release | Features | Target Date | Dependencies |
 |---------|----------|-------------|--------------|
-| MVP | Basic FHIR import, OCR processing, data organization | Q1 2025 | FHIR server, Storage infrastructure |
-| R2 | SMART on FHIR integration, advanced validation | Q2 2025 | MVP completion, Healthcare API integrations |
-| R3 | NLP processing, terminology mapping | Q3 2025 | ML infrastructure, Terminology servers |
-| R4 | Advanced analytics, predictive features | Q4 2025 | AI/ML pipeline, Data warehouse |
+| MVP | Basic FHIR import, OCR processing, data organization, essential security controls | Q1 2025 | FHIR server, Storage infrastructure, Security framework |
+| R2 | SMART on FHIR integration, advanced validation, initial NLP capabilities | Q2 2025 | MVP completion, Healthcare API integrations, NLP models |
+| R3 | Advanced NLP processing, comprehensive terminology mapping, semantic search | Q3 2025 | ML infrastructure, Terminology servers, Search engine optimization |
+| R4 | AI-powered analytics, predictive features, advanced security features | Q4 2025 | AI/ML pipeline, Data warehouse, Security enhancements |
 
 ## Implementation Considerations
 ### Technical Dependencies
-- HIPAA-compliant cloud infrastructure
+- HIPAA-compliant cloud or on premise infrastructure
 - FHIR R4 server implementation
-- OCR and document processing pipeline
-- Elasticsearch-based search system
+- OCR text recognition and data processing pipeline
+- ML/NLP processing pipeline
 - FHIR validation framework
 - Terminology servers (SNOMED-CT, LOINC, ICD-10)
 - Security and encryption infrastructure
-- ML/NLP processing pipeline
+
 
 ### Risks and Mitigations
 | Risk | Impact | Mitigation |
