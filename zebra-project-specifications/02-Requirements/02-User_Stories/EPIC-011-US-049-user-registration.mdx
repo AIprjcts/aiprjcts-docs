@@ -1,0 +1,133 @@
+# User Story: Multi-Channel User Registration
+
+# Template Metadata
+template:
+  id: "user-story-template"
+  category: "requirements"
+  type: "user-story"
+  version: "1.0"
+
+metadata:
+  author: "Zebra Team"
+  status: "Draft"
+  creation_date: "2024-03-21"
+  last_updated: "2024-03-21"
+  priority: "High"
+  version: "0.1"
+
+## Basic Information
+| Field | Value |
+|-------|-------|
+| Story ID | US-042 |
+| Epic Reference | EPIC-011 |
+| Created By | Zebra Team |
+| Created Date | 2024-03-21 |
+| Last Updated | 2024-03-21 |
+| Status | Draft |
+
+## Story Details
+### Business Value
+Enable users to register through multiple channels while ensuring security, compliance, and a smooth onboarding experience.
+
+### User Story
+As a new user,
+I want to register for the platform through my preferred channel (self-registration or invitation),
+So that I can securely create my account and begin using the platform.
+
+### Story Mapping
+- Epic: EPIC-011-user-onboarding
+- Activity: User Registration
+- Task: Account Creation
+- Sequence: 042
+
+### Agile Metrics
+| Metric | Value |
+|--------|-------|
+| Story Points | 8 |
+| Priority Level | High |
+| Sprint | Sprint 1 |
+
+## Acceptance Criteria
+### Scenario 1: Self-Registration
+**Given** I am a new user
+**When** I choose to register myself
+**Then** I should be able to:
+- Enter required information
+- Verify my email
+- Accept terms and conditions
+- Set up security credentials
+- Complete initial profile setup
+
+### Scenario 2: Invitation-Based Registration
+**Given** I received an invitation
+**When** I click the invitation link
+**Then** I should be able to:
+- View pre-filled information
+- Complete missing details
+- Set up security credentials
+- Verify my identity
+- Access my account
+
+### Quality Attributes
+- [ ] Testable
+- [ ] Clear
+- [ ] Feasible
+
+## Implementation Details
+### Technical Notes
+- Email verification system
+- Password security rules
+- Data validation
+- Session management
+- Profile creation flow
+
+### Dependencies
+#### Technical Dependencies
+- Authentication service
+- Email system
+- Security framework
+- User database
+- Profile management
+
+#### Business Dependencies
+- Privacy policies
+- Terms of service
+- User agreements
+- Data protection rules
+
+### Test Scenarios
+1. Complete self-registration
+2. Process invitation registration
+3. Verify email validation
+4. Test password requirements
+5. Validate profile creation
+
+## Definition of Done
+- [ ] Registration flows implemented
+- [ ] Security measures verified
+- [ ] Email verification working
+- [ ] Profile creation tested
+- [ ] User acceptance confirmed
+
+## Related Information
+### Related Stories
+- US-041: Administrator Setup
+- US-043: Role Configuration
+- US-044: Invitation System
+
+### Related Use Cases
+- UC-004: User Registration
+- UC-005: Email Verification
+- UC-006: Profile Setup
+
+### Notes and Assumptions
+- Mobile-responsive design
+- Multi-language support
+- Offline capability needed
+- HIPAA compliance required
+- Analytics tracking needed
+
+# Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| 0.1 | 2024-03-21 | Zebra Team | Initial draft |

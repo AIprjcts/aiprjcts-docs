@@ -1,0 +1,127 @@
+# User Story: Patient-Controlled Device Integration
+
+## Basic Information
+| Field | Value |
+|-------|-------|
+| Story ID | US-038 |
+| Epic Reference | EPIC-010 |
+| Created By | Zebra Team |
+| Created Date | 2024-03-20 |
+| Last Updated | 2024-03-20 |
+| Status | Draft |
+
+metadata:
+  id: "US-038"
+  title: "Device Integration"
+  type: "user-story"
+  epic: "EPIC-010"
+  feature: "Device Integration"
+  author: "Zebra Team"
+  status: "Draft"
+  priority: "High"
+  last_updated: "2024-03-20"
+  version: "0.2"
+
+## Story Details
+### Business Value
+This story enables patients to integrate and manage their personal health devices and monitoring equipment securely. By leveraging SMART on FHIR and Medplum capabilities, it ensures interoperability, security, and real-time data synchronization, enhancing patient engagement and health data management.
+
+### User Story
+As a patient managing my health with medical devices and wearables,
+I want to control and manage the integration of my personal health devices and monitoring equipment,
+So that I can securely collect, understand, and share my health data while maintaining control over my privacy.
+
+### Story Mapping
+- Epic: EPIC-010-device-integration
+- Activity: Device Management
+- Task: Integration and Control
+- Sequence: 038
+
+### Agile Metrics
+| Metric | Value |
+|--------|-------|
+| Story Points | 10 |
+| Priority Level | High |
+| Sprint | Sprint 5 |
+
+## Acceptance Criteria
+### Scenario 1: Device Control
+**Given** I manage my devices
+**When** I configure settings
+**Then** I should be able to define privacy settings, data sharing preferences, and connection permissions
+
+### Scenario 2: Interoperability
+**Given** I use multiple devices
+**When** I integrate them
+**Then** the system should support FHIR-based data exchange and SMART on FHIR APIs
+
+### Scenario 3: Security
+**Given** I connect a device
+**When** data is transmitted
+**Then** it should be encrypted and access controlled using OAuth2
+
+### Scenario 4: Real-Time Synchronization
+**Given** my devices are connected
+**When** data is generated
+**Then** it should sync in real-time using Medplum's APIs
+
+### Quality Attributes
+- [x] Testable
+- [x] Clear
+- [x] Feasible
+
+## Implementation Details
+### Technical Notes
+- Implement FHIR-based data exchange
+- Use SMART on FHIR for app integration
+- Leverage Medplum APIs for device connectivity
+
+### Dependencies
+#### Technical Dependencies
+- FHIR server
+- SMART on FHIR APIs
+- Medplum integration services
+
+#### Business Dependencies
+- Device manufacturer agreements
+- Data protection policies
+
+### Test Scenarios
+1. Test device connectivity and data exchange
+2. Test security and access controls
+3. Test real-time data synchronization
+
+## Definition of Done
+- [ ] Device connections tested
+- [ ] Data flow verified
+- [ ] Security validated
+- [ ] Performance optimized
+- [ ] Documentation complete
+
+## Related Information
+### Related Stories
+- US-013: Pattern Detection
+- US-014: Health Predictions
+
+### Related Use Cases
+- UC-001: Device Management
+- UC-002: Data Synchronization
+
+### Notes and Assumptions
+- Support multiple protocols
+- Ensure interoperability
+- Maintain security
+- Optimize performance
+
+### Stakeholders
+- Healthcare Providers
+- Patients
+- Device Manufacturers
+- IT Teams
+- Security Teams
+
+### Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| 0.1 | 2024-03-20 | Zebra Team | Initial draft |
+| 0.2 | 2024-03-20 | Zebra Team | Updated EPIC references |
