@@ -1,42 +1,29 @@
-# User Story: Patient-Controlled Provider Data Sharing
+# User Story Content
 
 ## Basic Information
 | Field | Value |
 |-------|-------|
-| Story ID | US-010 |
+| Story ID | US-015 |
 | Epic Reference | EPIC-004 |
 | Created By | Zebra Team |
-| Created Date | 2024-12-02 |
-| Last Updated | 2024-12-03 |
+| Created Date | 2024-03-20 |
+| Last Updated | 2024-03-21 |
 | Status | Draft |
-
-metadata:
-  id: "US-010"
-  title: "Provider Sharing"
-  type: "user-story"
-  epic: "EPIC-004"
-  feature: "Data Sharing"
-  author: "Zebra Team"
-  creation_date: "2024-03-20"
-  last_updated: "2024-03-20"
-  status: "Draft"
-  priority: "High"
-  version: "0.2"
 
 ## Story Details
 ### Business Value
-This story empowers patients with complete control over their health data sharing while enabling effective care coordination. By providing granular access controls and robust privacy features, it ensures patient data ownership while facilitating necessary provider collaboration and maintaining compliance with privacy regulations.
+Enables secure and controlled sharing of health information with healthcare providers while maintaining patient data sovereignty and privacy compliance.
 
 ### User Story
 As a patient or caregiver managing my health journey,
-I want complete control over sharing my health information with healthcare providers while maintaining my privacy,
-So that I can enable effective care coordination while keeping ownership of my health data.
+I want to control sharing my health information with healthcare providers,
+So that I can enable effective care coordination while maintaining data ownership.
 
 ### Story Mapping
 - Epic: EPIC-004: Data Sharing and Collaboration
-- Activity: Provider Sharing
-- Task: Healthcare Provider Data Access
-- Sequence: 010
+- Activity: Provider Collaboration
+- Task: Provider Data Sharing
+- Sequence: 015
 
 ### Agile Metrics
 | Metric | Value |
@@ -46,160 +33,128 @@ So that I can enable effective care coordination while keeping ownership of my h
 | Sprint | Sprint 3 |
 
 ## Acceptance Criteria
-### Scenario 1: Patient Control Features
-**Given** I am managing my health data
+### Scenario 1: Basic Provider Access Setup
+**Given** I am managing provider access
 **When** I configure sharing settings
 **Then** I should be able to:
-- Set full controls
-- Define permissions
-- Limit access time
-- Revoke instantly
-- Monitor access
-- Verify providers
-- Get notifications
-- Set privacy rules
+- Set full access controls
+- Define specific permissions
+- Set access time limits
+- Configure data scope
+- Enable instant revocation
+- Monitor access patterns
+- Verify provider credentials
 
-### Scenario 2: Provider Access Scope
-**Given** I am sharing with providers
-**When** I grant access
+### Scenario 2: Advanced Access Management
+**Given** I am sharing with multiple providers
+**When** I manage detailed access settings
 **Then** I should be able to:
-- Limit view access
-- Set time periods
-- Choose sections
-- Control downloads
-- Track usage
-- Set expiration
-- View audit logs
-- Show notices
+- Control resource-specific access
+- Set time-based restrictions
+- Manage download permissions
+- Track usage patterns
+- Configure automatic expiration
+- Review detailed audit logs
 
-### Scenario 3: Communication Options
-**Given** I am interacting with providers
-**When** I manage communications
+### Scenario 3: Provider Communication
+**Given** I need to interact with providers
+**When** I use the communication features
 **Then** I should be able to:
-- Message securely
-- Handle requests
-- Get notifications
-- See updates
-- Manage consent
-- Give feedback
-- Get support
-- Set preferences
+- Send secure messages
+- Handle access requests
+- Receive notifications
+- Track updates
+- Manage consent forms
+- Provide feedback
 
-### Scenario 4: Research Participation
-**Given** I want to support research
+### Scenario 4: Research Data Sharing
+**Given** I want to support medical research
 **When** I manage research access
 **Then** I should be able to:
-- Choose participation
-- Enable anonymization
-- Set boundaries
-- Control consent
-- Track progress
-- See results
-- Withdraw access
-- Ensure privacy
+- Opt into research sharing
+- Control anonymization settings
+- Set research boundaries
+- Track research usage
+- View research outcomes
+- Withdraw participation
 
 ### Quality Attributes
 - [x] Testable
 - [x] Clear
 - [x] Feasible
-- [x] Patient-centric
 - [x] Secure
 - [x] Private
-- [x] Mobile-friendly
 - [x] Compliant
 
 ## Implementation Details
 ### Technical Notes
-- Access control critical
-- Provider verification vital
-- Secure messaging needed
-- Consent tracking essential
-- Audit logging required
-- Privacy paramount
-- Mobile support crucial
-- API security important
+- Access control system required
+- Provider verification essential
+- Secure messaging integration needed
+- Audit logging mandatory
+- Privacy controls critical
+- Mobile support required
 
 ### Dependencies
 #### Technical Dependencies
-- Access control system
-- Verification service
+- Authentication system
+- Access control framework
 - Messaging platform
-- Consent tracker
-- Audit logger
+- Audit logging service
 - Privacy engine
 - Mobile framework
-- Security layer
 
 #### Business Dependencies
 - Provider agreements
 - Privacy policies
-- Consent rules
-- Usage guidelines
-- Access protocols
+- Consent frameworks
 - Security standards
-- Mobile policies
 - Compliance requirements
+- Mobile guidelines
 
 ### Test Scenarios
-1. Verify access controls
-2. Test permissions
-3. Check messaging
-4. Validate privacy
-5. Test mobile access
-6. Verify security
-7. Check audit logs
-8. Test compliance
+1. Verify access control functionality
+2. Test provider verification process
+3. Validate communication features
+4. Check privacy controls
+5. Verify mobile access
+6. Test security measures
+7. Validate audit logging
+8. Confirm compliance requirements
 
 ## Definition of Done
-- [ ] Controls implemented
-- [ ] Access limits working
-- [ ] Communication tested
-- [ ] Privacy verified
-- [ ] Mobile validated
-- [ ] Security checked
-- [ ] Documentation done
-- [ ] Testing passed
+- [ ] Access controls implemented
+- [ ] Provider verification working
+- [ ] Communication features tested
+- [ ] Privacy controls verified
+- [ ] Mobile access validated
+- [ ] Security measures checked
+- [ ] Documentation completed
 - [ ] Compliance confirmed
 - [ ] User feedback positive
 
 ## Related Information
 ### Related Stories
-- US-011: Emergency Access
-- US-012: Access Management
-- US-016: Family Access
-- US-017: Audit Logging
-- US-021: Emergency Protocols
+- US-016: Emergency Access
+- US-017: Access Management
+- US-018: Family Access
 
 ### Related Use Cases
-- UC-001: Provider Access
-- UC-002: Data Sharing
-- UC-003: Access Control
-- UC-004: Privacy Management
+- UC-001: Provider Access Management
+- UC-002: Data Sharing Controls
+- UC-003: Provider Communication
+- UC-004: Research Participation
 
 ### Notes and Assumptions
-- Patient control primary
-- Provider limits needed
-- Privacy essential
-- Easy management key
-- Mobile access required
-- Compliance critical
-- Access tracking vital
-- Clear documentation needed
-- Security paramount
-- User experience important
-
-### Stakeholders
-- Patients (Primary)
-- Family Caregivers (Primary)
-- Healthcare Providers (Secondary)
-- IT Support
-- Privacy Officers
-- Security Teams
-- Compliance Officers
-- Training Staff
+- Patient control is primary focus
+- Provider verification is mandatory
+- Privacy controls are essential
+- Mobile access is required
+- Compliance is critical
+- Regular auditing needed
 
 ### Version History
 | Version | Date | Author | Changes |
 |---------|------|--------|----------|
 | 0.1 | 2024-03-20 | Zebra Team | Initial draft |
-| 0.2 | 2024-03-20 | Zebra Team | Updated EPIC references |
+| 0.2 | 2024-03-21 | Zebra Team | Updated to template format |

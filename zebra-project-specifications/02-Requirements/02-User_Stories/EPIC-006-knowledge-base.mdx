@@ -1,150 +1,130 @@
-# Epic: Medical Knowledge Base and Education
+# Epic: Medical Library and Knowledge Access
 
-metadata:
-  id: "EPIC-006"
-  title: "Medical Knowledge Base and Education"
-  author: "Zebra Team"
-  status: "Draft"
-  priority: "Medium"
-  creation_date: "2024-01-07"
-  last_updated: "2024-03-20"
-  version: "1.1"
+## Basic Information
+| Field | Value |
+|-------|-------|
+| Epic ID | EP-006 |
+| Epic Name | Medical Library and Knowledge Access |
+| Created By | Zebra Team |
+| Created Date | 2024-01-07 |
+| Last Updated | 2024-03-21 |
+| Status | Draft |
 
 ## Epic Overview
 ### Business Context
-Users need access to reliable health information and educational resources to:
-- Better understand their health conditions
-- Make informed healthcare decisions
-- Learn about treatments and medications
-- Access reliable medical information
-- Stay updated on health best practices
+Patients and caregivers need easy access to reliable medical information to understand their health conditions better. This epic enables:
+- Scientific literature search and access (PubMed, etc.)
+- Personal medical library management
+- AI-powered health knowledge assistant
+- Universal medical term understanding
+- Third-party medical knowledge integration
 
-### Features
-- Comprehensive medical knowledge base
-- Interactive health education modules
-- Personalized learning paths
-- Medical terminology dictionary
-- Treatment information database
-- Drug interaction checker
-- Health condition guides
-- Latest medical research summaries
-- Patient education system
-- Learning progress tracking
-- Educational content management
-- Multimedia learning resources
+### Description
+This epic implements a comprehensive medical knowledge system that combines:
+1. Scientific literature access and management
+2. Personal medical library organization
+3. AI-powered health knowledge assistance
+4. System-wide medical term understanding
+5. Integration with trusted third-party sources
 
 ### Strategic Alignment
 | Business Goal | Contribution |
 |--------------|--------------|
-| Patient Education | Improved health literacy |
-| Informed Decisions | Access to reliable information |
-| Care Quality | Evidence-based knowledge |
-| User Empowerment | Self-directed learning |
+| Patient Education | Access to reliable medical information and research |
+| Health Literacy | Better understanding of medical terms and concepts |
+| Informed Decisions | Evidence-based knowledge for decision making |
+| Knowledge Access | Simplified access to scientific literature |
 
-## Success Metrics
+### Success Metrics
 | Metric | Target | Timeline |
 |--------|---------|----------|
-| Knowledge Coverage | 90% of common conditions | Q2 2025 |
-| User Engagement | 60% monthly active users | Q3 2025 |
-| Content Accuracy | 100% medical review | Q1 2025 |
+| Literature Search Success | 95% relevant results | Q2 2025 |
+| Term Understanding | 90% comprehension rate | Q2 2025 |
+| Library Usage | 70% active users | Q3 2025 |
+| Content Accuracy | 100% verified sources | Q3 2025 |
 | User Satisfaction | 85% satisfaction rate | Q4 2025 |
-| Resource Usage | 50,000 articles/month | Q4 2025 |
 
 ## Value Streams
 ### User Journeys
-1. Health Education
-   - Current State: Scattered information sources
-   - Future State: Unified knowledge platform
-   - Value Added: Reliable, accessible information
-   - Key Metrics: 80% information satisfaction
+1. Scientific Literature Access
+   - Current State: Limited access to medical research
+   - Future State: Easy search and storage of relevant papers
+   - Value Added: Evidence-based knowledge access
+   - Key Metrics: 80% search success rate
 
-2. Medical Research
-   - Current State: Complex medical literature
-   - Future State: Simplified, accessible content
-   - Value Added: Better understanding
-   - Key Metrics: 70% comprehension rate
+2. Medical Term Understanding
+   - Current State: Complex medical terminology
+   - Future State: Instant term explanation anywhere
+   - Value Added: Better health literacy
+   - Key Metrics: 90% term comprehension
 
-## User Activities
-| Activity | Description | Primary Persona |
-|----------|-------------|-----------------|
-| Browse Resources | Access health information | Patient |
-| Learn Concepts | Study health topics | Patient, Caregiver |
-| Research Conditions | Investigate health conditions | Healthcare Provider |
-| Check Medications | Review medication information | Patient, Caregiver |
-| Follow Learning Paths | Complete personalized education modules | Patient, Caregiver |
-| Track Progress | Monitor educational advancement | Patient, Caregiver |
+3. Knowledge Organization
+   - Current State: Scattered medical information
+   - Future State: Organized personal medical library
+   - Value Added: Easy information retrieval
+   - Key Metrics: 85% organization satisfaction
 
 ## Story Mapping
-### Epics
-- Knowledge Management
-- Educational Content
-- Research Access
-- Resource Library
+### User Activities
+1. Scientific Research
+   - Description: Search and save medical papers
+   - Related Personas: Patient, Caregiver
+   - Priority: High
 
-### Features
-1. Basic Resources
-2. Advanced Content
-3. Interactive Learning
-4. Research Tools
+2. Term Understanding
+   - Description: Get medical term explanations
+   - Related Personas: Patient, Caregiver
+   - Priority: High
 
-### User Stories
-1. Content Access
-2. Learning Paths
-3. Research Tools
-4. Resource Library
-5. Patient Education
-6. Progress Tracking
+3. Library Management
+   - Description: Organize medical knowledge
+   - Related Personas: Patient, Caregiver
+   - Priority: Medium
 
-## Release Strategy
-| Phase | Features | Timeline |
-|-------|-----------|----------|
-| 1.0 | Basic knowledge base | Q1 2025 |
-| 2.0 | Interactive learning | Q2 2025 |
-| 3.0 | Research tools | Q3 2025 |
-| 4.0 | Advanced features | Q4 2025 |
+## Release Planning
+### MVP Requirements
+| Requirement | Rationale | Priority |
+|------------|-----------|-----------|
+| Literature Search | Access to scientific papers | High |
+| Term Explanation | Understand medical terms | High |
+
+### Release Strategy
+| Release | Features | Target Date | Dependencies |
+|---------|----------|-------------|--------------|
+| MVP | Literature Search, Term Explanation | Q1 2025 | PubMed API, LLM Service |
+| R2 | Library Management | Q2 2025 | Storage System |
 
 ## Implementation Considerations
-### Technical Requirements
-| Requirement | Description |
-|-------------|-------------|
-| Search | Advanced search capability |
-| Integration | Medical databases |
-
-### Dependencies
-| Dependency | Type | Status |
-|------------|------|--------|
-
-| Medical Database | External | Required |
-| Search Engine | Internal | Required |
+### Technical Dependencies
+- PubMed API
+- LLM Service
+- Storage System
+- Search Engine
 
 ### Risks and Mitigations
 | Risk | Impact | Mitigation |
 |------|---------|------------|
-| Content Accuracy | High | Expert review |
-| Information Currency | Medium | Update system |
-| User Comprehension | Medium | Simplified content |
+| API Reliability | High | Multiple source redundancy |
+| Content Accuracy | High | Validation system |
 
 ## Related Information
 ### Related Epics
-- EPIC-002: Health Information Processing and Analysis
 - EPIC-005: AI-Powered Health Insights
-- EPIC-009: User Onboarding and Support
 
 ### Stakeholders
 | Role | Name | Responsibility |
 |------|------|----------------|
-| Medical Editor | TBD | Content accuracy |
-| Education Lead | TBD | Learning design |
-| Content Manager | TBD | Resource management |
+| Patients | N/A | Primary users |
+| Caregivers | N/A | Support users |
+| Medical Experts | N/A | Content validation |
 
 ### Notes and Assumptions
-- Medical review process needed
-- Multi-language support planned
-- Evidence-based content only
+- Content must be easy to understand
+- Privacy and security are paramount
+- User feedback drives improvement
+- Mobile access is essential
 
-### Version History
+# Version History
 | Version | Date | Author | Changes |
 |---------|------|--------|----------|
-| 0.1 | 2024-01-07 | Zebra Team | Initial draft |
-| 1.0 | 2024-12-02 | Zebra Team | Updated template structure |
-| 1.1 | 2024-03-20 | Zebra Team | Standardized naming and references |
+| 1.0 | 2024-03-21 | Zebra Team | Initial draft |
