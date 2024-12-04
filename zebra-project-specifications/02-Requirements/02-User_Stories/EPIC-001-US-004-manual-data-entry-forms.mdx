@@ -1,42 +1,42 @@
 # User Story: Manual Health Data Entry
 
 metadata:
-  id: "US-008"
+  id: "US-004"
   title: "Manual Health Data Entry"
   type: "user-story"
   epic: "EPIC-001"
   feature: "Data Management"
   author: "Zebra Team"
   creation_date: "2024-03-20"
-  last_updated: "2024-03-20"
+  last_updated: "2024-03-21"
   status: "Draft"
   priority: "High"
-  version: "0.1"
+  version: "0.2"
 
 ## Basic Information
 | Field | Value |
 |-------|-------|
-| Story ID | US-008 |
+| Story ID | US-004 |
 | Epic Reference | EPIC-001 |
 | Created By | Zebra Team |
 | Created Date | 2024-03-20 |
-| Last Updated | 2024-03-20 |
+| Last Updated | 2024-03-21 |
 | Status | Draft |
 
 ## Story Details
 ### Business Value
-This story enables efficient manual entry of health information through intelligent forms and interfaces. It ensures data accuracy through real-time validation, reduces entry errors through AI assistance, and supports multiple input methods while maintaining FHIR compliance. The smart entry capabilities improve user experience and data quality.
+This story enables efficient manual entry of health information through intelligent forms and AI-assisted interfaces. It ensures data accuracy through real-time validation, reduces entry errors through AI assistance, and supports multiple input methods including AI-powered voice input for FHIR resource creation. The smart entry capabilities improve user experience and data quality while minimizing manual effort.
 
 ### User Story
 As a user needing to manually input health information,
-I want intelligent and user-friendly data entry capabilities with AI assistance,
-So that I can accurately add or update health information while minimizing effort and errors.
+I want intelligent and AI-assisted data entry capabilities including voice input,
+So that I can accurately create and update FHIR resources while minimizing effort and errors.
 
 ### Story Mapping
 - Epic: EPIC-001: Health Data Management
 - Activity: Manual Data Entry
-- Task: Smart Form Entry
-- Sequence: 008
+- Task: Smart Form Entry and Voice Input
+- Sequence: 004
 
 ### Agile Metrics
 | Metric | Value |
@@ -59,35 +59,62 @@ So that I can accurately add or update health information while minimizing effor
 - Prevent common errors
 - Enable quick corrections
 
-### Scenario 2: Voice Input
-**Given** I want to use voice input
-**When** speaking health information
+### Scenario 2: AI Chatbot Voice Input
+**Given** I want to use voice input for creating FHIR resources
+**When** speaking with the AI chatbot
 **Then** it should:
-- Convert speech to text
-- Recognize medical terms
-- Structure information
-- Create FHIR resources
-- Allow corrections
-- Maintain accuracy
-- Support multiple languages
-- Handle accents
+- Understand my natural language input
+- Maintain conversational context
+- Identify intended FHIR resource type
+- Match spoken information to FHIR fields
+- Ask for missing mandatory information
+- Request clarification when uncertain
+- Guide me through required fields
+- Suggest appropriate values
+- Confirm understanding
+- Allow corrections via voice
+- Support interactive refinement
+- Learn from our interactions
 
-### Scenario 3: AI Assistance
-**Given** I'm entering complex information
-**When** using AI assistance
+### Scenario 3: AI-Guided Resource Creation
+**Given** I'm creating a FHIR resource via voice
+**When** the AI chatbot detects incomplete information
 **Then** it should:
-- Suggest completions
-- Check for consistency
-- Identify relationships
-- Prevent common errors
-- Learn from corrections
-- Improve over time
+- Identify missing mandatory fields
+- Ask focused questions to gather data
+- Explain why information is needed
+- Offer examples of valid input
+- Accept natural language responses
+- Validate provided information
+- Show progress towards completion
+- Allow skipping optional fields
+- Confirm final resource content
+- Enable voice-based corrections
+- Maintain conversation flow
+- Remember context for future use
+
+### Scenario 4: AI Assistance and Validation
+**Given** I'm working with the AI chatbot
+**When** creating or updating health data
+**Then** it should:
+- Provide conversational guidance
+- Understand clinical context
+- Validate terminology usage
+- Check data consistency
+- Suggest related information
+- Explain any issues found
+- Offer correction options
+- Learn from user preferences
 - Maintain privacy
-- Explain suggestions
+- Support natural dialogue
+- Handle medical terminology
+- Enable iterative improvements
 
 ### Quality Attributes
 - [ ] 99% form availability
-- [ ] <1s response time
+- [ ] Less than 1s response time
+- [ ] 95% voice recognition accuracy
+- [ ] 90% FHIR field mapping accuracy
 - [ ] Offline capability
 - [ ] Multi-device sync
 - [ ] HIPAA compliance
@@ -102,25 +129,48 @@ So that I can accurately add or update health information while minimizing effor
    - Multi-language support
    - Accessibility features
 
-2. Input Processing:
-   - Voice recognition
-   - NLP pipeline
-   - AI suggestions
-   - Error detection
+2. AI Chatbot System:
+   - Natural language understanding
+   - Conversation management
+   - Context tracking
+   - FHIR mapping engine
+   - Question generation
+   - Response validation
    - Learning system
-   - Sync manager
+   - Privacy controls
+
+3. Voice Processing:
+   - Medical speech recognition
+   - Intent detection
+   - Entity extraction
+   - Context preservation
+   - Error correction
+   - Multi-language support
+
+4. FHIR Integration:
+   - Resource type detection
+   - Field mapping
+   - Mandatory field tracking
+   - Validation rules
+   - Terminology services
+   - Resource creation
+   - Update management
 
 ### Dependencies
 #### Technical Dependencies
 - Form engine
-- Voice processing
-- AI/ML models
+- Speech recognition system
+- Clinical NLP models
 - FHIR server
+- Terminology services
+- AI/ML models
 - Storage system
 - Sync service
 
 #### Business Dependencies
-- Terminology services
+- Clinical knowledge base
+- FHIR profiles
+- Terminology standards
 - Language support
 - Privacy requirements
 - User training
@@ -128,16 +178,19 @@ So that I can accurately add or update health information while minimizing effor
 
 ### Test Scenarios
 1. Form validation
-2. Voice recognition
-3. AI suggestions
-4. Offline operation
-5. Multi-device sync
-6. Performance testing
-7. Accessibility testing
+2. Voice input accuracy
+3. FHIR mapping correctness
+4. AI suggestions relevance
+5. Multi-language support
+6. Offline operation
+7. Multi-device sync
+8. Performance testing
+9. Accessibility testing
 
 ## Definition of Done
 - [ ] Smart forms implemented
-- [ ] Voice input working
+- [ ] AI-powered voice input working
+- [ ] FHIR resource creation validated
 - [ ] AI assistance active
 - [ ] Security validated
 - [ ] Performance verified
@@ -148,21 +201,26 @@ So that I can accurately add or update health information while minimizing effor
 ### Related Stories
 - US-001: FHIR Data Import
 - US-002: Data Transformation
-- US-003: Data Organization
+- US-003: Document Processing
 
 ### Related Use Cases
 - UC-001: Health Diary
 - UC-002: Symptom Tracking
 - UC-003: Medication Log
+- UC-004: Voice-Based Entry
 
 ### Notes and Assumptions
-- Internet not always required
-- Multiple devices supported
-- Regular AI model updates
+- Internet not always required for basic forms
+- AI features require connectivity
+- Regular AI model updates needed
+- Voice input requires good audio quality
 - Privacy protection critical
-- Accessibility compliance
-- User training needed
+- Accessibility compliance required
+- User training needed for optimal use
+- AI suggestions need user verification
 
 ### Version History
 | Version | Date | Author | Changes |
-|---------|------|---------|----------| 
+|---------|------|---------|----------|
+| 0.1 | 2024-03-20 | Zebra Team | Initial draft |
+| 0.2 | 2024-03-21 | Zebra Team | Enhanced AI-assisted voice input capabilities | 

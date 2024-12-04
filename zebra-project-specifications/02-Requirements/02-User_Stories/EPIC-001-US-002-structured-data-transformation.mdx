@@ -8,10 +8,10 @@ metadata:
   feature: "Data Management"
   author: "Zebra Team"
   creation_date: "2024-03-20"
-  last_updated: "2024-03-20"
+  last_updated: "2024-03-21"
   status: "Draft"
   priority: "High"
-  version: "0.1"
+  version: "0.2"
 
 ## Basic Information
 | Field | Value |
@@ -20,22 +20,26 @@ metadata:
 | Epic Reference | EPIC-001 |
 | Created By | Zebra Team |
 | Created Date | 2024-03-20 |
-| Last Updated | 2024-03-20 |
+| Last Updated | 2024-03-21 |
 | Status | Draft |
 
 ## Story Details
 ### Business Value
-This story enables the transformation of diverse health data formats into standardized FHIR R4 resources, ensuring consistent data representation and terminology usage. It reduces data fragmentation, improves interoperability, and enables better health data analysis through standardized formats and codes. The automated transformation processes save time while maintaining data quality and accuracy.
+This story enables two key aspects of health data transformation:
+1. File Format Transformation: Converting diverse file formats into FHIR R4 JSON format for system compatibility
+2. Schema/Content Transformation: Mapping data models and standardizing terminology for semantic interoperability
+
+These capabilities reduce data fragmentation, improve interoperability, and enable better health data analysis while maintaining data quality and accuracy.
 
 ### User Story
-As a user with diverse health records in various formats,
-I want automated transformation of my health data into FHIR standards with accurate terminology mapping,
-So that all my health information follows consistent formats and uses standard medical terminology.
+As a user with diverse health records,
+I want to select and control how my health data is transformed into FHIR standards,
+So that I can ensure accurate and appropriate conversion of my health information.
 
 ### Story Mapping
 - Epic: EPIC-001: Health Data Management
 - Activity: Data Standardization
-- Task: Format Transformation
+- Task: Format and Schema Transformation
 - Sequence: 002
 
 ### Agile Metrics
@@ -46,134 +50,135 @@ So that all my health information follows consistent formats and uses standard m
 | Sprint | Sprint 1 |
 
 ## Acceptance Criteria
-### Scenario 1: Structured Data Transformation
-**Given** I have structured non-FHIR health data (JSON, XML, CSV)
+### Scenario 1: Input Format Validation
+**Given** I have structured health data in various formats (JSON, XML, CSV)
 **When** I submit it for processing
 **Then** the system should:
-- Allow me to select the input format or let the system detect it automatically
-- Allow me to select the kind of transformation to apply (Support LLM-assisted conversion, template-based and mapping GUI,..)
-- Apply appropriate transformation rules
-- Map to standard terminologies
-- Preview results FHIR R4 resources and validate
-- Enable human review and adjust the process if needed
-- Log all transformations
-- Provide transformation report
+- Detect the input format type
+- Validate format syntax is well-formed
+- Report any format validation issues
+- Extract content for transformation
+- Log validation results
+- Provide clear error messages
 
-## Scenario 2: Transformation and Mapping Management
-**Given** I have created templates, mappings or custom pipelines
-**When** managing them
+### Scenario 2: Transformation Strategy Selection
+**Given** I have validated structured data
+**When** the system analyzes my data
+**Then** it should:
+- Analyze data structure and content
+- Recommend suitable transformation approaches:
+  * Template-based mapping
+  * LLM-assisted transformation
+  * GUI-based mapping tools
+  * Custom transformation rules
+- Present pros and cons of each approach
+- Allow me to preview each method
+- Let me select preferred approach
+- Enable me to combine approaches if needed
+
+### Scenario 3: Transformation Control
+**Given** I have selected a transformation strategy
+**When** the transformation process begins
 **Then** I should be able to:
-- Save mapping templates
-- Choose mappings for transformations scenarios
-- Version control
-- Test mappings
-- Update existing
-- Review and adjust
-
-### Scenario 3: Terminology Standardization
-**Given** I have health data with various medical terms
-**When** the system processes the content
-**Then** it should:
-- Identify clinical concepts
-- Query terminology services
-- Map to standard codes (SNOMED-CT, LOINC, etc.)
-- Handle multiple vocabularies
-- Track mapping confidence
-- Flag uncertain mappings
-- Enable manual review
-- Maintain terminology versions
-
-### Scenario 4: Quality Validation
-**Given** transformed FHIR resources
-**When** validating the transformation
-**Then** it should:
-- Verify FHIR compliance
-- Validate terminology usage
-- Check reference integrity
-- Assess data completeness
-- Generate quality metrics
-- Identify potential issues
-- Create validation report
-- Enable issue resolution
+- Review proposed mappings
+- Adjust transformation rules
+- Test transformations
+- Preview FHIR output
+- Modify terminology mappings
+- Verify semantic accuracy
+- Approve or reject results
+- Change strategy if needed
 
 ### Quality Attributes
-- [ ] 99% accuracy in format detection
-- [ ] 95% accuracy in terminology mapping
-- [ ] Complete audit trail of transformations
-- [ ] Performance under 5 seconds per resource
-- [ ] Scalable to handle bulk transformations
+- [ ] 99% accuracy in format validation
+- [ ] 95% accuracy in FHIR mapping
+- [ ] 98% accuracy in terminology standardization
+- [ ] Complete audit trail of transformation decisions
+- [ ] Performance under 2 seconds for format validation
+- [ ] Clear presentation of transformation options
+- [ ] Interactive preview capabilities
 
 ## Implementation Details
 ### Technical Notes
-1. Transformation Engine:
+1. Format Validation:
    - Format detection system
-   - Mapping rule engine
-   - Template processor
-   - Terminology service integration
-   - Validation framework
-   - Error handling system
-   - AI/ML transformation engine
+   - Syntax validation rules
+   - Error reporting
+   - Content extraction
+   - Validation logging
 
-2. Terminology Services:
-   - SNOMED-CT integration
-   - LOINC mapping
-   - ICD-10 coding
-   - RxNorm medication coding
-   - Custom code mappings
-   - Version management
+2. Transformation Analysis:
+   - Data structure analysis
+   - Strategy recommendation engine
+   - Preview generation
+   - Option comparison tools
+   - Interactive examples
+
+3. Transformation Engine:
+   - Template processor
+   - LLM integration
+   - Mapping tools
+   - Rule engine
+   - FHIR generator
+   - User control interface
 
 ### Dependencies
 #### Technical Dependencies
-- Transformation engine
+- Format conversion engine
+- Schema mapping system
 - Terminology servers
 - FHIR validator
 - Storage system
-- Processing pipeline
-- Logging infrastructure
+- Audit system
 
 #### Business Dependencies
 - Terminology licenses
-- Data quality requirements
-- Performance requirements
-- Security compliance
-- User training needs
+- Format specifications
+- Schema definitions
+- Mapping rules
+- Quality requirements
 
 ### Test Scenarios
-1. Format detection accuracy
-2. Transformation completeness
-3. Terminology mapping accuracy
-4. Error handling
-5. Performance testing
-6. Bulk processing
-7. Edge cases handling
+1. Format conversion accuracy
+2. Schema mapping correctness
+3. Terminology standardization
+4. Reference integrity
+5. Performance validation
+6. Error handling
+7. Batch processing
+8. Edge cases
 
 ## Definition of Done
-- [ ] Transformation rules implemented
-- [ ] Terminology mapping configured
-- [ ] Validation system operational
+- [ ] Format conversion implemented
+- [ ] Schema mapping implemented
+- [ ] Terminology standardization working
+- [ ] All validations operational
 - [ ] Performance requirements met
 - [ ] Documentation complete
 - [ ] Testing passed
-- [ ] User acceptance verified
 
 ## Related Information
 ### Related Stories
 - US-001: FHIR Data Import
-- US-003: Data Organization
-- US-004: Data Quality
+- US-003: Document Processing
+- US-004: Manual Data Entry
 
 ### Related Use Cases
-- UC-001: Clinical Data Import
-- UC-002: Lab Results Processing
-- UC-003: Medication Records
+- UC-001: Import FHIR Data
+- UC-002: Transform Structured Data
+- UC-003: Process Documents
 
 ### Notes and Assumptions
-- Regular terminology updates required
-- Internet connectivity needed for terminology services
-- Complex mappings may require manual review
-- Performance optimization critical for bulk processing
-- Complete audit trail mandatory
+- Format specifications available
+- Schema definitions documented
+- Terminology services accessible
+- Regular mapping updates needed
+- Complex transformations may need review
+- Performance optimization critical
+- Complete audit trail required
 
 ### Version History
 | Version | Date | Author | Changes |
-|---------|------|---------|----------| 
+|---------|------|---------|----------|
+| 0.1 | 2024-03-20 | Zebra Team | Initial draft |
+| 0.2 | 2024-03-21 | Zebra Team | Separated format and schema transformation concerns | 

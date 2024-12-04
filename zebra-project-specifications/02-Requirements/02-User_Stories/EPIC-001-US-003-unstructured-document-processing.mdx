@@ -1,36 +1,36 @@
 # User Story: Medical Document Processing
 
 metadata:
-  id: "US-007"
+  id: "US-003"
   title: "Medical Document Processing"
   type: "user-story"
   epic: "EPIC-001"
   feature: "Data Management"
   author: "Zebra Team"
   creation_date: "2024-03-20"
-  last_updated: "2024-03-20"
+  last_updated: "2024-03-21"
   status: "Draft"
   priority: "High"
-  version: "0.1"
+  version: "0.2"
 
 ## Basic Information
 | Field | Value |
 |-------|-------|
-| Story ID | US-007 |
+| Story ID | US-003 |
 | Epic Reference | EPIC-001 |
 | Created By | Zebra Team |
 | Created Date | 2024-03-20 |
-| Last Updated | 2024-03-20 |
+| Last Updated | 2024-03-21 |
 | Status | Draft |
 
 ## Story Details
 ### Business Value
-This story enables intelligent processing of medical documents and images, extracting structured health information while maintaining document integrity. It reduces manual data entry, improves data accessibility, and enables comprehensive health record management through automated document analysis and FHIR resource creation.
+This story enables intelligent processing of medical documents through advanced NLP and ML techniques. It extracts structured health information using named entity recognition, relationship extraction, and concept normalization while maintaining document integrity. The automated analysis reduces manual effort, improves data quality, and enables comprehensive health record management through standardized FHIR resources.
 
 ### User Story
 As a user with various medical documents and images,
-I want intelligent processing and analysis of my health documents,
-So that I can extract structured health information while maintaining original document access and searchability.
+I want intelligent processing with advanced NLP and entity recognition,
+So that I can automatically extract and standardize health information while maintaining document traceability.
 
 ### Story Mapping
 - Epic: EPIC-001: Health Data Management
@@ -47,109 +47,154 @@ So that I can extract structured health information while maintaining original d
 
 ## Acceptance Criteria
 
-### Scenario 1: DICOM Processing
-**Given** I have DICOM images
-**When** I upload them
+### Scenario 1: Text Extraction and Preprocessing
+**Given** I have medical documents (PDFs, images)
+**When** processing the documents
 **Then** the system should:
-- Connect to a DICOMweb server
-- Store the images and studies via DICOMweb
-- Create FHIR ImagingStudy resource
-- Extract metadata
-- Link to patient
-- Enable viewing the resource
+- Extract text via OCR with layout preservation
+- Clean and normalize extracted text
+- Detect document sections and structure
+- Identify document type and specialty
+- Preserve formatting metadata
+- Handle multiple languages
+- Generate searchable content
+- Create document preview
+- Enable text verification
 
-### Scenario 2: PDF Document Processing
-**Given** I have medical PDFs
-**When** I upload them
-**Then** the system should: 
-- Create FHIR DocumentReference resources
-- Extract text via OCR
-- Generate document previews
-- Store securely with tracked upload status
-- Index content for searchability
-- Enable quick access
-
-### Scenario 3: Clinical Information Extraction
-**Given** processed PDF documents
-**When** analyzing the content
+### Scenario 2: Named Entity Recognition
+**Given** I have extracted medical text
+**When** performing NER analysis
 **Then** the system should:
-- Use NLP for text analysis
-- Identify and extract medical entities
-- Map entities to standard terminologies
-- Extract measurements and relationships
-- Generate clinical summaries
-- Enable human verification of extracted data
+- Identify medical entities:
+  * Problems and diagnoses
+  * Medications and dosages
+  * Procedures and treatments
+  * Lab tests and results
+  * Vital signs and measurements
+  * Anatomical sites
+  * Temporal expressions
+- Detect entity relationships
+- Determine negation status
+- Identify certainty levels
+- Handle overlapping entities
+- Preserve entity context
+- Enable entity verification
 
-### Scenario 4: FHIR Resource Creation
-**Given** extracted clinical information
-**When** converting to FHIR format
+### Scenario 3: Clinical Concept Processing
+**Given** I have identified medical entities
+**When** normalizing the concepts
 **Then** the system should:
-- Use LLM/tools for FHIR transformation
-- Create appropriate FHIR resources
-- Link related FHIR resources together
+- Map to standard terminologies:
+  * SNOMED CT for clinical terms
+  * RxNorm for medications
+  * LOINC for lab tests
+  * ICD-10 for diagnoses
+- Resolve concept ambiguity
+- Handle concept modifiers
+- Maintain concept relationships
+- Track mapping confidence
+- Allow mapping verification
+- Support terminology versioning
+
+### Scenario 4: Relationship Extraction
+**Given** I have normalized medical concepts
+**When** analyzing relationships
+**Then** the system should:
+- Identify clinical relationships:
+  * Problem-treatment associations
+  * Medication-condition links
+  * Test-result pairs
+  * Temporal relationships
+  * Anatomical associations
+- Detect causality indicators
+- Establish chronological order
+- Preserve clinical context
+- Enable relationship review
+- Support relationship validation
+
+### Scenario 5: FHIR Resource Generation
+**Given** I have processed clinical information
+**When** creating FHIR resources
+**Then** the system should:
+- Select appropriate FHIR resources
+- Map extracted data to FHIR fields
+- Maintain entity relationships
+- Create resource references
 - Validate FHIR compliance
-- Update DocumentReference with resource links
-- Track processing status
-- Log all transformations
-- Provide transformation report
-- Enable human review of final results
+- Preserve data provenance
+- Link to source documents
+- Enable resource review
 
 ### Quality Attributes
-- [ ] 95% OCR accuracy for document processing
-- [ ] 90% clinical entity extraction accuracy
-- [ ] 95% FHIR resource creation accuracy
-- [ ] Complete audit trail of transformations
-- [ ] Sub-second document retrieval
-- [ ] HIPAA compliance
+- [ ] 98% OCR accuracy
+- [ ] 95% NER accuracy for common entities
+- [ ] 90% concept normalization accuracy
+- [ ] 85% relationship extraction accuracy
+- [ ] 95% FHIR mapping accuracy
+- [ ] Sub-second search response
+- [ ] Complete audit trail
 
 ## Implementation Details
 ### Technical Notes
 1. Document Processing:
-   - OCR engine
-   - Document preview generation
-   - Storage management
-   - Index service
-   - Access control
-
-2. Clinical Analysis:
-   - Medical NLP pipeline
-   - Terminology mapping
-   - Relationship extraction
-   - Entity recognition
+   - OCR with layout analysis
+   - Document structure detection
+   - Multi-language support
+   - Text normalization
    - Quality validation
 
-3. FHIR Transformation:
-   - LLM-based conversion
-   - FHIR validation
-   - Resource linking
-   - Audit logging
-   - Review workflow
+2. NLP Pipeline:
+   - Tokenization and segmentation
+   - Part-of-speech tagging
+   - Dependency parsing
+   - Named entity recognition
+   - Negation detection
+   - Temporal analysis
+   - Relationship extraction
+
+3. Clinical Processing:
+   - Medical entity recognition
+   - Concept normalization
+   - Terminology mapping
+   - Context analysis
+   - Relationship detection
+   - Assertion classification
+
+4. FHIR Transformation:
+   - Resource type selection
+   - Field mapping
+   - Reference management
+   - Validation rules
+   - Provenance tracking
 
 ### Dependencies
 #### Technical Dependencies
-- OCR system
-- NLP engine
+- OCR engine with layout analysis
+- Clinical NLP pipeline
+- Medical entity recognition models
+- Terminology services
 - FHIR server
+- Vector search engine
+- ML/DL models
 - Storage system
-- Search engine
-- ML models
 
 #### Business Dependencies
 - Clinical knowledge base
-- Terminology services
+- Terminology licenses
+- Training datasets
 - Quality requirements
 - Privacy compliance
-- User training
+- Domain expertise
 
 ### Test Scenarios
-1. Document upload and processing
-2. OCR and preview generation
-3. Clinical information extraction
-4. FHIR resource creation
-5. Resource linking and validation
-6. Error handling
-7. Performance testing
-8. Security validation
+1. Document processing accuracy
+2. Entity recognition precision
+3. Concept normalization accuracy
+4. Relationship extraction quality
+5. FHIR resource validation
+6. Multi-language support
+7. Performance optimization
+8. Security compliance
 
 ## Definition of Done
 - [ ] Document processing pipeline implemented
