@@ -1,0 +1,194 @@
+# Use Case: Process Unstructured Documents
+
+metadata:
+  id: "UC-003"
+  title: "Process Unstructured Documents with NER Visualization"
+  type: "use-case"
+  epic: "EPIC-001"
+  feature: "Document Processing"
+  author: "Zebra Team"
+  creation_date: "2024-03-21"
+  last_updated: "2024-03-21"
+  status: "Draft"
+  version: "1.0"
+
+## Overview
+This use case describes the process of analyzing unstructured medical documents using NLP/NER capabilities, with a focus on interactive visualization and annotation tools for entity review and correction.
+
+## Actors
+- Healthcare Providers
+- Medical Records Staff
+- NLP System
+- External NLP/NER API Services
+
+## Preconditions
+- User is authenticated
+- Document is uploaded and OCR processed
+- NLP/NER services are configured and available
+- Required medical terminologies are accessible
+
+## Main Flow
+
+### 1. Document Processing
+1. System receives uploaded medical document
+2. Performs OCR with layout preservation
+3. Extracts and normalizes text while maintaining structure
+4. Segments document into logical sections
+
+### 2. NER Processing
+1. System processes text through NLP pipeline:
+   - Local NER processing engine or
+   - External NLP API service (e.g., John Snow Labs, AWS Comprehend Medical)
+2. Identifies medical entities with confidence scores
+3. Maps entities to standard terminologies
+4. Stores preliminary NER results
+
+### 3. Interactive Visualization
+1. System presents document in annotation interface:
+   - Original document view
+   - Text view with entity highlights
+   - Side-by-side comparison mode
+2. Color-codes different entity types:
+   - Problems/Diagnoses (e.g., Red)
+   - Medications (e.g., Green)
+   - Procedures (e.g., Blue)
+   - Lab Tests (e.g., Purple)
+   - Measurements (e.g., Orange)
+   - Temporal Expressions (e.g., Yellow)
+3. Displays confidence scores
+4. Shows terminology mappings
+5. Indicates relationships between entities
+
+### 4. Entity Review and Correction
+1. User interface provides:
+   - Entity list sidebar
+   - Filtering by entity type
+   - Search functionality
+   - Confidence score thresholds
+2. Annotation tools:
+   - Add new entity (click and drag)
+   - Modify entity boundaries
+   - Change entity type
+   - Delete incorrect entities
+   - Merge overlapping entities
+   - Split entities
+3. Terminology mapping tools:
+   - View suggested mappings
+   - Search terminology databases
+   - Select alternative mappings
+   - Add custom mappings
+
+### 5. Relationship Management
+1. Visual relationship tools:
+   - Arrow connections between related entities
+   - Relationship type selection
+   - Temporal ordering visualization
+   - Causality indication
+2. Relationship editing:
+   - Add/remove relationships
+   - Modify relationship types
+   - Set temporal order
+   - Define hierarchies
+
+### 6. Quality Assurance
+1. Validation tools:
+   - Missing required entities
+   - Unmapped concepts
+   - Low confidence scores
+   - Conflicting relationships
+2. Batch operations:
+   - Apply corrections to similar cases
+   - Bulk entity type changes
+   - Mass relationship updates
+
+## Alternative Flows
+
+### A1. External NLP Service Unavailable
+1. System switches to local NLP processing
+2. Notifies user of reduced capabilities
+3. Continues with available features
+
+### A2. Low Confidence Results
+1. System flags entities below threshold
+2. Prioritizes them for manual review
+3. Suggests alternative interpretations
+
+## Exception Flows
+
+### E1. Processing Failure
+1. System saves partial results
+2. Logs error details
+3. Allows manual processing
+4. Provides retry option
+
+## Post Conditions
+- Document is fully processed
+- Entities are verified and corrected
+- Relationships are validated
+- FHIR resources are generated
+- Audit trail is maintained
+
+## Technical Requirements
+
+### UI Components
+1. Document Viewer:
+   - PDF/Image rendering
+   - Text overlay
+   - Zoom/Pan controls
+   - Page navigation
+
+2. Annotation Interface:
+   - React-based annotation tools
+   - Configurable entity colors
+   - Keyboard shortcuts
+   - Touch-screen support
+
+3. Entity Management:
+   - Entity type selector
+   - Terminology browser
+   - Relationship editor
+   - Validation alerts
+
+### Backend Services
+1. NLP Processing:
+   - Local NER engine
+   - API integration layer
+   - Terminology services
+   - Relationship extraction
+
+2. Storage:
+   - Document repository
+   - Annotation database
+   - Terminology cache
+   - Audit logging
+
+### Integration Points
+1. External Services:
+   - NLP/NER APIs
+   - Terminology servers
+   - FHIR endpoints
+   - Authentication services
+
+## Performance Requirements
+- Document loading: < 2 seconds
+- NER processing: < 30 seconds
+- UI responsiveness: < 100ms
+- Annotation saving: < 1 second
+
+## Security Requirements
+- Role-based access control
+- Audit logging of changes
+- Secure API communication
+- Data encryption at rest
+
+## Notes
+- Consider integration with popular NLP services
+- Plan for offline processing capability
+- Include user training materials
+- Support keyboard-only operation
+- Enable batch processing for efficiency
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| 0.1 | 2024-03-21 | Zebra Team | Initial draft | 

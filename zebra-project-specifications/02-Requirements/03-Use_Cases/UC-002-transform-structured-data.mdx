@@ -1,0 +1,232 @@
+# Use Case Specification
+
+metadata:
+  id: "UC-002"
+  title: "Transform Structured Data"
+  type: "use-case"
+  epic: "EPIC-001"
+  feature: "Data Management"
+  author: "Zebra Team"
+  creation_date: "2024-03-21"
+  last_updated: "2024-03-21"
+  status: "Draft"
+  version: "0.4"
+
+## Overview
+### Description
+This use case handles the transformation of structured health data into FHIR format, supporting both system-guided and user-driven approaches. It includes management of transformation strategies, mappings, and templates that can be saved and reused.
+
+### Business Value
+Ensures accurate and appropriate data transformation by:
+- Combining system intelligence with user expertise
+- Enabling reuse of successful transformation strategies
+- Building a library of verified mappings and templates
+- Supporting both automated and manual approaches
+
+## Actors and Stakeholders
+### Primary Actor
+- User (Healthcare Data Manager)
+
+### Secondary Actors
+- Transformation Engine
+- Validation Service
+- Mapping Service
+- Storage System
+- Audit System
+
+## Preconditions
+1. User is authenticated and authorized
+2. Source data is available
+3. Transformation services are operational
+4. FHIR validation services are available
+5. Required mapping tools are configured
+
+## Main Success Scenario
+1. User submits structured data
+
+2. **Input Format Validation:**
+   - System identifies input format type (JSON, XML, CSV)
+   - System validates format syntax/structure
+   - System reports validation results to user
+   - User reviews validation report
+   - User confirms proceeding with valid data
+
+3. **Strategy Selection:**
+   - System analyzes data structure and content
+   - System searches for existing applicable mappings/templates
+   - System can either:
+     a) Propose transformation strategy based on analysis
+     b) Present available strategies for user selection
+   - Available strategies include:
+     * Saved mapping templates
+     * LLM-assisted transformation
+     * GUI-based mapping tools
+     * Custom transformation rules
+   - User can:
+     * Accept system's proposal
+     * Choose different strategy
+     * Combine multiple approaches
+     * Create new strategy
+
+4. **Mapping Configuration:**
+   - System loads selected or creates new mapping configuration
+   - User can:
+     * Use existing mapping template
+     * Modify existing template
+     * Create new mapping rules
+     * Configure transformation settings
+   - System generates preview of mappings
+   - User reviews and adjusts mappings
+   - System validates configurations
+   - User can save configuration as template for future use
+
+5. **Transformation Execution:**
+   - System executes transformation using approved configuration
+   - System shows transformation progress
+   - System presents interim results for review
+   - User validates semantic accuracy
+   - User requests adjustments if needed
+   - System applies approved changes
+   - User confirms final transformation
+
+6. **Template/Mapping Management:**
+   - System offers to save successful transformations
+   - User can:
+     * Save mapping as template
+     * Update existing template
+     * Add annotations/descriptions
+     * Set template visibility/sharing
+     * Tag templates for easy search
+   - System validates and stores template
+
+7. **Completion:**
+   - System stores approved transformation
+   - System updates mapping/template library
+   - System creates detailed audit record
+   - System provides transformation summary
+   - User acknowledges completion
+
+## Alternative Flows
+### Alternative Flow 1: Invalid Input Format
+1. System detects format issues
+2. System provides detailed validation errors
+3. User reviews error report
+4. User corrects data format
+5. User resubmits data
+6. Flow returns to main scenario
+
+### Alternative Flow 2: Strategy Adjustment
+1. User reviews initial transformation results
+2. User requests different approach
+3. System preserves previous configuration
+4. System presents alternative strategies
+5. User selects new approach
+6. Flow returns to Transformation Configuration
+
+### Alternative Flow 3: Complex Data Handling
+1. System identifies complex structure
+2. System recommends combined approach
+3. User selects multiple strategies
+4. System coordinates combined execution
+5. User reviews combined results
+6. Flow continues with user validation
+
+### Alternative Flow 4: Template Management
+1. User accesses template library
+2. User can:
+   - Search existing templates
+   - View template details
+   - Edit template configurations
+   - Test templates with sample data
+   - Share templates with team
+3. System maintains template versioning
+4. System tracks template usage statistics
+
+## Exception Flows
+### Exception Flow 1: Transformation Failure
+1. System detects transformation issues
+2. System preserves original data
+3. System presents detailed error analysis
+4. User reviews failure points
+5. System suggests alternative approaches
+6. User decides next action
+
+### Exception Flow 2: Validation Failure
+1. System detects FHIR validation issues
+2. System highlights problematic transformations
+3. User reviews validation errors
+4. System suggests corrections
+5. User applies fixes or chooses different strategy
+
+## Post-conditions
+### Success End Condition
+- Data transformed according to user preferences
+- FHIR resources validated
+- Transformation approved by user
+- Results stored and audited
+
+### Failure End Condition
+- Original data preserved
+- Issues documented
+- User notified of failure
+- Alternative options presented
+
+## Special Requirements
+### Business Rules
+1. Users can create and manage templates
+2. Templates must be versioned
+3. Template changes must be tracked
+4. Templates can be shared with proper permissions
+5. System can propose best matching templates
+6. User decisions override system proposals
+7. Multiple transformation attempts allowed
+8. FHIR compliance required
+
+### Performance Requirements
+- Interactive response < 2 seconds
+- Transformation preview < 5 seconds
+- Full execution based on complexity
+- Support concurrent users
+- Maintain audit history
+
+### Security Requirements
+- User authentication required
+- Action authorization enforced
+- Data privacy maintained
+- Audit trail secured
+- Access controls enforced
+
+### Template Management Requirements
+1. Template version control
+2. Template access control
+3. Template sharing rules
+4. Template validation rules
+5. Template usage tracking
+
+## Related Information
+### Related Use Cases
+- UC-001: Import FHIR Data
+- UC-003: Process Unstructured Documents
+- UC-004: Manual Data Entry
+
+### Related User Stories
+- US-002: Data Transformation
+- US-001: FHIR Data Import
+- US-003: Document Processing
+
+### Notes and Assumptions
+- Users can create and share templates
+- Templates evolve with usage
+- System learns from successful transformations
+- Both automated and manual approaches supported
+- Complex data may require template combinations
+- Template library grows over time
+- System suggestions improve with usage
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|----------|
+| 0.1 | 2024-03-21 | Zebra Team | Initial draft |
+| 0.2 | 2024-03-21 | Zebra Team | Updated transformation phases |
+| 0.3 | 2024-03-21 | Zebra Team | Revised for user-driven approach |
+| 0.4 | 2024-03-21 | Zebra Team | Added template management and flexible strategy selection |
