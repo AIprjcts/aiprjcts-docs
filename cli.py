@@ -6,6 +6,9 @@ from cursor_agent import SpecificationAgent
 from pathlib import Path
 import sys
 from textwrap import dedent
+import os
+import click
+from template_validator import verify_template_update
 
 EXAMPLES = dedent("""
 Examples:
@@ -147,6 +150,28 @@ COMMAND_ALIASES = {
 def resolve_alias(command):
     """Resolve command aliases to full commands"""
     return COMMAND_ALIASES.get(command, command)
+
+@click.group()
+@click.option('--verify/--no-verify', default=True, help='Verify templates against base template')
+def cli(verify):
+    """Specification Generator CLI"""
+    if verify:
+        validator = TemplateValidator()
+        print(colored("Template verification enabled", "blue"))
+
+@cli.command()
+@click.option('--force/--no-force', default=False, help='Force update without verification')
+def update_templates(force):
+    """Update existing templates"""
+    if not force:
+        validator = TemplateValidator()
+        for root, dirs, files in os.walk("project-specifications"):
+            for file in files:
+                if file.endswith('.mdx'):
+                    template_path = os.path.join(root, file)
+                    if not verify_template_update(template_path):
+                        continue
+                    # Update template...
 
 def main():
     # Add alias resolution

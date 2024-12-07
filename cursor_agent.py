@@ -2,12 +2,14 @@ from termcolor import colored
 import os
 import re
 from datetime import datetime
+from template_validator import verify_template_update
 
 class SpecificationAgent:
     def __init__(self):
         self.templates_path = "project-specifications"
         self.output_path = None
         self.domain_context = None
+        self.validator = TemplateValidator()
         
     def set_output_path(self, path):
         print(colored(f"Setting output path to: {path}", "blue"))
@@ -156,7 +158,24 @@ class SpecificationAgent:
         if not self.output_path:
             raise ValueError("Output path not set. Call set_output_path() first.")
         
+        output_path = os.path.join(self.output_path, output_filename)
+        
+        # If file exists, verify before updating
+        if os.path.exists(output_path):
+            if not verify_template_update(output_path):
+                print(colored("Template update cancelled.", "yellow"))
+                return False
+        
         template = self._load_template(template_path)
         content = self._replace_placeholders(template, replacements)
-        output_path = os.path.join(self.output_path, output_filename)
+        
+        # Validate new content
+        errors = self.validator.verify_template_structure(content)
+        if errors:
+            print(colored("New content validation errors:", "red"))
+            for error in errors:
+                print(colored(f"- {error}", "red"))
+            return False
+        
         self._save_specification(content, output_path)
+        return True

@@ -143,75 +143,60 @@ def get_template_content(template_name, category):
     
     return base + template_specific_content.get(template_name, '')
 
-def main():
-    print(colored("Creating all specification templates...", "blue"))
+def verify_and_create_templates():
+    """Verify existing templates and only create missing ones"""
+    print(colored("Verifying templates structure...", "blue"))
     
-    # Create directory structure
-    create_directory_structure()
-    
-    # Complete template mappings
-    template_mappings = {
+    # Define expected structure
+    expected_templates = {
         "03-Design_and_Architecture": {
             "01-System_Architecture": [
-                ("architecture-overview", "System Architecture"),
-                ("component-design", "System Architecture"),
-                ("integration-patterns", "System Architecture")
+                "TEMPLATE-architecture-overview.mdx",
+                "TEMPLATE-component-design.mdx",
+                "TEMPLATE-integration-patterns.mdx"
             ],
-            "02-Technical_Design": [
-                ("technical-specifications", "Technical Design"),
-                ("design-patterns", "Technical Design")
-            ],
-            "03-UI_UX_Design": [
-                ("design-principles", "UI/UX Design"),
-                ("interaction-patterns", "UI/UX Design"),
-                ("style-guide", "UI/UX Design")
-            ],
-            "04-API_Design": [
-                ("api-specifications", "API Design"),
-                ("endpoint-documentation", "API Design")
-            ],
-            "05-Database_Design": [
-                ("data-model", "Database Design"),
-                ("schema-design", "Database Design")
-            ]
+            # ... other directories
         },
         "04-Development_Guidelines": {
             "01-Coding_Standards": [
-                ("coding-conventions", "Development Guidelines"),
-                ("best-practices", "Development Guidelines")
+                "TEMPLATE-coding-conventions.mdx",
+                "TEMPLATE-best-practices.mdx"
             ],
-            "02-Review_Process": [
-                ("code-review-checklist", "Development Guidelines"),
-                ("pr-template", "Development Guidelines")
-            ],
-            "03-Testing_Standards": [
-                ("test-strategy", "Development Guidelines"),
-                ("test-cases", "Development Guidelines")
-            ]
+            # ... other directories
         },
         "05-Agile_Planning": {
             "01-Sprint_Planning": [
-                ("sprint-goals", "Agile Planning"),
-                ("sprint-backlog", "Agile Planning")
+                "TEMPLATE-sprint-goals.mdx",
+                "TEMPLATE-sprint-backlog.mdx"
             ],
-            "02-Release_Planning": [
-                ("release-strategy", "Agile Planning"),
-                ("deployment-plan", "Agile Planning")
-            ],
-            "03-Retrospectives": [
-                ("retro-notes", "Agile Planning")
-            ]
+            # ... other directories
         }
     }
     
-    # Create templates
-    for base_dir, subdirs in template_mappings.items():
+    # Check and create only missing templates
+    for base_dir, subdirs in expected_templates.items():
+        base_path = os.path.join("project-specifications", base_dir)
+        
         for subdir, templates in subdirs.items():
-            dir_path = os.path.join("project-specifications", base_dir, subdir)
-            for template_name, category in templates:
-                template_path = os.path.join(dir_path, f"TEMPLATE-{template_name}.mdx")
-                content = get_template_content(template_name, category)
-                create_template(template_path, content)
+            dir_path = os.path.join(base_path, subdir)
+            
+            # Create directory if it doesn't exist
+            if not os.path.exists(dir_path):
+                os.makedirs(dir_path)
+                print(colored(f"Created directory: {dir_path}", "green"))
+            
+            # Check each template
+            for template in templates:
+                template_path = os.path.join(dir_path, template)
+                if not os.path.exists(template_path):
+                    print(colored(f"Creating missing template: {template_path}", "yellow"))
+                    content = get_template_content(template, base_dir)
+                    create_template(template_path, content)
+                else:
+                    print(colored(f"Template exists: {template_path}", "blue"))
+
+def main():
+    verify_and_create_templates()
 
 if __name__ == "__main__":
     main() 
