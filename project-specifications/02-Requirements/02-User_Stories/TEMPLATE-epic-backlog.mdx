@@ -1,26 +1,85 @@
+<!--
+###################################################################################################
+# EPIC BACKLOG TEMPLATE
+# Lists epics, their descriptions, associated stories, acceptance criteria, and priority.
+# Prerequisites: Personas, Product Goals, Vision. If missing, ask user.
+###################################################################################################
+-->
+
 # Epic Backlog
 
-## Epic 1: [Name]
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+<!--
+##################################################################################################
+# AI PROCESSING AND DEVELOPMENT GUIDE
+# - If Personas or Product Goals are missing, ask user.
+# - Each epic should map to strategic objectives and persona insights.
+##################################################################################################
+-->
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "epic_backlog"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - verify_persona_alignment
+    - ensure_completeness
+    - request_domain_context_if_missing
+
+  base_prompt_structure: |
+    Create an Epic Backlog for ${PROJECT_NAME}.
+    If Personas or Product Goals not provided, ask the user first.
+
+    Include:
+    - List of Epics
+    - Descriptions, User Stories, Acceptance Criteria
+    - Priority (High/Med/Low)
+    - Optional: Prioritization Matrix
+
+## Document Content
+
+## Epic 1: ${EPIC_1_NAME}
 ### Description
-[Detailed description of the epic]
+${EPIC_1_DESC}
 
 ### User Stories
-- 
-- 
-- 
+- ${EPIC_1_STORY_1}
+- ${EPIC_1_STORY_2}
 
 ### Acceptance Criteria
-- 
-- 
-- 
+- ${EPIC_1_AC_1}
+- ${EPIC_1_AC_2}
 
 ### Priority
-- High/Medium/Low
+${EPIC_1_PRIORITY}
 
-## Epic 2: [Name]
-[Repeat structure for each epic]
+## Epic 2: ${EPIC_2_NAME}
+### Description
+${EPIC_2_DESC}
+
+### User Stories
+- ${EPIC_2_STORY_1}
+- ${EPIC_2_STORY_2}
+
+### Acceptance Criteria
+- ${EPIC_2_AC_1}
+- ${EPIC_2_AC_2}
+
+### Priority
+${EPIC_2_PRIORITY}
 
 ## Prioritization Matrix
-- Business Value
-- Technical Complexity
-- Customer Impact
+- Business Value: ${BUS_VALUE_CRITERIA}
+- Technical Complexity: ${TECH_COMPLEXITY_CRITERIA}
+- Customer Impact: ${CUSTOMER_IMPACT_CRITERIA}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |

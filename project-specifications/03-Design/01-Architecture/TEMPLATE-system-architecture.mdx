@@ -1,31 +1,79 @@
+<!--
+###################################################################################################
+# SYSTEM ARCHITECTURE TEMPLATE
+# High-level architecture, components, tech stack, deployment, scalability, security.
+# Prerequisites:
+# - Functional and Non-Functional Requirements
+# - Domain context
+#
+# If missing, ask user.
+###################################################################################################
+-->
+
 # System Architecture
 
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "system_architecture"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - ensure_completeness
+    - request_domain_context_if_missing
+    - verify_epic_alignment (if applicable)
+    - validate_against_best_practices
+
+  base_prompt_structure: |
+    Create a System Architecture document for ${PROJECT_NAME}.
+    If Functional/Non-Functional Requirements or domain context missing, ask the user.
+
+    Include:
+    - Architecture Overview
+    - Component Breakdown
+    - Technology Stack
+    - Deployment Architecture
+    - Scalability Considerations
+    - Security Architecture
+
+## Document Content
+
 ## Architecture Overview
-- High-Level Architecture Diagram
-- Architectural Style/Pattern
+- High-Level Diagram: ${ARCHITECTURE_DIAGRAM_DESCRIPTION}
+- Architectural Style: ${ARCHITECTURAL_STYLE}
 
 ## Component Breakdown
-1. Frontend Components
-2. Backend Services
-3. Database Layer
-4. Integration Points
+1. Frontend Components: ${FRONTEND_COMPONENTS}
+2. Backend Services: ${BACKEND_SERVICES}
+3. Database Layer: ${DATABASE_LAYER}
+4. Integration Points: ${INTEGRATION_POINTS}
 
 ## Technology Stack
-- Programming Languages
-- Frameworks
-- Libraries
-- Tools
+- Languages: ${LANGUAGES}
+- Frameworks: ${FRAMEWORKS}
+- Libraries: ${LIBRARIES}
+- Tools: ${TOOLS}
 
 ## Deployment Architecture
-- Infrastructure Design
-- Cloud/On-Premise Strategy
+- Infrastructure Design: ${INFRASTRUCTURE_DESIGN}
+- Cloud/On-Prem Strategy: ${CLOUD_STRATEGY}
 
 ## Scalability Considerations
-- Horizontal vs Vertical Scaling
-- Load Balancing
-- Caching Strategies
+- Horizontal/Vertical Scaling: ${SCALING_PLANS}
+- Load Balancing: ${LOAD_BALANCING_STRATEGY}
+- Caching: ${CACHING_STRATEGY}
 
 ## Security Architecture
-- Network Security
-- Data Encryption
-- Access Control
+- Network Security: ${NETWORK_SECURITY_MEASURES}
+- Data Encryption: ${DATA_ENCRYPTION}
+- Access Control: ${ACCESS_CONTROL_METHODS}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |

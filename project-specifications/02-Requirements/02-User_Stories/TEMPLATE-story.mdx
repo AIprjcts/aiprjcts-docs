@@ -1,23 +1,19 @@
 <!--
 #####################################################################################################################################################################
 # USER STORY TEMPLATE
-# Template for creating user stories following Agile methodology
 #####################################################################################################################################################################
--->
-<!--
-##################################################################################################
-# DATE AND VERSION HANDLING INSTRUCTIONS
-# Follow these guidelines when filling in dates and versions:
-# 1. Creation Date: Use the actual date when the epic is created (format: YYYY-MM-DD)
-# 2. Last Updated: Use the current date when making changes (format: YYYY-MM-DD)
-# 3. Version History: Start with 0.1 for initial draft, 1.0 for first approved version
-# 4. Release Dates: Use realistic dates based on current project timeline
-##################################################################################################
 -->
 
 <!--
 ##################################################################################################
-# 1. TEMPLATE METADATA AND CONFIGURATION
+# DATE AND VERSION HANDLING INSTRUCTIONS
+#
+# Additional Instructions:
+# - Before generating a user story, ensure that:
+#   - An Epic reference exists
+#   - Persona details are available
+#   - Acceptance criteria are defined
+# - If any are missing, ask the user to provide them.
 ##################################################################################################
 -->
 
@@ -26,25 +22,12 @@ template:
   id: "user-story-template"
   category: "requirements"
   type: "user-story"
-  version: "1.0"
+  version: "1.2"
 
 metadata:
   author: "Codeium"
   status: "Active"
-  last_updated: "${ISO_TIMESTAMP}"
-
-
-
-
-##################################################################################################
-# 2. AI PROCESSING AND DEVELOPMENT GUIDE
-# This section contains information for AI assistance and development guidance.
-# It is not part of the output template but provides context and rules for processing.
-##################################################################################################
--->
-
-
-
+  last_updated: "${LAST_UPDATED_DATE}"
 
 # AI Processing Configuration
 
@@ -53,7 +36,7 @@ ai_assistance:
   document_type: "user_story"
   parent_template: "base_template"
 
-ai_prompting_instructions:  
+ai_prompting_instructions:
   prompt_refinement_checklist:
     - verify_user_value
     - check_acceptance_criteria
@@ -62,52 +45,44 @@ ai_prompting_instructions:
     - check_persona_alignment
     - verify_epic_alignment
     - validate_story_mapping
+    - request_domain_context_if_missing
 
   base_prompt_structure: |
     Create or enhance a user story for ${PROJECT_NAME}.
-    
-    Provide comprehensive details addressing:
+    If Epic reference, Persona details, or acceptance criteria are missing, ask the user to provide them before proceeding.
+
+    Provide details on:
     1. User Story and Value Proposition
-    2. Story Mapping Context
-    3. Acceptance Criteria
-    4. Technical Considerations
-    5. Dependencies and Relationships
-    
+    2. Story Mapping Context (Epic, Activity)
+    3. Acceptance Criteria (Testable conditions)
+    4. Technical Considerations and Dependencies
+
     Ensure the story:
-    - Delivers clear user value
-    - Is properly sized
-    - Is testable
-    - Aligns with epic goals
-    - Maps to user activities
+    - Delivers clear user value (Persona-based)
+    - Aligns with Epic goals
+    - Is testable and properly sized
 
   prompt_templates:
     creation: |
-      Generate a comprehensive user story
-      Epic Context: ${EPIC_REFERENCE}
-      Key Considerations:
-      - User Activity: ${ACTIVITY_CONTEXT}
-      - Primary Goals: ${USER_GOALS}
-      - Critical Requirements: ${KEY_REQUIREMENTS}
-      - Success Criteria: ${SUCCESS_CRITERIA}
+      Before creating the User Story:
+      - Check for an Epic reference (EP-${EPIC_ID})
+      - Ensure Persona details are available
+      - Confirm acceptance criteria or ask user for them
+
+      Once inputs are confirmed, generate the story:
+      - “As a (Persona) …”
+      - Acceptance criteria, success metrics
+      - Align with Epic and activity
 
     interactive_creation: |
-      You will act as an expert story writer.
-      Begin by asking questions to gather necessary information:
-      - Focus on user value
-      - Validate acceptance criteria
-      - Ensure proper sizing
-      - Verify epic alignment
-      Present the final story using the template structure
+      If Epic reference, Persona info, or acceptance criteria are missing, ask the user for them.
+      Once all info is gathered, present the user story in the template structure.
 
     enhancement: |
-      Act as an expert story analyst to enhance the existing story ${DOCUMENT_KEY}.
-
-      **Specific Instructions**:
-      - **Review** value proposition
-      - **Validate** acceptance criteria
-      - **Check** story size
-      - **Verify** epic alignment
-      - **Document** all changes
+      Enhancing existing story ${DOCUMENT_KEY}:
+      - If missing Epic reference or Persona details, request them.
+      - Validate and improve acceptance criteria, value, sizing.
+      - Document all changes and maintain protected sections.
 
 ## Story Creation Process
 story_creation:
@@ -126,34 +101,29 @@ story_creation:
 <!--
 ##################################################################################################
 # TEMPLATE OUTPUT CONTENT STARTS HERE. 
-# Everything below this point will be included in the final MDX output. THIS IS MANDATORY.
-# Prettie format the output
 ###################################################################################################
 -->
 
 # User Story Content
 
 ## Basic Information
-| Field | Value |
-|-------|-------|
-| Story ID | US-${SEQUENCE}-${DESCRIPTOR} |
-| Epic Reference | EP-${EPIC_ID} |
-| Created By | ${AUTHOR} |
-| Created Date | ${DATE} |
-| Last Updated | ${LAST_UPDATED} |
-| Status | ${STATUS} |
-
-
+| Field         | Value                         |
+|---------------|--------------------------------|
+| Story ID      | US-${SEQUENCE}-${DESCRIPTOR}  |
+| Epic Reference| EP-${EPIC_ID}                 |
+| Created By    | ${AUTHOR}                     |
+| Creation Date | ${CREATION_DATE}              |
+| Last Updated  | ${LAST_UPDATED_DATE}          |
+| Status        | ${STATUS}                     |
 
 ## Story Details
-
 
 ### Business Value
 ${BUSINESS_VALUE}
 
 ### User Story
-As a ${PERSONA_REFERENCE},
-I want to ${ACTION},
+As a ${PERSONA_REFERENCE},  
+I want to ${ACTION},  
 So that ${BENEFIT}
 
 ### Story Mapping
@@ -163,21 +133,22 @@ So that ${BENEFIT}
 - Sequence: ${SEQUENCE_NUMBER}
 
 ### Agile Metrics
-| Metric | Value |
-|--------|-------|
-| Story Points | ${STORY_POINTS} [1,2,3,5,8,13,21] |
-| Priority Level | ${PRIORITY_LEVEL} [MH/SH/CH] |
-| Sprint | ${SPRINT} |
+| Metric         | Value                              |
+|----------------|------------------------------------|
+| Story Points   | ${STORY_POINTS} [1,2,3,5,8,13,21]  |
+| Priority Level | ${PRIORITY_LEVEL} [MH/SH/CH]       |
+| Sprint         | ${SPRINT}                          |
 
 ## Acceptance Criteria
+
 ### Scenario 1: ${SCENARIO_1_NAME}
-**Given** ${PRECONDITION}
-**When** ${ACTION}
+**Given** ${PRECONDITION}  
+**When** ${ACTION}  
 **Then** ${RESULT}
 
 ### Scenario 2: ${SCENARIO_2_NAME}
-**Given** ${PRECONDITION}
-**When** ${ACTION}
+**Given** ${PRECONDITION}  
+**When** ${ACTION}  
 **Then** ${RESULT}
 
 ### Quality Attributes
@@ -224,12 +195,6 @@ ${NOTES}
 
 # Version History
 | Version | Date | Author | Changes |
-|---------|------|--------|----------|
-| ${VERSION} | ${DATE} | ${AUTHOR} | ${CHANGES} |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |
 
-
-<!--
-##################################################################################################
-# TEMPLATE OUTPUT ENDS HERE. 
-###################################################################################################
--->

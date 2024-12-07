@@ -1,28 +1,70 @@
+<!--
+###################################################################################################
+# CODING STANDARDS AND GUIDELINES TEMPLATE
+# Defines principles for code readability, maintainability, performance, security, version control.
+# Prerequisites:
+# - Domain context, chosen tech stack, if missing ask user.
+###################################################################################################
+-->
+
 # Coding Standards and Guidelines
 
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "coding_standards"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - ensure_completeness
+    - request_domain_context_if_missing
+
+  base_prompt_structure: |
+    Create Coding Standards for ${PROJECT_NAME}.
+    If tech stack or domain context missing, ask user.
+
+    Include:
+    - General Principles
+    - Language-Specific Guidelines
+    - Code Quality Tools
+    - Version Control Strategy
+    - Documentation Requirements
+
+## Document Content
+
 ## General Principles
-- Code Readability
-- Maintainability
-- Performance
-- Security
+- Readability: ${READABILITY_GUIDELINES}
+- Maintainability: ${MAINTAINABILITY_GUIDELINES}
+- Performance: ${PERFORMANCE_GUIDELINES}
+- Security: ${SECURITY_GUIDELINES}
 
 ## Language-Specific Guidelines
-### [Language 1]
-- Naming Conventions
-- Code Structure
-- Best Practices
+### ${LANGUAGE_1}
+- Naming Conventions: ${LANG_1_NAMING}
+- Code Structure: ${LANG_1_STRUCTURE}
+- Best Practices: ${LANG_1_BEST_PRACTICES}
 
 ## Code Quality
-- Code Review Checklist
-- Static Analysis Tools
-- Automated Linting
+- Code Review Checklist: ${CODE_REVIEW_REF}
+- Static Analysis Tools: ${STATIC_ANALYSIS_TOOLS}
+- Automated Linting: ${LINTING_SETUP}
 
 ## Version Control
-- Branching Strategy
-- Commit Message Guidelines
-- Pull Request Process
+- Branching Strategy: ${BRANCHING_STRATEGY}
+- Commit Messages: ${COMMIT_MSG_GUIDELINES}
+- Pull Request Process: ${PR_PROCESS}
 
 ## Documentation
-- Inline Comments
-- Function/Class Documentation
-- README Requirements
+- Inline Comments: ${INLINE_COMMENTS_GUIDELINES}
+- Function/Class Docs: ${DOC_COMMENTS_GUIDELINES}
+- README Requirements: ${README_REQUIREMENTS}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |

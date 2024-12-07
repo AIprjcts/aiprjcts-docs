@@ -1,28 +1,77 @@
+<!--
+###################################################################################################
+# COMPETITOR ANALYSIS TEMPLATE
+# Evaluates direct and indirect competitors.
+# Prerequisites: Market context, product positioning. If missing, ask user.
+###################################################################################################
+-->
+
 # Competitor Analysis
+
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+<!--
+##################################################################################################
+# AI PROCESSING AND DEVELOPMENT GUIDE
+# - If market context or product vision is missing, ask for them.
+# - Include direct and indirect competitors, strengths, weaknesses, and opportunities.
+##################################################################################################
+-->
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "competitor_analysis"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - verify_market_context
+    - ensure_completeness
+    - request_domain_context_if_missing
+
+  base_prompt_structure: |
+    Create a comprehensive Competitor Analysis for ${PROJECT_NAME}.
+    If market context is not provided, ask the user first.
+
+    Include:
+    - Direct Competitors (Name, Strengths, Weaknesses)
+    - Indirect Competitors
+    - Competitive Landscape Analysis (Positioning, Pricing, Tech Comparison)
+    - Opportunities and Threats
+
+## Document Content
 
 ## Direct Competitors
 ### Competitor 1
-- Name:
-- Strengths:
-- Weaknesses:
+- Name: ${COMP_1_NAME}
+- Strengths: ${COMP_1_STRENGTHS}
+- Weaknesses: ${COMP_1_WEAKNESSES}
 
 ### Competitor 2
-- Name:
-- Strengths:
-- Weaknesses:
+- Name: ${COMP_2_NAME}
+- Strengths: ${COMP_2_STRENGTHS}
+- Weaknesses: ${COMP_2_WEAKNESSES}
 
 ## Indirect Competitors
 ### Competitor 1
-- Name:
-- Strengths:
-- Weaknesses:
+- Name: ${IND_COMP_1_NAME}
+- Strengths: ${IND_COMP_1_STRENGTHS}
+- Weaknesses: ${IND_COMP_1_WEAKNESSES}
 
 ## Competitive Landscape Analysis
-- Market Positioning
-- Pricing Strategies
-- Technology Comparison
+- Market Positioning: ${MARKET_POSITIONING}
+- Pricing Strategies: ${PRICING_STRATEGIES}
+- Technology Comparison: ${TECH_COMPARISON}
 
 ## Opportunities and Threats
-- 
-- 
-- 
+- ${OPP_OR_THREAT_1}
+- ${OPP_OR_THREAT_2}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |
+ 

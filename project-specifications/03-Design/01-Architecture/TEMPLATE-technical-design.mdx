@@ -1,5 +1,70 @@
+<!--
+###################################################################################################
+# TECHNICAL DESIGN SPECIFICATIONS TEMPLATE
+# Detailed design patterns, algorithms, interfaces, error handling, integration details.
+# Prerequisites:
+# - System Architecture
+# - Functional/Non-Functional Requirements
+#
+# If missing, ask user.
+###################################################################################################
+-->
+
 # Technical Design Specifications
 
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "technical_design"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - ensure_completeness
+    - request_domain_context_if_missing
+    - verify_system_architecture_alignment
+
+  base_prompt_structure: |
+    Create Technical Design Specifications for ${PROJECT_NAME}.
+    If System Architecture or Requirements not given, ask user.
+
+    Include:
+    - Design Principles
+    - Architectural Patterns
+    - Interface Specifications
+    - Data Models
+    - Algorithms
+    - Error Handling Guidelines
+
+## Document Content
+
 ## Design Principles
+${DESIGN_PRINCIPLES}
 
 ## Architectural Patterns
+${ARCHITECTURAL_PATTERNS}
+
+## Interface Specifications
+- APIs: ${API_SPECIFICATIONS}
+- Integration Contracts: ${INTEGRATION_CONTRACTS}
+
+## Data Models
+- Entities: ${DATA_ENTITIES}
+- Relationships: ${DATA_RELATIONSHIPS}
+
+## Algorithms
+- ${ALGORITHM_1_NAME}: ${ALGORITHM_1_DESC}
+- ${ALGORITHM_2_NAME}: ${ALGORITHM_2_DESC}
+
+## Error Handling
+- Error Codes: ${ERROR_CODES}
+- Logging/Monitoring: ${LOGGING_STRATEGY}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |

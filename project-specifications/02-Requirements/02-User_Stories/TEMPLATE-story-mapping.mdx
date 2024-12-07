@@ -1,5 +1,90 @@
-# User Story Mapping
+<!--
+###################################################################################################
+# REQUIREMENTS SPECIFICATION TEMPLATE
+# Provides a comprehensive overview of functional and non-functional requirements.
+# Prerequisites: Vision, Product Goals, Epics, Personas. If missing, ask user.
+###################################################################################################
+-->
 
-## Story Workflow
+# Requirements Specification
 
-## Prioritization Matrix
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+<!--
+##################################################################################################
+# AI PROCESSING AND DEVELOPMENT GUIDE
+# - If Vision, Product Goals, Epics, or Personas missing, ask user.
+# - Consolidates functional and non-functional requirements, constraints, assumptions.
+##################################################################################################
+-->
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "requirements_specification"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - ensure_completeness
+    - request_domain_context_if_missing
+    - verify_persona_alignment
+    - verify_epic_alignment
+
+  base_prompt_structure: |
+    Create a comprehensive Requirements Specification for ${PROJECT_NAME}.
+    If Vision, Product Goals, Epics, or Personas missing, ask user.
+
+    Include:
+    - Overview
+    - Functional Requirements (with traceability)
+    - Non-Functional Requirements
+    - Constraints & Assumptions
+    - Dependencies
+    - Acceptance Criteria
+    - Compliance Requirements
+    - Version History
+
+## Document Content
+
+## Requirements Overview
+${REQUIREMENTS_OVERVIEW}
+
+## Functional Requirements
+Refer to Functional Requirements Document or list here:
+- ${FUNC_REQ_1}
+- ${FUNC_REQ_2}
+
+## Non-Functional Requirements
+- Performance: ${NFR_PERFORMANCE}
+- Security: ${NFR_SECURITY}
+- Usability: ${NFR_USABILITY}
+- Reliability: ${NFR_RELIABILITY}
+
+## Constraints & Assumptions
+- ${CONSTRAINT_1}
+- ${ASSUMPTION_1}
+
+## Dependencies
+- ${DEPENDENCY_1}
+- ${DEPENDENCY_2}
+
+## Acceptance Criteria
+- ${AC_CRITERION_1}
+- ${AC_CRITERION_2}
+
+## Compliance Requirements
+- ${COMPLIANCE_REQ_1}
+- ${COMPLIANCE_REQ_2}
+
+## Traceability
+- Epics Mapped: ${MAPPED_EPICS}
+- User Stories Mapped: ${MAPPED_STORIES}
+- Use Cases Mapped: ${MAPPED_USE_CASES}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |

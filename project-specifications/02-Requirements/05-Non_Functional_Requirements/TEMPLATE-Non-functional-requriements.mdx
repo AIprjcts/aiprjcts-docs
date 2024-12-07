@@ -1,0 +1,79 @@
+<!--
+###################################################################################################
+# NON-FUNCTIONAL REQUIREMENTS TEMPLATE
+# Specifies performance, reliability, security, scalability, usability, compliance criteria.
+# Prerequisites:
+# - Domain Context
+# - Functional Requirements (for baseline)
+# - Potentially Personas (for usability)
+#
+# If missing, ask user.
+###################################################################################################
+-->
+
+# Non-Functional Requirements
+
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "non_functional_requirements"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - ensure_completeness
+    - request_domain_context_if_missing
+    - verify_epic_alignment (if needed)
+    - check_persona_alignment (for usability)
+
+  base_prompt_structure: |
+    Create a Non-Functional Requirements document for ${PROJECT_NAME}.
+    If domain context, functional requirements, or usability considerations (Personas) missing, ask user first.
+
+    Include:
+    - Performance
+    - Reliability
+    - Security
+    - Scalability
+    - Usability
+    - Compliance
+
+## Document Content
+
+## Performance
+- Response Time: ${RESPONSE_TIME_TARGET}
+- Throughput: ${THROUGHPUT_TARGET}
+- Resource Utilization: ${RESOURCE_UTILIZATION_TARGET}
+
+## Reliability
+- Availability: ${AVAILABILITY_TARGET}
+- Mean Time Between Failures: ${MTBF_VALUE}
+- Recovery Mechanisms: ${RECOVERY_MECHANISMS}
+
+## Security
+- Authentication: ${AUTHENTICATION_METHODS}
+- Authorization: ${AUTHORIZATION_POLICIES}
+- Data Protection: ${DATA_ENCRYPTION_STRATEGY}
+
+## Scalability
+- Horizontal Scaling: ${HORIZONTAL_SCALING_PLAN}
+- Vertical Scaling: ${VERTICAL_SCALING_PLAN}
+- Load Handling: ${LOAD_HANDLING_STRATEGIES}
+
+## Usability
+- UI Guidelines: ${UI_GUIDELINES}
+- Accessibility Standards: ${ACCESSIBILITY_STANDARDS}
+- Learning Curve Considerations: ${LEARNING_CURVE_NOTES}
+
+## Compliance
+- Regulatory Requirements: ${REGULATORY_REQS}
+- Industry Standards: ${INDUSTRY_STANDARDS}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |

@@ -1,18 +1,16 @@
 <!--
 #####################################################################################################################################################################
 # EPIC TEMPLATE
-# Template for creating epics that group related user stories and provide high-level business objectives
 #####################################################################################################################################################################
 -->
 
 <!--
 ##################################################################################################
 # DATE AND VERSION HANDLING INSTRUCTIONS
-# Follow these guidelines when filling in dates and versions:
-# 1. Creation Date: Use the actual date when the epic is created (format: YYYY-MM-DD)
-# 2. Last Updated: Use the current date when making changes (format: YYYY-MM-DD)
-# 3. Version History: Start with 0.1 for initial draft, 1.0 for first approved version
-# 4. Release Dates: Use realistic dates based on current project timeline. Take into account the current date and the estimated completion date.
+#
+# Additional Instructions:
+# - Before generating an epic, ensure that Personas and domain context (Vision/Scope) are available.
+# - If Personas or Vision/Scope details are missing, prompt the user to provide them.
 ##################################################################################################
 -->
 
@@ -21,23 +19,12 @@ template:
   id: "epic-template"
   category: "requirements"
   type: "epic"
-  version: "1.0"
+  version: "1.2"
 
 metadata:
   author: "Zebra Team"
   status: "Active"
-  last_updated: "${ISO_TIMESTAMP}"
-
-
-
-
-<!--
-##################################################################################################
-# AI PROCESSING AND DEVELOPMENT GUIDE
-# This section contains information for AI assistance and development guidance.
-# It is not part of the output template but provides context and rules for processing.
-##################################################################################################
--->
+  last_updated: "${LAST_UPDATED_DATE}"
 
 # AI Processing Configuration
 
@@ -46,7 +33,7 @@ ai_assistance:
   document_type: "epic"
   parent_template: "base_template"
 
-ai_prompting_instructions:  
+ai_prompting_instructions:
   prompt_refinement_checklist:
     - verify_business_alignment
     - check_scope_boundaries
@@ -55,79 +42,50 @@ ai_prompting_instructions:
     - check_user_journey_alignment
     - verify_mvp_requirements
     - validate_release_planning
+    - request_domain_context_if_missing
 
   base_prompt_structure: |
     Create or enhance an epic for ${PROJECT_NAME}.
-    
+    If domain context (Vision/Scope) or Personas are not provided, ask the user to supply them first.
+    An Epic relies on understanding user segments (from Personas) and strategic objectives (from Vision/Scope).
+
     Provide comprehensive details addressing:
     1. Business Context and Objectives
-    2. User Value Streams
+    2. User Value Streams and Journeys
     3. Story Mapping Structure
     4. MVP Requirements
     5. Release Strategy
     6. Success Metrics
-    
+
     Ensure the epic:
     - Aligns with business strategy
-    - Has clear boundaries
-    - Is properly sized for delivery
-    - Supports incremental value
-    - Maps to user journeys
+    - Is domain-relevant
+    - Reflects Persona insights
+    - Maps to user journeys and defined value streams
 
   prompt_templates:
     creation: |
-      Generate a comprehensive epic specification (add below each section a brief description of the intention of the section and a list of key points to bre include in  the section):
-      Business Context: ${BUSINESS_CONTEXT}
-      Key Considerations:
-      - Strategic Goals: ${STRATEGIC_GOALS}
-      - User Journeys: ${USER_JOURNEYS}
-      - Value Streams: ${VALUE_STREAMS}
-      - Key Metrics: ${SUCCESS_METRICS}
-      - Release Timeline: ${RELEASE_TIMELINE}
+      Before generating the Epic, confirm:
+      - Domain context & vision/scope
+      - Available Personas
+      - Strategic Goals and Success Metrics
 
-     - You should include all the information  
+      If missing any, ask the user.
+      Once obtained, generate the Epic specification:
+      - Include business context, strategic alignment
+      - Define user journeys, value streams from Persona data
+      - Set success metrics, MVP requirements, and release plan
 
     interactive_creation: |
-      You will act as an expert epic writer.
-      Begin by asking questions to gather necessary information:
-      - Focus on business value
-      - Map user journeys
-      - Define value streams
-      - Plan releases
-      - Set success metrics
-      Present the final epic using the template structure
-
+      If domain context or Personas are missing, ask for them first.
+      Then ask about strategic goals, user journeys, and success metrics.
+      Once all data is gathered, present the epic using the template structure.
 
     enhancement: |
-      Act as an expert epic analyst. Your task is to **enhance** the existing epic identified as ${DOCUMENT_KEY}.
-
-      **Specific Instructions**:
-      
-      - **Do not modify** any section without asking to the user and this agree with the modifications
-      - **Maintain** all existing details in all the sections if the user does not provide any new information or does not agree to modify the existing details.
-      - **Identify** gaps or areas that can be enriched in the allowed sections.
-      - **Incorporate** new insights or provided data, **without altering** the sections that must remain the same.
-      - **Ensure** consistency and accuracy throughout the epic.
-      - **Justify** any additions or changes based on context or new data provided.
-      - **Validate** against latest research
-           
-
-      **Process**:
-      1. Review the existing epic.
-      2. **Skip** any modifications in the specified sections that must remain the same.
-      3. Identify areas for improvement in other sections and gather new insights and confirm with the user.
-      4. Add additional details where necessary, **without changing** existing details in protected sections.
-      5. Present the updated epic following the template structure.
-
-      **Note**: The goal is to **enrich** the epicby improving the allowed sections, **without recreating** it or modifying details in sections that must remain the same.
-
-      **Specific Instructions**:
-      - **Review** business alignment
-      - **Validate** scope boundaries
-      - **Check** value streams
-      - **Verify** release strategy
-      - **Update** success metrics
-      - **Document** all changes
+      Enhancing existing epic ${DOCUMENT_KEY}:
+      - If missing domain context or Persona data, request it.
+      - Validate alignment, scope, value streams, and success metrics.
+      - Justify changes and ensure no protected sections are altered without user permission.
 
 ## Epic Creation Process
 epic_creation:
@@ -273,12 +231,9 @@ continuous_improvement:
     - update_sections
     - version_control_logging
 
-
 <!--
 ##################################################################################################
-# TEMPLATE OUTPUT CONTENT STARTS HERE. 
-# Everything below this point will be included in the final MDX output. THIS IS MANDATORY.
-# Prettie format the output
+# TEMPLATE OUTPUT CONTENT STARTS HERE
 ###################################################################################################
 -->
 
@@ -290,8 +245,8 @@ continuous_improvement:
 | Epic ID | EP-${SEQUENCE}-${DESCRIPTOR} |
 | Epic Name | ${EPIC_NAME} |
 | Created By | Zebra Team |
-| Created Date | ${CREATION_DATE} |
-| Last Updated | ${LAST_UPDATED} |
+| Creation Date | ${CREATION_DATE} |
+| Last Updated | ${LAST_UPDATED_DATE} |
 | Status | ${STATUS} |
 
 ## Epic Overview
@@ -311,6 +266,7 @@ ${EPIC_DESCRIPTION}
 1. ${METRIC_1}
    - Target: ${TARGET_1}
    - Timeline: ${TIMELINE_1}
+
 2. ${METRIC_2}
    - Target: ${TARGET_2}
    - Timeline: ${TIMELINE_2}
@@ -342,13 +298,13 @@ ${EPIC_DESCRIPTION}
 ### Story Breakdown
 #### Activity 1: ${ACTIVITY_1}
 | Story ID | Description | Priority | Story Points | Release |
-|----------|-------------|-----------|--------------|----------|
+|----------|-------------|----------|--------------|---------|
 | US-XXX | ${STORY_DESC} | ${PRIORITY} | ${POINTS} | ${RELEASE} |
 
 ## Release Planning
 ### MVP Requirements
 | Requirement | Rationale | Priority |
-|------------|-----------|-----------|
+|------------|-----------|----------|
 | ${REQ_1} | ${RATIONALE_1} | ${PRIORITY_1} |
 | ${REQ_2} | ${RATIONALE_2} | ${PRIORITY_2} |
 
@@ -365,7 +321,7 @@ ${EPIC_DESCRIPTION}
 
 ### Risks and Mitigations
 | Risk | Impact | Mitigation |
-|------|---------|------------|
+|------|---------|-----------|
 | ${RISK_1} | ${IMPACT_1} | ${MITIGATION_1} |
 | ${RISK_2} | ${IMPACT_2} | ${MITIGATION_2} |
 
@@ -385,12 +341,6 @@ ${NOTES}
 
 # Version History
 | Version | Date | Author | Changes |
-|---------|------|--------|----------|
-| ${VERSION} | ${DATE} | Zebra Team | ${CHANGES} |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | Zebra Team | ${CHANGES} |
 
-
-<!--
-##################################################################################################
-# TEMPLATE OUTPUT ENDS HERE. 
-###################################################################################################
--->

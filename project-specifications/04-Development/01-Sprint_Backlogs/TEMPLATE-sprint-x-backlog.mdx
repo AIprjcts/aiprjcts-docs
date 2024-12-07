@@ -1,5 +1,61 @@
-# Sprint 0 Backlog
+<!--
+###################################################################################################
+# SPRINT BACKLOG TEMPLATE
+# Details tasks for the chosen user stories in the current sprint, initial setup tasks if sprint 0.
+# Prerequisites:
+# - Sprint Planning doc
+#
+# If missing, ask user.
+###################################################################################################
+-->
 
-## Initial Setup Tasks
+# Sprint Backlog
 
-## Preparatory Work
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "sprint_backlog"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - ensure_completeness
+    - verify_story_alignment
+    - request_domain_context_if_missing
+
+  base_prompt_structure: |
+    Create a Sprint Backlog for ${PROJECT_NAME}.
+    If Sprint Planning details missing, ask user.
+
+    Include:
+    - Selected Stories and their tasks
+    - Initial Setup Tasks (if Sprint 0)
+    - Progress Tracking
+
+## Document Content
+
+## Selected User Stories and Tasks
+### ${STORY_1_ID}
+- Task 1: ${STORY_1_TASK_1} (Est. Hours: ${TASK_1_HOURS})
+- Task 2: ${STORY_1_TASK_2} (Est. Hours: ${TASK_2_HOURS})
+
+### ${STORY_2_ID}
+- Task 1: ${STORY_2_TASK_1}
+- Task 2: ${STORY_2_TASK_2}
+
+## Initial Setup Tasks (if Sprint 0)
+- ${SETUP_TASK_1}
+- ${SETUP_TASK_2}
+
+## Progress Tracking
+- Burndown Chart: ${BURNDOWN_CHART_LINK}
+- Daily Stand-up Notes: ${STANDUP_NOTES_REFERENCE}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |

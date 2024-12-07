@@ -1,0 +1,92 @@
+# Agile Documentation Sequence and Required Inputs Guide
+
+This document serves as a reference for determining which inputs and supporting documents are needed for each type of template in an agile development process. It outlines a recommended sequence, starting from high-level strategic inputs, progressing into user-centric artifacts, then into detailed requirements, and finally implementation-level and testing documents. Each template type lists required inputs and supporting project-specific documents that the LLM or development team should have on hand.
+
+---
+
+## High-Level Strategic and Market Inputs (Pre-Development)
+
+| Template/Artifact | When Used in Agile Sequence          | Required Inputs                                                            | Supporting Project-Specific Documents                |
+|-------------------|---------------------------------------|----------------------------------------------------------------------------|------------------------------------------------------|
+| **Vision Statement** | Early (Inception/Discovery)       | - Domain context (industry, market)\n- High-level business goals\n- Market insights | - Vision & Scope Document\n- Market Research Summaries\n- Stakeholder Interviews |
+| **Product Goals**  | After Vision Statement is established | - Strategic objectives aligned with vision\n- High-level success criteria\n- Initial product roadmap concepts | - Business Objectives Document\n- Market Needs Analysis\n- Stakeholder Objectives |
+| **Market Research (Trends, Competitors)** | Early, influences strategy and goals | - Market landscape overview\n- Competitor analysis\n- User segment demographics | - Market Analysis Reports\n- Industry Benchmarks |
+
+---
+
+## User-Centric Artifacts (Definition of Users and Their Needs)
+
+| Template/Artifact | When Used in Agile Sequence | Required Inputs                                                                 | Supporting Project-Specific Documents         |
+|-------------------|----------------------------|---------------------------------------------------------------------------------|-----------------------------------------------|
+| **Persona**        | Early, after Vision & Product Goals, before Epics | - Domain context & user segments\n- User demographics & behavioral patterns\n- Pain points, motivations, challenges\n- Tech usage patterns | - User Interviews/Research Notes\n- Survey Data\n- Domain-Specific Research (e.g., Healthcare, Finance)\n- Vision & Scope Document |
+| **Use Case**       | After Personas, once basic user activities are known | - Actor definitions (from Personas)\n- System interactions (main & alt flows)\n- Preconditions, postconditions, business rules | - Business Rules Document\n- System/Feature List\n- Requirements Elicitation Notes |
+
+---
+
+## High-Level Requirements and Structure (From Vision to Execution)
+
+| Template/Artifact          | When Used in Agile Sequence            | Required Inputs                                                               | Supporting Project-Specific Documents         |
+|----------------------------|-----------------------------------------|-------------------------------------------------------------------------------|-----------------------------------------------|
+| **Epic**                   | After Personas & Product Goals, before detailed stories | - Domain context & vision/scope\n- Strategic goals & benefits\n- User journeys & value streams (from Personas)\n- Success metrics & release timeline assumptions | - Business Requirements Analysis\n- Stakeholder Interviews\n- Market Research Data\n- Resource/Timeline Estimates |
+| **Functional Requirements** | After Epics are defined and scoped     | - System capabilities & user interactions\n- Data requirements & business rules\n- Validation criteria | - System Architecture Overview\n- Business Rules Catalog\n- Data Models |
+| **Non-Functional Requirements (NFR)** | Alongside or after Functional Requirements | - Performance, security, scalability standards\n- Reliability & maintainability criteria\n- Usability/accessibility guidelines | - Compliance & Regulatory Requirements\n- Technical Constraints Document\n- Industry Standards Documentation |
+
+---
+
+## Detailed Implementation-Level Artifacts (Concrete Work Items)
+
+| Template/Artifact | When Used in Agile Sequence              | Required Inputs                                                                          | Supporting Project-Specific Documents          |
+|-------------------|------------------------------------------|------------------------------------------------------------------------------------------|-----------------------------------------------|
+| **User Story**    | After Epics & Personas, continuously during sprints | - Epic reference (alignment)\n- Persona reference (for "As a …")\n- Acceptance criteria & success metrics\n- User goals from Epics/Personas\n- Technical constraints (if any) | - Epic Backlog\n- Stakeholder Input for Acceptance Criteria\n- Technical Feasibility Notes\n- Vision & Scope (if domain context needed) |
+| **Use Case (Detailed)** | After Epics, before/during Story refinement | - Actors (from Personas)\n- Preconditions, main/alt flows\n- System boundaries & postconditions\n- Validation criteria | - System Requirements Document\n- Business Rules List\n- Domain Context Document |
+| **Sprint Planning (Sprint Backlog)** | Iteratively for each sprint | - Selected Stories from Product Backlog\n- Team capacity, story points\n- Dependencies & priorities | - Product Backlog\n- Velocity Metrics\n- Resource Availability Data |
+
+---
+
+## Design and Implementation Detail Artifacts
+
+| Template/Artifact   | When Used in Agile Sequence           | Required Inputs                                                                   | Supporting Project-Specific Documents            |
+|---------------------|----------------------------------------|-----------------------------------------------------------------------------------|------------------------------------------------|
+| **System Architecture** | After core requirements are understood | - Architectural patterns & system components\n- Integration points, technical constraints\n- Security & data flow requirements | - Technical Requirements\n- Infrastructure Documentation\n- Integration Specs |
+| **Technical Design** | After architecture is defined         | - Design patterns, component design\n- Interface specifications, algorithms\n- Error handling guidelines | - System Architecture Document\n- Data Models\n- Implementation Constraints |
+| **UI Design / Wireframes** | After requirements and persona insights are clear | - UI patterns\n- Accessibility guidelines\n- Brand guidelines | - Style Guides\n- Persona Interaction Preferences\n- Accessibility Standards |
+
+---
+
+## Testing, Validation, and Release Documents
+
+| Template/Artifact     | When Used in Agile Sequence | Required Inputs                                                         | Supporting Project-Specific Documents        |
+|-----------------------|----------------------------|-------------------------------------------------------------------------|----------------------------------------------|
+| **Test Strategy**     | Before/early in development | - Testing methodologies, coverage requirements\n- Quality metrics & environment setup | - Requirements (Functional & NFR)\n- Compliance Requirements |
+| **Test Cases**        | Continuously as stories are defined | - Acceptance criteria from User Stories\n- Expected results, test data | - User Stories\n- Use Cases\n- Data Models |
+| **Deployment Checklist** | Before release           | - Deployment steps, environment requirements\n- Rollback procedures    | - Infrastructure Configurations\n- Release Planning Document |
+| **Retrospectives**    | After each sprint or release | - Sprint metrics, team feedback, improvement areas                       | - Velocity Reports\n- Incident Logs\n- Stakeholder Feedback |
+
+---
+
+## Summary for User Stories
+
+**User Story** requires:  
+- **Pre-Requisites:**  
+  - Domain context or vision/scope (if not already established)
+  - Epic reference for alignment
+  - Relevant Personas for "As a …" clause
+
+- **Inputs Needed:**  
+  - Persona details to inform user goals
+  - Acceptance criteria (testable conditions)
+  - Success metrics
+  - Technical constraints (if any)
+  - User goals and requirements from Epics/Personas
+
+- **Supporting Documents:**  
+  - Epic backlog
+  - Stakeholder inputs for acceptance criteria
+  - Technical feasibility notes
+  - Vision & Scope (for domain context if needed)
+
+---
+
+## Conclusion
+
+By following the sequence above and ensuring that each template type receives the necessary inputs and supporting documents, you can maintain consistency, clarity, and domain relevance. This approach helps the LLM or the development team produce high-quality, coherent specification documents for every stage of agile development.

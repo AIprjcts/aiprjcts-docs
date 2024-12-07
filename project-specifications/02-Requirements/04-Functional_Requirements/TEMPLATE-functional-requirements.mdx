@@ -1,26 +1,84 @@
+<!--
+###################################################################################################
+# FUNCTIONAL REQUIREMENTS TEMPLATE
+# Defines system capabilities, interactions, and validation criteria.
+# Prerequisites: Epics, Use Cases, Domain context. If missing, ask user.
+###################################################################################################
+-->
+
 # Functional Requirements Specification
 
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+<!--
+##################################################################################################
+# AI PROCESSING AND DEVELOPMENT GUIDE
+# - If Epics, Use Cases or domain context missing, ask user.
+# - Include requirements with IDs, descriptions, priorities, and acceptance criteria.
+##################################################################################################
+-->
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "functional_requirements"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - ensure_completeness
+    - verify_epic_alignment
+    - validate_against_best_practices
+    - request_domain_context_if_missing
+
+  base_prompt_structure: |
+    Create a Functional Requirements Specification for ${PROJECT_NAME}.
+    If Epics or Use Cases not provided, ask user.
+
+    Include:
+    - Requirement Categories
+    - Detailed Requirements (ID, Description, Priority, Acceptance Criteria)
+    - Non-Functional Considerations
+    - Traceability
+
+## Document Content
+
 ## Requirement Categories
-1. User Management
-2. Data Processing
-3. System Interactions
+1. ${CATEGORY_1_NAME}
+2. ${CATEGORY_2_NAME}
+3. ${CATEGORY_3_NAME}
 
 ## Detailed Requirements
+
 ### Requirement 1
-- **ID**:
-- **Description**:
-- **Priority**:
-- **Complexity**:
+- **ID**: ${REQ_1_ID}
+- **Description**: ${REQ_1_DESC}
+- **Priority**: ${REQ_1_PRIORITY}
+- **Complexity**: ${REQ_1_COMPLEXITY}
 - **Acceptance Criteria**:
+  - ${REQ_1_AC_1}
+  - ${REQ_1_AC_2}
 
 ### Requirement 2
-[Repeat structure for each requirement]
+- **ID**: ${REQ_2_ID}
+- **Description**: ${REQ_2_DESC}
+- **Priority**: ${REQ_2_PRIORITY}
+- **Complexity**: ${REQ_2_COMPLEXITY}
+- **Acceptance Criteria**:
+  - ${REQ_2_AC_1}
 
 ## Non-Functional Considerations
-- Performance
-- Security
-- Scalability
+- Performance: ${PERFORMANCE_REQ}
+- Security: ${SECURITY_REQ}
+- Scalability: ${SCALABILITY_REQ}
 
 ## Requirement Traceability
-- Mapped User Stories
-- Related Use Cases
+- Mapped to User Stories: ${MAPPED_STORIES}
+- Related Use Cases: ${RELATED_USE_CASES}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |

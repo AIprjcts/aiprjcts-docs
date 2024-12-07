@@ -1,29 +1,75 @@
-# Sprint Planning Template
+<!--
+###################################################################################################
+# SPRINT PLANNING TEMPLATE
+# Defines sprint goal, backlog selection, resource allocation, risks, definition of done.
+# Prerequisites:
+# - Product Backlog (User Stories, Epics)
+# - Team Capacity Data
+#
+# If missing, ask user.
+###################################################################################################
+-->
+
+# Sprint Planning
+
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "sprint_planning"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - verify_epic_alignment
+    - ensure_completeness
+    - request_domain_context_if_missing
+
+  base_prompt_structure: |
+    Create a Sprint Planning document for ${PROJECT_NAME}.
+    If Product Backlog (User Stories) or team capacity data missing, ask user.
+
+    Include:
+    - Sprint Goal
+    - Selected User Stories with Acceptance Criteria & Points
+    - Resource Allocation
+    - Potential Risks
+    - Definition of Done
+
+## Document Content
 
 ## Sprint Goal
-[Concise description of sprint objective]
+${SPRINT_GOAL}
 
 ## Sprint Backlog
 ### User Stories
-- Story 1
-  - Acceptance Criteria
-  - Story Points
-- Story 2
-  - Acceptance Criteria
-  - Story Points
+- ${STORY_1_ID}: ${STORY_1_DESCRIPTION}
+  - Acceptance Criteria: ${STORY_1_AC}
+  - Story Points: ${STORY_1_POINTS}
+
+- ${STORY_2_ID}: ${STORY_2_DESCRIPTION}
+  - Acceptance Criteria: ${STORY_2_AC}
+  - Story Points: ${STORY_2_POINTS}
 
 ## Resource Allocation
-- Team Capacity
-- Individual Assignments
-- Skill Matching
+- Team Capacity: ${TEAM_CAPACITY}
+- Individual Assignments: ${INDIVIDUAL_ASSIGNMENTS}
 
 ## Potential Risks
-- Technical Challenges
-- Dependencies
-- Mitigation Strategies
+- Technical Challenges: ${TECH_CHALLENGES}
+- Dependencies: ${DEPENDENCIES}
+- Mitigation Strategies: ${MITIGATION_STRATEGIES}
 
 ## Definition of Done
-- Code Completion
-- Testing
-- Documentation
-- Code Review
+- Code Completion: ${DOD_CODE_COMPLETION}
+- Testing: ${DOD_TESTING}
+- Documentation: ${DOD_DOCUMENTATION}
+- Code Review: ${DOD_CODE_REVIEW}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |

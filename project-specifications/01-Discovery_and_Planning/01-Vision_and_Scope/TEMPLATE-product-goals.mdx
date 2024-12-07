@@ -1,27 +1,77 @@
+<!--
+###################################################################################################
+# PRODUCT GOALS TEMPLATE
+# Defines primary product objectives, KPIs, target markets, and strategies.
+# Prerequisites: Vision Statement or high-level strategy. If missing, ask the user.
+###################################################################################################
+-->
+
 # Product Goals
 
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+<!--
+##################################################################################################
+# AI PROCESSING AND DEVELOPMENT GUIDE
+# - If Vision Statement or strategic context missing, ask user.
+# - Product goals should align with the previously defined Vision Statement.
+##################################################################################################
+-->
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "product_goals"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - verify_business_alignment
+    - ensure_completeness
+    - request_domain_context_if_missing
+
+  base_prompt_structure: |
+    Create or refine Product Goals for ${PROJECT_NAME}.
+    If the Vision Statement or strategic objectives are not provided, ask the user first.
+    
+    Include:
+    - Primary Objectives
+    - KPIs
+    - Target Market
+    - Competitive Differentiation
+    - Growth and Scaling Strategy
+    - Resource Requirements
+
+## Document Content
+
 ## Primary Objectives
-1. 
-2. 
-3. 
+1. ${PRIMARY_OBJ_1}
+2. ${PRIMARY_OBJ_2}
+3. ${PRIMARY_OBJ_3}
 
 ## Key Performance Indicators (KPIs)
-- 
-- 
-- 
+- ${KPI_1}
+- ${KPI_2}
+- ${KPI_3}
 
 ## Target Market
-[Describe the specific market segment or user group]
+${TARGET_MARKET_DESCRIPTION}
 
 ## Competitive Differentiation
-[Explain unique selling points and competitive advantages]
+${COMPETITIVE_DIFF}
 
 ## Growth and Scaling Strategy
-- 
-- 
-- 
+- ${GROWTH_STRATEGY_1}
+- ${GROWTH_STRATEGY_2}
 
 ## Resource Requirements
-- Human Resources
-- Financial Resources
-- Technical Resources
+- Human Resources: ${HR_RESOURCES}
+- Financial Resources: ${FINANCIAL_RESOURCES}
+- Technical Resources: ${TECH_RESOURCES}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |

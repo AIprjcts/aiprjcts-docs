@@ -1,7 +1,70 @@
+<!--
+###################################################################################################
+# PRODUCT ROADMAP TEMPLATE
+# The Product Roadmap outlines the high-level strategy, milestones, and release phases.
+# Prerequisites:
+# - Vision Statement
+# - Product Goals
+# - Market Trends Analysis
+# - Personas (for understanding target users)
+#
+# If these are missing, the LLM should ask the user to provide them first.
+###################################################################################################
+-->
+
 # Product Roadmap
 
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "product_roadmap"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - verify_domain_context
+    - verify_product_goals
+    - check_persona_alignment
+    - ensure_completeness
+    - request_domain_context_if_missing
+
+  base_prompt_structure: |
+    Create a Product Roadmap for ${PROJECT_NAME}.
+    If Vision Statement, Product Goals, Market context, or Personas are missing, ask the user first.
+
+    Include:
+    - Vision and Strategy alignment
+    - Milestone Timeline (major releases, key features)
+    - Release Phases (incremental delivery)
+    - High-level Priorities
+
+## Document Content
+
 ## Vision and Strategy
+${VISION_STRATEGY_DESCRIPTION}
 
 ## Milestone Timeline
+- Milestone 1: ${MILESTONE_1_DESC} (Target Date: ${MILESTONE_1_DATE})
+- Milestone 2: ${MILESTONE_2_DESC} (Target Date: ${MILESTONE_2_DATE})
 
 ## Release Phases
+### Phase 1
+- Key Features: ${PHASE_1_FEATURES}
+- Objectives: ${PHASE_1_OBJECTIVES}
+
+### Phase 2
+- Key Features: ${PHASE_2_FEATURES}
+- Objectives: ${PHASE_2_OBJECTIVES}
+
+## High-Level Priorities
+- ${PRIORITY_1}
+- ${PRIORITY_2}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |

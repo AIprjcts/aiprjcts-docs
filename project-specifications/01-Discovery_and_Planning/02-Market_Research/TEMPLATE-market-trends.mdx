@@ -1,29 +1,78 @@
+<!--
+###################################################################################################
+# MARKET TRENDS ANALYSIS TEMPLATE
+# Provides insight into industry trends, consumer behavior, market size, regulations.
+# Prerequisites: Domain context. If missing, ask user.
+###################################################################################################
+-->
+
 # Market Trends Analysis
 
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+<!--
+##################################################################################################
+# AI PROCESSING AND DEVELOPMENT GUIDE
+# - If industry context is missing, ask user.
+# - Include current industry state, emerging tech, consumer behavior, market size, regulatory landscape.
+##################################################################################################
+-->
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "market_trends"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - verify_market_context
+    - ensure_completeness
+    - request_domain_context_if_missing
+
+  base_prompt_structure: |
+    Create a Market Trends Analysis for ${PROJECT_NAME}.
+    If industry or domain context missing, ask user.
+
+    Include:
+    - Industry Overview
+    - Emerging Technologies
+    - Consumer Behavior Trends
+    - Market Size & Growth Potential
+    - Regulatory Landscape
+    - Potential Disruptions
+
+## Document Content
+
 ## Industry Overview
-[Describe current state of the industry]
+${INDUSTRY_OVERVIEW}
 
 ## Emerging Technologies
-1. 
-2. 
-3. 
+1. ${EM_TECH_1}
+2. ${EM_TECH_2}
+3. ${EM_TECH_3}
 
 ## Consumer Behavior Trends
-- 
-- 
-- 
+- ${CONSUMER_TREND_1}
+- ${CONSUMER_TREND_2}
 
 ## Market Size and Growth Potential
-- Current Market Size
-- Projected Growth Rate
-- Potential Market Segments
+- Current Market Size: ${CURRENT_MARKET_SIZE}
+- Projected Growth Rate: ${PROJECTED_GROWTH_RATE}
+- Potential Market Segments: ${POTENTIAL_SEGMENTS}
 
 ## Regulatory Landscape
-- Current Regulations
-- Anticipated Changes
-- Compliance Requirements
+- Current Regulations: ${CURRENT_REGULATIONS}
+- Anticipated Changes: ${ANTICIPATED_CHANGES}
+- Compliance Requirements: ${COMPLIANCE_REQ}
 
 ## Potential Disruptions
-- 
-- 
-- 
+- ${DISRUPTION_1}
+- ${DISRUPTION_2}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |

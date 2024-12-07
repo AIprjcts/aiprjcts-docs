@@ -1,7 +1,57 @@
+<!--
+###################################################################################################
+# RELEASE PLANNING TEMPLATE
+# Defines release strategy, deployment schedule, and version management approach.
+# Prerequisites:
+# - Product Roadmap
+# - Epics and prioritized backlog items
+#
+# If these are missing, ask the user.
+###################################################################################################
+-->
+
 # Release Planning
 
+**Creation Date**: ${CREATION_DATE}  
+**Last Updated**: ${LAST_UPDATED_DATE}  
+Version: ${VERSION}
+
+## AI Processing Configuration
+
+ai_assistance:
+  document_type: "release_planning"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - verify_epic_alignment
+    - ensure_completeness
+    - request_domain_context_if_missing
+
+  base_prompt_structure: |
+    Create a Release Planning document for ${PROJECT_NAME}.
+    If Product Roadmap or Epics are missing, ask the user first.
+
+    Include:
+    - Release Strategy (incremental releases, MVP vs. full-feature)
+    - Deployment Schedule (dates, environments)
+    - Version Management (versioning scheme, branching strategies)
+
+## Document Content
+
 ## Release Strategy
+${RELEASE_STRATEGY_DESCRIPTION}
 
 ## Deployment Schedule
+- Release 1: ${RELEASE_1_DATE}
+- Release 2: ${RELEASE_2_DATE}
 
 ## Version Management
+- Versioning Scheme: ${VERSIONING_SCHEME}
+- Branching Strategy: ${BRANCHING_STRATEGY}
+- Integration/CI-CD Considerations: ${CI_CD_NOTES}
+
+## Version History
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| ${VERSION} | ${LAST_UPDATED_DATE} | ${AUTHOR} | ${CHANGES} |
