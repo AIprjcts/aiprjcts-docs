@@ -1,0 +1,16 @@
+setup.py
+tools/project_specifications_tools.egg-info/PKG-INFO
+tools/project_specifications_tools.egg-info/SOURCES.txt
+tools/project_specifications_tools.egg-info/dependency_links.txt
+tools/project_specifications_tools.egg-info/entry_points.txt
+tools/project_specifications_tools.egg-info/requires.txt
+tools/project_specifications_tools.egg-info/top_level.txt
+tools/spectools/__init__.py
+tools/spectools/cli.py
+tools/spectools/config/__init__.py
+tools/spectools/config/config.py
+tools/spectools/generators/__init__.py
+tools/spectools/generators/spec_generator.py
+tools/spectools/validators/__init__.py
+tools/spectools/validators/spec_validator.py
+tools/spectools/validators/template_validator.py

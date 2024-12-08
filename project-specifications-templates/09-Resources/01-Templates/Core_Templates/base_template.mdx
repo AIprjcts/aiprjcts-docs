@@ -1,0 +1,419 @@
+<!--
+###########################################################################################################
+# BASE TEMPLATE (REVIEWED AND UPDATED)
+# This template serves as the foundation for all other specification templates.
+# It includes instructions and metadata that all derived templates should inherit.
+###########################################################################################################
+-->
+
+<!--
+###########################################################################################################
+# INSTRUCTIONS (NOT TO BE INCLUDED IN FINAL OUTPUT)
+# The following instructions, metadata, and AI-processing guidelines are for internal use by the LLM and developers.
+# They guide how to structure and generate specific templates from this base.
+# 
+# KEY ADDITION:
+# When generating the final output specification document, the LLM should clearly indicate:
+# - Which data or content is provided directly by the user (e.g., from a Vision & Scope document, user responses,
+#   or previously supplied parameters).
+# - Which data or content is inferred, suggested, or filled in by the LLM based on its research, best practices,
+#   or reasoning.
+#
+# The recommended approach is to:
+# 1. For user-provided content, prepend or annotate with "(User Provided)" or a similar marker.
+#    Example: "Context: (User Provided) ${USER_CONTEXT}"
+#
+# 2. For LLM-generated suggestions or content not explicitly provided by the user, prepend or annotate with "(LLM Suggested)".
+#    Example: "Recommended Best Practice: (LLM Suggested) ${LLM_INFERRED_DATA}"
+#
+# 3. If a section mixes user input and LLM suggestions, break it down or label each piece accordingly.
+#
+# These labeling guidelines ensure transparency and traceability in the final output documents.
+###########################################################################################################
+-->
+
+<!-- 
+PLACEHOLDER CONVENTIONS:
+- Use `${VARIABLE_NAME}` for placeholders.
+- Example: `${PROJECT_NAME}`, `${SPECIFICATION_TYPE}`, `${DOCUMENT_KEY}`, etc.
+- Specific templates define their own prefix-based placeholders as needed.
+- When resolving placeholders, maintain the labeling for user vs. LLM data as instructed above.
+-->
+
+<!-- 
+HOW TO CREATE A NEW SPECIFIC TEMPLATE:
+1. Copy the entire "AI-Assisted Template Development" and "Document Metadata Configuration" sections from this base template.
+2. Define the `${SPECIFICATION_TYPE}`, `${DOCUMENT_TYPE_PREFIX}`, and any custom placeholders.
+3. Add, remove, or customize sections under "Core Content" based on the target specification type.
+4. Update the "validation_criteria", "research_approach", and "relationships" sections as needed.
+5. Modify prompt templates (creation, interactive_creation, enhancement) according to the new specification type.
+6. Ensure all required sections are present and validated against domain requirements.
+7. Incorporate labeling for user-provided vs. LLM-suggested data in the final output.
+8. Remove all instruction comments (this top block) from the final generated output.
+-->
+
+<!--
+###########################################################################################################
+# 1. BASE TEMPLATE METADATA AND CONFIGURATION
+###########################################################################################################
+-->
+# Base Template Metadata
+template:
+  id: "base-template"
+  category: "core-templates"
+  type: "base"
+  version: "1.2"
+
+metadata:
+  author: "AIprjcts"
+  status: "Active"
+  last_updated: "${ISO_TIMESTAMP}"
+
+<!-- 
+###########################################################################################################
+# 2. AI PROCESSING CONFIGURATION
+###########################################################################################################
+-->
+## AI-Assisted Template Development (Inherited by Specific Templates)
+ai_assistance:
+  document_type: "${SPECIFICATION_TYPE}"
+  parent_template: "${PARENT_TEMPLATE_ID}"
+  required_inputs:
+    discovery_and_planning:
+      - product_vision
+      - business_objectives
+      - market_research
+      - stakeholder_goals
+
+    requirements:
+      - user_personas
+      - initial_epics
+      - business_rules
+      - data_models
+      - compliance_requirements
+      - product_roadmap
+
+    design_and_architecture:
+      - functional_requirements
+      - non_functional_requirements
+      - user_stories
+      - use_cases
+      - brand_guidelines
+      - accessibility_standards
+      - ux_standards
+
+    development_guidelines:
+      - technical_design
+      - defined_architecture
+      - cicd_tools
+      - team_conventions
+
+    agile_planning:
+      - product_backlog
+      - team_capacity
+      - historical_velocity
+      - product_roadmap
+
+    testing:
+      - acceptance_criteria
+      - functional_requirements
+      - architectural_design
+
+    deployment:
+      - release_strategy
+      - infrastructure_configs
+      - compliance_requirements
+
+    maintenance:
+      - user_feedback
+      - post_launch_metrics
+      - incident_logs
+      - kpis
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - verify_data_sources
+    - check_domain_specific_requirements
+    - ensure_completeness
+    - validate_against_best_practices
+    - request_domain_context_if_missing
+    - verify_required_inputs_availability
+
+  base_prompt_structure: |
+    Create or enhance a detailed ${SPECIFICATION_TYPE} for ${PROJECT_NAME}.
+    
+    Required inputs based on specification type:
+    ${REQUIRED_INPUTS_LIST}
+
+    1. First, verify availability of required inputs:
+       - Check if all required inputs are available
+       - Request missing inputs from user
+       - Validate input completeness and quality
+
+    2. If required inputs are missing:
+       - Ask user for specific missing documentation
+       - Provide guidance on what information is needed
+       - Explain why each input is important
+
+    3. For available inputs:
+       - Label as (User Provided)
+       - Use to generate specification content
+       - Reference source documents
+
+    4. For derived content:
+       - Label as (LLM Suggested)
+       - Explain reasoning and assumptions
+       - Link to related inputs
+
+    The final document should maintain clear distinction between:
+    - (User Provided) data: Directly supplied or from uploaded documents
+    - (LLM Suggested) data: Inferred or generated content
+
+  prompt_templates:
+    creation: |
+      Before generating ${SPECIFICATION_TYPE}, let's verify required inputs:
+      
+      Required for this specification type:
+      ${REQUIRED_INPUTS_LIST}
+
+      Please provide or confirm availability of these inputs.
+      For any missing inputs, I'll guide you through what's needed.
+
+    interactive_creation: |
+      I'll help create a detailed ${SPECIFICATION_TYPE}.
+      
+      First, let's check required inputs:
+      ${REQUIRED_INPUTS_LIST}
+
+      For each input:
+      1. Do you have this information available?
+      2. Would you like to provide it now?
+      3. Do you need guidance on what's required?
+
+      We'll proceed step by step, ensuring all necessary information is gathered.
+
+    enhancement: |
+      Enhancing existing ${SPECIFICATION_TYPE} (${DOCUMENT_KEY}).
+      
+      Required inputs for enhancement:
+      ${REQUIRED_INPUTS_LIST}
+
+      Please confirm:
+      1. What new information is available?
+      2. Which existing sections need updates?
+      3. Are there any gaps in required inputs?
+
+<!-- 
+###########################################################################################################
+# 3. SPECIFIC TEMPLATE TYPES DEFINITIONS
+# Each template type inherits from this base template.
+# Provide their prefix, output files, required_research, etc.
+# (Not repeating all here, since this is the base template.)
+###########################################################################################################
+-->
+
+<!-- Insert your template type definitions here if needed -->
+
+<!-- 
+###########################################################################################################
+# 4. SUPPORTING FRAMEWORKS AND CHECKS
+###########################################################################################################
+-->
+
+research_approach:
+  primary_methods:
+    - domain_analysis
+    - stakeholder_interviews
+    - requirements_gathering
+    - best_practices_review
+
+validation_criteria:
+  must_have_sections:
+    - unique_identifier
+    - core_requirements
+    - success_criteria
+    - validation_rules
+
+  should_have_sections:
+    - detailed_specifications
+    - implementation_guidelines
+    - related_documents
+
+  optional_sections:
+    - additional_context
+    - future_considerations
+
+continuous_improvement:
+  triggers:
+    - new_requirements
+    - stakeholder_feedback
+    - technical_changes
+    - business_changes
+
+  update_workflow:
+    - review_current_state
+    - gather_new_requirements
+    - validate_changes
+    - update_documentation
+    - version_control
+
+document:
+  key_generation:
+    pattern: "${PREFIX}-${SEQUENCE}-${DESCRIPTOR}"
+    components:
+      prefix:
+        value: "${DOCUMENT_TYPE_PREFIX}"
+      sequence:
+        format: "000"
+        current: "${AUTO_INCREMENT}"
+      descriptor:
+        format: "lowercase_with_underscores"
+        max_length: 50
+
+specific_template_generation:
+  instructions: |
+    To create a new template from this base:
+    1. Copy the "AI-Assisted Template Development" and "Document Metadata Configuration" sections.
+    2. Define placeholders and ensure domain context.
+    3. Add or refine research methods, validation criteria, relationships.
+    4. Insert domain-specific sections.
+    5. Remove these instructions before final output.
+    6. Ensure user-provided vs. LLM-suggested content labeling in final output.
+
+  required_sections_checklist:
+    - AI Processing Configuration
+    - Prompt Templates (creation, interactive, enhancement)
+    - Research Methodology
+    - Validation Framework
+    - Continuous Improvement Process
+    - Document Metadata Configuration
+
+  customization_rules: |
+    Customize prompt templates and research approaches to domain.
+    Ensure placeholders reflect user and LLM distinctions.
+
+document_creation:
+  input_sources:
+    - project_requirements
+    - stakeholder_input
+    - technical_specifications
+    - business_rules
+
+  validation_rules:
+    - completeness_check
+    - consistency_validation
+    - relationship_verification
+    - compliance_assessment
+
+relationships:
+  dependencies:
+    - type: "${DEPENDENCY_TYPE}"
+      identifier: "${RELATED_DOCUMENT}"
+
+  impact_mapping:
+    - target: "${IMPACT_TARGET}"
+      confidence_level: "${CONFIDENCE_PERCENTAGE}"
+
+  traceability:
+    - source_documents: ["${SOURCE_DOCUMENT}"]
+    - related_artifacts: ["${RELATED_ARTIFACT}"]
+
+agile_metrics:
+  story_points:
+    scale: "fibonacci"
+    values: [1, 2, 3, 5, 8, 13, 21]
+
+  priority_levels:
+    - name: "Must Have"
+      code: "MH"
+    - name: "Should Have"
+      code: "SH"
+    - name: "Could Have"
+      code: "CH"
+
+  definition_of_done:
+    required_criteria:
+      - "Code review completed"
+      - "Tests passing"
+      - "Documentation updated"
+      - "Acceptance criteria met"
+      - "Stakeholder approval obtained"
+
+  acceptance_criteria:
+    template:
+      - given: "CONTEXT/PRECONDITION"
+        when: "ACTION"
+        then: "EXPECTED_RESULT"
+    quality_attributes:
+      - testable
+      - clear
+      - feasible
+
+  mvp_framework:
+    categories:
+      - name: "Must-Have Features"
+      - name: "Growth Features"
+
+<!-- 
+###########################################################################################################
+# 7. BASE OUTPUT STRUCTURE (TO BE INHERITED AND CUSTOMIZED)
+###########################################################################################################
+-->
+
+# ${DOCUMENT_TITLE} (User Provided or LLM Suggested labels to be applied at data level)
+- **Identifier**: ${DOCUMENT_KEY}
+- **Type**: ${SPECIFICATION_TYPE}
+- **Version**: ${VERSION}
+- **Status**: ${STATUS}
+- **Author**: ${AUTHOR}
+- **Last Updated**: ${LAST_UPDATED}
+
+## 1. Document Identification
+| Attribute     | Details             | Status      |
+|---------------|---------------------|-------------|
+| **Document ID** | ${DOCUMENT_KEY}   | ${STATUS}   |
+| **Category**    | ${CATEGORY}       | ${CAT_STATUS} |
+
+## 2. Purpose and Scope
+**Purpose (User Provided / LLM Suggested)**: ${DOCUMENT_PURPOSE}  
+**Scope (User Provided / LLM Suggested)**: ${DOCUMENT_SCOPE}
+
+## 3. Context
+(User Provided / LLM Suggested) ${DOCUMENT_CONTEXT}
+
+## 4. Core Content
+*Insert template-specific sections, labeling each piece of data as user-provided or LLM-suggested as needed.*
+
+## 5. Relationships and Dependencies
+### Dependencies
+- Upstream: ${UPSTREAM_DEPENDENCIES} (Indicate source)
+- Downstream: ${DOWNSTREAM_DEPENDENCIES} (Indicate source)
+
+### Impact Analysis
+| Area             | Impact        | Confidence        | Source (User/LLM) |
+|------------------|---------------|-------------------|-------------------|
+| ${IMPACT_AREA_1} | ${IMPACT_LVL} | ${CONFIDENCE_LVL} | ${SOURCE_INFO}     |
+| ${IMPACT_AREA_2} | ${IMPACT_LVL} | ${CONFIDENCE_LVL} | ${SOURCE_INFO}     |
+
+## 6. Success Metrics
+- ${SUCCESS_METRIC_1} (User Provided or LLM Suggested)
+- ${SUCCESS_METRIC_2} (User Provided or LLM Suggested)
+
+## 7. Validation Criteria
+- [ ] ${VALIDATION_CRITERION_1} (User/LLM)
+- [ ] ${VALIDATION_CRITERION_2} (User/LLM)
+
+## 8. Additional Information
+### Notes
+(User or LLM) ${ADDITIONAL_NOTES}
+
+### References
+- ${REFERENCE_1} (User/LLM)
+- ${REFERENCE_2} (User/LLM)
+
+## Version History
+| Version | Date | Author | Changes | Source |
+|---------|------|--------|---------|--------|
+| ${VERSION} | ${DATE} | ${AUTHOR} | ${CHANGES} | ${SOURCE} |
+
+<!-- END OF BASE TEMPLATE -->

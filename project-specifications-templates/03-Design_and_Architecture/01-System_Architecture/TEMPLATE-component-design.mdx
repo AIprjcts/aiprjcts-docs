@@ -1,0 +1,157 @@
+{/* 
+###########################################################################################################
+# COMPONENT DESIGN SPECIFICATION TEMPLATE
+# Purpose: Defines detailed component architecture, interfaces, and implementation guidelines
+# Inherits from: base_template
+###########################################################################################################
+*/}
+
+# Component Design Specification
+
+## Template Metadata
+template:
+  id: "component-design"
+  category: "system-architecture"
+  type: "component-design"
+  version: "1.0"
+
+metadata:
+  author: "${AUTHOR}"
+  status: "Active"
+  last_updated: "${ISO_TIMESTAMP}"
+
+## AI-Assisted Template Development
+ai_assistance:
+  document_type: "component-design"
+  parent_template: "base_template"
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - ensure_completeness
+    - validate_interfaces
+    - verify_dependencies
+    - check_technical_feasibility
+    - request_domain_context_if_missing
+
+  base_prompt_structure: |
+    Create Component Design for ${COMPONENT_NAME}.
+    If tech stack or domain context missing, ask user.
+    Label content as (User Provided) or (LLM Suggested).
+
+## 1. Component Overview
+### 1.1 Purpose and Scope
+- **Purpose**: (User Provided) ${COMPONENT_PURPOSE}
+- **Scope**: (User Provided) ${COMPONENT_SCOPE}
+
+### 1.2 Technical Context
+- **Tech Stack**: (User Provided) ${TECH_STACK}
+- **Domain Context**: (User Provided) ${DOMAIN_CONTEXT}
+
+## 2. Component Architecture
+### 2.1 High-Level Design
+(User Provided) ${HIGH_LEVEL_DESIGN}
+
+### 2.2 Core Responsibilities
+Primary responsibilities:
+- (User Provided) ${RESPONSIBILITY_1}
+- (User Provided) ${RESPONSIBILITY_2}
+- (LLM Suggested) ${SUGGESTED_RESPONSIBILITY}
+
+### 2.3 Component Dependencies
+| Dependency | Type | Purpose | Source |
+|------------|------|---------|--------|
+| ${DEPENDENCY_1} | ${TYPE_1} | ${PURPOSE_1} | (User/LLM) |
+
+## 3. Interface Specifications
+### 3.1 Public Interfaces
+| Interface | Type | Purpose | Validation Rules |
+|-----------|------|---------|-----------------|
+| ${INTERFACE_1} | ${TYPE_1} | ${PURPOSE_1} | ${VALIDATION_1} |
+
+### 3.2 Events and Messages
+| Event | Type | Payload | Handlers |
+|-------|------|---------|----------|
+| ${EVENT_1} | ${TYPE_1} | ${PAYLOAD_1} | ${HANDLERS_1} |
+
+## 4. Implementation Guidelines
+### 4.1 Design Patterns
+(LLM Suggested) Recommended patterns:
+- ${PATTERN_1}: ${PATTERN_1_RATIONALE}
+- ${PATTERN_2}: ${PATTERN_2_RATIONALE}
+
+### 4.2 Code Organization
+
+${COMPONENT_NAME}/
+├── interfaces/
+├── implementations/
+├── tests/
+└── documentation/
+
+### 4.3 Best Practices
+(LLM Suggested) Implementation guidelines:
+- ${PRACTICE_1}
+- ${PRACTICE_2}
+
+## 5. Quality Attributes
+### 5.1 Performance Requirements
+- Throughput: ${THROUGHPUT_REQ}
+- Latency: ${LATENCY_REQ}
+- Scalability: ${SCALABILITY_REQ}
+
+### 5.2 Security Considerations
+(LLM Suggested) Security measures:
+- ${SECURITY_MEASURE_1}
+- ${SECURITY_MEASURE_2}
+
+## 6. Testing Strategy
+### 6.1 Test Requirements
+- Unit Tests: ${UNIT_TEST_REQ}
+- Integration Tests: ${INTEGRATION_TEST_REQ}
+- Performance Tests: ${PERF_TEST_REQ}
+
+### 6.2 Test Scenarios
+| Scenario | Input | Expected Output | Validation |
+|----------|-------|-----------------|------------|
+| ${SCENARIO_1} | ${INPUT_1} | ${OUTPUT_1} | ${VALIDATION_1} |
+
+## 7. Agile Development Metrics
+### 7.1 Story Points
+- Estimated Points: ${STORY_POINTS}
+- Complexity Level: ${COMPLEXITY_LEVEL}
+
+### 7.2 Definition of Done
+- [ ] Code implements all specified interfaces
+- [ ] Unit test coverage meets threshold
+- [ ] Integration tests pass
+- [ ] Documentation updated
+- [ ] Code review completed
+- [ ] Performance requirements met
+
+## 8. Relationships and Dependencies
+### 8.1 Upstream Dependencies
+- ${UPSTREAM_DEP_1}
+- ${UPSTREAM_DEP_2}
+
+### 8.2 Downstream Impacts
+- ${DOWNSTREAM_IMPACT_1}
+- ${DOWNSTREAM_IMPACT_2}
+
+## 9. Future Considerations
+(LLM Suggested) Potential enhancements:
+- ${ENHANCEMENT_1}
+- ${ENHANCEMENT_2}
+
+## Version History
+| Version | Date | Author | Changes | Source |
+|---------|------|--------|---------|--------|
+| ${VERSION} | ${DATE} | ${AUTHOR} | ${CHANGES} | (User/LLM) |
+
+{/* 
+###########################################################################################################
+# Validation Rules
+# - All interfaces must be fully specified
+# - Performance requirements must be quantifiable
+# - Test scenarios must cover all public interfaces
+# - Dependencies must be explicitly declared
+###########################################################################################################
+*/}

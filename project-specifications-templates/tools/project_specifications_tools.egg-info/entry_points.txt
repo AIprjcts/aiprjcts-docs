@@ -1,0 +1,2 @@
+[console_scripts]
+spec-tools = spectools.cli:cli

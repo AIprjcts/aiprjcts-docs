@@ -1,0 +1,311 @@
+{
+  "paths": {
+    "templates_root": "project-specifications-templates",
+    "output_root": "my-project-specifications",
+    "base_template": "project-specifications-templates/09-Resources/01-Templates/Core_Templates/base_template.mdx"
+  },
+  "template_categories": {
+    "discovery_and_planning": {
+      "vision_and_scope": ["vision_statement", "product_goals"],
+      "market_research": ["competitor_analysis", "market_trends"],
+      "product_strategy": ["product_roadmap", "release_planning"]
+    },
+    "requirements": {
+      "user_personas": ["persona"],
+      "user_stories": ["epic_backlog", "epic", "story_mapping", "story"],
+      "use_cases": ["use_case"],
+      "functional_requirements": ["functional_requirements", "requirements_specification"],
+      "non_functional_requirements": ["non_functional_requirements"]
+    },
+    "design_and_architecture": {
+      "system_architecture": ["architecture_overview", "component_design", "integration_patterns"],
+      "technical_design": ["design_patterns", "technical_specifications"],
+      "ui_ux_design": ["design_principles", "interaction_patterns", "prototype", "style_guide", "wireframe"],
+      "api_design": ["api_specifications", "endpoint_documentation"],
+      "database_design": ["data_model", "schema_design"]
+    },
+    "development_guidelines": {
+      "coding_standards": ["best_practices", "coding_conventions"],
+      "review_process": ["code_review_checklist", "pr_template"],
+      "testing_standards": ["test_cases", "test_strategy"]
+    },
+    "agile_planning": {
+      "sprint_planning": ["sprint_backlog", "sprint_goals", "sprint_planning"],
+      "release_planning": ["deployment_plan", "release_strategy"],
+      "retrospectives": ["retro_notes"]
+    },
+    "testing": {
+      "test_strategy": ["testing_approach"],
+      "test_cases": ["acceptance_tests", "integration_tests", "unit_tests"],
+      "test_results": ["test_reports"]
+    },
+    "deployment": {
+      "release_management": ["deployment_checklist", "release_plan"],
+      "infrastructure": ["environment_configs"]
+    },
+    "maintenance": {
+      "support_plan": ["customer_support"],
+      "retrospectives": ["sprint_retrospectives"]
+    }
+  },
+  "template_types": {
+    "persona": {
+      "template": "02-Requirements/01-User_Personas/TEMPLATE-personas.mdx",
+      "output_dir": "requirements/personas",
+      "required_fields": [
+        "persona_id",
+        "name",
+        "role",
+        "goals",
+        "pain_points",
+        "tech_proficiency",
+        "demographics",
+        "behaviors",
+        "needs"
+      ],
+      "id_prefix": "PER",
+      "examples": [
+        "PER-001-rare_disease_patient.mdx",
+        "PER-002-family_caregiver.mdx",
+        "PER-003-complex_care_condition.mdx",
+        "PER-004-regular_care_patient.mdx",
+        "PER-005-regular_family_caregiver.mdx",
+        "PER-006-primary_care_physician.mdx",
+        "PER-007-specialist_physician.mdx",
+        "PER-008-research_specialist.mdx",
+        "PER-009-functional_admin.mdx"
+      ],
+      "validation_rules": {
+        "required_sections": [
+          "Basic Information",
+          "Contextual Demographics",
+          "Goals and Motivations",
+          "Pain Points",
+          "Technology Usage"
+        ],
+        "relationships": {
+          "influences": ["user_stories", "ui_design"],
+          "referenced_by": ["epics", "requirements"]
+        }
+      }
+    },
+    "vision_statement": {
+      "template": "01-Discovery_and_Planning/01-Vision_and_Scope/TEMPLATE-vision-statement.mdx",
+      "output_dir": "01-Vision_and_Scope",
+      "required_fields": [
+        "vision_id",
+        "mission_statement",
+        "strategic_objectives",
+        "target_audience",
+        "key_value_propositions",
+        "long_term_impact"
+      ],
+      "id_prefix": "VIS",
+      "validation_rules": {
+        "required_sections": [
+          "Executive Summary",
+          "Mission",
+          "Strategic Objectives",
+          "Target Audience",
+          "Key Value Propositions",
+          "Long-Term Impact"
+        ]
+      }
+    },
+    "product_goals": {
+      "template": "01-Discovery_and_Planning/01-Vision_and_Scope/TEMPLATE-product-goals.mdx",
+      "output_dir": "01-Vision_and_Scope",
+      "required_fields": [
+        "goals_id",
+        "primary_objectives",
+        "kpis",
+        "target_market",
+        "competitive_differentiation"
+      ],
+      "id_prefix": "GOAL",
+      "validation_rules": {
+        "required_sections": [
+          "Primary Objectives",
+          "Key Performance Indicators",
+          "Target Market",
+          "Competitive Differentiation"
+        ]
+      }
+    },
+    "competitor_analysis": {
+      "template": "01-Discovery_and_Planning/02-Market_Research/TEMPLATE-competitor-analysis.mdx",
+      "output_dir": "02-Market_Research",
+      "required_fields": [
+        "analysis_id",
+        "competitors",
+        "strengths_weaknesses",
+        "market_positioning",
+        "opportunities_threats"
+      ],
+      "id_prefix": "COMP",
+      "validation_rules": {
+        "required_sections": [
+          "Direct Competitors",
+          "Indirect Competitors",
+          "Competitive Landscape Analysis",
+          "Opportunities and Threats"
+        ]
+      }
+    },
+    "market_trends": {
+      "template": "01-Discovery_and_Planning/02-Market_Research/TEMPLATE-market-trends.mdx",
+      "output_dir": "02-Market_Research",
+      "required_fields": [
+        "trend_id",
+        "industry_overview",
+        "emerging_technologies",
+        "consumer_behavior",
+        "market_size",
+        "regulatory_landscape"
+      ],
+      "id_prefix": "TREND",
+      "validation_rules": {
+        "required_sections": [
+          "Industry Overview",
+          "Emerging Technologies",
+          "Consumer Behavior Trends",
+          "Market Size and Growth",
+          "Regulatory Landscape"
+        ]
+      }
+    },
+    "product_roadmap": {
+      "template": "01-Discovery_and_Planning/03-Product_Strategy/TEMPLATE-product-roadmap.mdx",
+      "output_dir": "03-Product_Strategy",
+      "required_fields": [
+        "roadmap_id",
+        "vision_strategy",
+        "milestones",
+        "release_phases",
+        "priorities"
+      ],
+      "id_prefix": "ROAD",
+      "validation_rules": {
+        "required_sections": [
+          "Vision and Strategy",
+          "Milestone Timeline",
+          "Release Phases",
+          "High-Level Priorities"
+        ]
+      }
+    },
+    "release_planning": {
+      "template": "01-Discovery_and_Planning/03-Product_Strategy/TEMPLATE-release-planning.mdx",
+      "output_dir": "03-Product_Strategy",
+      "required_fields": [
+        "plan_id",
+        "release_strategy",
+        "deployment_schedule",
+        "version_management"
+      ],
+      "id_prefix": "REL",
+      "validation_rules": {
+        "required_sections": [
+          "Release Strategy",
+          "Deployment Schedule",
+          "Version Management"
+        ]
+      }
+    }
+  },
+  "validation": {
+    "mdx_syntax": {
+      "comment_start": "{/*",
+      "comment_end": "*/}"
+    },
+    "required_sections": {
+      "all": [
+        "Template Metadata",
+        "AI-Assisted Template Development",
+        "Document Content"
+      ]
+    },
+    "id_formats": {
+      "PER": {
+        "pattern": "PER-{000}-{descriptor}",
+        "examples": ["PER-001-rare_disease_patient", "PER-002-family_caregiver"]
+      },
+      "US": {
+        "pattern": "US-{000}-{descriptor}",
+        "examples": ["US-001-view_patient_profile"]
+      },
+      "EP": {
+        "pattern": "EP-{000}-{descriptor}",
+        "examples": ["EP-001-patient_management"]
+      },
+      "VIS": {
+        "pattern": "VIS-{000}-{descriptor}",
+        "examples": ["VIS-001-product_vision", "VIS-002-platform_vision"]
+      },
+      "GOAL": {
+        "pattern": "GOAL-{000}-{descriptor}",
+        "examples": ["GOAL-001-q1_objectives", "GOAL-002-product_goals"]
+      },
+      "COMP": {
+        "pattern": "COMP-{000}-{descriptor}",
+        "examples": ["COMP-001-market_analysis", "COMP-002-competitor_review"]
+      },
+      "TREND": {
+        "pattern": "TREND-{000}-{descriptor}",
+        "examples": ["TREND-001-industry_trends", "TREND-002-tech_trends"]
+      },
+      "ROAD": {
+        "pattern": "ROAD-{000}-{descriptor}",
+        "examples": ["ROAD-001-q1_roadmap", "ROAD-002-annual_plan"]
+      },
+      "REL": {
+        "pattern": "REL-{000}-{descriptor}",
+        "examples": ["REL-001-v1_release", "REL-002-v2_release"]
+      }
+    }
+  },
+  "output_structure": {
+    "personas": {
+      "path": "requirements/personas",
+      "naming": "{id_prefix}-{number}-{descriptor}.mdx",
+      "organization": {
+        "by_type": ["patients", "caregivers", "healthcare_providers", "administrators"],
+        "by_status": ["draft", "review", "approved"]
+      }
+    }
+  },
+  "relationships": {
+    "persona": {
+      "influences": ["user_stories", "ui_design", "requirements"],
+      "referenced_by": ["epics", "use_cases"],
+      "dependencies": {
+        "required": ["vision_statement"],
+        "optional": ["market_research"]
+      }
+    },
+    "vision_statement": {
+      "influences": ["product_goals", "product_roadmap"],
+      "referenced_by": ["epics", "requirements"],
+      "dependencies": {
+        "required": [],
+        "optional": ["market_trends", "competitor_analysis"]
+      }
+    },
+    "product_goals": {
+      "influences": ["product_roadmap", "release_planning"],
+      "referenced_by": ["epics", "requirements"],
+      "dependencies": {
+        "required": ["vision_statement"],
+        "optional": ["market_trends"]
+      }
+    },
+    "competitor_analysis": {
+      "influences": ["vision_statement", "product_goals"],
+      "referenced_by": ["product_roadmap"],
+      "dependencies": {
+        "required": [],
+        "optional": ["market_trends"]
+      }
+    }
+  }
+} 

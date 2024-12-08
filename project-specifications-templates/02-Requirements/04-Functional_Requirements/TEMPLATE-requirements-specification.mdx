@@ -1,0 +1,187 @@
+<!--
+###########################################################################################################
+# UNIFIED REQUIREMENTS SPECIFICATION TEMPLATE
+# Inherits from: base_template
+# Purpose: Provides a comprehensive overview of all requirements (functional and non-functional)
+###########################################################################################################
+-->
+
+# Requirements Specification
+
+## Template Metadata
+template:
+  id: "requirements-specification"
+  category: "requirements"
+  type: "specification"
+  version: "2.0"
+
+metadata:
+  author: "${AUTHOR}"
+  status: "Active"
+  creation_date: "${CREATION_DATE}"
+  last_updated: "${LAST_UPDATED_DATE}"
+  version: "${VERSION}"
+
+## AI-Assisted Template Development
+ai_assistance:
+  document_type: "requirements_specification"
+  parent_template: "base_template"
+  required_inputs:
+    discovery_and_planning:
+      - product_vision
+      - business_objectives
+      - stakeholder_goals
+      - market_research
+
+    requirements:
+      - user_personas
+      - initial_epics
+      - business_rules
+      - compliance_requirements
+      - product_roadmap
+
+ai_prompting_instructions:
+  prompt_refinement_checklist:
+    - ensure_completeness
+    - verify_epic_alignment
+    - validate_against_best_practices
+    - request_domain_context_if_missing
+    - verify_persona_alignment
+    - check_compliance_requirements
+    - validate_dependencies
+
+  base_prompt_structure: |
+    Create a comprehensive Requirements Specification for ${PROJECT_NAME}.
+    
+    Required inputs verification:
+    1. Vision & Scope documents
+    2. Product Goals
+    3. Epics and User Stories
+    4. Personas
+    5. Business Rules
+    6. Compliance Requirements
+
+    For each requirement:
+    - Validate against personas
+    - Verify epic alignment
+    - Check business rules compliance
+    - Assess technical feasibility
+    - Define acceptance criteria
+
+## 1. Requirements Overview
+### 1.1 Purpose and Scope
+(User Provided) ${REQUIREMENTS_PURPOSE}
+(User Provided) ${REQUIREMENTS_SCOPE}
+
+### 1.2 Definitions and Terminology
+(User Provided) Key terms and definitions specific to this document:
+| Term | Definition | Source |
+|------|------------|--------|
+| ${TERM_1} | ${DEFINITION_1} | (User/LLM) |
+| ${TERM_2} | ${DEFINITION_2} | (User/LLM) |
+
+## 2. Functional Requirements
+### 2.1 Core Functionality
+(User Provided) Primary functional requirements:
+
+| ID | Requirement | Priority | Source | Status |
+|----|------------|----------|---------|---------|
+| FR-001 | ${REQ_1_DESC} | ${REQ_1_PRIORITY} | (User/LLM) | ${STATUS} |
+| FR-002 | ${REQ_2_DESC} | ${REQ_2_PRIORITY} | (User/LLM) | ${STATUS} |
+
+### 2.2 User Interactions
+(User Provided) User-specific requirements:
+- **Persona**: ${PERSONA_1}
+  - ${INTERACTION_1}
+  - ${INTERACTION_2}
+
+### 2.3 System Behaviors
+(LLM Suggested) System responses and behaviors:
+- **Trigger**: ${TRIGGER_1}
+  - **Response**: ${RESPONSE_1}
+  - **Validation**: ${VALIDATION_1}
+
+## 3. Non-Functional Requirements
+### 3.1 Performance Requirements
+(User Provided)
+- **Response Time**: ${RESPONSE_TIME_REQ}
+- **Throughput**: ${THROUGHPUT_REQ}
+- **Scalability**: ${SCALABILITY_REQ}
+
+### 3.2 Security Requirements
+(User Provided)
+- **Authentication**: ${AUTH_REQ}
+- **Authorization**: ${AUTHZ_REQ}
+- **Data Protection**: ${DATA_PROTECTION_REQ}
+
+### 3.3 Quality Attributes
+(User/LLM)
+- **Reliability**: ${RELIABILITY_REQ}
+- **Maintainability**: ${MAINTAINABILITY_REQ}
+- **Usability**: ${USABILITY_REQ}
+
+## 4. Constraints and Dependencies
+### 4.1 Technical Constraints
+(User Provided)
+- ${TECH_CONSTRAINT_1}
+- ${TECH_CONSTRAINT_2}
+
+### 4.2 Business Constraints
+(User Provided)
+- ${BUSINESS_CONSTRAINT_1}
+- ${BUSINESS_CONSTRAINT_2}
+
+### 4.3 Dependencies
+(User/LLM)
+| Dependency | Type | Impact | Status |
+|------------|------|--------|--------|
+| ${DEP_1} | ${TYPE_1} | ${IMPACT_1} | ${STATUS_1} |
+
+## 5. Acceptance Criteria
+### 5.1 Validation Criteria
+(User Provided) For each requirement:
+- [ ] ${VALIDATION_CRITERION_1}
+- [ ] ${VALIDATION_CRITERION_2}
+
+### 5.2 Testing Requirements
+(LLM Suggested)
+- **Unit Tests**: ${UNIT_TEST_REQ}
+- **Integration Tests**: ${INTEGRATION_TEST_REQ}
+- **User Acceptance**: ${UAT_REQ}
+
+## 6. Traceability Matrix
+| Requirement ID | Epic | User Stories | Use Cases | Source |
+|---------------|------|--------------|------------|--------|
+| ${REQ_ID_1} | ${EPIC_1} | ${STORIES_1} | ${USE_CASES_1} | (User/LLM) |
+
+## 7. Compliance and Standards
+### 7.1 Regulatory Requirements
+(User Provided)
+- ${REGULATORY_REQ_1}
+- ${REGULATORY_REQ_2}
+
+### 7.2 Industry Standards
+(User/LLM)
+- ${INDUSTRY_STANDARD_1}
+- ${INDUSTRY_STANDARD_2}
+
+## 8. Future Considerations
+(LLM Suggested) Potential future requirements:
+- ${FUTURE_REQ_1}
+- ${FUTURE_REQ_2}
+
+## Version History
+| Version | Date | Author | Changes | Source |
+|---------|------|--------|---------|--------|
+| ${VERSION} | ${DATE} | ${AUTHOR} | ${CHANGES} | (User/LLM) |
+
+<!--
+###########################################################################################################
+# Validation Rules
+# - All requirements must have unique IDs
+# - Each requirement must have acceptance criteria
+# - All requirements must be traceable to epics/stories
+# - Non-functional requirements must be measurable
+# - Dependencies must be explicitly documented
+###########################################################################################################
+-->
