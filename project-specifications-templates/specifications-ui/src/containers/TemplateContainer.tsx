@@ -285,7 +285,13 @@ export const TemplateContainer: React.FC<TemplateContainerProps> = ({ onThemeCha
         <Route
           path="/template/:templateId"
           element={
-            <>
+            <Box sx={{ 
+              width: '100%',
+              minHeight: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
+              bgcolor: theme => theme.palette.mode === 'light' ? 'grey.50' : 'grey.900',
+            }}>
               <Header 
                 onNewProject={handleNewProject}
                 onOpenProject={handleOpenProject}
@@ -305,7 +311,7 @@ export const TemplateContainer: React.FC<TemplateContainerProps> = ({ onThemeCha
               ) : (
                 <Navigate to="/templates" replace />
               )}
-            </>
+            </Box>
           }
         />
       </Routes>

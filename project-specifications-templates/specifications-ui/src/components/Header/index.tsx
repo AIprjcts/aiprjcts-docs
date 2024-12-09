@@ -34,15 +34,14 @@ const Header: React.FC<HeaderProps> = ({ onNewProject, onOpenProject, onThemeCha
         boxShadow: `0 4px 30px ${alpha(theme.palette.common.black, 0.2)}`,
       }}
     >
-      <Container maxWidth={false} sx={{ px: { xs: 2, sm: 4 } }}>
+      <Container maxWidth={false} sx={{ px: { xs: 2, sm: 4 }, width: '100%' }}>
         <Box
           sx={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             height: 72,
-            maxWidth: 1400,
-            mx: 'auto',
+            width: '100%',
           }}
         >
           <Box 

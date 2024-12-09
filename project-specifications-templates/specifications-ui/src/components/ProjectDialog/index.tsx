@@ -58,7 +58,6 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
       fullWidth
       PaperProps={{
         sx: {
-          borderRadius: 3,
           p: 2,
         }
       }}
@@ -85,6 +84,9 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
             required
             error={hasNameError}
             helperText={hasNameError ? 'Project name is required' : ''}
+            InputProps={{
+              sx: {}
+            }}
           />
 
           <TextField
@@ -94,6 +96,9 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
             rows={3}
             value={formData.description}
             onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+            InputProps={{
+              sx: {}
+            }}
           />
 
           <TextField
@@ -104,6 +109,9 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
             required
             error={hasPathError}
             helperText={hasPathError ? 'Project location is required' : 'The folder where project files will be stored'}
+            InputProps={{
+              sx: {}
+            }}
           />
 
           {validationError && (
@@ -115,10 +123,16 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
       </DialogContent>
 
       <DialogActions sx={{ px: 3, pb: 3 }}>
-        <Button onClick={onClose} variant="outlined">
+        <Button 
+          onClick={onClose} 
+          variant="outlined"
+        >
           Cancel
         </Button>
-        <Button onClick={handleSubmit} variant="contained">
+        <Button 
+          onClick={handleSubmit} 
+          variant="contained"
+        >
           {isNew ? 'Create Project' : 'Open Project'}
         </Button>
       </DialogActions>

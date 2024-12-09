@@ -63,7 +63,6 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template, onClick }) => {
               bgcolor: alpha(theme.palette.primary.main, 0.08),
               py: 0.5,
               px: 1,
-              borderRadius: 1,
               fontSize: '0.75rem',
             }}
           >

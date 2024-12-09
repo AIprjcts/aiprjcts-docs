@@ -1,8 +1,5 @@
 import React from 'react';
-import { TextField, Stack, FormHelperText, IconButton, Box, Typography } from '@mui/material';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { TextField, Box, IconButton } from '@mui/material';
 import { Add as AddIcon, Remove as RemoveIcon } from '@mui/icons-material';
 import { TemplateField } from '../../types/template';
 
@@ -10,179 +7,106 @@ interface DynamicFieldProps {
   field: TemplateField;
   value: string | string[];
   onChange: (key: string, value: string | string[]) => void;
-  error?: string;
 }
 
-const DynamicField: React.FC<DynamicFieldProps> = ({ field, value, onChange, error }) => {
-  const handleChange = (newValue: string | string[] | Date | null) => {
-    if (newValue instanceof Date) {
-      onChange(field.key, newValue.toISOString().split('T')[0]);
-    } else if (newValue !== null) {
+const DynamicField: React.FC<DynamicFieldProps> = ({ field, value, onChange }) => {
+  const handleChange = (newValue: string | string[], index?: number) => {
+    if (field.type === 'list' && Array.isArray(value) && typeof index === 'number') {
+      const newList = [...value];
+      newList[index] = newValue as string;
+      onChange(field.key, newList);
+    } else {
       onChange(field.key, newValue);
     }
   };
 
-  const handleListItemChange = (index: number, itemValue: string) => {
-    const newValues = Array.isArray(value) ? [...value] : [];
-    newValues[index] = itemValue;
-    onChange(field.key, newValues);
-  };
-
   const addListItem = () => {
-    const newValues = Array.isArray(value) ? [...value, ''] : [''];
-    onChange(field.key, newValues);
+    if (Array.isArray(value)) {
+      onChange(field.key, [...value, '']);
+    }
   };
 
   const removeListItem = (index: number) => {
     if (Array.isArray(value)) {
-      const newValues = value.filter((_, i) => i !== index);
-      onChange(field.key, newValues);
+      const newList = value.filter((_, i) => i !== index);
+      onChange(field.key, newList);
     }
   };
 
-  const commonProps = {
-    required: field.required,
+  const commonTextFieldProps = {
     fullWidth: true,
-    error: !!error,
-    helperText: error,
+    required: field.required,
     placeholder: field.placeholder,
     sx: {
       '& .MuiOutlinedInput-root': {
-        borderRadius: 3,
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        transition: 'all 0.2s',
-        '&:hover': {
-          backgroundColor: 'rgba(255, 255, 255, 1)',
-        },
-        '&.Mui-focused': {
-          backgroundColor: 'rgba(255, 255, 255, 1)',
-        }
-      },
-      '& .MuiInputLabel-root': {
-        fontFamily: 'Inter',
-      },
-      '& .MuiInputBase-input': {
-        fontFamily: 'Inter',
+        borderRadius: 1,
       }
     }
   };
 
-  switch (field.type) {
-    case 'textarea':
-      return (
-        <TextField
-          {...commonProps}
-          label={field.label}
-          multiline
-          rows={4}
-          value={value}
-          onChange={(e) => handleChange(e.target.value)}
-        />
-      );
-
-    case 'list':
-      return (
-        <Box>
-          <Typography 
-            variant="subtitle2" 
-            sx={{ 
-              mb: 1,
-              fontFamily: 'Inter',
-              fontWeight: 500,
-              color: 'text.secondary'
-            }}
-          >
-            {field.label}
-          </Typography>
-          <Stack spacing={2}>
-            {(Array.isArray(value) ? value : []).map((item, index) => (
-              <Box key={index} sx={{ display: 'flex', gap: 1, alignItems: 'flex-start' }}>
-                <TextField
-                  {...commonProps}
-                  value={item}
-                  onChange={(e) => handleListItemChange(index, e.target.value)}
-                  placeholder={`${field.placeholder || field.label} ${index + 1}`}
-                  sx={{
-                    ...commonProps.sx,
-                    flex: 1,
-                  }}
-                />
-                <IconButton 
-                  onClick={() => removeListItem(index)}
-                  sx={{ 
-                    bgcolor: 'error.main',
-                    color: 'white',
-                    '&:hover': {
-                      bgcolor: 'error.dark',
-                    }
-                  }}
-                >
-                  <RemoveIcon />
-                </IconButton>
-              </Box>
-            ))}
+  if (field.type === 'list' && Array.isArray(value)) {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        {value.map((item, index) => (
+          <Box key={index} sx={{ display: 'flex', gap: 1, alignItems: 'flex-start' }}>
+            <TextField
+              {...commonTextFieldProps}
+              label={`${field.label} ${index + 1}`}
+              value={item}
+              onChange={(e) => handleChange(e.target.value, index)}
+            />
             <IconButton
-              onClick={addListItem}
+              onClick={() => removeListItem(index)}
               sx={{ 
-                alignSelf: 'flex-start',
-                bgcolor: 'primary.main',
-                color: 'white',
-                '&:hover': {
-                  bgcolor: 'primary.dark',
+                mt: 1,
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: 1,
                 }
               }}
             >
-              <AddIcon />
+              <RemoveIcon />
             </IconButton>
-          </Stack>
-          {error && (
-            <FormHelperText error sx={{ mt: 1 }}>
-              {error}
-            </FormHelperText>
-          )}
-        </Box>
-      );
-
-    case 'date':
-      return (
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <DatePicker
-            label={field.label}
-            value={value ? new Date(value as string) : null}
-            onChange={handleChange}
-            slotProps={{
-              textField: {
-                ...commonProps,
-              },
+          </Box>
+        ))}
+        {(!field.listItems || value.length < field.listItems) && (
+          <IconButton
+            onClick={addListItem}
+            sx={{ 
+              alignSelf: 'flex-start',
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 1,
+              }
             }}
-          />
-        </LocalizationProvider>
-      );
-
-    case 'version':
-      return (
-        <TextField
-          {...commonProps}
-          label={field.label}
-          value={value}
-          onChange={(e) => handleChange(e.target.value)}
-          placeholder="e.g., 1.0.0"
-          inputProps={{
-            pattern: '\\d+\\.\\d+\\.\\d+',
-          }}
-        />
-      );
-
-    default:
-      return (
-        <TextField
-          {...commonProps}
-          label={field.label}
-          value={value}
-          onChange={(e) => handleChange(e.target.value)}
-        />
-      );
+          >
+            <AddIcon />
+          </IconButton>
+        )}
+      </Box>
+    );
   }
+
+  if (field.type === 'textarea') {
+    return (
+      <TextField
+        {...commonTextFieldProps}
+        label={field.label}
+        value={value}
+        onChange={(e) => handleChange(e.target.value)}
+        multiline
+        rows={4}
+      />
+    );
+  }
+
+  return (
+    <TextField
+      {...commonTextFieldProps}
+      label={field.label}
+      value={value}
+      onChange={(e) => handleChange(e.target.value)}
+      type={field.type === 'date' ? 'date' : 'text'}
+    />
+  );
 };
 
 export default DynamicField; 
